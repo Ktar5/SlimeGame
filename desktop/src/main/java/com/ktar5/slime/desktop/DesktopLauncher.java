@@ -1,0 +1,34 @@
+package com.ktar5.slime.desktop;
+
+import com.badlogic.gdx.Files.FileType;
+import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
+import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
+import com.ktar5.slime.SlimeGame;
+
+/**
+ * Launches the desktop (LWJGL) application.
+ */
+public class DesktopLauncher {
+    public static void main(String[] args) {
+        createApplication();
+    }
+    
+    private static LwjglApplication createApplication() {
+        return new LwjglApplication(new SlimeGame(), getDefaultConfiguration());
+    }
+    
+    private static LwjglApplicationConfiguration getDefaultConfiguration() {
+        LwjglApplicationConfiguration configuration = new LwjglApplicationConfiguration();
+        configuration.title = "slimeGame";
+        configuration.width = 960;
+        configuration.height = 540;
+        configuration.vSyncEnabled = true;
+        configuration.foregroundFPS = 60;
+        configuration.backgroundFPS = 0;
+        for (int size : new int[]{128, 64, 32, 16}) {
+            configuration.addIcon("libgdx" + size + ".png", FileType.Internal);
+        }
+        return configuration;
+    }
+    
+}

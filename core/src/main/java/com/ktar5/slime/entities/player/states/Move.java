@@ -1,12 +1,13 @@
-package com.ktar5.slime.entities.player.events;
+package com.ktar5.slime.entities.player.states;
 
 import com.badlogic.gdx.math.Vector2;
 import com.ktar5.slime.SlimeGame;
-import com.ktar5.slime.entities.player.JumpPlayerFSM;
 import com.ktar5.slime.grid.Grid;
 import com.ktar5.slime.world.Levels;
 
-public class Move extends Ability {
+public class Move extends PlayerState {
+    
+    
     @Override
     public void start() {
     
@@ -39,10 +40,10 @@ public class Move extends Ability {
                 SlimeGame.getGame().getLevelHandler().setLevel(Levels.values()[ordinal]);
                 break;
             case WALL:
-                getPlayer().getPlayerFSM().publicFire(JumpPlayerFSM.PlayerTrigger.IDLE, this);
+                this.changeState(Idle.class);
                 break;
             case HARMFUL:
-                getPlayer().getPlayerFSM().publicFire(JumpPlayerFSM.PlayerTrigger.RESPAWN, this);
+                this.changeState(Respawn.class);
                 break;
         }
     }

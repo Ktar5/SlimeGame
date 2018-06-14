@@ -1,32 +1,37 @@
-package com.ktar5.slime.entities.player.events;
+package com.ktar5.slime.entities.player.states;
 
 import com.badlogic.gdx.utils.Timer;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.engine.core.EngineManager;
-import com.ktar5.slime.entities.player.JumpPlayerFSM;
 
-public class Respawn extends Ability {
+public class Respawn extends PlayerState {
     @Override
     public void start() {
-        getPlayer().getEntityAnimator().resetAnimation(EngineManager.get().getAnimationLoader().getTextureAsAnimation("textures/test/testPlayer.jpg"));
+        getPlayer().getEntityAnimator().resetAnimation(EngineManager.get().getAnimationLoader()
+                .getTextureAsAnimation("textures/test/testPlayer.jpg"));
         Timer.schedule(new Timer.Task() {
             @Override
             public void run() {
                 getPlayer().getPosition().set(SlimeGame.getGame().getLevelHandler().getSpawnX(),
                         SlimeGame.getGame().getLevelHandler().getSpawnY());
                 getPlayer().resetAnimation("textures/Player.png", false);
-                getPlayer().getPlayerFSM().publicFire(JumpPlayerFSM.PlayerTrigger.IDLE);
+                
+                getThis().changeState(Idle.class);
             }
         }, 2f);
     }
-
+    
     @Override
     public void update(float dTime) {
         //none
     }
-
+    
     @Override
     protected void end() {
         //none
+    }
+    
+    private Respawn getThis() {
+        return this;
     }
 }

@@ -8,7 +8,6 @@ dependencies {
     compile 'com.ktar5:common:1.0-SNAPSHOT'
     compile 'com.google.code.gson:gson:2.8.2'
     compile 'net.engio:mbassador:1.3.1' //Event bus system
-    compile 'com.github.oxo42:stateless4j:2.5.2-SNAPSHOT'
 
     compile "com.badlogicgames.gdx:gdx:$gdxVersion"
     compile "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"

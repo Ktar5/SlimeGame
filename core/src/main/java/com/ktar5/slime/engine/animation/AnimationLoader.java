@@ -9,39 +9,28 @@ import com.badlogic.gdx.utils.Array;
 import com.ktar5.utilities.common.util.FileScanner;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class AnimationLoader {
     private HashMap<String, Animation<TextureRegion>> animations;
     private HashMap<String, Texture> textures;
-
+    
     public AnimationLoader() {
         animations = new HashMap<>();
         textures = new HashMap<>();
-        try {
-            searchAtlases(new File("../assets"));
-        } catch (Exception e) {
-            try {
-                searchAtlases(new File("./assets"));
-            } catch (Exception e1) {
-                e1.printStackTrace();
-            }
-        }
+        searchAtlases(new File("../assets"));
     }
-
+    
     public void searchAtlases(File root) {
         new FileScanner(root, (file) -> {
-            if(file.getName().endsWith(".atlas") && !file.getPath().contains("maps")){
+            if (file.getName().endsWith(".atlas") && !file.getPath().contains("maps")) {
                 loadAtlas(file.getPath());
                 return true;
             }
             return false;
         });
     }
-
+    
     public Animation<TextureRegion> getAnimation(String animation) {
         if (animation.contains(animation)) {
             return animations.get(animation);
@@ -49,7 +38,7 @@ public class AnimationLoader {
             throw new NullPointerException();
         }
     }
-
+    
     public void loadAtlas(String atlasPath) {
         TextureAtlas atlas = new TextureAtlas(Gdx.files.internal(atlasPath));
         Array<TextureAtlas.AtlasRegion> regions = atlas.getRegions();
@@ -64,19 +53,19 @@ public class AnimationLoader {
                 atlasAnimations.put(region.name, newList);
             }
         }
-        atlasAnimations.forEach((key, value) -> {
+        for (Map.Entry<String, List<TextureAtlas.AtlasRegion>> stringListEntry : atlasAnimations.entrySet()) {
+            List<TextureAtlas.AtlasRegion> value = stringListEntry.getValue();
             int largestIndex = value.size() - 1;
-            value.sort(Comparator.comparingInt(o -> o.index));
+            Collections.sort(value, (o1, o2) -> o1.index - o2.index);
             for (TextureAtlas.AtlasRegion region : value) {
                 if (region.index > largestIndex || region.index < 0) {
-                    throw new IllegalArgumentException("Check indexes for animation " + key + " on atlas " + atlasPath);
+                    throw new IllegalArgumentException("Check indexes for animation " + stringListEntry.getKey() + " on atlas " + atlasPath);
                 }
             }
-            //TODO frame duration
-            animations.put(key, new Animation<>(1/15f, value.toArray(new TextureAtlas.AtlasRegion[value.size()])));
-        });
+            animations.put(stringListEntry.getKey(), new Animation<>(1 / 15f, value.toArray(new TextureAtlas.AtlasRegion[value.size()])));
+        }
     }
-
+    
     public Animation<TextureRegion> getTextureAsAnimation(String filename) {
         if (animations.containsKey(filename)) {
             return animations.get(filename);
@@ -92,7 +81,7 @@ public class AnimationLoader {
             return animations.get(filename);
         }
     }
-
+    
     public Texture getTexture(String filename) {
         if (textures.containsKey(filename)) {
             return textures.get(filename);
@@ -102,6 +91,6 @@ public class AnimationLoader {
             return texture;
         }
     }
-
+    
 }
 

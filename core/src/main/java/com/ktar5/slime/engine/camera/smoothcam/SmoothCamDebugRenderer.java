@@ -7,12 +7,12 @@ import com.badlogic.gdx.math.Matrix4;
 
 import java.util.ArrayList;
 
-/** libGDX-Debug-Renderer for a {@link SmoothCamWorld}.
+/** libGDX-DebugLog-Renderer for a {@link SmoothCamWorld}.
  * @author David Froehlich <semperhilaris@gmail.com> */
 public class SmoothCamDebugRenderer {
 	protected ShapeRenderer renderer;
 
-	/** Debug-Renderer for SmoothCamWorld */
+	/** DebugLog-Renderer for SmoothCamWorld */
 	public SmoothCamDebugRenderer () {
 		renderer = new ShapeRenderer();
 	}

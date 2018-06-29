@@ -1,12 +1,14 @@
-package com.ktar5.slime.entities.player;
+package com.ktar5.slime.player;
 
 
+import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.engine.core.EngineManager;
 import com.ktar5.slime.engine.entities.PlayerEntity;
 import com.ktar5.slime.engine.entities.components.EntityAnimator;
-import com.ktar5.slime.entities.player.states.Move;
-import com.ktar5.slime.entities.player.states.PlayerState;
-import com.ktar5.slime.entities.player.states.Respawn;
+import com.ktar5.slime.player.states.Idle;
+import com.ktar5.slime.player.states.Move;
+import com.ktar5.slime.player.states.PlayerState;
+import com.ktar5.slime.player.states.Respawn;
 import com.ktar5.slime.utils.statemachine.SimpleStateMachine;
 import com.ktar5.slime.world.LoadedLevel;
 import com.ktar5.utilities.common.constants.Direction;
@@ -16,19 +18,27 @@ import org.apache.commons.lang3.builder.ToStringExclude;
 @Getter
 public class JumpPlayer extends PlayerEntity {
     @ToStringExclude
-    protected final SimpleStateMachine<PlayerState> playerState;
+    public final SimpleStateMachine<PlayerState> playerState;
     private Direction previousDirection = Direction.N;
     
     public JumpPlayer(LoadedLevel level) {
         super(2, 1, 1);
         this.position.set(level.getSpawnX(), level.getSpawnY());
-        this.playerState = new SimpleStateMachine<>(Move.class, Respawn.class);
+        this.playerState = new SimpleStateMachine<>(Idle.class,
+                Idle.class, Move.class, Respawn.class);
+        System.out.println("New player created " + System.currentTimeMillis());
     }
     
     @Override
     public void update(float dTime) {
         super.update(dTime);
         playerState.update(dTime);
+    
+        SlimeGame.getGame().getLevelHandler().getCurrentLevel().getGrid().activateAllTiles(this);
+    }
+    
+    public void killPlayer() {
+        playerState.changeState(Respawn.class);
     }
     
     @Override

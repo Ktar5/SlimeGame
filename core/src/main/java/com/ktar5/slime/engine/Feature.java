@@ -3,12 +3,10 @@ package com.ktar5.slime.engine;
 import org.pmw.tinylog.Logger;
 
 public enum Feature {
-
     PLAYER_MOVEMENT(true),
     CAMERA_MOVEMENT(true),
     DEBUG(true),
     CONTROLLER(true),
-    TESTING(true),
 
     LOG_STATE_MACHINE(true),
     FIRST_PRESSED_MOVEMENT(true);

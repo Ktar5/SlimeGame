@@ -1,4 +1,4 @@
-package com.ktar5.slime.entities.player.states;
+package com.ktar5.slime.player.states;
 
 import com.badlogic.gdx.utils.Timer;
 import com.ktar5.slime.SlimeGame;

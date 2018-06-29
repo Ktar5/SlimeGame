@@ -8,6 +8,7 @@ import java.lang.reflect.InvocationTargetException;
 
 public class SimpleStateMachine<T extends State> extends ObjectMap<Class<? extends T>, T> implements Updatable {
     private T current;
+    private boolean stateChangeInProgress = false;
     
     @SafeVarargs
     public SimpleStateMachine(Class<? extends T> initial, Class<? extends T>... abilityClasses) {
@@ -37,13 +38,23 @@ public class SimpleStateMachine<T extends State> extends ObjectMap<Class<? exten
     
     @Override
     public void update(float dTime) {
+        if (stateChangeInProgress) {
+            System.out.println("State change is currently in progress so action has been cancelled");
+            return;
+        }
         current.update(dTime);
     }
     
     public void changeState(Class<? extends T> ability) {
+        //Halt updating of current during
+        stateChangeInProgress = true;
+        
         current.end();
         current = this.get(ability);
         this.get(ability).start();
+        
+        //Resume updating of current
+        stateChangeInProgress = false;
     }
     
 }

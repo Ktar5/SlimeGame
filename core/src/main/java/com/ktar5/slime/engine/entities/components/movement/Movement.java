@@ -3,7 +3,6 @@ package com.ktar5.slime.engine.entities.components.movement;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.controllers.Controller;
-import com.badlogic.gdx.controllers.Controllers;
 import com.badlogic.gdx.math.Vector2;
 import com.ktar5.slime.engine.Const;
 import com.ktar5.slime.engine.Feature;
@@ -25,8 +24,8 @@ public abstract class Movement implements Updatable {
 
     public Movement(float speed) {
         this.speed = speed * Const.STEP_TIME * Const.SCALE;
-        if (Controllers.getControllers().size > 0 && Feature.CONTROLLER.isEnabled())
-            controller = Controllers.getControllers().get(0);
+        //if (Controllers.getControllers().size > 0 && Feature.CONTROLLER.isEnabled())
+        //    controller = Controllers.getControllers().get(0);
         velocity = new Vector2();
         velocityDeadzoned = new Vector2();
         input = new Vector2();
@@ -63,14 +62,14 @@ public abstract class Movement implements Updatable {
 
     private void refreshKeyboardInput() {
         //Do keyboard stuff
-        if (Gdx.input.isKeyPressed(Input.Keys.A) || Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
+        if (Gdx.input.isKeyJustPressed(Input.Keys.A) || Gdx.input.isKeyJustPressed(Input.Keys.LEFT)) {
             input.set(-1, input.y);
-        } else if (Gdx.input.isKeyPressed(Input.Keys.D) || Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
+        } else if (Gdx.input.isKeyJustPressed(Input.Keys.D) || Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) {
             input.set(1, input.y);
         }
-        if (Gdx.input.isKeyPressed(Input.Keys.W) || Gdx.input.isKeyPressed(Input.Keys.UP)) {
+        if (Gdx.input.isKeyJustPressed(Input.Keys.W) || Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
             input.set(input.x, 1);
-        } else if (Gdx.input.isKeyPressed(Input.Keys.S) || Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
+        } else if (Gdx.input.isKeyJustPressed(Input.Keys.S) || Gdx.input.isKeyJustPressed(Input.Keys.DOWN)) {
             input.set(input.x, -1);
         }
     }
@@ -91,7 +90,7 @@ public abstract class Movement implements Updatable {
             }
         }
         input.setZero();
-        refreshControllerInput();
+        //refreshControllerInput();
         refreshKeyboardInput();
     }
 

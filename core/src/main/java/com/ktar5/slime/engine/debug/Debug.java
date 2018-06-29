@@ -1,12 +1,16 @@
 package com.ktar5.slime.engine.debug;
 
 import com.badlogic.gdx.utils.ObjectMap;
+import com.ktar5.slime.engine.Feature;
 import org.pmw.tinylog.Logger;
 
 public class Debug {
     private static final ObjectMap<Class, Boolean> debugMap = new ObjectMap<>();
 
     public static boolean shouldDebug(Class c){
+        if(Feature.DEBUG.isDisabled()){
+            return false;
+        }
         if (debugMap.containsKey(c)){
             return debugMap.get(c);
         }else{

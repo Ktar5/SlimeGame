@@ -2,9 +2,8 @@ package com.ktar5.slime.world;
 
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
-import com.ktar5.slime.grid.Grid;
-import com.ktar5.slime.grid.Tile;
-import com.ktar5.slime.grid.TileType;
+import com.ktar5.slime.world.grid.Grid;
+import com.ktar5.slime.world.tiles.Air;
 import com.ktar5.utilities.common.data.Pair;
 import lombok.Getter;
 
@@ -35,10 +34,10 @@ public class Level {
                     continue;
                 cell = layer.getCell(w, h);
                 if (cell == null) {
-                    newGrid.grid[w][h] = new Tile(w, h, TileType.AIR);
+                    newGrid.grid[w][h] = new Air(w, h);
                     continue;
                 }
-                newGrid.grid[w][h] = new Tile(w, h, TileType.tileFromId(cell.getTile().getId() - 1));
+                newGrid.grid[w][h] = TileCreator.getTile(w, h, cell.getTile().getId() - 1);
             }
         }
         grid = newGrid;

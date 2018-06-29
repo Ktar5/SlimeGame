@@ -36,7 +36,7 @@ public class SmoothCamTest implements ApplicationListener {
 
 		camera = new OrthographicCamera(w, h);
 
-		/* Initializing SmoothCam Debug Renderer */
+		/* Initializing SmoothCam DebugLog Renderer */
 		scDebug = new SmoothCamDebugRenderer();
 
 		/* Creating the subject for the SmoothCamWorld */

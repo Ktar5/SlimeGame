@@ -9,9 +9,7 @@ public abstract class State<T extends State<T>> implements Updatable {
     
     protected abstract void end();
     
-    protected void changeState(Class<? extends T> state) {
-    
-    }
+    public abstract void changeState(Class<? extends T> state);
     
     
 }

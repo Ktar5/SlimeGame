@@ -3,20 +3,16 @@ package com.ktar5.slime;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.github.oxo42.stateless4j.StateMachine;
 import com.ktar5.slime.engine.camera.CameraBase;
 import com.ktar5.slime.engine.camera.CameraFollow;
 import com.ktar5.slime.engine.core.AbstractGame;
 import com.ktar5.slime.engine.core.AbstractScreen;
 import com.ktar5.slime.engine.core.EngineManager;
-import com.ktar5.slime.engine.debug.Debug;
 import com.ktar5.slime.screens.GameScreen;
 import com.ktar5.slime.variables.Constants;
 import com.ktar5.slime.world.LevelHandler;
 import com.ktar5.slime.world.Levels;
 import lombok.Getter;
-import org.pmw.tinylog.Level;
-import org.pmw.tinylog.Logger;
 
 @Getter
 public class SlimeGame extends AbstractGame<SlimeGame> {
@@ -34,8 +30,6 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
     
     @Override
     public void initialize() {
-        Debug.setDebug(CameraFollow.class, false);
-        Logger.getConfiguration().level(StateMachine.class, Level.WARNING);
         levelHandler = new LevelHandler(Levels.TEST);
     }
     

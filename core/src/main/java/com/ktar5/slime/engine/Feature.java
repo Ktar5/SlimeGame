@@ -4,12 +4,18 @@ import org.pmw.tinylog.Logger;
 
 public enum Feature {
     PLAYER_MOVEMENT(true),
+    FIRST_PRESSED_MOVEMENT(true),
+    
     CAMERA_MOVEMENT(true),
+    
     DEBUG(true),
     CONTROLLER(true),
 
+    LOG_MOVEMENT(false),
     LOG_STATE_MACHINE(true),
-    FIRST_PRESSED_MOVEMENT(true);
+    
+    
+    ;
 
 
     private boolean feature;

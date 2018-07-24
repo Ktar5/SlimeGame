@@ -1,6 +1,7 @@
 package com.ktar5.slime.utils.statemachine;
 
 import com.badlogic.gdx.utils.ObjectMap;
+import com.ktar5.slime.engine.Feature;
 import com.ktar5.slime.engine.util.Updatable;
 import org.pmw.tinylog.Logger;
 
@@ -8,16 +9,16 @@ import java.lang.reflect.InvocationTargetException;
 
 public class SimpleStateMachine<T extends State> extends ObjectMap<Class<? extends T>, T> implements Updatable {
     private T current;
-    private boolean stateChangeInProgress = false;
+    private Class<? extends T> newState;
     
     @SafeVarargs
-    public SimpleStateMachine(Class<? extends T> initial, Class<? extends T>... abilityClasses) {
-        super(abilityClasses.length);
-        for (Class<? extends T> abilityClass : abilityClasses) {
+    public SimpleStateMachine(Class<? extends T> initial, Class<? extends T>... stateClasses) {
+        super(stateClasses.length);
+        for (Class<? extends T> stateClass : stateClasses) {
             try {
-                this.put(abilityClass, abilityClass.getDeclaredConstructor().newInstance());
-                Logger.debug("Registered ability class: " + abilityClass.getName());
-                if (abilityClass == initial) {
+                this.put(stateClass, stateClass.getDeclaredConstructor().newInstance());
+                Logger.debug("Registered state class: " + stateClass.getName());
+                if (stateClass == initial) {
                     current = this.get(initial);
                 }
             } catch (InstantiationException e) {
@@ -38,23 +39,25 @@ public class SimpleStateMachine<T extends State> extends ObjectMap<Class<? exten
     
     @Override
     public void update(float dTime) {
-        if (stateChangeInProgress) {
-            System.out.println("State change is currently in progress so action has been cancelled");
-            return;
-        }
         current.update(dTime);
+        if(newState != null){
+            changeState();
+        }
     }
     
-    public void changeState(Class<? extends T> ability) {
-        //Halt updating of current during
-        stateChangeInProgress = true;
-        
+    public void changeStateAfterUpdate(Class<? extends T> state) {
+        newState = state;
+    }
+    
+    private void changeState() {
         current.end();
-        current = this.get(ability);
-        this.get(ability).start();
-        
-        //Resume updating of current
-        stateChangeInProgress = false;
+        if (Feature.LOG_STATE_MACHINE.isEnabled()) {
+            Logger.debug("Changing state from " + this.getClass().getSimpleName() + " to " + newState.getSimpleName()
+                    + " @ " + System.currentTimeMillis());
+        }
+        current = this.get(newState);
+        this.get(newState).start();
+        newState = null;
     }
     
 }

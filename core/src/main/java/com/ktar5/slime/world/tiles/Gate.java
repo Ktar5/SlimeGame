@@ -19,7 +19,6 @@ public class Gate extends WholeTile {
     
     @Override
     public void onPlayerHitTile(JumpPlayer player, Side hit) {
-        System.out.println("Test");
         int ordinal = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getLevelRef().ordinal();
         ordinal += 1;
         if (ordinal > Levels.values().length - 1) {

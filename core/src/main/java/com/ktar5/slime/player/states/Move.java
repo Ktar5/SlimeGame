@@ -2,6 +2,8 @@ package com.ktar5.slime.player.states;
 
 import com.badlogic.gdx.math.Vector2;
 import com.ktar5.slime.SlimeGame;
+import com.ktar5.slime.engine.Feature;
+import com.ktar5.slime.engine.core.EngineManager;
 import com.ktar5.slime.utils.Side;
 import com.ktar5.slime.world.grid.Grid;
 import com.ktar5.slime.world.grid.tiles.Tile;
@@ -9,7 +11,7 @@ import org.pmw.tinylog.Logger;
 
 public class Move extends PlayerState {
     private static final float SPEED = .5f;
-    private Side movement;
+    int blocksMoved = 0;
     
     @Override
     public void start() {
@@ -22,16 +24,19 @@ public class Move extends PlayerState {
         
         if (input.x != 0) input.set(input.x, 0);
         else input.set(0, input.y);
-        movement = Side.of((int) input.x, (int) input.y);
+        getPlayer().setLastMovedDirection(Side.of((int) input.x, (int) input.y));
+        blocksMoved = 0;
+        getPlayer().getEntityAnimator().setManualAnimation(EngineManager.get().getAnimationLoader().getAnimation("slime_jump_"
+                + getMovement().name().toLowerCase()), 0);
     }
     
     @Override
-    public void update(float dTime) {
+    public void onUpdate(float dTime) {
         final Grid grid = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getGrid();
         
         //Get the position that we WOULD BE MOVING TO IF EVERYTHING GOES WELL so that we can use it
         //as a reference for where we want to go.
-        Vector2 newPosition = getPlayer().getPosition().cpy().add((SPEED * movement.x), (SPEED * movement.y));
+        Vector2 newPosition = getPlayer().getPosition().cpy().add((SPEED * getMovement().x), (SPEED * getMovement().y));
         
         //Initialize some integer variables to represent block locations of these variables
         //For example x/y are current x/y block and newX/newY are future x/y block
@@ -43,7 +48,7 @@ public class Move extends PlayerState {
         //This matters because when moving in a positive direction (+x = right, +y = up), flooring the
         //player coordinate gives us the correct tile coordinate, whereas the negative directions
         //(-x = left, -y = down) make use of ceiling the player coordinate
-        if (movement == Side.DOWN || movement == Side.LEFT) {
+        if (getMovement() == Side.DOWN || getMovement() == Side.LEFT) {
             x = (int) Math.ceil(getPlayer().getPosition().x);
             y = (int) Math.ceil(getPlayer().getPosition().y);
             newX = (int) Math.ceil(newPosition.x);
@@ -55,16 +60,17 @@ public class Move extends PlayerState {
             newY = (int) Math.floor(newPosition.y);
         }
         
-        Logger.debug("");
-        Logger.debug("Old: " + x + ", " + y + " // " + getPlayer().getPosition().x + ", " + getPlayer().getPosition().y);
-        
+        if (Feature.LOG_MOVEMENT.isEnabled()) {
+            Logger.debug("");
+            Logger.debug("Old: " + x + ", " + y + " // " + getPlayer().getPosition().x + ", " + getPlayer().getPosition().y);
+        }
         //This is the variable that stores the tile at the location of the next step
         //THIS COULD BE THE SAME TILE THE PLAYER IS CURRENTLY ON IF THE PLAYER
         //DOESN'T MOVE ENOUGH TO COVER THE DISTANCE INTO A NEW TILE THIS STEP
-        Tile newTile = grid.tileFromDirection(newX, newY, movement);
+        Tile newTile = grid.tileFromDirection(newX, newY, getMovement());
         
         //Check for if the tile that the player would be going into is air or not
-        if (!newTile.canCrossThrough(getPlayer(), Side.ofOpposite(movement.x, movement.y))) {
+        if (!newTile.canCrossThrough(getPlayer(), Side.ofOpposite(getMovement().x, getMovement().y))) {
             //If it is not air, then that means we have reached a wall
             //This little bit of logic (moving to newX, newY) works because
             //if their next movement would've been to a wall, that means they're
@@ -73,23 +79,28 @@ public class Move extends PlayerState {
             //
             //Ex: going to hit a wall, so snap them to block before wall
             getPlayer().getPosition().moveTo(newX, newY);
+            
+            
             //Change state to idle
             changeState(Idle.class);
+            getPlayer().getEntityAnimator().setFrame(3);
             
-            newTile.onPlayerHitTile(getPlayer(), Side.ofOpposite(movement.x, movement.y));
+            newTile.onPlayerHitTile(getPlayer(), Side.ofOpposite(getMovement().x, getMovement().y));
         } else {
             //Translate the player's location by SPEED multiplied by the movement direction
-            getPlayer().getPosition().translate(SPEED * movement.x, SPEED * movement.y);
+            getPlayer().getPosition().translate(SPEED * getMovement().x, SPEED * getMovement().y);
         }
-
-//        if (newX != x || newY != y) {
-//            //This was for when the player moved into a new tile
-//            getPlayer().getPosition().moveTo(newX, newY);
-//        } else {
-//            getPlayer().getPosition().translate(SPEED * movement.x, SPEED * movement.y);
-//        }
         
-        Logger.debug("New: " + newX + ", " + newY + " // " + newPosition.x + ", " + newPosition.y);
+        //Keeps count of tiles crossed for the animation
+        if (newX != x || newY != y) {
+            blocksMoved++;
+            getPlayer().getEntityAnimator().setFrame(1);
+        }
+        
+        if (Feature.LOG_MOVEMENT.isEnabled()) {
+            Logger.debug("New: " + newX + ", " + newY + " // " + newPosition.x + ", " + newPosition.y);
+            Logger.debug("Blocks moved: " + blocksMoved);
+        }
     }
     
     
@@ -97,4 +108,9 @@ public class Move extends PlayerState {
     protected void end() {
     
     }
+    
+    public Side getMovement() {
+        return getPlayer().getLastMovedDirection();
+    }
+    
 }

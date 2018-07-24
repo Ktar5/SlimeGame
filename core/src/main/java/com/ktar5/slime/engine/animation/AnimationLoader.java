@@ -15,6 +15,9 @@ public class AnimationLoader {
     private HashMap<String, Animation<TextureRegion>> animations;
     private HashMap<String, Texture> textures;
     
+    private List<String> blacklist = Arrays.asList(
+            "..\\assets\\default_skin\\uiskin.atlas");
+    
     public AnimationLoader() {
         animations = new HashMap<>();
         textures = new HashMap<>();
@@ -35,7 +38,7 @@ public class AnimationLoader {
         if (animation.contains(animation)) {
             return animations.get(animation);
         } else {
-            throw new NullPointerException();
+            throw new RuntimeException("No animation found for value: " + animation + ". Check your capitalization?");
         }
     }
     
@@ -58,7 +61,7 @@ public class AnimationLoader {
             int largestIndex = value.size() - 1;
             Collections.sort(value, (o1, o2) -> o1.index - o2.index);
             for (TextureAtlas.AtlasRegion region : value) {
-                if (region.index > largestIndex || region.index < 0) {
+                if (region.index > largestIndex || region.index < 0 && !blacklist.contains(atlasPath)) {
                     throw new IllegalArgumentException("Check indexes for animation " + stringListEntry.getKey() + " on atlas " + atlasPath);
                 }
             }

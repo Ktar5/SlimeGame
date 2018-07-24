@@ -9,17 +9,19 @@ import com.ktar5.slime.player.states.Idle;
 import com.ktar5.slime.player.states.Move;
 import com.ktar5.slime.player.states.PlayerState;
 import com.ktar5.slime.player.states.Respawn;
+import com.ktar5.slime.utils.Side;
 import com.ktar5.slime.utils.statemachine.SimpleStateMachine;
 import com.ktar5.slime.world.LoadedLevel;
-import com.ktar5.utilities.common.constants.Direction;
 import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang3.builder.ToStringExclude;
 
 @Getter
 public class JumpPlayer extends PlayerEntity {
     @ToStringExclude
     public final SimpleStateMachine<PlayerState> playerState;
-    private Direction previousDirection = Direction.N;
+    @Setter
+    private Side lastMovedDirection = Side.UP;
     
     public JumpPlayer(LoadedLevel level) {
         super(2, 1, 1);
@@ -33,12 +35,12 @@ public class JumpPlayer extends PlayerEntity {
     public void update(float dTime) {
         super.update(dTime);
         playerState.update(dTime);
-    
+        
         SlimeGame.getGame().getLevelHandler().getCurrentLevel().getGrid().activateAllTiles(this);
     }
     
     public void killPlayer() {
-        playerState.changeState(Respawn.class);
+        playerState.changeStateAfterUpdate(Respawn.class);
     }
     
     @Override
@@ -47,15 +49,12 @@ public class JumpPlayer extends PlayerEntity {
                 .getTextureAsAnimation(this.getDefaultAnimation()), width, height);
     }
     
-    public void resetAnimation(String newAnimation, boolean addDirection) {
-        if (addDirection) {
-            newAnimation += previousDirection.animationDirection;
-        }
-        getEntityAnimator().resetAnimation(EngineManager.get().getAnimationLoader().getAnimation(newAnimation));
+    public void resetAnimation(String newAnimation) {
+        getEntityAnimator().setAnimation(EngineManager.get().getAnimationLoader().getAnimation(newAnimation));
     }
     
     @Override
     protected String getDefaultAnimation() {
-        return "textures/Player.png";
+        return "slime_jump_down";
     }
 }

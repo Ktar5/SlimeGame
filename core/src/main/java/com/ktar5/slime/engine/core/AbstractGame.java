@@ -4,6 +4,7 @@ import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.ktar5.slime.engine.Const;
 import com.ktar5.slime.engine.camera.CameraBase;
+import com.ktar5.slime.engine.console.CommandExecutor;
 import com.ktar5.slime.engine.util.Updatable;
 import com.ktar5.utilities.annotation.dontoverride.DontOverride;
 
@@ -67,6 +68,8 @@ public abstract class AbstractGame<G extends AbstractGame<G>> implements Applica
         
         screen.getRenderManager().update(Const.STEP_TIME);
         screen.render(dTime);
+        
+        EngineManager.get().getConsole().draw();
     }
     
     @Override
@@ -95,4 +98,6 @@ public abstract class AbstractGame<G extends AbstractGame<G>> implements Applica
     public AbstractScreen getScreen() {
         return screen;
     }
+    
+    public abstract CommandExecutor getCommandExecutor();
 }

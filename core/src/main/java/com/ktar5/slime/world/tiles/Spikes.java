@@ -18,6 +18,6 @@ public class Spikes extends WholeTile {
     
     @Override
     public void onPlayerHitTile(JumpPlayer player, Side hit) {
-        player.playerState.changeState(Respawn.class);
+        player.playerState.changeStateAfterUpdate(Respawn.class);
     }
 }

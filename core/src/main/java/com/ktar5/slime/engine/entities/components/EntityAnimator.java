@@ -10,31 +10,34 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 
 @Getter
 public class EntityAnimator implements Updatable {
-    public boolean halted = false, looping = true;
+    public boolean halted = false, looping = true, singleFrameMode = false;
     private float lifetimeOfAnimation;
     private RenderLayer layer;
     private float unitsX, unitsY;
+    private TextureRegion currentFrame;
     private Animation<TextureRegion> animation;
-
+    
     public EntityAnimator(RenderLayer layer, Animation<TextureRegion> animation, float unitsX, float unitsY) {
         this.layer = layer;
         this.unitsX = unitsX;
         this.unitsY = unitsY;
         this.animation = animation;
     }
-
+    
     public void render(SpriteBatch batch, float x, float y, float angle) {
-        TextureRegion frame = this.getFrame();
-        batch.draw(frame,
-                x - (frame.getRegionWidth() / (2)),
-                y - (frame.getRegionHeight() / (2)),
-                frame.getRegionWidth() / 2, frame.getRegionHeight() / 2,
-                frame.getRegionWidth(), frame.getRegionHeight(),
-                unitsX / (frame.getRegionWidth()),
-                unitsY / frame.getRegionHeight(),
+        if (!singleFrameMode) {
+            currentFrame = animation.getKeyFrame(lifetimeOfAnimation, looping);
+        }
+        batch.draw(currentFrame,
+                x - (currentFrame.getRegionWidth() / (2)),
+                y - (currentFrame.getRegionHeight() / (2)),
+                currentFrame.getRegionWidth() / 2, currentFrame.getRegionHeight() / 2,
+                currentFrame.getRegionWidth(), currentFrame.getRegionHeight(),
+                unitsX / (currentFrame.getRegionWidth()),
+                unitsY / currentFrame.getRegionHeight(),
                 angle);
     }
-
+    
     @Override
     public void update(float dTime) {
         if (halted) {
@@ -43,35 +46,48 @@ public class EntityAnimator implements Updatable {
         //Keep track of the time that has passed
         lifetimeOfAnimation += dTime;
     }
-
-    public void resetAnimation(Animation<TextureRegion> animation) {
+    
+    public void setFrame(TextureRegion texture) {
+        singleFrameMode = true;
+        this.currentFrame = texture;
+    }
+    
+    public void setFrame(int frame) {
+        singleFrameMode = true;
+        this.currentFrame = getAnimation().getKeyFrames()[frame];
+    }
+    
+    public void setManualAnimation(Animation<TextureRegion> animation, int frame){
         this.animation = animation;
+        this.currentFrame = animation.getKeyFrames()[frame];
+        singleFrameMode = true;
+    }
+    
+    public void setAnimation(Animation<TextureRegion> animation) {
+        this.animation = animation;
+        singleFrameMode = false;
         lifetimeOfAnimation = 0;
     }
-
-    public void resetAnimation() {
+    
+    public void resetCurrentAnimation() {
         lifetimeOfAnimation = 0;
     }
-
-    public TextureRegion getFrame() {
-        return animation.getKeyFrame(lifetimeOfAnimation, looping);
-    }
-
+    
     @Override
-    public String toString(){
+    public String toString() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.JSON_STYLE);
     }
-
+    
     public enum RenderLayer {
         BACKGROUND,
-
+        
         FURTHEST,
         FAR,
         MIDDLE,
         NEAR,
         NEAREST,
-
+        
         OVERLAY;
     }
-
+    
 }

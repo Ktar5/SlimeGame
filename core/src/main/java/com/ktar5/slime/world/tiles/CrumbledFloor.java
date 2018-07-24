@@ -1,4 +1,29 @@
 package com.ktar5.slime.world.tiles;
 
-public class CrumbledFloor {
+import com.ktar5.slime.player.JumpPlayer;
+import com.ktar5.slime.player.states.Respawn;
+import com.ktar5.slime.utils.Side;
+import com.ktar5.slime.world.grid.TileType;
+import com.ktar5.slime.world.grid.tiles.WholeTile;
+
+public class CrumbledFloor extends WholeTile {
+    public boolean crumbled = false;
+    
+    public CrumbledFloor(int x, int y) {
+        super(x, y, TileType.WIN);
+    }
+    
+    @Override
+    public boolean canCrossThrough(JumpPlayer player, Side movement) {
+        return !crumbled;
+    }
+    
+    @Override
+    public void onPlayerCross(JumpPlayer player) {
+        if(crumbled){
+            player.playerState.changeStateAfterUpdate(Respawn.class);
+        }else{
+            crumbled = true;
+        }
+    }
 }

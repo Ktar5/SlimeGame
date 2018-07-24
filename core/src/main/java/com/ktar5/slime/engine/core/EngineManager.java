@@ -3,6 +3,8 @@ package com.ktar5.slime.engine.core;
 import com.badlogic.gdx.utils.Disposable;
 import com.ktar5.slime.engine.animation.AnimationLoader;
 import com.ktar5.slime.engine.camera.CameraBase;
+import com.ktar5.slime.engine.console.Console;
+import com.ktar5.slime.engine.console.GUIConsole;
 import com.ktar5.slime.engine.cooldown.CooldownManager;
 import com.ktar5.slime.engine.events.GameEvent;
 import com.ktar5.slime.engine.rendering.RenderManager;
@@ -32,11 +34,17 @@ public class EngineManager<G extends AbstractGame<G>> implements Disposable {
     private TweenManager tweenManager;
     private AnimationLoader animationLoader;
     private CooldownManager cooldownManager;
+    
+    private Console console;
 
     private final RenderManager renderManager;
 
     private EngineManager(G game) {
         initializeLogger();
+        
+        this.console = new GUIConsole();
+        this.console.setCommandExecutor(game.getCommandExecutor());
+        
         this.game = game;
         this.tweenManager = new TweenManager();
         this.cameraBase = game.initializeCameraBase();

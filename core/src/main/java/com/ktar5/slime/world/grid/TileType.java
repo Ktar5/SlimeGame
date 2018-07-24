@@ -6,7 +6,8 @@ public enum TileType {
     AIR(-1),
     WALL(120),
     HARMFUL(34),
-    WIN(36);
+    WIN(36),
+    MISC(-2);
     
     private static final IntMap<TileType> tileIds = new IntMap<>();
     

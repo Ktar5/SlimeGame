@@ -1,10 +1,12 @@
 package com.ktar5.slime;
 
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.ktar5.slime.engine.camera.CameraBase;
 import com.ktar5.slime.engine.camera.CameraFollow;
+import com.ktar5.slime.engine.console.CommandExecutor;
 import com.ktar5.slime.engine.core.AbstractGame;
 import com.ktar5.slime.engine.core.AbstractScreen;
 import com.ktar5.slime.engine.core.EngineManager;
@@ -30,6 +32,8 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
     
     @Override
     public void initialize() {
+        this.engineManager.getConsole().setDisplayKeyID(Input.Keys.GRAVE);
+        
         levelHandler = new LevelHandler(Levels.TEST);
     }
     
@@ -46,6 +50,11 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
     public void resize(int width, int height) {
         EngineManager.get().getCameraBase().getCamera().update();
         super.resize(width, height);
+    }
+    
+    @Override
+    public CommandExecutor getCommandExecutor() {
+        return new ConsoleCommands();
     }
     
     @Override

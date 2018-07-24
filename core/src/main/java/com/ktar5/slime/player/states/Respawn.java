@@ -7,23 +7,24 @@ import com.ktar5.slime.engine.core.EngineManager;
 public class Respawn extends PlayerState {
     @Override
     public void start() {
-        getPlayer().getEntityAnimator().resetAnimation(EngineManager.get().getAnimationLoader()
-                .getTextureAsAnimation("textures/test/testPlayer.jpg"));
+        getPlayer().getEntityAnimator().setAnimation(EngineManager.get().getAnimationLoader()
+                .getTextureAsAnimation("slime_jump_down"));
         Timer.schedule(new Timer.Task() {
             @Override
             public void run() {
                 getPlayer().getPosition().set(SlimeGame.getGame().getLevelHandler().getSpawnX(),
                         SlimeGame.getGame().getLevelHandler().getSpawnY());
-                getPlayer().resetAnimation("textures/Player.png", false);
-                
+                getPlayer().resetAnimation("slime_jump_down");
+    
+                System.out.println("Testetetetetetetet");
                 getThis().changeState(Idle.class);
             }
         }, 2f);
     }
     
     @Override
-    public void update(float dTime) {
-        //none
+    public void onUpdate(float dTime) {
+    
     }
     
     @Override

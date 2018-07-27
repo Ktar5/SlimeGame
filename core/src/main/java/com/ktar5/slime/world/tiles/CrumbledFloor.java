@@ -1,7 +1,6 @@
 package com.ktar5.slime.world.tiles;
 
 import com.ktar5.slime.player.JumpPlayer;
-import com.ktar5.slime.player.states.Respawn;
 import com.ktar5.slime.utils.Side;
 import com.ktar5.slime.world.grid.TileType;
 import com.ktar5.slime.world.grid.tiles.WholeTile;
@@ -21,7 +20,7 @@ public class CrumbledFloor extends WholeTile {
     @Override
     public void onPlayerCross(JumpPlayer player) {
         if(crumbled){
-            player.playerState.changeStateAfterUpdate(Respawn.class);
+            player.killPlayer();
         }else{
             crumbled = true;
         }

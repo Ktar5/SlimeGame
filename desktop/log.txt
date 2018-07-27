@@ -1,116 +1,88 @@
-56:26:241 FileScanner.searchDir() [DEBUG]: +--assets/
-56:26:243 FileScanner.searchDir() [DEBUG]: |  +--data/
-56:26:243 FileScanner.printFile() [DEBUG]: |  |  +--libgdx.png
-56:26:243 FileScanner.printFile() [DEBUG]: |  |  +--loading.pack
-56:26:243 FileScanner.printFile() [DEBUG]: |  |  +--loading.png
-56:26:244 FileScanner.searchDir() [DEBUG]: |  +--default_skin/
-56:26:244 FileScanner.printFile() [DEBUG]: |  |  +--default.fnt
-56:26:244 FileScanner.printFile() [DEBUG]: |  |  +--default.png
-56:26:248 FileScanner.printFile() [DEBUG]: [1;32m#--#--+--uiskin.atlas[0m
-56:26:249 FileScanner.printFile() [DEBUG]: |  |  +--uiskin.json
-56:26:249 FileScanner.printFile() [DEBUG]: |  |  +--uiskin.png
-56:26:249 FileScanner.searchDir() [DEBUG]: |  +--fonts/
-56:26:249 FileScanner.printFile() [DEBUG]: |  |  +--BitPotion Bitmaps Extended.zip
-56:26:249 FileScanner.printFile() [DEBUG]: |  |  +--BitPotion Bitmaps.zip
-56:26:249 FileScanner.printFile() [DEBUG]: |  |  +--BitPotion Full Extended.zip
-56:26:252 FileScanner.printFile() [DEBUG]: |  |  +--BitPotion Full.zip
-56:26:252 FileScanner.printFile() [DEBUG]: |  |  +--BitPotion.ttf
-56:26:252 FileScanner.printFile() [DEBUG]: |  |  +--BitPotionExt.ttf
-56:26:252 FileScanner.printFile() [DEBUG]: |  |  +--magofonts.zip
-56:26:252 FileScanner.printFile() [DEBUG]: |  |  +--SomepxFonts.zip
-56:26:252 FileScanner.printFile() [DEBUG]: |  |  +--SomepxNew.zip
-56:26:252 FileScanner.searchDir() [DEBUG]: |  +--maps/
-56:26:253 FileScanner.searchDir() [DEBUG]: |  |  +--generated/
-56:26:253 FileScanner.printFile() [DEBUG]: |  |  |  +--Level1.tmx
-56:26:253 FileScanner.printFile() [DEBUG]: |  |  |  +--Level2.tmx
-56:26:253 FileScanner.printFile() [DEBUG]: |  |  |  +--TestGrid.tmx
-56:26:253 FileScanner.searchDir() [DEBUG]: |  |  |  +--tileset/
-56:26:254 FileScanner.printFile() [DEBUG]: |  |  |  |  +--Level1.atlas
-56:26:254 FileScanner.printFile() [DEBUG]: |  |  |  |  +--Level1.png
-56:26:254 FileScanner.printFile() [DEBUG]: |  |  |  |  +--Level2.atlas
-56:26:254 FileScanner.printFile() [DEBUG]: |  |  |  |  +--Level2.png
-56:26:254 FileScanner.printFile() [DEBUG]: |  |  |  |  +--TestGrid.atlas
-56:26:254 FileScanner.printFile() [DEBUG]: |  |  |  |  +--TestGrid.png
-56:26:254 FileScanner.searchDir() [DEBUG]: |  |  +--nongen/
-56:26:255 FileScanner.printFile() [DEBUG]: |  |  |  +--Level1.tmx
-56:26:255 FileScanner.printFile() [DEBUG]: |  |  |  +--Level2.tmx
-56:26:255 FileScanner.printFile() [DEBUG]: |  |  |  +--TestGrid.tmx
-56:26:255 FileScanner.printFile() [DEBUG]: |  |  |  +--thingtest.png
-56:26:255 FileScanner.searchDir() [DEBUG]: |  +--sounds/
-56:26:255 FileScanner.printFile() [DEBUG]: |  |  +--Balloon Pop 1.wav
-56:26:255 FileScanner.printFile() [DEBUG]: |  |  +--Balloon ride 1.wav
-56:26:255 FileScanner.printFile() [DEBUG]: |  |  +--Balloon start riding 1.wav
-56:26:256 FileScanner.printFile() [DEBUG]: |  |  +--Balloon start riding 2 (1).wav
-56:26:256 FileScanner.printFile() [DEBUG]: |  |  +--Balloon start riding 2.wav
-56:26:256 FileScanner.printFile() [DEBUG]: |  |  +--Big Egg collect 1.wav
-56:26:256 FileScanner.printFile() [DEBUG]: |  |  +--Block Break 1.wav
-56:26:256 FileScanner.printFile() [DEBUG]: |  |  +--Block Break 2.wav
-56:26:256 FileScanner.printFile() [DEBUG]: |  |  +--Blow 1.wav
-56:26:256 FileScanner.printFile() [DEBUG]: |  |  +--Blow 1V2.mp3
-56:26:256 FileScanner.printFile() [DEBUG]: |  |  +--Blow 1V2.wav
-56:26:256 FileScanner.printFile() [DEBUG]: |  |  +--Blow 2.wav
-56:26:257 FileScanner.printFile() [DEBUG]: |  |  +--Boss hit 1.wav
-56:26:257 FileScanner.printFile() [DEBUG]: |  |  +--Bubble 1.wav
-56:26:257 FileScanner.printFile() [DEBUG]: |  |  +--Bubble heavy 1.wav
-56:26:257 FileScanner.printFile() [DEBUG]: |  |  +--Bubble heavy 2.wav
-56:26:257 FileScanner.printFile() [DEBUG]: |  |  +--Cancel 1.wav
-56:26:257 FileScanner.printFile() [DEBUG]: |  |  +--Confirm 1.wav
-56:26:257 FileScanner.printFile() [DEBUG]: |  |  +--Fruit collect 1.wav
-56:26:258 FileScanner.printFile() [DEBUG]: |  |  +--Hit damage 1.wav
-56:26:258 FileScanner.printFile() [DEBUG]: |  |  +--Jump 1.wav
-56:26:258 FileScanner.printFile() [DEBUG]: |  |  +--Select 1.wav
-56:26:258 FileScanner.printFile() [DEBUG]: |  |  +--Suck 1.wav
-56:26:258 FileScanner.printFile() [DEBUG]: |  |  +--Suck 1V2.wav
-56:26:258 FileScanner.printFile() [DEBUG]: |  |  +--Suck 2.wav
-56:26:258 FileScanner.printFile() [DEBUG]: |  |  +--Text 1.wav
-56:26:258 FileScanner.searchDir() [DEBUG]: |  +--textures/
-56:26:259 FileScanner.searchDir() [DEBUG]: |  |  +--player/
-56:26:260 FileScanner.printFile() [DEBUG]: [1;32m#--#--#--+--player_move.atlas[0m
-56:26:260 FileScanner.printFile() [DEBUG]: |  |  |  +--player_move.png
-56:26:260 FileScanner.printFile() [DEBUG]: |  |  +--Player.png
-56:26:260 FileScanner.searchDir() [DEBUG]: |  |  +--test/
-56:26:261 FileScanner.printFile() [DEBUG]: |  |  |  +--air_0.png
-56:26:261 FileScanner.printFile() [DEBUG]: |  |  |  +--spike_0.png
-56:26:261 FileScanner.printFile() [DEBUG]: |  |  |  +--spike_1.png
-56:26:261 FileScanner.printFile() [DEBUG]: |  |  |  +--spike_2.png
-56:26:261 FileScanner.printFile() [DEBUG]: |  |  |  +--testPlayer.jpg
-56:26:261 FileScanner.printFile() [DEBUG]: |  |  |  +--wall_0.png
-56:26:261 FileScanner.printFile() [DEBUG]: |  |  |  +--wall_1.png
-56:26:261 FileScanner.printFile() [DEBUG]: |  |  |  +--wall_2.png
-56:26:261 FileScanner.printFile() [DEBUG]: |  |  +--thingtest.zip
-56:26:302 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.player.states.Idle
-56:26:302 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.player.states.Move
-56:26:303 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.player.states.Respawn
-56:26:307 GameScreen.show() [DEBUG]: Display started for GameScreen
-56:26:881 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Move @ 1532472986881
-56:26:912 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Idle @ 1532472986912
-56:27:112 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Move @ 1532472987112
-56:27:278 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Idle @ 1532472987278
-56:27:379 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Move @ 1532472987379
-56:27:445 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Idle @ 1532472987445
-56:28:029 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Move @ 1532472988029
-56:28:128 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Idle @ 1532472988128
-56:28:295 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Move @ 1532472988295
-56:28:395 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Idle @ 1532472988395
-56:28:995 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Move @ 1532472988994
-56:29:061 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Respawn @ 1532472989061
-56:31:077 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Idle @ 1532472991077
-56:33:193 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Move @ 1532472993193
-56:33:210 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Idle @ 1532472993210
-56:33:660 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Move @ 1532472993660
-56:33:693 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Idle @ 1532472993693
-56:33:877 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Move @ 1532472993877
-56:34:042 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Idle @ 1532472994042
-56:34:126 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Move @ 1532472994126
-56:34:192 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Idle @ 1532472994192
-56:34:376 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Move @ 1532472994376
-56:34:475 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Idle @ 1532472994475
-56:34:626 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Move @ 1532472994626
-56:34:726 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Idle @ 1532472994726
-56:34:860 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Move @ 1532472994860
-56:34:926 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Respawn @ 1532472994926
-56:36:941 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Idle @ 1532472996941
-56:36:975 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Move @ 1532472996975
-56:37:008 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Idle @ 1532472997008
-56:37:109 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Move @ 1532472997108
-56:37:124 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Idle @ 1532472997124
+54:02:675 FileScanner.searchDir() [DEBUG]: +--assets/
+54:02:677 FileScanner.searchDir() [DEBUG]: |  +--data/
+54:02:677 FileScanner.printFile() [DEBUG]: |  |  +--libgdx.png
+54:02:678 FileScanner.printFile() [DEBUG]: |  |  +--loading.pack
+54:02:678 FileScanner.printFile() [DEBUG]: |  |  +--loading.png
+54:02:678 FileScanner.searchDir() [DEBUG]: |  +--default_skin/
+54:02:678 FileScanner.printFile() [DEBUG]: |  |  +--default.fnt
+54:02:678 FileScanner.printFile() [DEBUG]: |  |  +--default.png
+54:02:682 FileScanner.printFile() [DEBUG]: [1;32m#--#--+--uiskin.atlas[0m
+54:02:682 FileScanner.printFile() [DEBUG]: |  |  +--uiskin.json
+54:02:683 FileScanner.printFile() [DEBUG]: |  |  +--uiskin.png
+54:02:683 FileScanner.searchDir() [DEBUG]: |  +--fonts/
+54:02:683 FileScanner.printFile() [DEBUG]: |  |  +--BitPotion Bitmaps Extended.zip
+54:02:683 FileScanner.printFile() [DEBUG]: |  |  +--BitPotion Bitmaps.zip
+54:02:683 FileScanner.printFile() [DEBUG]: |  |  +--BitPotion Full Extended.zip
+54:02:685 FileScanner.printFile() [DEBUG]: |  |  +--BitPotion Full.zip
+54:02:685 FileScanner.printFile() [DEBUG]: |  |  +--BitPotion.ttf
+54:02:685 FileScanner.printFile() [DEBUG]: |  |  +--BitPotionExt.ttf
+54:02:686 FileScanner.printFile() [DEBUG]: |  |  +--magofonts.zip
+54:02:686 FileScanner.printFile() [DEBUG]: |  |  +--SomepxFonts.zip
+54:02:686 FileScanner.printFile() [DEBUG]: |  |  +--SomepxNew.zip
+54:02:686 FileScanner.searchDir() [DEBUG]: |  +--maps/
+54:02:686 FileScanner.searchDir() [DEBUG]: |  |  +--generated/
+54:02:686 FileScanner.printFile() [DEBUG]: |  |  |  +--Level1.tmx
+54:02:686 FileScanner.printFile() [DEBUG]: |  |  |  +--Level2.tmx
+54:02:687 FileScanner.printFile() [DEBUG]: |  |  |  +--TestGrid.tmx
+54:02:687 FileScanner.searchDir() [DEBUG]: |  |  |  +--tileset/
+54:02:687 FileScanner.printFile() [DEBUG]: |  |  |  |  +--Level1.atlas
+54:02:687 FileScanner.printFile() [DEBUG]: |  |  |  |  +--Level1.png
+54:02:687 FileScanner.printFile() [DEBUG]: |  |  |  |  +--Level2.atlas
+54:02:687 FileScanner.printFile() [DEBUG]: |  |  |  |  +--Level2.png
+54:02:687 FileScanner.printFile() [DEBUG]: |  |  |  |  +--TestGrid.atlas
+54:02:687 FileScanner.printFile() [DEBUG]: |  |  |  |  +--TestGrid.png
+54:02:687 FileScanner.searchDir() [DEBUG]: |  |  +--nongen/
+54:02:688 FileScanner.printFile() [DEBUG]: |  |  |  +--Level1.tmx
+54:02:688 FileScanner.printFile() [DEBUG]: |  |  |  +--Level2.tmx
+54:02:688 FileScanner.printFile() [DEBUG]: |  |  |  +--TestGrid.tmx
+54:02:688 FileScanner.printFile() [DEBUG]: |  |  |  +--thingtest.png
+54:02:688 FileScanner.searchDir() [DEBUG]: |  +--sounds/
+54:02:689 FileScanner.printFile() [DEBUG]: |  |  +--Balloon Pop 1.wav
+54:02:689 FileScanner.printFile() [DEBUG]: |  |  +--Balloon ride 1.wav
+54:02:689 FileScanner.printFile() [DEBUG]: |  |  +--Balloon start riding 1.wav
+54:02:689 FileScanner.printFile() [DEBUG]: |  |  +--Balloon start riding 2 (1).wav
+54:02:689 FileScanner.printFile() [DEBUG]: |  |  +--Balloon start riding 2.wav
+54:02:690 FileScanner.printFile() [DEBUG]: |  |  +--Big Egg collect 1.wav
+54:02:690 FileScanner.printFile() [DEBUG]: |  |  +--Block Break 1.wav
+54:02:690 FileScanner.printFile() [DEBUG]: |  |  +--Block Break 2.wav
+54:02:690 FileScanner.printFile() [DEBUG]: |  |  +--Blow 1.wav
+54:02:690 FileScanner.printFile() [DEBUG]: |  |  +--Blow 1V2.mp3
+54:02:690 FileScanner.printFile() [DEBUG]: |  |  +--Blow 1V2.wav
+54:02:691 FileScanner.printFile() [DEBUG]: |  |  +--Blow 2.wav
+54:02:691 FileScanner.printFile() [DEBUG]: |  |  +--Boss hit 1.wav
+54:02:691 FileScanner.printFile() [DEBUG]: |  |  +--Bubble 1.wav
+54:02:691 FileScanner.printFile() [DEBUG]: |  |  +--Bubble heavy 1.wav
+54:02:691 FileScanner.printFile() [DEBUG]: |  |  +--Bubble heavy 2.wav
+54:02:691 FileScanner.printFile() [DEBUG]: |  |  +--Cancel 1.wav
+54:02:691 FileScanner.printFile() [DEBUG]: |  |  +--Confirm 1.wav
+54:02:692 FileScanner.printFile() [DEBUG]: |  |  +--Fruit collect 1.wav
+54:02:692 FileScanner.printFile() [DEBUG]: |  |  +--Hit damage 1.wav
+54:02:692 FileScanner.printFile() [DEBUG]: |  |  +--Jump 1.wav
+54:02:692 FileScanner.printFile() [DEBUG]: |  |  +--Select 1.wav
+54:02:692 FileScanner.printFile() [DEBUG]: |  |  +--Suck 1.wav
+54:02:692 FileScanner.printFile() [DEBUG]: |  |  +--Suck 1V2.wav
+54:02:692 FileScanner.printFile() [DEBUG]: |  |  +--Suck 2.wav
+54:02:693 FileScanner.printFile() [DEBUG]: |  |  +--Text 1.wav
+54:02:693 FileScanner.searchDir() [DEBUG]: |  +--textures/
+54:02:693 FileScanner.searchDir() [DEBUG]: |  |  +--player/
+54:02:694 FileScanner.printFile() [DEBUG]: [1;32m#--#--#--+--player_move.atlas[0m
+54:02:695 FileScanner.printFile() [DEBUG]: |  |  |  +--player_move.png
+54:02:695 FileScanner.printFile() [DEBUG]: |  |  +--Player.png
+54:02:695 FileScanner.searchDir() [DEBUG]: |  |  +--test/
+54:02:695 FileScanner.printFile() [DEBUG]: |  |  |  +--air_0.png
+54:02:695 FileScanner.printFile() [DEBUG]: |  |  |  +--spike_0.png
+54:02:695 FileScanner.printFile() [DEBUG]: |  |  |  +--spike_1.png
+54:02:695 FileScanner.printFile() [DEBUG]: |  |  |  +--spike_2.png
+54:02:695 FileScanner.printFile() [DEBUG]: |  |  |  +--testPlayer.jpg
+54:02:696 FileScanner.printFile() [DEBUG]: |  |  |  +--wall_0.png
+54:02:696 FileScanner.printFile() [DEBUG]: |  |  |  +--wall_1.png
+54:02:696 FileScanner.printFile() [DEBUG]: |  |  |  +--wall_2.png
+54:02:696 FileScanner.printFile() [DEBUG]: |  |  +--thingtest.zip
+54:02:737 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.player.states.Idle
+54:02:738 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.player.states.Move
+54:02:738 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.player.states.Respawn
+54:02:742 GameScreen.show() [DEBUG]: Display started for GameScreen
+54:03:002 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Move @ 1532476443002
+54:03:032 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Idle @ 1532476443032
+54:03:249 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Move @ 1532476443249
+54:03:465 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Idle @ 1532476443465

@@ -18,6 +18,9 @@ public class AnimationLoader {
     private List<String> blacklist = Arrays.asList(
             "..\\assets\\default_skin\\uiskin.atlas");
     
+    
+    private final boolean checkAtlasIndexes = false;
+    
     public AnimationLoader() {
         animations = new HashMap<>();
         textures = new HashMap<>();
@@ -60,10 +63,13 @@ public class AnimationLoader {
             List<TextureAtlas.AtlasRegion> value = stringListEntry.getValue();
             int largestIndex = value.size() - 1;
             Collections.sort(value, (o1, o2) -> o1.index - o2.index);
-            for (TextureAtlas.AtlasRegion region : value) {
-                if (region.index > largestIndex || region.index < 0 && !blacklist.contains(atlasPath)) {
-                    throw new IllegalArgumentException("Check indexes for animation " + stringListEntry.getKey() + " on atlas " + atlasPath);
+            if(checkAtlasIndexes){
+                for (TextureAtlas.AtlasRegion region : value) {
+                    if (region.index > largestIndex || region.index < 0 && !blacklist.contains(atlasPath)) {
+                        throw new IllegalArgumentException("Check indexes for animation " + stringListEntry.getKey() + " on atlas " + atlasPath);
+                    }
                 }
+                
             }
             animations.put(stringListEntry.getKey(), new Animation<>(1 / 15f, value.toArray(new TextureAtlas.AtlasRegion[value.size()])));
         }

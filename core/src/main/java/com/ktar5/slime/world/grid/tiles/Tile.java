@@ -10,19 +10,23 @@ public abstract class Tile {
     public final int x, y;
     private final String id;
     
-    protected Tile(int x, int y){
+    protected Tile(int x, int y) {
         this.id = x + "." + y;
         this.x = x;
         this.y = y;
     }
     
-    public void tick() { }
+    public void tick() {
+    }
     
-    public void onPlayerHitTile(JumpPlayer player, Side hit){ }
+    public void onPlayerHitTile(JumpPlayer player, Side hit) {
+    }
     
-    public void onPlayerTouchSide(JumpPlayer player, Side movement, Side touched){ }
+    public void onPlayerTouchSide(JumpPlayer player, Side movement, Side touched) {
+    }
     
-    public void onPlayerCross(JumpPlayer player){ }
+    public void onPlayerCross(JumpPlayer player) {
+    }
     
     public abstract boolean canCrossThrough(JumpPlayer player, Side movement);
     
@@ -30,5 +34,8 @@ public abstract class Tile {
     
     public abstract TileType getType(Side side);
     
+    public boolean changeMovement(JumpPlayer player, Side movement) {
+        return false;
+    }
 }
 

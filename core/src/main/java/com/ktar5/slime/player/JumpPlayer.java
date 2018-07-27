@@ -17,11 +17,14 @@ import lombok.Setter;
 import org.apache.commons.lang3.builder.ToStringExclude;
 
 @Getter
+@Setter
 public class JumpPlayer extends PlayerEntity {
     @ToStringExclude
     public final SimpleStateMachine<PlayerState> playerState;
-    @Setter
+    
     private Side lastMovedDirection = Side.UP;
+    private boolean small = false;
+    
     
     public JumpPlayer(LoadedLevel level) {
         super(2, 1, 1);

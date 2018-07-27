@@ -67,10 +67,17 @@ public class Move extends PlayerState {
         //This is the variable that stores the tile at the location of the next step
         //THIS COULD BE THE SAME TILE THE PLAYER IS CURRENTLY ON IF THE PLAYER
         //DOESN'T MOVE ENOUGH TO COVER THE DISTANCE INTO A NEW TILE THIS STEP
+        //This is one block into the future, basically
         Tile newTile = grid.tileFromDirection(newX, newY, getMovement());
-        
-        //Check for if the tile that the player would be going into is air or not
-        if (!newTile.canCrossThrough(getPlayer(), Side.ofOpposite(getMovement().x, getMovement().y))) {
+    
+        //In case we want to modify where the player is moving without setting them to idle
+        if(grid.grid[newX][newY].changeMovement(getPlayer(), getMovement())){
+            //TODO test to see if this counts as multiple movements D:
+            getPlayer().getPosition().moveTo(newX, newY);
+            getPlayer().getPosition().translate(SPEED * getMovement().x, SPEED * getMovement().y);
+        }
+        //Check for if the tile that the player WOULD BE GOING INTO is air or not
+        else if (!newTile.canCrossThrough(getPlayer(), getMovement())) {
             //If it is not air, then that means we have reached a wall
             //This little bit of logic (moving to newX, newY) works because
             //if their next movement would've been to a wall, that means they're
@@ -80,13 +87,14 @@ public class Move extends PlayerState {
             //Ex: going to hit a wall, so snap them to block before wall
             getPlayer().getPosition().moveTo(newX, newY);
             
-            
             //Change state to idle
             changeState(Idle.class);
             getPlayer().getEntityAnimator().setFrame(3);
             
-            newTile.onPlayerHitTile(getPlayer(), Side.ofOpposite(getMovement().x, getMovement().y));
-        } else {
+            newTile.onPlayerHitTile(getPlayer(), getMovement().opposite());
+        }
+        //This is for regular movement
+        else {
             //Translate the player's location by SPEED multiplied by the movement direction
             getPlayer().getPosition().translate(SPEED * getMovement().x, SPEED * getMovement().y);
         }

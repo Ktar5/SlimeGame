@@ -1,31 +1,32 @@
 package com.ktar5.slime.player.states;
 
 import com.badlogic.gdx.math.Vector2;
+import com.ktar5.slime.engine.core.EngineManager;
+import com.ktar5.slime.player.JumpPlayer;
+import com.ktar5.slime.utils.iConsumer;
+import lombok.AllArgsConstructor;
 
 public class Idle extends PlayerState {
-    int timeUntilState2;
-    int timeUntilReset;
+    private int timer;
+    private IdleAnimations animations;
     
     @Override
     public void start() {
-        timeUntilState2 = 6;
-        timeUntilReset = 14;
+        timer = 0;
+        animations = IdleAnimations.values()[0];
     }
     
     @Override
     public void onUpdate(float dTime) {
-        getPlayer().getEntityAnimator().setFrame(2);
-        if (timeUntilReset < 0) {
-            getPlayer().getEntityAnimator().setFrame(0);
-        } else if (timeUntilState2 < 0) {
-            getPlayer().getEntityAnimator().setFrame(3);
-        }else{
-            getPlayer().getEntityAnimator().setFrame(2);
+        if (animations.frames != -1 && animations.frames == timer) {
+            timer = 0;
+            if (animations.ordinal() != IdleAnimations.values().length - 1) {
+                animations = IdleAnimations.values()[animations.ordinal() + 1];
+            }
+            animations.action.accept(getPlayer());
+        } else {
+            timer++;
         }
-        
-        timeUntilReset--;
-        timeUntilState2--;
-        
         
         getPlayer().getMovement().update(dTime);
         if (!getPlayer().getMovement().getInput().equals(Vector2.Zero)) {
@@ -38,4 +39,25 @@ public class Idle extends PlayerState {
     protected void end() {
         //none
     }
+    
+    @AllArgsConstructor
+    private enum IdleAnimations {
+        BOUNCE_1((player) -> {
+            player.getEntityAnimator().setFrame(2);
+        }, 6),
+        BOUNCE_2((player) -> {
+            player.getEntityAnimator().setFrame(3);
+        }, 8),
+        IDLE_1((player) -> {
+            player.getEntityAnimator().setAnimation(
+                    EngineManager.get().getAnimationLoader().getAnimation(
+                            "slime_idle_" + player.getLastMovedDirection().name().toLowerCase()
+                    )
+            );
+        }, -1);
+        
+        private iConsumer<JumpPlayer> action;
+        private int frames;
+    }
+    
 }

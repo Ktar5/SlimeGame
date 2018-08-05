@@ -35,6 +35,7 @@ public class SimpleStateMachine<T extends State> extends ObjectMap<Class<? exten
             throw new RuntimeException("You have forgotten to include the initial ability: "
                     + initial.getSimpleName() + " in your playerState list");
         }
+        current.start();
     }
     
     @Override

@@ -1,6 +1,7 @@
 package com.ktar5.slime.player;
 
 
+import com.badlogic.gdx.math.Vector2;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.engine.core.EngineManager;
 import com.ktar5.slime.engine.entities.PlayerEntity;
@@ -23,6 +24,14 @@ public class JumpPlayer extends PlayerEntity {
     public final SimpleStateMachine<PlayerState> playerState;
     
     private Side lastMovedDirection = Side.UP;
+
+    //This variable is for doing movement that may
+    //have been pressed a few frames before it actually
+    //should have been pressed
+    private Vector2 previousNonZeroMovement;
+    
+    //This boolean tells whether the slime should be small
+    //right now or not (for drains/holes)
     private boolean small = false;
     
     

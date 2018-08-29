@@ -2,7 +2,6 @@ package com.ktar5.slime.world.grid.tiles;
 
 import com.ktar5.slime.player.JumpPlayer;
 import com.ktar5.slime.utils.Side;
-import com.ktar5.slime.world.grid.TileType;
 import lombok.Getter;
 
 @Getter
@@ -31,8 +30,6 @@ public abstract class Tile {
     public abstract boolean canCrossThrough(JumpPlayer player, Side movement);
     
     //public abstract Side nextBlockAfterCross(JumpPlayer player, Side movement);
-    
-    public abstract TileType getType(Side side);
     
     public boolean changeMovement(JumpPlayer player, Side movement) {
         return false;

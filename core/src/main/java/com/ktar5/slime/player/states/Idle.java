@@ -18,6 +18,7 @@ public class Idle extends PlayerState {
     
     @Override
     public void onUpdate(float dTime) {
+        //Handle animations
         if (animations.frames != -1 && animations.frames == timer) {
             timer = 0;
             if (animations.ordinal() != IdleAnimations.values().length - 1) {
@@ -27,10 +28,18 @@ public class Idle extends PlayerState {
         } else {
             timer++;
         }
+    
+        //Handle previous non zero movement
+        //Basically this allows us to go straight into a move if input was detected
+        //During the last few frames of movement
+        if (getPlayer().getPreviousNonZeroMovement() != null) {
+            changeState(Move.class);
+            return;
+        }
         
+        //Regular idle updating
         getPlayer().getMovement().update(dTime);
         if (!getPlayer().getMovement().getInput().equals(Vector2.Zero)) {
-            System.out.println(getPlayer().getMovement().getInput());
             this.changeState(Move.class);
         }
     }

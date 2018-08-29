@@ -20,7 +20,7 @@ public final class TileCreator {
         } else if (TileType.WIN.hasId(value)) {
             return new Gate(x, y);
         } else {
-            throw new RuntimeException("You fucked up");
+            throw new RuntimeException("You fucked up at " + x + ", " + y + " with an id of " + value);
         }
     }
     

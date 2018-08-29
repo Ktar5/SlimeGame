@@ -53,7 +53,7 @@ public class SimpleStateMachine<T extends State> extends ObjectMap<Class<? exten
     private void changeState() {
         current.end();
         if (Feature.LOG_STATE_MACHINE.isEnabled()) {
-            Logger.debug("Changing state from " + this.getClass().getSimpleName() + " to " + newState.getSimpleName()
+            Logger.debug("Changing state from " + current.getClass().getSimpleName() + " to " + newState.getSimpleName()
                     + " @ " + System.currentTimeMillis());
         }
         current = this.get(newState);

@@ -4,9 +4,9 @@ import com.badlogic.gdx.utils.IntMap;
 
 public enum TileType {
     AIR(-1),
-    WALL(120),
-    HARMFUL(34),
-    WIN(36),
+    WALL(1256),
+    HARMFUL(385),
+    WIN(343),
     MISC(-2);
     
     private static final IntMap<TileType> tileIds = new IntMap<>();

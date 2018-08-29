@@ -4,12 +4,11 @@ import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.player.JumpPlayer;
 import com.ktar5.slime.utils.Side;
 import com.ktar5.slime.world.Levels;
-import com.ktar5.slime.world.grid.TileType;
 import com.ktar5.slime.world.grid.tiles.WholeTile;
 
 public class Gate extends WholeTile {
     public Gate(int x, int y) {
-        super(x, y, TileType.WIN);
+        super(x, y);
     }
     
     @Override

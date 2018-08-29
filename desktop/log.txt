@@ -1,88 +1,232 @@
-54:02:675 FileScanner.searchDir() [DEBUG]: +--assets/
-54:02:677 FileScanner.searchDir() [DEBUG]: |  +--data/
-54:02:677 FileScanner.printFile() [DEBUG]: |  |  +--libgdx.png
-54:02:678 FileScanner.printFile() [DEBUG]: |  |  +--loading.pack
-54:02:678 FileScanner.printFile() [DEBUG]: |  |  +--loading.png
-54:02:678 FileScanner.searchDir() [DEBUG]: |  +--default_skin/
-54:02:678 FileScanner.printFile() [DEBUG]: |  |  +--default.fnt
-54:02:678 FileScanner.printFile() [DEBUG]: |  |  +--default.png
-54:02:682 FileScanner.printFile() [DEBUG]: [1;32m#--#--+--uiskin.atlas[0m
-54:02:682 FileScanner.printFile() [DEBUG]: |  |  +--uiskin.json
-54:02:683 FileScanner.printFile() [DEBUG]: |  |  +--uiskin.png
-54:02:683 FileScanner.searchDir() [DEBUG]: |  +--fonts/
-54:02:683 FileScanner.printFile() [DEBUG]: |  |  +--BitPotion Bitmaps Extended.zip
-54:02:683 FileScanner.printFile() [DEBUG]: |  |  +--BitPotion Bitmaps.zip
-54:02:683 FileScanner.printFile() [DEBUG]: |  |  +--BitPotion Full Extended.zip
-54:02:685 FileScanner.printFile() [DEBUG]: |  |  +--BitPotion Full.zip
-54:02:685 FileScanner.printFile() [DEBUG]: |  |  +--BitPotion.ttf
-54:02:685 FileScanner.printFile() [DEBUG]: |  |  +--BitPotionExt.ttf
-54:02:686 FileScanner.printFile() [DEBUG]: |  |  +--magofonts.zip
-54:02:686 FileScanner.printFile() [DEBUG]: |  |  +--SomepxFonts.zip
-54:02:686 FileScanner.printFile() [DEBUG]: |  |  +--SomepxNew.zip
-54:02:686 FileScanner.searchDir() [DEBUG]: |  +--maps/
-54:02:686 FileScanner.searchDir() [DEBUG]: |  |  +--generated/
-54:02:686 FileScanner.printFile() [DEBUG]: |  |  |  +--Level1.tmx
-54:02:686 FileScanner.printFile() [DEBUG]: |  |  |  +--Level2.tmx
-54:02:687 FileScanner.printFile() [DEBUG]: |  |  |  +--TestGrid.tmx
-54:02:687 FileScanner.searchDir() [DEBUG]: |  |  |  +--tileset/
-54:02:687 FileScanner.printFile() [DEBUG]: |  |  |  |  +--Level1.atlas
-54:02:687 FileScanner.printFile() [DEBUG]: |  |  |  |  +--Level1.png
-54:02:687 FileScanner.printFile() [DEBUG]: |  |  |  |  +--Level2.atlas
-54:02:687 FileScanner.printFile() [DEBUG]: |  |  |  |  +--Level2.png
-54:02:687 FileScanner.printFile() [DEBUG]: |  |  |  |  +--TestGrid.atlas
-54:02:687 FileScanner.printFile() [DEBUG]: |  |  |  |  +--TestGrid.png
-54:02:687 FileScanner.searchDir() [DEBUG]: |  |  +--nongen/
-54:02:688 FileScanner.printFile() [DEBUG]: |  |  |  +--Level1.tmx
-54:02:688 FileScanner.printFile() [DEBUG]: |  |  |  +--Level2.tmx
-54:02:688 FileScanner.printFile() [DEBUG]: |  |  |  +--TestGrid.tmx
-54:02:688 FileScanner.printFile() [DEBUG]: |  |  |  +--thingtest.png
-54:02:688 FileScanner.searchDir() [DEBUG]: |  +--sounds/
-54:02:689 FileScanner.printFile() [DEBUG]: |  |  +--Balloon Pop 1.wav
-54:02:689 FileScanner.printFile() [DEBUG]: |  |  +--Balloon ride 1.wav
-54:02:689 FileScanner.printFile() [DEBUG]: |  |  +--Balloon start riding 1.wav
-54:02:689 FileScanner.printFile() [DEBUG]: |  |  +--Balloon start riding 2 (1).wav
-54:02:689 FileScanner.printFile() [DEBUG]: |  |  +--Balloon start riding 2.wav
-54:02:690 FileScanner.printFile() [DEBUG]: |  |  +--Big Egg collect 1.wav
-54:02:690 FileScanner.printFile() [DEBUG]: |  |  +--Block Break 1.wav
-54:02:690 FileScanner.printFile() [DEBUG]: |  |  +--Block Break 2.wav
-54:02:690 FileScanner.printFile() [DEBUG]: |  |  +--Blow 1.wav
-54:02:690 FileScanner.printFile() [DEBUG]: |  |  +--Blow 1V2.mp3
-54:02:690 FileScanner.printFile() [DEBUG]: |  |  +--Blow 1V2.wav
-54:02:691 FileScanner.printFile() [DEBUG]: |  |  +--Blow 2.wav
-54:02:691 FileScanner.printFile() [DEBUG]: |  |  +--Boss hit 1.wav
-54:02:691 FileScanner.printFile() [DEBUG]: |  |  +--Bubble 1.wav
-54:02:691 FileScanner.printFile() [DEBUG]: |  |  +--Bubble heavy 1.wav
-54:02:691 FileScanner.printFile() [DEBUG]: |  |  +--Bubble heavy 2.wav
-54:02:691 FileScanner.printFile() [DEBUG]: |  |  +--Cancel 1.wav
-54:02:691 FileScanner.printFile() [DEBUG]: |  |  +--Confirm 1.wav
-54:02:692 FileScanner.printFile() [DEBUG]: |  |  +--Fruit collect 1.wav
-54:02:692 FileScanner.printFile() [DEBUG]: |  |  +--Hit damage 1.wav
-54:02:692 FileScanner.printFile() [DEBUG]: |  |  +--Jump 1.wav
-54:02:692 FileScanner.printFile() [DEBUG]: |  |  +--Select 1.wav
-54:02:692 FileScanner.printFile() [DEBUG]: |  |  +--Suck 1.wav
-54:02:692 FileScanner.printFile() [DEBUG]: |  |  +--Suck 1V2.wav
-54:02:692 FileScanner.printFile() [DEBUG]: |  |  +--Suck 2.wav
-54:02:693 FileScanner.printFile() [DEBUG]: |  |  +--Text 1.wav
-54:02:693 FileScanner.searchDir() [DEBUG]: |  +--textures/
-54:02:693 FileScanner.searchDir() [DEBUG]: |  |  +--player/
-54:02:694 FileScanner.printFile() [DEBUG]: [1;32m#--#--#--+--player_move.atlas[0m
-54:02:695 FileScanner.printFile() [DEBUG]: |  |  |  +--player_move.png
-54:02:695 FileScanner.printFile() [DEBUG]: |  |  +--Player.png
-54:02:695 FileScanner.searchDir() [DEBUG]: |  |  +--test/
-54:02:695 FileScanner.printFile() [DEBUG]: |  |  |  +--air_0.png
-54:02:695 FileScanner.printFile() [DEBUG]: |  |  |  +--spike_0.png
-54:02:695 FileScanner.printFile() [DEBUG]: |  |  |  +--spike_1.png
-54:02:695 FileScanner.printFile() [DEBUG]: |  |  |  +--spike_2.png
-54:02:695 FileScanner.printFile() [DEBUG]: |  |  |  +--testPlayer.jpg
-54:02:696 FileScanner.printFile() [DEBUG]: |  |  |  +--wall_0.png
-54:02:696 FileScanner.printFile() [DEBUG]: |  |  |  +--wall_1.png
-54:02:696 FileScanner.printFile() [DEBUG]: |  |  |  +--wall_2.png
-54:02:696 FileScanner.printFile() [DEBUG]: |  |  +--thingtest.zip
-54:02:737 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.player.states.Idle
-54:02:738 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.player.states.Move
-54:02:738 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.player.states.Respawn
-54:02:742 GameScreen.show() [DEBUG]: Display started for GameScreen
-54:03:002 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Move @ 1532476443002
-54:03:032 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Idle @ 1532476443032
-54:03:249 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Move @ 1532476443249
-54:03:465 SimpleStateMachine.changeState() [DEBUG]: Changing state from SimpleStateMachine to Idle @ 1532476443465
+02:30:073 FileScanner.searchDir() [DEBUG]: +--assets/
+02:30:075 FileScanner.searchDir() [DEBUG]: |  +--data/
+02:30:076 FileScanner.printFile() [DEBUG]: |  |  +--libgdx.png
+02:30:076 FileScanner.printFile() [DEBUG]: |  |  +--loading.pack
+02:30:076 FileScanner.printFile() [DEBUG]: |  |  +--loading.png
+02:30:076 FileScanner.searchDir() [DEBUG]: |  +--default_skin/
+02:30:077 FileScanner.printFile() [DEBUG]: |  |  +--default.fnt
+02:30:077 FileScanner.printFile() [DEBUG]: |  |  +--default.png
+02:30:082 FileScanner.printFile() [DEBUG]: [1;32m#--#--+--uiskin.atlas[0m
+02:30:082 FileScanner.printFile() [DEBUG]: |  |  +--uiskin.json
+02:30:082 FileScanner.printFile() [DEBUG]: |  |  +--uiskin.png
+02:30:083 FileScanner.searchDir() [DEBUG]: |  +--fonts/
+02:30:083 FileScanner.printFile() [DEBUG]: |  |  +--BitPotion Bitmaps Extended.zip
+02:30:083 FileScanner.printFile() [DEBUG]: |  |  +--BitPotion Bitmaps.zip
+02:30:084 FileScanner.printFile() [DEBUG]: |  |  +--BitPotion Full Extended.zip
+02:30:087 FileScanner.printFile() [DEBUG]: |  |  +--BitPotion Full.zip
+02:30:087 FileScanner.printFile() [DEBUG]: |  |  +--BitPotion.ttf
+02:30:088 FileScanner.printFile() [DEBUG]: |  |  +--BitPotionExt.ttf
+02:30:088 FileScanner.printFile() [DEBUG]: |  |  +--magofonts.zip
+02:30:088 FileScanner.printFile() [DEBUG]: |  |  +--SomepxFonts.zip
+02:30:088 FileScanner.printFile() [DEBUG]: |  |  +--SomepxNew.zip
+02:30:088 FileScanner.searchDir() [DEBUG]: |  +--maps/
+02:30:089 FileScanner.searchDir() [DEBUG]: |  |  +--generated/
+02:30:090 FileScanner.printFile() [DEBUG]: |  |  |  +--Level1.tmx
+02:30:090 FileScanner.printFile() [DEBUG]: |  |  |  +--Level2.tmx
+02:30:090 FileScanner.printFile() [DEBUG]: |  |  |  +--TestGrid.tmx
+02:30:090 FileScanner.printFile() [DEBUG]: |  |  |  +--Testlevel.tmx
+02:30:090 FileScanner.searchDir() [DEBUG]: |  |  |  +--tileset/
+02:30:091 FileScanner.printFile() [DEBUG]: |  |  |  |  +--Level1.atlas
+02:30:091 FileScanner.printFile() [DEBUG]: |  |  |  |  +--Level1.png
+02:30:091 FileScanner.printFile() [DEBUG]: |  |  |  |  +--Level2.atlas
+02:30:091 FileScanner.printFile() [DEBUG]: |  |  |  |  +--Level2.png
+02:30:092 FileScanner.printFile() [DEBUG]: |  |  |  |  +--TestGrid.atlas
+02:30:092 FileScanner.printFile() [DEBUG]: |  |  |  |  +--TestGrid.png
+02:30:092 FileScanner.printFile() [DEBUG]: |  |  |  |  +--Testlevel.atlas
+02:30:092 FileScanner.printFile() [DEBUG]: |  |  |  |  +--Testlevel.png
+02:30:092 FileScanner.searchDir() [DEBUG]: |  |  +--nongen/
+02:30:093 FileScanner.printFile() [DEBUG]: |  |  |  +--Full Tileset.png
+02:30:093 FileScanner.printFile() [DEBUG]: |  |  |  +--Level1.tmx
+02:30:093 FileScanner.printFile() [DEBUG]: |  |  |  +--Level2.tmx
+02:30:093 FileScanner.printFile() [DEBUG]: |  |  |  +--TestGrid.tmx
+02:30:093 FileScanner.printFile() [DEBUG]: |  |  |  +--Testlevel.tmx
+02:30:094 FileScanner.searchDir() [DEBUG]: |  |  +--tileset/
+02:30:094 FileScanner.printFile() [DEBUG]: |  |  |  +--Full Tileset.png
+02:30:094 FileScanner.printFile() [DEBUG]: |  |  |  +--GameplayTileset.png
+02:30:094 FileScanner.printFile() [DEBUG]: |  |  |  +--Slime All Tiles.tsx
+02:30:094 FileScanner.searchDir() [DEBUG]: |  +--sounds/
+02:30:095 FileScanner.printFile() [DEBUG]: |  |  +--Balloon Pop 1.wav
+02:30:095 FileScanner.printFile() [DEBUG]: |  |  +--Balloon ride 1.wav
+02:30:095 FileScanner.printFile() [DEBUG]: |  |  +--Balloon start riding 1.wav
+02:30:095 FileScanner.printFile() [DEBUG]: |  |  +--Balloon start riding 2 (1).wav
+02:30:095 FileScanner.printFile() [DEBUG]: |  |  +--Balloon start riding 2.wav
+02:30:095 FileScanner.printFile() [DEBUG]: |  |  +--Big Egg collect 1.wav
+02:30:095 FileScanner.printFile() [DEBUG]: |  |  +--Block Break 1.wav
+02:30:095 FileScanner.printFile() [DEBUG]: |  |  +--Block Break 2.wav
+02:30:095 FileScanner.printFile() [DEBUG]: |  |  +--Blow 1.wav
+02:30:096 FileScanner.printFile() [DEBUG]: |  |  +--Blow 1V2.mp3
+02:30:096 FileScanner.printFile() [DEBUG]: |  |  +--Blow 1V2.wav
+02:30:096 FileScanner.printFile() [DEBUG]: |  |  +--Blow 2.wav
+02:30:096 FileScanner.printFile() [DEBUG]: |  |  +--Boss hit 1.wav
+02:30:096 FileScanner.printFile() [DEBUG]: |  |  +--Bubble 1.wav
+02:30:096 FileScanner.printFile() [DEBUG]: |  |  +--Bubble heavy 1.wav
+02:30:096 FileScanner.printFile() [DEBUG]: |  |  +--Bubble heavy 2.wav
+02:30:096 FileScanner.printFile() [DEBUG]: |  |  +--Cancel 1.wav
+02:30:097 FileScanner.printFile() [DEBUG]: |  |  +--Confirm 1.wav
+02:30:097 FileScanner.printFile() [DEBUG]: |  |  +--Fruit collect 1.wav
+02:30:097 FileScanner.printFile() [DEBUG]: |  |  +--Hit damage 1.wav
+02:30:097 FileScanner.printFile() [DEBUG]: |  |  +--Jump 1.wav
+02:30:097 FileScanner.printFile() [DEBUG]: |  |  +--Select 1.wav
+02:30:097 FileScanner.printFile() [DEBUG]: |  |  +--Suck 1.wav
+02:30:098 FileScanner.printFile() [DEBUG]: |  |  +--Suck 1V2.wav
+02:30:098 FileScanner.printFile() [DEBUG]: |  |  +--Suck 2.wav
+02:30:098 FileScanner.printFile() [DEBUG]: |  |  +--Text 1.wav
+02:30:098 FileScanner.searchDir() [DEBUG]: |  +--textures/
+02:30:099 FileScanner.printFile() [DEBUG]: |  |  +--defaulttexture.png
+02:30:099 FileScanner.searchDir() [DEBUG]: |  |  +--player/
+02:30:104 FileScanner.printFile() [DEBUG]: [1;32m#--#--#--+--Slime.atlas[0m
+02:30:104 FileScanner.printFile() [DEBUG]: |  |  |  +--Slime.png
+02:30:104 FileScanner.searchDir() [DEBUG]: |  |  +--unatlased/
+02:30:105 FileScanner.printFile() [DEBUG]: |  |  |  +--slime_death_down_01.png
+02:30:106 FileScanner.printFile() [DEBUG]: |  |  |  +--slime_death_left_01.png
+02:30:106 FileScanner.printFile() [DEBUG]: |  |  |  +--slime_death_right_01.png
+02:30:106 FileScanner.printFile() [DEBUG]: |  |  |  +--slime_death_up_01.png
+02:30:106 FileScanner.printFile() [DEBUG]: |  |  |  +--slime_idle_down_01.png
+02:30:107 FileScanner.printFile() [DEBUG]: |  |  |  +--slime_idle_left_01.png
+02:30:107 FileScanner.printFile() [DEBUG]: |  |  |  +--slime_idle_right_01.png
+02:30:107 FileScanner.printFile() [DEBUG]: |  |  |  +--slime_idle_up_01.png
+02:30:107 FileScanner.printFile() [DEBUG]: |  |  |  +--slime_jump_down_01.png
+02:30:107 FileScanner.printFile() [DEBUG]: |  |  |  +--slime_jump_down_02.png
+02:30:108 FileScanner.printFile() [DEBUG]: |  |  |  +--slime_jump_down_03.png
+02:30:108 FileScanner.printFile() [DEBUG]: |  |  |  +--slime_jump_down_04.png
+02:30:108 FileScanner.printFile() [DEBUG]: |  |  |  +--slime_jump_left_01.png
+02:30:108 FileScanner.printFile() [DEBUG]: |  |  |  +--slime_jump_left_02.png
+02:30:108 FileScanner.printFile() [DEBUG]: |  |  |  +--slime_jump_left_03.png
+02:30:109 FileScanner.printFile() [DEBUG]: |  |  |  +--slime_jump_left_04.png
+02:30:109 FileScanner.printFile() [DEBUG]: |  |  |  +--slime_jump_right_01.png
+02:30:109 FileScanner.printFile() [DEBUG]: |  |  |  +--slime_jump_right_02.png
+02:30:109 FileScanner.printFile() [DEBUG]: |  |  |  +--slime_jump_right_03.png
+02:30:109 FileScanner.printFile() [DEBUG]: |  |  |  +--slime_jump_right_04.png
+02:30:109 FileScanner.printFile() [DEBUG]: |  |  |  +--slime_jump_up_01.png
+02:30:110 FileScanner.printFile() [DEBUG]: |  |  |  +--slime_jump_up_02.png
+02:30:110 FileScanner.printFile() [DEBUG]: |  |  |  +--slime_jump_up_03.png
+02:30:111 FileScanner.printFile() [DEBUG]: |  |  |  +--slime_jump_up_04.png
+02:30:168 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.player.states.Idle
+02:30:168 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.player.states.Move
+02:30:169 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.player.states.Respawn
+02:30:175 GameScreen.show() [DEBUG]: Display started for GameScreen
+02:31:227 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562151227
+02:31:258 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562151258
+02:31:275 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562151275
+02:31:291 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562151291
+02:31:508 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562151508
+02:31:675 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562151675
+02:31:808 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562151808
+02:31:875 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562151875
+02:31:975 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562151975
+02:32:075 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562152075
+02:32:158 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562152158
+02:32:358 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562152358
+02:32:375 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562152375
+02:32:574 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562152574
+02:32:624 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562152624
+02:32:757 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562152757
+02:32:790 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562152790
+02:32:857 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.player.states.Idle
+02:32:857 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.player.states.Move
+02:32:857 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.player.states.Respawn
+02:32:857 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562152857
+02:33:538 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562153538
+02:33:638 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562153638
+02:33:671 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562153671
+02:33:804 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562153804
+02:33:821 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562153821
+02:33:887 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562153887
+02:34:037 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562154037
+02:34:070 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562154070
+02:34:187 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562154187
+02:34:287 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562154287
+02:34:320 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562154320
+02:34:354 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562154354
+02:34:487 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562154487
+02:34:754 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562154754
+02:34:770 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562154770
+02:34:870 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562154870
+02:34:887 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562154887
+02:34:987 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562154987
+02:35:170 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562155170
+02:35:404 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562155404
+02:35:420 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562155420
+02:35:520 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562155520
+02:35:637 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562155637
+02:35:704 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562155704
+02:35:837 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562155837
+02:35:970 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562155970
+02:36:020 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562156020
+02:36:354 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562156353
+02:36:370 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562156370
+02:36:569 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562156569
+02:36:619 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562156619
+02:36:653 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562156653
+02:37:037 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562157037
+02:37:136 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562157136
+02:37:220 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562157220
+02:37:253 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Respawn @ 1535562157253
+02:39:269 SimpleStateMachine.changeState() [DEBUG]: Changing state from Respawn to Idle @ 1535562159269
+02:39:836 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562159836
+02:39:935 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562159935
+02:39:985 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562159985
+02:40:118 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562160118
+02:40:335 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562160335
+02:40:402 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562160402
+02:40:819 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562160819
+02:40:852 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562160852
+02:40:969 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562160969
+02:41:068 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562161068
+02:41:135 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562161135
+02:41:169 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562161169
+02:41:302 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562161302
+02:41:568 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562161568
+02:41:585 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562161585
+02:41:685 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562161685
+02:41:702 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562161702
+02:41:802 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562161801
+02:41:902 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562161902
+02:42:135 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562162135
+02:42:151 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562162151
+02:42:251 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562162251
+02:42:617 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562162617
+02:42:684 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562162684
+02:42:801 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562162801
+02:42:934 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562162934
+02:42:967 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562162967
+02:43:300 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562163300
+02:43:317 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562163317
+02:43:517 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562163517
+02:43:551 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562163551
+02:43:584 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562163584
+02:43:768 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562163768
+02:43:867 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562163867
+02:43:934 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562163934
+02:44:067 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562164067
+02:44:151 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562164151
+02:44:251 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562164251
+02:44:517 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562164517
+02:44:584 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562164584
+02:44:701 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562164701
+02:45:167 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562165167
+02:45:217 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562165217
+02:45:384 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562165384
+02:45:467 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562165467
+02:45:500 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562165500
+02:45:667 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562165667
+02:45:767 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562165767
+02:45:850 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562165850
+02:45:884 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562165884
+02:46:067 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562166067
+02:46:100 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562166100
+02:46:234 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562166234
+02:46:433 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562166433
+02:46:533 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562166533
+02:46:633 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562166632
+02:46:733 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562166733
+02:46:832 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562166832
+02:46:867 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562166867
+02:46:932 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562166932
+02:46:983 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562166983
+02:47:082 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562167082
+02:47:233 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1535562167233
+02:47:434 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.player.states.Idle
+02:47:434 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.player.states.Move
+02:47:434 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.player.states.Respawn
+02:47:434 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1535562167434

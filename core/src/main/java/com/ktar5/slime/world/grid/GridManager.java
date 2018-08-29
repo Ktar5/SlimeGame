@@ -2,11 +2,9 @@ package com.ktar5.slime.world.grid;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
-import com.ktar5.slime.engine.Const;
 import com.ktar5.slime.engine.core.EngineManager;
 import com.ktar5.slime.engine.rendering.Renderable;
 import com.ktar5.slime.engine.util.Updatable;
-import com.ktar5.slime.utils.Side;
 import com.ktar5.slime.world.grid.tiles.Tile;
 import lombok.Getter;
 
@@ -40,10 +38,10 @@ public class GridManager implements Updatable, Renderable {
                     continue;
                 }
                 Tile tile = grid.grid[i][k];
-                batch.draw(tile.getType(Side.DOWN) == TileType.WALL ? wall : air,
-                        tile.x - .5f, tile.y - .5f, 0, 0, 16, 16,
-                        1 / Const.SCALE, 1 / Const.SCALE, 0
-                );
+//                batch.draw(tile.getType(Side.DOWN) == TileType.WALL ? wall : air,
+//                        tile.x - .5f, tile.y - .5f, 0, 0, 16, 16,
+//                        1 / Const.SCALE, 1 / Const.SCALE, 0
+//                );
             }
         }
     }

@@ -20,7 +20,7 @@ import java.util.Iterator;
 
 @Getter
 public class Level {
-    private static final boolean showDebugLevel = true;
+    private static boolean showDebugLevel = false;
 
     private final HashSet<String> lamePropertyNames = new HashSet<>(Arrays.asList(
             "width", "id", "height", "x", "y"
@@ -37,8 +37,9 @@ public class Level {
         initializeGrid();
     }
 
-    public void createLoadedLevel() {
-
+    public void setLevelDebug(boolean debug){
+        showDebugLevel = debug;
+        tileMap.getLayers().get("Gameplay").setVisible(debug);
     }
 
     private void initializeGrid() {

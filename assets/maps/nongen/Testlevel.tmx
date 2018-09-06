@@ -78,7 +78,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer name="Gameplay" width="50" height="34">
+ <layer name="Gameplay" width="50" height="34" visible="0">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -117,20 +117,16 @@
 </data>
  </layer>
  <objectgroup name="Properties">
-  <properties>
-   <property name="onHit">toggleGate(26,12;26,13)
-setGraphic(45,23,Art_Top,239)</property>
-  </properties>
   <object id="1" x="400" y="176" width="16" height="16">
    <properties>
     <property name="onPass">setGate(26,12,open;26,13,open)
-setGraphic(26,12,Art_Top,238)</property>
+setGraphic(26,12,Art_Top,238;25,11,Art_Top,343)</property>
    </properties>
   </object>
   <object id="6" x="736" y="368" width="16" height="16">
    <properties>
     <property name="onHit">setGate(17,19,open;16,19,open)
-setGraphic(17,19,Art_Top,238;45,23,Art_Top,238)</property>
+setGraphic(17,19,Art_Top,352;45,23,Art_Top,3)</property>
    </properties>
   </object>
   <object id="8" x="240" y="240" width="16" height="16">

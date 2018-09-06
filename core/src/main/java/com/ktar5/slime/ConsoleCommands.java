@@ -35,6 +35,10 @@ public class ConsoleCommands extends CommandExecutor {
 
     }
 
+    public final void debugLevel(boolean value){
+        SlimeGame.getGame().getLevelHandler().getCurrentLevel().setLevelDebug(value);
+    }
+
     public final void restartLevel() {
         SlimeGame.getGame().getLevelHandler().getCurrentLevel().getPlayer().getPlayerState().changeStateAfterUpdate(Respawn.class);
     }

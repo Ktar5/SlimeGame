@@ -27,9 +27,9 @@ public final class Events {
         int y = currentLevel.getGrid().height - 1 - Integer.valueOf(yString);
         int tileID = Integer.valueOf(tilesetID);
         TiledMapTileLayer mapLayer = ((TiledMapTileLayer) currentLevel.getTileMap().getLayers().get(layer));
-        mapLayer.setCell(x, y, null);
-        //mapLayer.getCell(x,y).setTile(currentLevel.getTileMap().getTileSets().getTile(tileID));
-        //mapLayer.getCell(x, y).getTile().setTextureRegion(currentLevel.getTileMap().getTileSets().getTile(tileID).getTextureRegion());
+        TiledMapTileLayer.Cell cell = mapLayer.getCell(x, y);
+        currentLevel.addEdit(x, y, layer, cell.getTile().getId());
+        cell.setTile(currentLevel.getTileMap().getTileSets().getTile(tileID + 1));
     }
 
 }

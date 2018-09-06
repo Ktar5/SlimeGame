@@ -16,7 +16,7 @@ public class LoadedLevel extends Level implements Updatable {
     private ArrayList<LevelEdit> edits;
 
     public LoadedLevel(Level level) {
-        super(level.tileMap, level.levelRef);
+        super(level.tileMap, level.id);
         this.grid = level.grid;
         this.spawn = level.spawn;
         this.edits = new ArrayList<>();

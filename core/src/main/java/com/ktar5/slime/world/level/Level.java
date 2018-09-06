@@ -27,12 +27,12 @@ public class Level {
     ));
     protected Pair spawn;
     protected TiledMap tileMap;
-    protected LevelRef levelRef;
+    protected int id;
     protected Grid grid;
 
-    public Level(TiledMap tilemap, LevelRef levelRef) {
+    public Level(TiledMap tilemap, int id) {
         this.tileMap = tilemap;
-        this.levelRef = levelRef;
+        this.id = id;
 
         initializeGrid();
     }
@@ -43,7 +43,7 @@ public class Level {
     }
 
     private void initializeGrid() {
-        System.out.println("Loading level: " + levelRef.path);
+        System.out.println("Loading level: " + id);
 
         LevelLoadingChecker check = new LevelLoadingChecker();
 
@@ -133,7 +133,7 @@ public class Level {
         //Load entities
         // TODO
 
-        System.out.println("Finished loading level: " + levelRef.path);
+        System.out.println("Finished loading level: " + id);
     }
 
     public void loadSpecialCase(TileType tileType, int w, int h, TiledMapTileLayer.Cell cell) {

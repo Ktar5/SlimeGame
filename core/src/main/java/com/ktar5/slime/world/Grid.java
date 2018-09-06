@@ -55,7 +55,9 @@ public class Grid implements Updatable {
         playerTouchSideOfTile(x, y, player, Side.DOWN);
         playerTouchSideOfTile(x, y, player, Side.LEFT);
         playerTouchSideOfTile(x, y, player, Side.RIGHT);
-        grid[x][y].onPlayerCross(player);
+        if (isInMapRange(x, y)) {
+            grid[x][y].onPlayerCross(player);
+        }
     }
 
     public Tile[] getSurrounding(int x, int y) {

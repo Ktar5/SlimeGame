@@ -4,7 +4,6 @@ import com.ktar5.slime.engine.Feature;
 import com.ktar5.slime.engine.console.CommandExecutor;
 import com.ktar5.slime.engine.console.LogLevel;
 import com.ktar5.slime.player.states.Respawn;
-import com.ktar5.slime.world.level.LevelRef;
 
 public class ConsoleCommands extends CommandExecutor {
 
@@ -28,14 +27,14 @@ public class ConsoleCommands extends CommandExecutor {
     }
 
     public final void reset() {
-
+        SlimeGame.getGame().getLevelHandler().getCurrentLevel().reset();
     }
 
     public final void teleport(int x, int y) {
-
+        SlimeGame.getGame().getLevelHandler().getCurrentLevel().getPlayer().getPosition().set(x, y);
     }
 
-    public final void debugLevel(boolean value){
+    public final void debugLevel(boolean value) {
         SlimeGame.getGame().getLevelHandler().getCurrentLevel().setLevelDebug(value);
     }
 
@@ -44,22 +43,16 @@ public class ConsoleCommands extends CommandExecutor {
     }
 
     public final void skipLevel() {
-        int ordinal = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getLevelRef().ordinal();
-        ordinal += 1;
-        if (ordinal > LevelRef.values().length - 1) {
-            ordinal = 0;
-        }
-        SlimeGame.getGame().getLevelHandler().setLevel(LevelRef.values()[ordinal]);
+        SlimeGame.getGame().getLevelHandler().advanceLevel();
     }
 
     public final void skipToLevel(int level) {
         try {
-            LevelRef levelObj = LevelRef.values()[level];
-            console.log("Skipping to level: '" + levelObj.name(), LogLevel.SUCCESS);
-            SlimeGame.getGame().getLevelHandler().setLevel(levelObj);
+            SlimeGame.getGame().getLevelHandler().setLevel(level);
+            console.log("Skipping to level: '" + level, LogLevel.SUCCESS);
         } catch (IllegalArgumentException e) {
-            console.log("Level with name: " + level + " not found. Max = " + (LevelRef.values().length - 1),
-                    LogLevel.ERROR);
+            console.log("Level with name: " + level + " not found. Max = "
+                    + (SlimeGame.getGame().getLevelHandler().getLevelCount() - 1), LogLevel.ERROR);
         }
     }
 

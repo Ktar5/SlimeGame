@@ -10,33 +10,45 @@ import com.ktar5.slime.engine.rendering.Renderable;
 import com.ktar5.slime.engine.util.Updatable;
 import com.ktar5.slime.variables.Constants;
 import com.ktar5.slime.world.CustomTmxMapLoader;
+import com.ktar5.utilities.common.util.CollectingFileScanner;
 import lombok.Getter;
 
-import java.util.EnumMap;
+import java.io.File;
+import java.util.List;
 
 public class LevelHandler implements Renderable, Updatable {
-    private EnumMap<LevelRef, Level> levels;
+    private Level[] levels;
     private OrthogonalTiledMapRenderer tileMapRenderer;
     @Getter
     private LoadedLevel currentLevel;
 
     public LevelHandler() {
         loadMaps();
-        setLevel(LevelRef.values()[0]);
+        setLevel(0);
     }
 
     public void resetLevel() {
         currentLevel.reset();
     }
 
-    public void setLevel(LevelRef levelRef) {
-        currentLevel = new LoadedLevel(levels.get(levelRef));
+    public void setLevel(int levelIndex) {
+        currentLevel = new LoadedLevel(levels[levelIndex]);
         tileMapRenderer = new OrthogonalTiledMapRenderer(currentLevel.getTileMap(), Constants.MAP_SCALE,
                 EngineManager.get().getRenderManager().getSpriteBatch());
     }
 
+    public void advanceLevel(){
+        setLevel((currentLevel.id + 1) % levels.length);
+    }
+
+    public int getLevelCount(){
+        return levels.length;
+    }
+
     private void loadMaps() {
-        levels = new EnumMap<>(LevelRef.class);
+        File mapsFolder = new File("../assets/maps/");
+        List<File> fileList = new CollectingFileScanner(mapsFolder, (file) -> file.getName().endsWith(".tmx")).getFiles();
+        levels = new Level[fileList.size()];
 
         TmxMapLoader.Parameters params = new TmxMapLoader.Parameters();
         params.textureMinFilter = Texture.TextureFilter.Linear;
@@ -46,12 +58,17 @@ public class LevelHandler implements Renderable, Updatable {
         CustomTmxMapLoader loader = new CustomTmxMapLoader();
         TiledMap tiledMap;
 
-        for (LevelRef levelRef : LevelRef.values()) {
-            tiledMap = loader.load("maps/nongen/" + levelRef.path + ".tmx", params);
-            levels.put(levelRef, new Level(tiledMap, levelRef));
+        for (File file : fileList) {
+            int index = Integer.valueOf(
+                    file.getName().replace(".tmx", "").replace("Level", "")
+            );
+            if(index > fileList.size()){
+                throw new RuntimeException("Error loading level: " + index + ". Its index is too high.");
+            }
+            tiledMap = loader.load("maps/" + file.getName(), params);
+            levels[index] = new Level(tiledMap, index);
         }
     }
-
 
     public int getSpawnX() {
         return currentLevel.getSpawnX();

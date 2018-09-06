@@ -12,8 +12,7 @@ import com.ktar5.slime.engine.core.AbstractScreen;
 import com.ktar5.slime.engine.core.EngineManager;
 import com.ktar5.slime.screens.GameScreen;
 import com.ktar5.slime.variables.Constants;
-import com.ktar5.slime.world.LevelHandler;
-import com.ktar5.slime.world.Levels;
+import com.ktar5.slime.world.level.LevelHandler;
 import lombok.Getter;
 
 @Getter
@@ -34,7 +33,7 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
     public void initialize() {
         this.engineManager.getConsole().setDisplayKeyID(Input.Keys.GRAVE);
         
-        levelHandler = new LevelHandler(Levels.TEST);
+        levelHandler = new LevelHandler();
     }
     
     @Override

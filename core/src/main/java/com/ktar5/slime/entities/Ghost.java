@@ -5,7 +5,7 @@ import com.ktar5.slime.engine.entities.components.EntityAnimator;
 import lombok.Getter;
 
 @Getter
-public class Ghost extends Entity  {
+public class Ghost extends Entity {
     private GhostMove direction;
     private boolean positive;
 

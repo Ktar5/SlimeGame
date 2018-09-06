@@ -3,14 +3,16 @@ package com.ktar5.slime.utils.statemachine;
 import com.badlogic.gdx.utils.ObjectMap;
 import com.ktar5.slime.engine.Feature;
 import com.ktar5.slime.engine.util.Updatable;
+import lombok.Getter;
 import org.pmw.tinylog.Logger;
 
 import java.lang.reflect.InvocationTargetException;
 
 public class SimpleStateMachine<T extends State> extends ObjectMap<Class<? extends T>, T> implements Updatable {
+    @Getter
     private T current;
     private Class<? extends T> newState;
-    
+
     @SafeVarargs
     public SimpleStateMachine(Class<? extends T> initial, Class<? extends T>... stateClasses) {
         super(stateClasses.length);
@@ -37,19 +39,19 @@ public class SimpleStateMachine<T extends State> extends ObjectMap<Class<? exten
         }
         current.start();
     }
-    
+
     @Override
     public void update(float dTime) {
         current.update(dTime);
-        if(newState != null){
+        if (newState != null) {
             changeState();
         }
     }
-    
+
     public void changeStateAfterUpdate(Class<? extends T> state) {
         newState = state;
     }
-    
+
     private void changeState() {
         current.end();
         if (Feature.LOG_STATE_MACHINE.isEnabled()) {
@@ -60,5 +62,5 @@ public class SimpleStateMachine<T extends State> extends ObjectMap<Class<? exten
         this.get(newState).start();
         newState = null;
     }
-    
+
 }

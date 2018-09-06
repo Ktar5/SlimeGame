@@ -5,52 +5,51 @@ import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.engine.Feature;
 import com.ktar5.slime.engine.core.EngineManager;
 import com.ktar5.slime.utils.Side;
-import com.ktar5.slime.world.grid.Grid;
-import com.ktar5.slime.world.grid.tiles.Tile;
+import com.ktar5.slime.world.Grid;
+import com.ktar5.slime.world.tiles.base.Tile;
 import org.pmw.tinylog.Logger;
 
 public class Move extends PlayerState {
     private static final int preMovementFrames = 4;
-    private int preMovementFrameCount = preMovementFrames;
-    
     private static final float SPEED = .5f;
     int blocksMoved = 0;
-    
+    private int preMovementFrameCount = preMovementFrames;
+
     @Override
     public void start() {
         Vector2 input;
-        if(getPlayer().getPreviousNonZeroMovement() != null){
+        if (getPlayer().getPreviousNonZeroMovement() != null) {
             input = getPlayer().getPreviousNonZeroMovement();
             getPlayer().setPreviousNonZeroMovement(null);
-        }else{
+        } else {
             input = getPlayer().getMovement().getInput();
         }
-        
+
         input.set((int) Math.ceil(input.x), (int) Math.ceil(input.y));
-        
+
         //If something somehow messed up, let's fix it
         if (input.equals(Vector2.Zero)) {
             end();
             changeState(Idle.class);
         }
-        
+
         //Make sure we only move in ONE direction (x or y)
         if (input.x != 0)
             input.set(input.x, 0);
         else
             input.set(0, input.y);
-        
+
         //Reset the last moved direction
         getPlayer().setLastMovedDirection(Side.of((int) input.x, (int) input.y));
-        
+
         //Reset the # of blocks moved
         blocksMoved = 0;
-        
+
         //Set animation to beginning of jump animation
         getPlayer().getEntityAnimator().setManualAnimation(EngineManager.get().getAnimationLoader().getAnimation("slime_jump_"
                 + getMovement().name().toLowerCase()), 0);
     }
-    
+
     @Override
     public void onUpdate(float dTime) {
         //This piece of code is used to predict the movement of the player
@@ -58,23 +57,23 @@ public class Move extends PlayerState {
         if (!getPlayer().getMovement().getInput().equals(Vector2.Zero)) { //if a non-zero input detected
             preMovementFrameCount = preMovementFrames;
             getPlayer().setPreviousNonZeroMovement(getPlayer().getMovement().getInput().cpy());
-        }else if(preMovementFrameCount == 0){
+        } else if (preMovementFrameCount == 0) {
             getPlayer().setPreviousNonZeroMovement(null);
-        }else{
+        } else {
             preMovementFrameCount--;
         }
-        
-        
+
+
         final Grid grid = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getGrid();
-        
+
         //Get the position that we WOULD BE MOVING TO IF EVERYTHING GOES WELL so that we can use it
         //as a reference for where we want to go.
         Vector2 newPosition = getPlayer().getPosition().cpy().add((SPEED * getMovement().x), (SPEED * getMovement().y));
-        
+
         //Initialize some integer variables to represent block locations of these variables
         //For example x/y are current x/y block and newX/newY are future x/y block
         int x, y, newX, newY;
-        
+
         //Because of the nature of the grid having the bottom left corner of each tile represent the
         //block integer location (tile 1,2 STARTS at the coordinates 1,2)
         //
@@ -92,7 +91,7 @@ public class Move extends PlayerState {
             newX = (int) Math.floor(newPosition.x);
             newY = (int) Math.floor(newPosition.y);
         }
-        
+
         if (Feature.LOG_MOVEMENT.isEnabled()) {
             Logger.debug("");
             Logger.debug("Old: " + x + ", " + y + " // " + getPlayer().getPosition().x + ", " + getPlayer().getPosition().y);
@@ -102,7 +101,10 @@ public class Move extends PlayerState {
         //DOESN'T MOVE ENOUGH TO COVER THE DISTANCE INTO A NEW TILE THIS STEP
         //This is one block into the future, basically
         Tile newTile = grid.tileFromDirection(newX, newY, getMovement());
-        
+        if (newTile == null) {
+            System.out.println(newX + " " + newY);
+
+        }
         //In case we want to modify where the player is moving without setting them to idle
         if (grid.grid[newX][newY].changeMovement(getPlayer(), getMovement())) {
             //TODO test to see if this counts as multiple movements D:
@@ -119,11 +121,11 @@ public class Move extends PlayerState {
             //
             //Ex: going to hit a wall, so snap them to block before wall
             getPlayer().getPosition().moveTo(newX, newY);
-            
+
             //Change state to idle
             changeState(Idle.class);
             getPlayer().getEntityAnimator().setFrame(3);
-            
+
             newTile.onPlayerHitTile(getPlayer(), getMovement().opposite());
         }
         //This is for regular movement
@@ -131,27 +133,27 @@ public class Move extends PlayerState {
             //Translate the player's location by SPEED multiplied by the movement direction
             getPlayer().getPosition().translate(SPEED * getMovement().x, SPEED * getMovement().y);
         }
-        
+
         //Keeps count of tiles crossed for the animation
         if (newX != x || newY != y) {
             blocksMoved++;
             getPlayer().getEntityAnimator().setFrame(1);
         }
-        
+
         if (Feature.LOG_MOVEMENT.isEnabled()) {
             Logger.debug("New: " + newX + ", " + newY + " // " + newPosition.x + ", " + newPosition.y);
             Logger.debug("Blocks moved: " + blocksMoved);
         }
     }
-    
-    
+
+
     @Override
     protected void end() {
-    
+
     }
-    
+
     public Side getMovement() {
         return getPlayer().getLastMovedDirection();
     }
-    
+
 }

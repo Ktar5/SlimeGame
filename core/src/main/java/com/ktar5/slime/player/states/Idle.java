@@ -9,13 +9,13 @@ import lombok.AllArgsConstructor;
 public class Idle extends PlayerState {
     private int timer;
     private IdleAnimations animations;
-    
+
     @Override
     public void start() {
         timer = 0;
         animations = IdleAnimations.values()[0];
     }
-    
+
     @Override
     public void onUpdate(float dTime) {
         //Handle animations
@@ -28,7 +28,7 @@ public class Idle extends PlayerState {
         } else {
             timer++;
         }
-    
+
         //Handle previous non zero movement
         //Basically this allows us to go straight into a move if input was detected
         //During the last few frames of movement
@@ -36,19 +36,19 @@ public class Idle extends PlayerState {
             changeState(Move.class);
             return;
         }
-        
+
         //Regular idle updating
         getPlayer().getMovement().update(dTime);
         if (!getPlayer().getMovement().getInput().equals(Vector2.Zero)) {
             this.changeState(Move.class);
         }
     }
-    
+
     @Override
     protected void end() {
         //none
     }
-    
+
     @AllArgsConstructor
     private enum IdleAnimations {
         BOUNCE_1((player) -> {
@@ -64,9 +64,9 @@ public class Idle extends PlayerState {
                     )
             );
         }, -1);
-        
+
         private iConsumer<JumpPlayer> action;
         private int frames;
     }
-    
+
 }

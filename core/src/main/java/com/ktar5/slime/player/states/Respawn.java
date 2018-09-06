@@ -15,23 +15,23 @@ public class Respawn extends PlayerState {
                 getPlayer().getPosition().set(SlimeGame.getGame().getLevelHandler().getSpawnX(),
                         SlimeGame.getGame().getLevelHandler().getSpawnY());
                 getPlayer().resetAnimation("slime_jump_down");
-    
-                System.out.println("Testetetetetetetet");
+
                 getThis().changeState(Idle.class);
+                SlimeGame.getGame().getLevelHandler().resetLevel();
             }
         }, 2f);
     }
-    
+
     @Override
     public void onUpdate(float dTime) {
-    
+
     }
-    
+
     @Override
     protected void end() {
         //none
     }
-    
+
     private Respawn getThis() {
         return this;
     }

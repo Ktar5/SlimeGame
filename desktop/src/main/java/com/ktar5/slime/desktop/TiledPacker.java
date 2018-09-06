@@ -8,10 +8,7 @@ public class TiledPacker {
     public static void main(String args[]) {
         File file = new File("assets\\maps\\generated");
         //deleteDir(file);
-        TiledMapPacker.main(new String[]{"assets\\maps", "assets\\maps\\generated", "--strip-unused"});
-
-        //TexturePacker.Settings s = new TexturePacker.Settings();
-        //TexturePacker.process(s, "Main/workfiles/finished", "Android/assets/data", "loading.pack");
+        TiledMapPacker.main(new String[]{"assets\\maps", "assets\\maps\\generated", "--strip-unused", "--combine-tilesets"});
     }
 
     public static void deleteDir(File file) {

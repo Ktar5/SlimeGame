@@ -26,7 +26,7 @@ public class CustomTmxMapLoader extends TmxMapLoader {
                 cell.setRealRotationBecauseFuckYouThatsWhy(TiledMapTileLayer.Cell.ROTATE_90);
             } else if (flipVertically) {
                 cell.setRotation(TiledMapTileLayer.Cell.ROTATE_90);
-                cell.setRealRotationBecauseFuckYouThatsWhy(TiledMapTileLayer.Cell.ROTATE_90);
+                cell.setRealRotationBecauseFuckYouThatsWhy(TiledMapTileLayer.Cell.ROTATE_270);
             } else {
                 cell.setFlipVertically(true);
                 cell.setRotation(TiledMapTileLayer.Cell.ROTATE_270);

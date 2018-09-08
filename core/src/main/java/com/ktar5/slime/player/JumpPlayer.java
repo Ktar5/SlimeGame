@@ -34,20 +34,30 @@ public class JumpPlayer extends PlayerEntity {
     //right now or not (for drains/holes)
     private boolean small = false;
 
+    private LoadedLevel level;
+
 
     public JumpPlayer(LoadedLevel level) {
         super(2, 1, 1);
         this.position.set(level.getSpawnX(), level.getSpawnY());
         this.playerState = new SimpleStateMachine<>(Idle.class,
                 Idle.class, Move.class, Respawn.class);
+        this.level = level;
         System.out.println("New player created " + System.currentTimeMillis());
     }
+
+    int lastX = 0;
+    int lastY = 0;
 
     @Override
     public void update(float dTime) {
         super.update(dTime);
         playerState.update(dTime);
-
+        if(lastX == (int) position.x && lastY == (int) position.y){
+            return;
+        }
+        lastY = (int) position.y;
+        lastX = (int) position.x;
         SlimeGame.getGame().getLevelHandler().getCurrentLevel().getGrid().activateAllTiles(this);
     }
 
@@ -55,6 +65,10 @@ public class JumpPlayer extends PlayerEntity {
         if (!playerState.getCurrent().getClass().equals(Respawn.class)) {
             playerState.changeStateAfterUpdate(Respawn.class);
         }
+    }
+
+    public LoadedLevel getLevel(){
+        return level;
     }
 
     @Override

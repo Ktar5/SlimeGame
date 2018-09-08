@@ -43,6 +43,7 @@ public class LoadedLevel extends Level implements Updatable {
         for (LevelEdit edit : edits) {
             edit.undo(tileMap);
         }
+        player.setSmall(false);
     }
 
 }

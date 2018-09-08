@@ -14,6 +14,7 @@ public abstract class TriggerableTile extends WholeTile {
 
     public TriggerableTile(int x, int y, Rotation rotation) {
         super(x, y, rotation);
+        events = new EnumMap<Trigger, List<MethodCall>>(Trigger.class);
     }
 
     @Override

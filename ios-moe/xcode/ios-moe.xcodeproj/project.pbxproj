@@ -7,28 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		093EA0331288EEC18D3C79EC /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1E152A74253836079FA1075F /* main.cpp */; };
-		16479D2CDCAC394B9A9722FE /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8084D1F0A307440EC73CBFCA /* main.cpp */; };
-		581773911E37A0F0004E28A9 /* Default-375w-667h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 581773851E37A0F0004E28A9 /* Default-375w-667h@2x.png */; };
-		581773921E37A0F0004E28A9 /* Default-414w-736h@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 581773861E37A0F0004E28A9 /* Default-414w-736h@3x.png */; };
-		581773931E37A0F0004E28A9 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 581773871E37A0F0004E28A9 /* Default-568h@2x.png */; };
-		581773941E37A0F0004E28A9 /* Default-1024w-1366h@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 581773881E37A0F0004E28A9 /* Default-1024w-1366h@2x~ipad.png */; };
-		581773951E37A0F0004E28A9 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 581773891E37A0F0004E28A9 /* Default.png */; };
-		581773961E37A0F0004E28A9 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5817738A1E37A0F0004E28A9 /* Default@2x.png */; };
-		581773971E37A0F0004E28A9 /* Default@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 5817738B1E37A0F0004E28A9 /* Default@2x~ipad.png */; };
-		581773981E37A0F0004E28A9 /* Default~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 5817738C1E37A0F0004E28A9 /* Default~ipad.png */; };
-		581773991E37A0F0004E28A9 /* Icon-72.png in Resources */ = {isa = PBXBuildFile; fileRef = 5817738D1E37A0F0004E28A9 /* Icon-72.png */; };
-		5817739A1E37A0F0004E28A9 /* Icon-72@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5817738E1E37A0F0004E28A9 /* Icon-72@2x.png */; };
-		5817739B1E37A0F0004E28A9 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 5817738F1E37A0F0004E28A9 /* Icon.png */; };
-		5817739C1E37A0F0004E28A9 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 581773901E37A0F0004E28A9 /* Icon@2x.png */; };
-		581773A61E37A2DB004E28A9 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5817739F1E37A2DB004E28A9 /* AudioToolbox.framework */; };
-		581773A71E37A2DB004E28A9 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 581773A01E37A2DB004E28A9 /* AVFoundation.framework */; };
-		581773A81E37A2DB004E28A9 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 581773A11E37A2DB004E28A9 /* CoreGraphics.framework */; };
-		581773A91E37A2DB004E28A9 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 581773A21E37A2DB004E28A9 /* CoreMotion.framework */; };
-		581773AA1E37A2DB004E28A9 /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 581773A31E37A2DB004E28A9 /* OpenAL.framework */; };
-		581773AB1E37A2DB004E28A9 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 581773A41E37A2DB004E28A9 /* OpenGLES.framework */; };
-		581773AC1E37A2DB004E28A9 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 581773A51E37A2DB004E28A9 /* QuartzCore.framework */; };
-		581773AE1E37A7EF004E28A9 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 581773AD1E37A7EF004E28A9 /* UIKit.framework */; };
+		093EA0331288EEC18D3C79EC /* main.cpp sideOne Sources */ = {isa = PBXBuildFile; fileRef = 1E152A74253836079FA1075F /* main.cpp */; };
+		16479D2CDCAC394B9A9722FE /* main.cpp sideOne Sources */ = {isa = PBXBuildFile; fileRef = 8084D1F0A307440EC73CBFCA /* main.cpp */; };
+		581773911E37A0F0004E28A9 /* Default-375w-667h@2x.png sideOne Resources */ = {isa = PBXBuildFile; fileRef = 581773851E37A0F0004E28A9 /* Default-375w-667h@2x.png */; };
+		581773921E37A0F0004E28A9 /* Default-414w-736h@3x.png sideOne Resources */ = {isa = PBXBuildFile; fileRef = 581773861E37A0F0004E28A9 /* Default-414w-736h@3x.png */; };
+		581773931E37A0F0004E28A9 /* Default-568h@2x.png sideOne Resources */ = {isa = PBXBuildFile; fileRef = 581773871E37A0F0004E28A9 /* Default-568h@2x.png */; };
+		581773941E37A0F0004E28A9 /* Default-1024w-1366h@2x~ipad.png sideOne Resources */ = {isa = PBXBuildFile; fileRef = 581773881E37A0F0004E28A9 /* Default-1024w-1366h@2x~ipad.png */; };
+		581773951E37A0F0004E28A9 /* Default.png sideOne Resources */ = {isa = PBXBuildFile; fileRef = 581773891E37A0F0004E28A9 /* Default.png */; };
+		581773961E37A0F0004E28A9 /* Default@2x.png sideOne Resources */ = {isa = PBXBuildFile; fileRef = 5817738A1E37A0F0004E28A9 /* Default@2x.png */; };
+		581773971E37A0F0004E28A9 /* Default@2x~ipad.png sideOne Resources */ = {isa = PBXBuildFile; fileRef = 5817738B1E37A0F0004E28A9 /* Default@2x~ipad.png */; };
+		581773981E37A0F0004E28A9 /* Default~ipad.png sideOne Resources */ = {isa = PBXBuildFile; fileRef = 5817738C1E37A0F0004E28A9 /* Default~ipad.png */; };
+		581773991E37A0F0004E28A9 /* Icon-72.png sideOne Resources */ = {isa = PBXBuildFile; fileRef = 5817738D1E37A0F0004E28A9 /* Icon-72.png */; };
+		5817739A1E37A0F0004E28A9 /* Icon-72@2x.png sideOne Resources */ = {isa = PBXBuildFile; fileRef = 5817738E1E37A0F0004E28A9 /* Icon-72@2x.png */; };
+		5817739B1E37A0F0004E28A9 /* Icon.png sideOne Resources */ = {isa = PBXBuildFile; fileRef = 5817738F1E37A0F0004E28A9 /* Icon.png */; };
+		5817739C1E37A0F0004E28A9 /* Icon@2x.png sideOne Resources */ = {isa = PBXBuildFile; fileRef = 581773901E37A0F0004E28A9 /* Icon@2x.png */; };
+		581773A61E37A2DB004E28A9 /* AudioToolbox.framework sideOne Frameworks */ = {isa = PBXBuildFile; fileRef = 5817739F1E37A2DB004E28A9 /* AudioToolbox.framework */; };
+		581773A71E37A2DB004E28A9 /* AVFoundation.framework sideOne Frameworks */ = {isa = PBXBuildFile; fileRef = 581773A01E37A2DB004E28A9 /* AVFoundation.framework */; };
+		581773A81E37A2DB004E28A9 /* CoreGraphics.framework sideOne Frameworks */ = {isa = PBXBuildFile; fileRef = 581773A11E37A2DB004E28A9 /* CoreGraphics.framework */; };
+		581773A91E37A2DB004E28A9 /* CoreMotion.framework sideOne Frameworks */ = {isa = PBXBuildFile; fileRef = 581773A21E37A2DB004E28A9 /* CoreMotion.framework */; };
+		581773AA1E37A2DB004E28A9 /* OpenAL.framework sideOne Frameworks */ = {isa = PBXBuildFile; fileRef = 581773A31E37A2DB004E28A9 /* OpenAL.framework */; };
+		581773AB1E37A2DB004E28A9 /* OpenGLES.framework sideOne Frameworks */ = {isa = PBXBuildFile; fileRef = 581773A41E37A2DB004E28A9 /* OpenGLES.framework */; };
+		581773AC1E37A2DB004E28A9 /* QuartzCore.framework sideOne Frameworks */ = {isa = PBXBuildFile; fileRef = 581773A51E37A2DB004E28A9 /* QuartzCore.framework */; };
+		581773AE1E37A7EF004E28A9 /* UIKit.framework sideOne Frameworks */ = {isa = PBXBuildFile; fileRef = 581773AD1E37A7EF004E28A9 /* UIKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -73,14 +73,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				581773A61E37A2DB004E28A9 /* AudioToolbox.framework in Frameworks */,
-				581773A71E37A2DB004E28A9 /* AVFoundation.framework in Frameworks */,
-				581773A81E37A2DB004E28A9 /* CoreGraphics.framework in Frameworks */,
-				581773A91E37A2DB004E28A9 /* CoreMotion.framework in Frameworks */,
-				581773AA1E37A2DB004E28A9 /* OpenAL.framework in Frameworks */,
-				581773AB1E37A2DB004E28A9 /* OpenGLES.framework in Frameworks */,
-				581773AC1E37A2DB004E28A9 /* QuartzCore.framework in Frameworks */,
-				581773AE1E37A7EF004E28A9 /* UIKit.framework in Frameworks */,
+				581773A61E37A2DB004E28A9 /* AudioToolbox.framework sideOne Frameworks */,
+				581773A71E37A2DB004E28A9 /* AVFoundation.framework sideOne Frameworks */,
+				581773A81E37A2DB004E28A9 /* CoreGraphics.framework sideOne Frameworks */,
+				581773A91E37A2DB004E28A9 /* CoreMotion.framework sideOne Frameworks */,
+				581773AA1E37A2DB004E28A9 /* OpenAL.framework sideOne Frameworks */,
+				581773AB1E37A2DB004E28A9 /* OpenGLES.framework sideOne Frameworks */,
+				581773AC1E37A2DB004E28A9 /* QuartzCore.framework sideOne Frameworks */,
+				581773AE1E37A7EF004E28A9 /* UIKit.framework sideOne Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -255,18 +255,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				581773961E37A0F0004E28A9 /* Default@2x.png in Resources */,
-				5817739C1E37A0F0004E28A9 /* Icon@2x.png in Resources */,
-				581773911E37A0F0004E28A9 /* Default-375w-667h@2x.png in Resources */,
-				5817739A1E37A0F0004E28A9 /* Icon-72@2x.png in Resources */,
-				581773991E37A0F0004E28A9 /* Icon-72.png in Resources */,
-				581773971E37A0F0004E28A9 /* Default@2x~ipad.png in Resources */,
-				581773941E37A0F0004E28A9 /* Default-1024w-1366h@2x~ipad.png in Resources */,
-				581773981E37A0F0004E28A9 /* Default~ipad.png in Resources */,
-				581773921E37A0F0004E28A9 /* Default-414w-736h@3x.png in Resources */,
-				5817739B1E37A0F0004E28A9 /* Icon.png in Resources */,
-				581773931E37A0F0004E28A9 /* Default-568h@2x.png in Resources */,
-				581773951E37A0F0004E28A9 /* Default.png in Resources */,
+				581773961E37A0F0004E28A9 /* Default@2x.png sideOne Resources */,
+				5817739C1E37A0F0004E28A9 /* Icon@2x.png sideOne Resources */,
+				581773911E37A0F0004E28A9 /* Default-375w-667h@2x.png sideOne Resources */,
+				5817739A1E37A0F0004E28A9 /* Icon-72@2x.png sideOne Resources */,
+				581773991E37A0F0004E28A9 /* Icon-72.png sideOne Resources */,
+				581773971E37A0F0004E28A9 /* Default@2x~ipad.png sideOne Resources */,
+				581773941E37A0F0004E28A9 /* Default-1024w-1366h@2x~ipad.png sideOne Resources */,
+				581773981E37A0F0004E28A9 /* Default~ipad.png sideOne Resources */,
+				581773921E37A0F0004E28A9 /* Default-414w-736h@3x.png sideOne Resources */,
+				5817739B1E37A0F0004E28A9 /* Icon.png sideOne Resources */,
+				581773931E37A0F0004E28A9 /* Default-568h@2x.png sideOne Resources */,
+				581773951E37A0F0004E28A9 /* Default.png sideOne Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,7 +285,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "set -e\n\nexport MOE_BUILD_SOURCE_SET=\"test\"\n\n# Check project directory\nif [ ! -d \"$MOE_PROJECT_DIR\" ]; then\n    echo \"$0:$LINENO:1: error: 'MOE_PROJECT_DIR' doesn't point to a directory!\"; exit 1;\nfi\ncd \"$MOE_PROJECT_DIR\"\n\n# Export JAVA_HOME\nexport JAVA_HOME=$(/usr/libexec/java_home -v 1.8)\n\n# Utility function for finding the Gradle implementation\nfunction findGradle {\n    CD=\"$PWD\"\n    while [ \"$CD\" != \"\" ]; do\n        echo \"Looking for gradlew in $CD\"\n        if [ -x \"$CD/gradlew\" ]; then\n            GRADLE_EXEC=$CD/gradlew\n            return 0\n        fi\n        CD=\"${CD%/*}\"\n    done\n\n    echo \"Checking with 'which'\"\n    GRADLE_EXEC=$(which 'gradle')\n\n    if [ \"$GRADLE_EXEC\" = \"\" ]; then\n        echo \"Failed to locate 'gradle' executable!\"\n        exit 1\n    fi\n}\n\n# Build project with Gradle\nif [ -z \"$MOE_GRADLE_EXTERNAL_BUILD\" ]; then\n    findGradle\n    \"$GRADLE_EXEC\" --no-daemon moeXcodeInternal -s\nfi\n\n# Check output directory\nif [ ! -d \"${MOE_PROJECT_BUILD_DIR}\" ]; then\n    echo \"$0:$LINENO:1: error: 'MOE_PROJECT_BUILD_DIR' doesn't point to a directory!\"; exit 1;\nfi\n\n# Copy some resources\nmkdir -p \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\"\ncp \"${MOE_PROJECT_BUILD_DIR}/moe/${MOE_BUILD_SOURCE_SET}/application.jar\" \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\ncp \"${MOE_PROJECT_BUILD_DIR}/moe/${MOE_BUILD_SOURCE_SET}/preregister.txt\" \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\nif [ \"${MOE_BUILD_SOURCE_SET}\" == \"test\" ]; then\n    cp \"${MOE_PROJECT_BUILD_DIR}/moe/${MOE_BUILD_SOURCE_SET}/classlist.txt\" \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\nfi\n\n# Copy android CA certificates on demand\nif [ \"${MOE_COPY_ANDROID_CACERTS}\" == \"YES\" ]; then\n    rm -rf \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/android_root/etc/security/cacerts\"\n    mkdir -p \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/android_root/etc/security/cacerts\"\n    unzip \"${MOE_SDK_PATH}/sdk/moe-core-certificates.zip\" -d \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/android_root/etc/security/cacerts\"\nfi\n\n# Copy and sign MOE framework\nrsync -av --filter \"- CVS/\" --filter \"- .svn/\" --filter \"- .git/\" --filter \"- .hg/\" --filter \"- Headers\" --filter \"- PrivateHeaders\" --filter \"- Modules\" \\\n    \"${MOE_FRAMEWORK_PATH}/MOE.framework\" \"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/\"\nif [ -n \"${EXPANDED_CODE_SIGN_IDENTITY}\" -a \"${CODE_SIGNING_REQUIRED}\" != \"NO\" -a \"${CODE_SIGNING_ALLOWED}\" != \"NO\" ]; then\n    /usr/bin/codesign --force --sign $EXPANDED_CODE_SIGN_IDENTITY $OTHER_CODE_SIGN_FLAGS \\\n        --preserve-metadata=identifier,entitlements \"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MOE.framework\"\nfi\n";
+			shellScript = "set -e\n\nexport MOE_BUILD_SOURCE_SET=\"test\"\n\n# Check project directory\nif [ ! -d \"$MOE_PROJECT_DIR\" ]; then\n    echo \"$0:$LINENO:1: error: 'MOE_PROJECT_DIR' doesn't point to a directory!\"; exit 1;\nfi\ncd \"$MOE_PROJECT_DIR\"\n\n# Export JAVA_HOME\nexport JAVA_HOME=$(/usr/libexec/java_home -v 1.8)\n\n# Utility function for finding the Gradle implementation\nfunction findGradle {\n    CD=\"$PWD\"\n    while [ \"$CD\" != \"\" ]; do\n        echo \"Looking for gradlew sideOne $CD\"\n        if [ -x \"$CD/gradlew\" ]; then\n            GRADLE_EXEC=$CD/gradlew\n            return 0\n        fi\n        CD=\"${CD%/*}\"\n    done\n\n    echo \"Checking with 'which'\"\n    GRADLE_EXEC=$(which 'gradle')\n\n    if [ \"$GRADLE_EXEC\" = \"\" ]; then\n        echo \"Failed to locate 'gradle' executable!\"\n        exit 1\n    fi\n}\n\n# Build project with Gradle\nif [ -z \"$MOE_GRADLE_EXTERNAL_BUILD\" ]; then\n    findGradle\n    \"$GRADLE_EXEC\" --no-daemon moeXcodeInternal -s\nfi\n\n# Check output directory\nif [ ! -d \"${MOE_PROJECT_BUILD_DIR}\" ]; then\n    echo \"$0:$LINENO:1: error: 'MOE_PROJECT_BUILD_DIR' doesn't point to a directory!\"; exit 1;\nfi\n\n# Copy some resources\nmkdir -p \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\"\ncp \"${MOE_PROJECT_BUILD_DIR}/moe/${MOE_BUILD_SOURCE_SET}/application.jar\" \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\ncp \"${MOE_PROJECT_BUILD_DIR}/moe/${MOE_BUILD_SOURCE_SET}/preregister.txt\" \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\nif [ \"${MOE_BUILD_SOURCE_SET}\" == \"test\" ]; then\n    cp \"${MOE_PROJECT_BUILD_DIR}/moe/${MOE_BUILD_SOURCE_SET}/classlist.txt\" \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\nfi\n\n# Copy android CA certificates on demand\nif [ \"${MOE_COPY_ANDROID_CACERTS}\" == \"YES\" ]; then\n    rm -rf \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/android_root/etc/security/cacerts\"\n    mkdir -p \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/android_root/etc/security/cacerts\"\n    unzip \"${MOE_SDK_PATH}/sdk/moe-core-certificates.zip\" -d \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/android_root/etc/security/cacerts\"\nfi\n\n# Copy and sign MOE framework\nrsync -av --filter \"- CVS/\" --filter \"- .svn/\" --filter \"- .git/\" --filter \"- .hg/\" --filter \"- Headers\" --filter \"- PrivateHeaders\" --filter \"- Modules\" \\\n    \"${MOE_FRAMEWORK_PATH}/MOE.framework\" \"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/\"\nif [ -n \"${EXPANDED_CODE_SIGN_IDENTITY}\" -a \"${CODE_SIGNING_REQUIRED}\" != \"NO\" -a \"${CODE_SIGNING_ALLOWED}\" != \"NO\" ]; then\n    /usr/bin/codesign --force --sign $EXPANDED_CODE_SIGN_IDENTITY $OTHER_CODE_SIGN_FLAGS \\\n        --preserve-metadata=identifier,entitlements \"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MOE.framework\"\nfi\n";
 		};
 		F461487E379A46F550F0C10A /* Compile Sources (MOE) */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -299,7 +299,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/bash;
-			shellScript = "set -e\n\nexport MOE_BUILD_SOURCE_SET=\"main\"\n\n# Check project directory\nif [ ! -d \"$MOE_PROJECT_DIR\" ]; then\n    echo \"$0:$LINENO:1: error: 'MOE_PROJECT_DIR' doesn't point to a directory!\"; exit 1;\nfi\ncd \"$MOE_PROJECT_DIR\"\n\n# Export JAVA_HOME\nexport JAVA_HOME=$(/usr/libexec/java_home -v 1.8)\n\n# Utility function for finding the Gradle implementation\nfunction findGradle {\n    CD=\"$PWD\"\n    while [ \"$CD\" != \"\" ]; do\n        echo \"Looking for gradlew in $CD\"\n        if [ -x \"$CD/gradlew\" ]; then\n            GRADLE_EXEC=$CD/gradlew\n            return 0\n        fi\n        CD=\"${CD%/*}\"\n    done\n\n    echo \"Checking with 'which'\"\n    GRADLE_EXEC=$(which 'gradle')\n\n    if [ \"$GRADLE_EXEC\" = \"\" ]; then\n        echo \"Failed to locate 'gradle' executable!\"\n        exit 1\n    fi\n}\n\n# Build project with Gradle\nif [ -z \"$MOE_GRADLE_EXTERNAL_BUILD\" ]; then\n    findGradle\n    \"$GRADLE_EXEC\" --no-daemon moeXcodeInternal -s\nfi\n\n# Check output directory\nif [ ! -d \"${MOE_PROJECT_BUILD_DIR}\" ]; then\n    echo \"$0:$LINENO:1: error: 'MOE_PROJECT_BUILD_DIR' doesn't point to a directory!\"; exit 1;\nfi\n\n# Copy some resources\nmkdir -p \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\"\ncp \"${MOE_PROJECT_BUILD_DIR}/moe/${MOE_BUILD_SOURCE_SET}/application.jar\" \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\ncp \"${MOE_PROJECT_BUILD_DIR}/moe/${MOE_BUILD_SOURCE_SET}/preregister.txt\" \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\nif [ \"${MOE_BUILD_SOURCE_SET}\" == \"test\" ]; then\n    cp \"${MOE_PROJECT_BUILD_DIR}/moe/${MOE_BUILD_SOURCE_SET}/classlist.txt\" \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\nfi\n\n# Copy android CA certificates on demand\nif [ \"${MOE_COPY_ANDROID_CACERTS}\" == \"YES\" ]; then\n    rm -rf \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/android_root/etc/security/cacerts\"\n    mkdir -p \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/android_root/etc/security/cacerts\"\n    unzip \"${MOE_SDK_PATH}/sdk/moe-core-certificates.zip\" -d \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/android_root/etc/security/cacerts\"\nfi\n\n# Copy and sign MOE framework\nrsync -av --filter \"- CVS/\" --filter \"- .svn/\" --filter \"- .git/\" --filter \"- .hg/\" --filter \"- Headers\" --filter \"- PrivateHeaders\" --filter \"- Modules\" \\\n    \"${MOE_FRAMEWORK_PATH}/MOE.framework\" \"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/\"\nif [ -n \"${EXPANDED_CODE_SIGN_IDENTITY}\" -a \"${CODE_SIGNING_REQUIRED}\" != \"NO\" -a \"${CODE_SIGNING_ALLOWED}\" != \"NO\" ]; then\n    /usr/bin/codesign --force --sign $EXPANDED_CODE_SIGN_IDENTITY $OTHER_CODE_SIGN_FLAGS \\\n        --preserve-metadata=identifier,entitlements \"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MOE.framework\"\nfi\n";
+			shellScript = "set -e\n\nexport MOE_BUILD_SOURCE_SET=\"main\"\n\n# Check project directory\nif [ ! -d \"$MOE_PROJECT_DIR\" ]; then\n    echo \"$0:$LINENO:1: error: 'MOE_PROJECT_DIR' doesn't point to a directory!\"; exit 1;\nfi\ncd \"$MOE_PROJECT_DIR\"\n\n# Export JAVA_HOME\nexport JAVA_HOME=$(/usr/libexec/java_home -v 1.8)\n\n# Utility function for finding the Gradle implementation\nfunction findGradle {\n    CD=\"$PWD\"\n    while [ \"$CD\" != \"\" ]; do\n        echo \"Looking for gradlew sideOne $CD\"\n        if [ -x \"$CD/gradlew\" ]; then\n            GRADLE_EXEC=$CD/gradlew\n            return 0\n        fi\n        CD=\"${CD%/*}\"\n    done\n\n    echo \"Checking with 'which'\"\n    GRADLE_EXEC=$(which 'gradle')\n\n    if [ \"$GRADLE_EXEC\" = \"\" ]; then\n        echo \"Failed to locate 'gradle' executable!\"\n        exit 1\n    fi\n}\n\n# Build project with Gradle\nif [ -z \"$MOE_GRADLE_EXTERNAL_BUILD\" ]; then\n    findGradle\n    \"$GRADLE_EXEC\" --no-daemon moeXcodeInternal -s\nfi\n\n# Check output directory\nif [ ! -d \"${MOE_PROJECT_BUILD_DIR}\" ]; then\n    echo \"$0:$LINENO:1: error: 'MOE_PROJECT_BUILD_DIR' doesn't point to a directory!\"; exit 1;\nfi\n\n# Copy some resources\nmkdir -p \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}\"\ncp \"${MOE_PROJECT_BUILD_DIR}/moe/${MOE_BUILD_SOURCE_SET}/application.jar\" \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\ncp \"${MOE_PROJECT_BUILD_DIR}/moe/${MOE_BUILD_SOURCE_SET}/preregister.txt\" \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\nif [ \"${MOE_BUILD_SOURCE_SET}\" == \"test\" ]; then\n    cp \"${MOE_PROJECT_BUILD_DIR}/moe/${MOE_BUILD_SOURCE_SET}/classlist.txt\" \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/\"\nfi\n\n# Copy android CA certificates on demand\nif [ \"${MOE_COPY_ANDROID_CACERTS}\" == \"YES\" ]; then\n    rm -rf \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/android_root/etc/security/cacerts\"\n    mkdir -p \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/android_root/etc/security/cacerts\"\n    unzip \"${MOE_SDK_PATH}/sdk/moe-core-certificates.zip\" -d \"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/android_root/etc/security/cacerts\"\nfi\n\n# Copy and sign MOE framework\nrsync -av --filter \"- CVS/\" --filter \"- .svn/\" --filter \"- .git/\" --filter \"- .hg/\" --filter \"- Headers\" --filter \"- PrivateHeaders\" --filter \"- Modules\" \\\n    \"${MOE_FRAMEWORK_PATH}/MOE.framework\" \"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/\"\nif [ -n \"${EXPANDED_CODE_SIGN_IDENTITY}\" -a \"${CODE_SIGNING_REQUIRED}\" != \"NO\" -a \"${CODE_SIGNING_ALLOWED}\" != \"NO\" ]; then\n    /usr/bin/codesign --force --sign $EXPANDED_CODE_SIGN_IDENTITY $OTHER_CODE_SIGN_FLAGS \\\n        --preserve-metadata=identifier,entitlements \"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MOE.framework\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -308,7 +308,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				093EA0331288EEC18D3C79EC /* main.cpp in Sources */,
+				093EA0331288EEC18D3C79EC /* main.cpp sideOne Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,7 +316,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				16479D2CDCAC394B9A9722FE /* main.cpp in Sources */,
+				16479D2CDCAC394B9A9722FE /* main.cpp sideOne Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

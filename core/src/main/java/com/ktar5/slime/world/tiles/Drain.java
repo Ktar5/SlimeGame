@@ -18,16 +18,15 @@ public class Drain extends WholeTile {
 
     @Override
     public void onPlayerCross(JumpPlayer player) {
-        player.kill();
-
-        super.onPlayerCross(player);
+        if(player.isSmall()){
+            player.kill();
+        }else{
+            player.setSmall(true);
+        }
     }
 
     @Override
     public boolean canCrossThrough(JumpPlayer player, Side movement) {
-        if (player.isSmall()) {
-            //todo
-        }
-        return false;
+        return true;
     }
 }

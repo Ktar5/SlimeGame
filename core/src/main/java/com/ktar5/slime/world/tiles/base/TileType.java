@@ -2,27 +2,32 @@ package com.ktar5.slime.world.tiles.base;
 
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.utils.IntMap;
+import com.ktar5.slime.utils.Side;
 import com.ktar5.slime.world.tiles.*;
 
 public enum TileType {
     WIN((x, y, cell) -> new Win(x, y), 0),
-    GATE((x, y, cell) -> { return new Gate(x, y, Rotation.fromCell(cell)); }, 2, 3),
-    WALL((x, y, cell) -> new Wall(x, y), 32),
-    BUTTON((x, y, cell) -> {
-        System.out.println("X: " + x + " Y: " + y);
-        return new Button(x, y, Rotation.fromCell(cell));
-    }, 33),
-    PRESSURE_PLATE((x, y, cell) -> new PressurePlate(x, y), 34),
-    BOX(null, 35),
-    SPIKE((x, y, cell) -> new Spikes(x, y), 64),
-    HOLE((x, y, cell) -> new Hole(x, y), 65),
-    CRUMBLING_FLOOR((x, y, cell) -> new CrumbledFloor(x, y), 66),
-    FLAMETHROWER(null, 67),
-    GHOST(null, 96),
-    STOMPER(null, 97),
-    DRAIN((x, y, cell) -> new Drain(x, y), 98),
-    DRAIN_PIPE(null, 99);
+    WALL((x, y, cell) -> new Wall(x, y), 2),
+    ONE_DIRECTION((x, y, cell) -> new OneDirection(x, y, Rotation.fromCell(cell)), 3),
+    DRAIN((x, y, cell) -> new Drain(x, y), 4),
+    GOO((x, y, cell) -> new Goo(x, y), 5),
+    BUTTON((x, y, cell) -> new Button(x, y, Rotation.fromCell(cell)), 8),
+    PRESSURE_PLATE((x, y, cell) -> new PressurePlate(x, y), 9),
+    BOX(null, 10),
+    GATE((x, y, cell) -> new Gate(x, y, Rotation.fromCell(cell)), 11),
+    DRAIN_PIPE_LEFT_UP((x, y, cell) -> new HoleInWall(x, y, Rotation.fromCell(cell), Side.LEFT, Side.UP), 12),
+    DRAIN_PIPE_UP_DOWN((x, y, cell) -> new HoleInWall(x, y, Rotation.fromCell(cell), Side.UP, Side.DOWN), 20),
+    DRAIN_PIPE_ALL_DIR((x, y, cell) -> new HoleInWall(x, y), 28),
 
+    SPIKE((x, y, cell) -> new Spikes(x, y), 16),
+    HOLE((x, y, cell) -> new Hole(x, y), 17),
+    CRUMBLING_FLOOR((x, y, cell) -> new CrumbledFloor(x, y), 18),
+    TELEPORTER((x, y, cell) -> new Teleporter(x, y), 19),
+
+    GHOST(null, 24),
+    STOMPER(null, 25),
+    FLAMETHROWER(null, 26),
+    BIG((x, y, cell) -> new Big(x, y), 27);
     private static final IntMap<TileType> tileIds = new IntMap<>();
 
     static {
@@ -35,6 +40,7 @@ public enum TileType {
 
     public final TileGenerator generator;
     private final int[] ids;
+
     TileType(TileGenerator generator, int... ids) {
         this.ids = ids;
         this.generator = generator;

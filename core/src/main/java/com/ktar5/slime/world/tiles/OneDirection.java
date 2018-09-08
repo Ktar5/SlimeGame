@@ -5,28 +5,23 @@ import com.ktar5.slime.utils.Side;
 import com.ktar5.slime.world.tiles.base.Rotation;
 import com.ktar5.slime.world.tiles.base.WholeTile;
 
-public class Hole extends WholeTile {
-    boolean filled = false;
+public class OneDirection extends WholeTile {
+    public final Side allowedDirection;
 
-    public Hole(int x, int y) {
-        super(x, y, Rotation.DEG_0);
+    public OneDirection(int x, int y, Rotation rotation) {
+        super(x, y, rotation);
+        allowedDirection = Side.UP.rotateClockwise(rotation.ordinal());
     }
 
     @Override
     public void reset() {
-        filled = false;
     }
 
 
     @Override
     public boolean canCrossThrough(JumpPlayer player, Side movement) {
-        return true;
+        return movement.opposite().equals(allowedDirection);
     }
 
-    @Override
-    public void onPlayerCross(JumpPlayer player) {
-        if (!filled) {
-            player.kill();
-        }
-    }
+
 }

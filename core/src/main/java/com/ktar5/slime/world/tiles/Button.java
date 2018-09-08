@@ -27,7 +27,6 @@ public class Button extends TriggerableTile {
 
     @Override
     public void onPlayerHitTile(JumpPlayer player, Side hit) {
-        System.out.println(pressableSide);
         if (hit == pressableSide) {
             if (pressed) {
                 return;

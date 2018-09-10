@@ -23,11 +23,16 @@ public class Goo extends WholeTile {
 
     @Override
     public void onPlayerCross(JumpPlayer player) {
-        System.out.println("Gooped");
-        System.out.println("Gooped");
-        System.out.println("Gooped");
-        System.out.println("Gooped");
-
         player.playerState.changeStateAfterUpdate(Idle.class);
+        System.out.println(player.position.x);
+        System.out.println(player.position.y);
+        int x = (int) player.position.x;
+        int y = (int) player.position.y;
+        player.position.set(x, y);
+        //player.position.set(x + .5f, y);
+        System.out.println(".....");
+        System.out.println(player.position.x);
+        System.out.println(player.position.y);
+        //player.position.set();
     }
 }

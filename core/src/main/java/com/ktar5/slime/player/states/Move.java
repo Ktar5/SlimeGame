@@ -110,6 +110,7 @@ public class Move extends PlayerState {
             //TODO test to see if this counts as multiple movements D:
             getPlayer().getPosition().moveTo(newX, newY);
             getPlayer().getPosition().translate(SPEED * getMovement().x, SPEED * getMovement().y);
+            System.out.println("Moved");
         }
         //Check for if the tile that the player WOULD BE GOING INTO is air or not
         else if (!newTile.canCrossThrough(getPlayer(), getMovement())) {
@@ -132,6 +133,7 @@ public class Move extends PlayerState {
         else {
             //Translate the player's location by SPEED multiplied by the movement direction
             getPlayer().getPosition().translate(SPEED * getMovement().x, SPEED * getMovement().y);
+            System.out.println("Moved");
         }
 
         //Keeps count of tiles crossed for the animation

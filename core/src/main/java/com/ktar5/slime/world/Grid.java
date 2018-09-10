@@ -1,5 +1,6 @@
 package com.ktar5.slime.world;
 
+import com.ktar5.slime.engine.entities.Entity;
 import com.ktar5.slime.engine.util.Updatable;
 import com.ktar5.slime.player.JumpPlayer;
 import com.ktar5.slime.utils.Side;
@@ -11,6 +12,7 @@ import java.util.List;
 public class Grid implements Updatable {
     public final int width, height;
     public Tile[][] grid;
+    public List<Entity> entities;
     //TODO check performance for ticks and see if ticking all has any noticeable performance impact
 
     public Grid(int width, int height) {

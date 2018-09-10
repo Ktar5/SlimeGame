@@ -40,16 +40,24 @@ public class SimpleStateMachine<T extends State> extends ObjectMap<Class<? exten
         current.start();
     }
 
+    //TODO this is elegant but retarded
+    boolean updating = false;
+
     @Override
     public void update(float dTime) {
+        updating = true;
         current.update(dTime);
         if (newState != null) {
             changeState();
         }
+        updating = false;
     }
 
     public void changeStateAfterUpdate(Class<? extends T> state) {
         newState = state;
+        if(!updating){
+            changeState();
+        }
     }
 
     private void changeState() {

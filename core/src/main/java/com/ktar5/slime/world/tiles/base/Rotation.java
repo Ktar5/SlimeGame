@@ -1,7 +1,7 @@
 package com.ktar5.slime.world.tiles.base;
 
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
-import com.ktar5.slime.world.CustomTmxMapLoader;
+import com.ktar5.slime.engine.tilemap.CustomTmxMapLoader;
 
 public enum Rotation {
     DEG_0,

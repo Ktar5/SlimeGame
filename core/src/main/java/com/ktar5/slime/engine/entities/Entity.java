@@ -1,23 +1,32 @@
 package com.ktar5.slime.engine.entities;
 
 import com.ktar5.slime.engine.entities.components.EntityAnimator;
+import com.ktar5.slime.engine.statemachine.SimpleStateMachine;
+import com.ktar5.slime.engine.statemachine.State;
 import com.ktar5.slime.engine.util.Identity;
 import com.ktar5.slime.engine.util.Position;
 import com.ktar5.slime.engine.util.Updatable;
+import com.ktar5.slime.utils.Side;
 import com.ktar5.utilities.annotation.callsuper.CallSuper;
 import lombok.Getter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 @Getter
-public abstract class Entity extends Identity implements Updatable {
+public abstract class Entity<T extends State<T>> extends Identity implements Updatable {
+    public SimpleStateMachine<T> entityState;
     public final Position position;
     private final EntityAnimator entityAnimator;
+
+    private Side lastMovedDirection = Side.UP;
 
     public Entity(float height, float width) {
         position = new Position(0, 0);
         this.entityAnimator = initializeRenderer(height, width);
+        this.entityState = initializeStateMachine();
     }
+
+    protected abstract SimpleStateMachine<T> initializeStateMachine();
 
     protected abstract EntityAnimator initializeRenderer(float height, float width);
 

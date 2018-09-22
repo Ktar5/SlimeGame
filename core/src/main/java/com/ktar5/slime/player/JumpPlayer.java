@@ -6,25 +6,18 @@ import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.engine.core.EngineManager;
 import com.ktar5.slime.engine.entities.PlayerEntity;
 import com.ktar5.slime.engine.entities.components.EntityAnimator;
+import com.ktar5.slime.engine.statemachine.SimpleStateMachine;
 import com.ktar5.slime.player.states.Idle;
 import com.ktar5.slime.player.states.Move;
 import com.ktar5.slime.player.states.PlayerState;
 import com.ktar5.slime.player.states.Respawn;
-import com.ktar5.slime.utils.Side;
-import com.ktar5.slime.utils.statemachine.SimpleStateMachine;
 import com.ktar5.slime.world.level.LoadedLevel;
 import lombok.Getter;
 import lombok.Setter;
-import org.apache.commons.lang3.builder.ToStringExclude;
 
 @Getter
 @Setter
-public class JumpPlayer extends PlayerEntity {
-    @ToStringExclude
-    public final SimpleStateMachine<PlayerState> playerState;
-
-    private Side lastMovedDirection = Side.UP;
-
+public class JumpPlayer extends PlayerEntity<PlayerState> {
     //This variable is for doing movement that may
     //have been pressed a few frames before it actually
     //should have been pressed
@@ -34,14 +27,12 @@ public class JumpPlayer extends PlayerEntity {
     //right now or not (for drains/holes)
     private boolean small = false;
 
+    //The current level that this platyer is attached to
     private LoadedLevel level;
-
 
     public JumpPlayer(LoadedLevel level) {
         super(2, 1, 1);
         this.position.set(level.getSpawnX(), level.getSpawnY());
-        this.playerState = new SimpleStateMachine<>(Idle.class,
-                Idle.class, Move.class, Respawn.class);
         this.level = level;
         System.out.println("New player created " + System.currentTimeMillis());
     }
@@ -52,8 +43,8 @@ public class JumpPlayer extends PlayerEntity {
     @Override
     public void update(float dTime) {
         super.update(dTime);
-        playerState.update(dTime);
-        if(lastX == (int) position.x && lastY == (int) position.y){
+        entityState.update(dTime);
+        if (lastX == (int) position.x && lastY == (int) position.y) {
             return;
         }
         lastY = (int) position.y;
@@ -62,13 +53,15 @@ public class JumpPlayer extends PlayerEntity {
     }
 
     public void kill() {
-        if (!playerState.getCurrent().getClass().equals(Respawn.class)) {
-            playerState.changeStateAfterUpdate(Respawn.class);
+        if (!entityState.getCurrent().getClass().equals(Respawn.class)) {
+            entityState.changeStateAfterUpdate(Respawn.class);
         }
     }
 
-    public LoadedLevel getLevel(){
-        return level;
+    @Override
+    protected SimpleStateMachine<PlayerState> initializeStateMachine() {
+        return new SimpleStateMachine<>(new Idle(this),
+                new Idle(this), new Move(this), new Respawn(this));
     }
 
     @Override

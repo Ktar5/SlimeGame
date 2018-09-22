@@ -4,10 +4,11 @@ import com.ktar5.slime.engine.core.EngineManager;
 import com.ktar5.slime.engine.entities.components.EntityAnimator;
 import com.ktar5.slime.engine.entities.components.movement.Movement;
 import com.ktar5.slime.engine.entities.components.movement.SetVelocityMovement;
+import com.ktar5.slime.engine.statemachine.State;
 import lombok.Getter;
 
 @Getter
-public abstract class PlayerEntity extends LivingEntity {
+public abstract class PlayerEntity<T extends State<T>> extends LivingEntity<T> {
     protected Movement movement = new SetVelocityMovement(40f);
     
     public PlayerEntity(int maxHealth, float height, float width) {

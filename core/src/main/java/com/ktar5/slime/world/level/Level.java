@@ -8,15 +8,15 @@ import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.ktar5.slime.world.Grid;
+import com.ktar5.slime.world.level.types.TileType;
 import com.ktar5.slime.world.tiles.Air;
 import com.ktar5.slime.world.tiles.base.Tile;
-import com.ktar5.slime.world.tiles.base.TileType;
 import com.ktar5.utilities.common.data.Pair;
 import lombok.Getter;
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Iterator;
+import java.util.*;
 
 @Getter
 public class Level {
@@ -29,6 +29,8 @@ public class Level {
     protected TiledMap tileMap;
     protected int id;
     protected Grid grid;
+    private int gameplayArtLayer;
+    private int[] foregroundLayers, backgroundLayers;
 
     public Level(TiledMap tilemap, int id) {
         this.tileMap = tilemap;
@@ -50,15 +52,28 @@ public class Level {
         MapLayers layers = this.getTileMap().getLayers();
         MapLayer gameplayLayer = null;
         MapLayer propertiesLayer = null;
+        List<Integer> foregrounds = new ArrayList<>();
+        List<Integer> backgrounds = new ArrayList<>();
         for (MapLayer layer : layers) {
             layer.setOffsetX(-8);
             layer.setOffsetY(8);
+            layer.getProperties();
             if (layer.getName().startsWith("Art")) {
+                if(layer.getProperties().containsKey("Front")){
+                    foregrounds.add(layers.getIndex(layer));
+                }else{
+                    backgrounds.add(layers.getIndex(layer));
+                }
+                if(layer.getProperties().containsKey("Modify")){
+                    gameplayArtLayer = layers.getIndex(layer);
+                }
 //                layer.setOffsetX(-8);
 //                layer.setOffsetY(8);
             } else if (layer.getName().equalsIgnoreCase("Gameplay")) {
                 if (check.hasGameplayLayer) check.moreThanOneGameplayLayer = true;
                 gameplayLayer = layer;
+                foregrounds.add(layers.getIndex(layer));
+                System.out.println(ToStringBuilder.reflectionToString(layer.getProperties()));
                 gameplayLayer.setVisible(showDebugLevel);
                 check.hasGameplayLayer = true;
             } else if (layer.getName().equalsIgnoreCase("Properties")) {
@@ -69,6 +84,13 @@ public class Level {
                 check.allLayersKnown = false;
             }
         }
+
+        if(!foregrounds.isEmpty()){
+            foregroundLayers = ArrayUtils.toPrimitive(foregrounds.toArray(new Integer[0]));
+        }else {
+            foregroundLayers = new int[0];
+        }
+        backgroundLayers = ArrayUtils.toPrimitive(backgrounds.toArray(new Integer[0]));
 
         if (gameplayLayer == null) {
             return;

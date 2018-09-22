@@ -1,4 +1,4 @@
-package com.ktar5.slime.utils.statemachine;
+package com.ktar5.slime.engine.statemachine;
 
 import com.badlogic.gdx.utils.ObjectMap;
 import com.ktar5.slime.engine.Feature;
@@ -36,6 +36,24 @@ public class SimpleStateMachine<T extends State> extends ObjectMap<Class<? exten
         if (!this.containsKey(initial)) {
             throw new RuntimeException("You have forgotten to include the initial ability: "
                     + initial.getSimpleName() + " in your playerState list");
+        }
+        current.start();
+    }
+
+    public SimpleStateMachine(T initial, T... states) {
+        super(states.length);
+        boolean initialSet = false;
+        for (T state : states) {
+            this.put((Class<? extends T>) state.getClass(), state);
+            Logger.debug("Registered state class: " + state.getClass().getName());
+            if (state.getClass() == initial.getClass()) {
+                current = initial;
+                initialSet = true;
+            }
+        }
+        if (initialSet) {
+            throw new RuntimeException("You have forgotten to include the initial ability: "
+                    + initial.getClass().getSimpleName() + " in your playerState list");
         }
         current.start();
     }

@@ -18,6 +18,13 @@ public abstract class Tile {
         this.rotation = rotation;
     }
 
+    /**
+     * @return false if should NOT continue with movement
+     */
+    public boolean preMove(JumpPlayer player){
+        return true;
+    }
+
     public void tick() {
     }
 

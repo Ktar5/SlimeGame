@@ -3,6 +3,7 @@ package com.ktar5.slime.android;
 import android.os.Bundle;
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
+import com.ktar5.slime.SlimeGame;
 
 /** Launches the Android application. */
 public class AndroidLauncher extends AndroidApplication {

@@ -28,8 +28,9 @@ public class Teleporter extends WholeTile {
     }
 
     @Override
-    public void onPlayerHitTile(JumpPlayer player, Side hit) {
+    public boolean preMove(JumpPlayer player) {
         player.position.set(x, player.getLevel().getGrid().height - y - 1);
+        return false;
     }
 
     @Override

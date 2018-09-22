@@ -3,11 +3,9 @@ package com.ktar5.slime.entities;
 import com.ktar5.slime.engine.entities.Entity;
 import com.ktar5.slime.engine.entities.components.EntityAnimator;
 
-public class Box extends Entity {
-
-
-    public Box() {
-        super(1, 1);
+public class Monster extends Entity {
+    public Monster(float height, float width) {
+        super(height, width);
     }
 
     @Override

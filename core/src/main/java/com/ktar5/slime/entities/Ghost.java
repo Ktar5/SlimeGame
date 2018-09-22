@@ -9,8 +9,8 @@ public class Ghost extends Entity {
     private GhostMove direction;
     private boolean positive;
 
-    public Ghost(float height, float width, GhostMove direction, boolean positive) {
-        super(height, width);
+    public Ghost(GhostMove direction, boolean positive) {
+        super(1, 1);
         this.direction = direction;
         this.positive = positive;
     }

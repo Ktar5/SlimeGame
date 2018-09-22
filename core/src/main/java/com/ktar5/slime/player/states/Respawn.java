@@ -3,8 +3,13 @@ package com.ktar5.slime.player.states;
 import com.badlogic.gdx.utils.Timer;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.engine.core.EngineManager;
+import com.ktar5.slime.player.JumpPlayer;
 
 public class Respawn extends PlayerState {
+    public Respawn(JumpPlayer player) {
+        super(player);
+    }
+
     @Override
     public void start() {
         getPlayer().getEntityAnimator().setAnimation(EngineManager.get().getAnimationLoader()

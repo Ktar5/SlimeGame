@@ -1,4 +1,4 @@
-package com.ktar5.slime.utils;
+package com.ktar5.slime.engine.util;
 
 import lombok.AllArgsConstructor;
 

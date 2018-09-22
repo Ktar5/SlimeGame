@@ -7,9 +7,9 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.ktar5.slime.engine.core.EngineManager;
 import com.ktar5.slime.engine.rendering.Renderable;
+import com.ktar5.slime.engine.tilemap.CustomTmxMapLoader;
 import com.ktar5.slime.engine.util.Updatable;
 import com.ktar5.slime.variables.Constants;
-import com.ktar5.slime.world.CustomTmxMapLoader;
 import com.ktar5.utilities.common.util.CollectingFileScanner;
 import lombok.Getter;
 
@@ -90,10 +90,14 @@ public class LevelHandler implements Renderable, Updatable {
         tileMapRenderer.setView(EngineManager.get().getCameraBase().getCamera());
         //System.out.println(ToStringBuilder.reflectionToString(EngineManager.get().getCameraBase().getCamera(), ToStringStyle.JSON_STYLE));
         //System.out.println("\n\n\n");
-        tileMapRenderer.render();
+        tileMapRenderer.render(currentLevel.getBackgroundLayers());
         batch.begin();
         currentLevel.getPlayer().getEntityAnimator().render(batch, currentLevel.getPlayer().getPosition().x,
                 currentLevel.getPlayer().getPosition().y, currentLevel.getPlayer().getPosition().getAngle());
+        batch.end();
+        tileMapRenderer.render(currentLevel.getForegroundLayers());
+        //tileMapRenderer.render();
+        batch.begin();
     }
 
     @Override

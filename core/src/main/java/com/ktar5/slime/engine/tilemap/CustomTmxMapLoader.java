@@ -1,4 +1,4 @@
-package com.ktar5.slime.world;
+package com.ktar5.slime.engine.tilemap;
 
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;

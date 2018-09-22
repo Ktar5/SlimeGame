@@ -10,6 +10,10 @@ public class Idle extends PlayerState {
     private int timer;
     private IdleAnimations animations;
 
+    public Idle(JumpPlayer player) {
+        super(player);
+    }
+
     @Override
     public void start() {
         timer = 0;

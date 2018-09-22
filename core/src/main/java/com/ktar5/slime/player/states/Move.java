@@ -4,9 +4,9 @@ import com.badlogic.gdx.math.Vector2;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.engine.Feature;
 import com.ktar5.slime.engine.core.EngineManager;
+import com.ktar5.slime.player.JumpPlayer;
 import com.ktar5.slime.utils.Side;
 import com.ktar5.slime.world.Grid;
-import com.ktar5.slime.world.tiles.Teleporter;
 import com.ktar5.slime.world.tiles.base.Tile;
 import org.pmw.tinylog.Logger;
 
@@ -15,6 +15,10 @@ public class Move extends PlayerState {
     private static final float SPEED = .5f;
     int blocksMoved = 0;
     private int preMovementFrameCount = preMovementFrames;
+
+    public Move(JumpPlayer player) {
+        super(player);
+    }
 
     @Override
     public void start() {
@@ -106,13 +110,15 @@ public class Move extends PlayerState {
             System.out.println(newX + " " + newY);
 
         }
+        //In case we want to do something special instead of handle movement
+        if(!newTile.preMove(getPlayer())){
+
+        }
         //In case we want to modify where the player is moving without setting them to idle
-        if (grid.grid[newX][newY].changeMovement(getPlayer(), getMovement())) {
+        else if (grid.grid[newX][newY].changeMovement(getPlayer(), getMovement())) {
             getPlayer().getPosition().moveTo(newX, newY);
             getPlayer().getPosition().translate(SPEED * getMovement().x, SPEED * getMovement().y);
             System.out.println("Moved");
-        }else if(newTile instanceof Teleporter){
-            newTile.onPlayerHitTile(getPlayer(), getMovement().opposite());
         }
         //Check for if the tile that the player WOULD BE GOING INTO is air or not
         else if (!newTile.canCrossThrough(getPlayer(), getMovement())) {

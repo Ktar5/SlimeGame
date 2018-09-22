@@ -1,4 +1,4 @@
-package com.ktar5.slime.utils.statemachine;
+package com.ktar5.slime.engine.statemachine;
 
 import com.ktar5.slime.engine.util.Updatable;
 

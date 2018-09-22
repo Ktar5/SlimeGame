@@ -1,9 +1,11 @@
-package com.ktar5.slime.world.tiles.base;
+package com.ktar5.slime.world.level.types;
 
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.utils.IntMap;
 import com.ktar5.slime.utils.Side;
 import com.ktar5.slime.world.tiles.*;
+import com.ktar5.slime.world.tiles.base.Rotation;
+import com.ktar5.slime.world.tiles.base.Tile;
 
 public enum TileType {
     WIN((x, y, cell) -> new Win(x, y), 0),

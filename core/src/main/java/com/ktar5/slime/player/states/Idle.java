@@ -2,8 +2,8 @@ package com.ktar5.slime.player.states;
 
 import com.badlogic.gdx.math.Vector2;
 import com.ktar5.slime.engine.core.EngineManager;
+import com.ktar5.slime.engine.util.iConsumer;
 import com.ktar5.slime.player.JumpPlayer;
-import com.ktar5.slime.utils.iConsumer;
 import lombok.AllArgsConstructor;
 
 public class Idle extends PlayerState {

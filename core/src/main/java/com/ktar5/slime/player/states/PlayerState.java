@@ -18,7 +18,7 @@ public abstract class PlayerState extends State<PlayerState> {
 
     @Override
     public void changeState(Class<? extends PlayerState> state) {
-        getPlayer().getPlayerState().changeStateAfterUpdate(state);
+        getPlayer().getEntityState().changeStateAfterUpdate(state);
     }
 
     @Override

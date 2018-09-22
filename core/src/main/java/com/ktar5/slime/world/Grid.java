@@ -1,9 +1,9 @@
 package com.ktar5.slime.world;
 
 import com.ktar5.slime.engine.entities.Entity;
+import com.ktar5.slime.engine.util.Side;
 import com.ktar5.slime.engine.util.Updatable;
 import com.ktar5.slime.player.JumpPlayer;
-import com.ktar5.slime.utils.Side;
 import com.ktar5.slime.world.tiles.base.Tile;
 
 import java.util.ArrayList;

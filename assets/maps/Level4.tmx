@@ -339,7 +339,7 @@
   <object id="28" x="80" y="416" width="16" height="16">
    <properties>
     <property name="onPass">setGate(8,25,open;8,26,open)
-setGraphic(8,25,Art_Top,233;8,26,Art_Top,233)</property>
+setGraphic(8,25,Art_AbovePlayer,233;8,26,Art_AbovePlayer,233)</property>
    </properties>
   </object>
   <object id="29" name="spawn" x="368" y="464" width="16" height="16"/>

@@ -43,7 +43,7 @@ public class JumpPlayer extends PlayerEntity<PlayerState> {
     @Override
     public void update(float dTime) {
         super.update(dTime);
-        entityState.update(dTime);
+        getEntityState().update(dTime);
         if (lastX == (int) position.x && lastY == (int) position.y) {
             return;
         }
@@ -53,8 +53,8 @@ public class JumpPlayer extends PlayerEntity<PlayerState> {
     }
 
     public void kill() {
-        if (!entityState.getCurrent().getClass().equals(Respawn.class)) {
-            entityState.changeStateAfterUpdate(Respawn.class);
+        if (!getEntityState().getCurrent().getClass().equals(Respawn.class)) {
+            getEntityState().changeStateAfterUpdate(Respawn.class);
         }
     }
 

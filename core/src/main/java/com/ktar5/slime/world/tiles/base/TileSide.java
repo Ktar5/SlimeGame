@@ -1,7 +1,7 @@
 package com.ktar5.slime.world.tiles.base;
 
+import com.ktar5.slime.engine.util.Side;
 import com.ktar5.slime.player.JumpPlayer;
-import com.ktar5.slime.utils.Side;
 
 public abstract class TileSide {
     public void tick() {

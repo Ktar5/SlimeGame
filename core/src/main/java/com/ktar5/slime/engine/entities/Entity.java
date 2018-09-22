@@ -5,19 +5,21 @@ import com.ktar5.slime.engine.statemachine.SimpleStateMachine;
 import com.ktar5.slime.engine.statemachine.State;
 import com.ktar5.slime.engine.util.Identity;
 import com.ktar5.slime.engine.util.Position;
+import com.ktar5.slime.engine.util.Side;
 import com.ktar5.slime.engine.util.Updatable;
-import com.ktar5.slime.utils.Side;
 import com.ktar5.utilities.annotation.callsuper.CallSuper;
 import lombok.Getter;
+import lombok.Setter;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 @Getter
 public abstract class Entity<T extends State<T>> extends Identity implements Updatable {
-    public SimpleStateMachine<T> entityState;
+    private SimpleStateMachine<T> entityState;
     public final Position position;
     private final EntityAnimator entityAnimator;
 
+    @Setter
     private Side lastMovedDirection = Side.UP;
 
     public Entity(float height, float width) {

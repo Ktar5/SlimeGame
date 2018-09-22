@@ -1,8 +1,8 @@
 package com.ktar5.slime.world.tiles;
 
+import com.ktar5.slime.engine.util.Side;
 import com.ktar5.slime.player.JumpPlayer;
 import com.ktar5.slime.player.states.Idle;
-import com.ktar5.slime.utils.Side;
 import com.ktar5.slime.world.tiles.base.Rotation;
 import com.ktar5.slime.world.tiles.base.WholeTile;
 
@@ -23,7 +23,7 @@ public class Goo extends WholeTile {
 
     @Override
     public void onPlayerCross(JumpPlayer player) {
-        player.playerState.changeStateAfterUpdate(Idle.class);
+        player.getEntityState().changeStateAfterUpdate(Idle.class);
         System.out.println(player.position.x);
         System.out.println(player.position.y);
         int x = (int) player.position.x;

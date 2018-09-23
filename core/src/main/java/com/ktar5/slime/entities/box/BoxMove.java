@@ -3,7 +3,6 @@ package com.ktar5.slime.entities.box;
 import com.badlogic.gdx.math.Vector2;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.engine.util.Side;
-import com.ktar5.slime.entities.player.states.Idle;
 import com.ktar5.slime.world.Grid;
 import com.ktar5.slime.world.tiles.base.Tile;
 
@@ -16,12 +15,13 @@ public class BoxMove extends BoxState {
 
     @Override
     public void start() {
-        Vector2 input = new Vector2((int) Math.ceil(input.x), (int) Math.ceil(input.y));
+        Vector2 input = null;
+        //= new Vector2((int) Math.ceil(input.x), (int) Math.ceil(input.y));
 
         //If something somehow messed up, let's fix it
         if (input.equals(Vector2.Zero)) {
             end();
-            changeState(Idle.class);
+            changeState(BoxIdle.class);
         }
 
         //Make sure we only move in ONE direction (x or y)
@@ -94,7 +94,7 @@ public class BoxMove extends BoxState {
             getEntity().getPosition().moveTo(newX, newY);
 
             //Change state to idle
-            changeState(Idle.class);
+            changeState(BoxIdle.class);
             getEntity().getEntityAnimator().setFrame(3);
 
             newTile.onHitTile(getEntity(), getMovement().opposite());

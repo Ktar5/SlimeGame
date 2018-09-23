@@ -3,11 +3,10 @@ package com.ktar5.slime.entities.ghost;
 import com.ktar5.slime.engine.entities.Entity;
 import com.ktar5.slime.engine.entities.components.EntityAnimator;
 import com.ktar5.slime.engine.statemachine.SimpleStateMachine;
-import com.ktar5.slime.entities.states.EntityState;
 import lombok.Getter;
 
 @Getter
-public class Ghost extends Entity<EntityState> {
+public class Ghost extends Entity<GhostState> {
     private GhostMove direction;
     private boolean positive;
 
@@ -18,7 +17,7 @@ public class Ghost extends Entity<EntityState> {
     }
 
     @Override
-    protected SimpleStateMachine<EntityState> initializeStateMachine() {
+    protected SimpleStateMachine<GhostState> initializeStateMachine() {
         return null;
     }
 

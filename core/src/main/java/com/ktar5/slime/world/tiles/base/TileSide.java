@@ -1,26 +1,26 @@
 package com.ktar5.slime.world.tiles.base;
 
+import com.ktar5.slime.engine.entities.Entity;
 import com.ktar5.slime.engine.util.Side;
-import com.ktar5.slime.entities.player.JumpPlayer;
 
 public abstract class TileSide {
     public void tick() {
     }
 
-    public void onPlayerHitTile(JumpPlayer player, Side hit, MultisidedTile tile) {
+    public void onPlayerHitTile(Entity entity, Side hit, MultisidedTile tile) {
     }
 
-    public void onPlayerTouchSide(JumpPlayer player, Side movement, Side touched, MultisidedTile tile) {
+    public void onPlayerTouchSide(Entity entity, Side movement, Side touched, MultisidedTile tile) {
     }
 
-    public void onPlayerCross(JumpPlayer player, MultisidedTile tile) {
+    public void onPlayerCross(Entity entity, MultisidedTile tile) {
     }
 
-    public abstract boolean canCrossThrough(JumpPlayer player, Side movement, MultisidedTile tile);
+    public abstract boolean canCrossThrough(Entity entity, Side movement, MultisidedTile tile);
 
-    //public abstract Side nextBlockAfterCross(JumpPlayer player, Side movement);
+    //public abstract Side nextBlockAfterCross(Entity entity, Side movement);
 
-    public boolean changeMovement(JumpPlayer player, Side movement, MultisidedTile tile) {
+    public boolean changeMovement(Entity entity, Side movement, MultisidedTile tile) {
         return false;
     }
 }

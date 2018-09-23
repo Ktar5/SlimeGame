@@ -1,7 +1,7 @@
 package com.ktar5.slime.world.tiles.base;
 
+import com.ktar5.slime.engine.entities.Entity;
 import com.ktar5.slime.engine.util.Side;
-import com.ktar5.slime.entities.player.JumpPlayer;
 
 public abstract class MultisidedTile extends Tile {
     private TileSide[] sides;
@@ -19,28 +19,28 @@ public abstract class MultisidedTile extends Tile {
     }
 
     @Override
-    public void onPlayerHitTile(JumpPlayer player, Side hit) {
-        sides[hit.ordinal()].onPlayerHitTile(player, hit, this);
+    public void onHitTile(Entity entity, Side hit) {
+        sides[hit.ordinal()].onPlayerHitTile(entity, hit, this);
     }
 
     @Override
-    public void onTouchSide(JumpPlayer player, Side movement, Side touched) {
-        sides[touched.ordinal()].onPlayerTouchSide(player, movement, touched, this);
+    public void onTouchSide(Entity entity, Side movement, Side touched) {
+        sides[touched.ordinal()].onPlayerTouchSide(entity, movement, touched, this);
     }
 
     @Override
-    public void onCross(JumpPlayer player) {
+    public void onCross(Entity entity) {
         //todo
     }
 
     @Override
-    public boolean changeMovement(JumpPlayer player, Side movement) {
-        return sides[movement.opposite().ordinal()].changeMovement(player, movement, this);
+    public boolean changeMovement(Entity entity, Side movement) {
+        return sides[movement.opposite().ordinal()].changeMovement(entity, movement, this);
     }
 
     @Override
-    public boolean canCrossThrough(JumpPlayer player, Side movement) {
-        return sides[movement.opposite().ordinal()].canCrossThrough(player, movement, this);
+    public boolean canCrossThrough(Entity entity, Side movement) {
+        return sides[movement.opposite().ordinal()].canCrossThrough(entity, movement, this);
     }
 
     public TileSide getSide(Side side) {

@@ -1,80 +1,154 @@
-21:25:424 FileScanner.searchDir() [DEBUG]: +--assets/
-21:25:425 FileScanner.searchDir() [DEBUG]: |  +--data/
-21:25:426 FileScanner.searchDir() [DEBUG]: |  +--default_skin/
-21:25:431 FileScanner.searchDir() [DEBUG]: |  +--fonts/
-21:25:432 FileScanner.searchDir() [DEBUG]: |  +--maps/
-21:25:432 FileScanner.searchDir() [DEBUG]: |  |  +--tileset/
-21:25:433 FileScanner.searchDir() [DEBUG]: |  +--sounds/
-21:25:435 FileScanner.searchDir() [DEBUG]: |  +--textures/
-21:25:435 FileScanner.searchDir() [DEBUG]: |  |  +--player/
-21:25:440 FileScanner.searchDir() [DEBUG]: |  |  +--unatlased/
-21:25:443 CollectingFileScanner.searchDir() [DEBUG]: +--maps/
-21:25:444 CollectingFileScanner.searchDir() [DEBUG]: |  +--tileset/
-21:25:663 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
-21:25:663 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
-21:25:663 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
-21:25:672 GameScreen.show() [DEBUG]: Display started for GameScreen
-21:26:937 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537647686937
-21:26:970 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537647686970
-21:28:342 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
-21:28:342 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
-21:28:342 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
-21:28:969 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537647688969
-21:29:003 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537647689003
-21:29:036 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537647689036
-21:29:253 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537647689253
-21:29:353 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537647689353
-21:29:419 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537647689419
-21:29:587 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537647689587
-21:29:603 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537647689603
-21:29:670 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537647689670
-21:29:769 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537647689769
-21:29:870 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537647689870
-21:30:003 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537647690002
-21:30:319 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537647690319
-21:30:386 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537647690386
-21:30:469 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537647690469
-21:30:570 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537647690570
-21:30:652 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537647690652
-21:31:002 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537647691002
-21:31:152 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537647691152
-21:31:219 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537647691219
-21:31:369 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537647691369
-21:31:385 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537647691385
-21:31:585 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537647691585
-21:31:635 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537647691635
-21:31:752 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537647691752
-21:31:919 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537647691919
-21:32:052 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537647692052
-21:32:385 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537647692385
-21:32:518 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537647692518
-21:32:584 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537647692584
-21:32:668 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537647692668
-21:32:735 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537647692735
-21:32:802 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537647692802
-21:32:901 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537647692901
-21:33:685 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537647693685
-21:33:785 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537647693785
-21:33:819 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537647693819
-21:33:885 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537647693885
-21:33:985 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537647693985
-21:34:052 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537647694052
-21:34:085 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537647694085
-21:34:251 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537647694251
-21:34:351 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537647694351
-21:34:584 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537647694584
-21:34:968 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537647694968
-21:35:051 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Respawn @ 1537647695051
-21:37:068 SimpleStateMachine.changeState() [DEBUG]: Changing state from Respawn to Idle @ 1537647697068
-21:37:651 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537647697651
-21:37:684 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537647697684
-21:37:801 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537647697801
-21:37:834 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537647697834
-21:37:968 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537647697968
-21:38:151 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537647698151
-21:38:168 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537647698168
-21:38:184 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537647698184
-21:38:684 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537647698684
-21:38:751 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537647698751
-21:39:069 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537647699069
-21:39:135 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537647699135
+59:13:225 FileScanner.searchDir() [DEBUG]: +--assets/
+59:13:227 FileScanner.searchDir() [DEBUG]: |  +--data/
+59:13:228 FileScanner.searchDir() [DEBUG]: |  +--default_skin/
+59:13:233 FileScanner.searchDir() [DEBUG]: |  +--fonts/
+59:13:233 FileScanner.searchDir() [DEBUG]: |  +--maps/
+59:13:234 FileScanner.searchDir() [DEBUG]: |  |  +--tileset/
+59:13:235 FileScanner.searchDir() [DEBUG]: |  +--sounds/
+59:13:236 FileScanner.searchDir() [DEBUG]: |  +--textures/
+59:13:236 FileScanner.searchDir() [DEBUG]: |  |  +--player/
+59:13:240 FileScanner.searchDir() [DEBUG]: |  |  +--unatlased/
+59:13:243 CollectingFileScanner.searchDir() [DEBUG]: +--maps/
+59:13:243 CollectingFileScanner.searchDir() [DEBUG]: |  +--tileset/
+59:13:448 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
+59:13:448 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+59:13:448 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+59:13:458 GameScreen.show() [DEBUG]: Display started for GameScreen
+59:14:454 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664354454
+59:14:486 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664354486
+59:14:635 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664354635
+59:14:802 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664354802
+59:14:868 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664354868
+59:14:936 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664354936
+59:15:068 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664355068
+59:15:168 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664355168
+59:15:235 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664355235
+59:15:435 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664355435
+59:15:452 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664355452
+59:15:652 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664355652
+59:15:668 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664355668
+59:15:803 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664355803
+59:15:853 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664355853
+59:15:919 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
+59:15:919 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+59:15:919 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+59:15:920 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664355920
+59:16:435 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664356435
+59:16:502 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664356502
+59:16:535 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664356535
+59:16:668 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664356668
+59:16:685 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664356685
+59:16:752 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664356752
+59:16:768 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664356768
+59:16:802 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664356802
+59:16:935 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664356935
+59:17:035 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664357035
+59:17:052 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664357052
+59:17:085 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664357085
+59:17:185 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664357185
+59:17:452 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664357452
+59:17:502 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664357502
+59:17:603 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664357603
+59:17:719 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664357719
+59:17:819 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664357819
+59:17:886 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664357886
+59:18:118 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664358118
+59:18:135 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664358135
+59:18:235 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664358235
+59:18:352 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664358352
+59:18:418 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664358418
+59:18:518 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664358518
+59:18:652 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664358652
+59:18:668 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664358668
+59:19:002 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664359002
+59:19:569 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664359569
+59:19:769 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664359769
+59:19:786 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664359786
+59:19:803 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Respawn @ 1537664359803
+59:21:818 SimpleStateMachine.changeState() [DEBUG]: Changing state from Respawn to Idle @ 1537664361818
+59:22:552 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664362552
+59:22:585 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664362585
+59:24:158 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
+59:24:158 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+59:24:158 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+59:24:952 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664364952
+59:24:985 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664364985
+59:25:118 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664365118
+59:25:335 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664365335
+59:25:618 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664365618
+59:25:686 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664365686
+59:25:869 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664365869
+59:25:969 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664365969
+59:26:086 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664366086
+59:26:218 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664366218
+59:26:568 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664366568
+59:26:635 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664366635
+59:26:735 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664366735
+59:26:835 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664366835
+59:27:068 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664367068
+59:27:419 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664367419
+59:27:586 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664367586
+59:27:603 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664367603
+59:28:102 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664368102
+59:28:168 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664368168
+59:28:252 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664368252
+59:28:302 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664368302
+59:28:568 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664368568
+59:28:735 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664368735
+59:29:168 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664369168
+59:29:503 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664369503
+59:29:569 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664369569
+59:29:735 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664369735
+59:29:985 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664369985
+59:30:152 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664370152
+59:30:268 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664370268
+59:30:335 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664370335
+59:30:435 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664370435
+59:30:502 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664370502
+59:30:568 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664370568
+59:30:668 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664370668
+59:30:935 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664370935
+59:31:036 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664371036
+59:31:153 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664371153
+59:31:219 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664371219
+59:31:319 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664371319
+59:31:386 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664371386
+59:31:436 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664371436
+59:31:602 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664371602
+59:31:702 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664371702
+59:31:935 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664371935
+59:32:185 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664372185
+59:32:252 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664372252
+59:32:703 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664372703
+59:32:769 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664372769
+59:32:936 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664372936
+59:33:702 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664373702
+59:34:235 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664374235
+59:34:252 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664374252
+59:34:302 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664374302
+59:34:368 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664374368
+59:34:469 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664374469
+59:34:569 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664374569
+59:34:669 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664374669
+59:34:753 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664374753
+59:35:285 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664375285
+59:35:352 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664375352
+59:35:436 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664375436
+59:35:568 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664375568
+59:36:286 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664376286
+59:36:353 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664376353
+59:36:469 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664376469
+59:36:603 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664376603
+59:36:852 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664376852
+59:37:221 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664377221
+59:37:221 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Idle @ 1537664377221
+59:37:254 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664377254
+59:37:354 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664377354
+59:37:554 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664377554
+59:37:721 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664377721
+59:37:788 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664377788
+59:37:954 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664377954
+59:38:004 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664378004
+59:38:171 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664378171
+59:38:204 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537664378204
+59:38:338 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537664378338

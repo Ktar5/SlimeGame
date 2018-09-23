@@ -1,11 +1,11 @@
-package com.ktar5.slime.player.states;
+package com.ktar5.slime.entities.player.states;
 
 import com.badlogic.gdx.math.Vector2;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.engine.Feature;
 import com.ktar5.slime.engine.core.EngineManager;
 import com.ktar5.slime.engine.util.Side;
-import com.ktar5.slime.player.JumpPlayer;
+import com.ktar5.slime.entities.player.JumpPlayer;
 import com.ktar5.slime.world.Grid;
 import com.ktar5.slime.world.tiles.base.Tile;
 import org.pmw.tinylog.Logger;
@@ -135,7 +135,7 @@ public class Move extends PlayerState {
             changeState(Idle.class);
             getPlayer().getEntityAnimator().setFrame(3);
 
-            newTile.onPlayerHitTile(getPlayer(), getMovement().opposite());
+            newTile.onHitTile(getPlayer(), getMovement().opposite());
         }
         //This is for regular movement
         else {

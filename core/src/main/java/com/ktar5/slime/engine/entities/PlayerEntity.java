@@ -21,7 +21,12 @@ public abstract class PlayerEntity<T extends State<T>> extends LivingEntity<T> {
                 EngineManager.get().getAnimationLoader().getAnimation(getDefaultAnimation()),
                 width, height);
     }
-    
+
+    @Override
+    public boolean isPlayer() {
+        return true;
+    }
+
     protected abstract String getDefaultAnimation();
     
 }

@@ -1,8 +1,9 @@
 package com.ktar5.slime.world.tiles;
 
 import com.badlogic.gdx.maps.MapProperties;
+import com.ktar5.slime.SlimeGame;
+import com.ktar5.slime.engine.entities.Entity;
 import com.ktar5.slime.engine.util.Side;
-import com.ktar5.slime.player.JumpPlayer;
 import com.ktar5.slime.world.tiles.base.Rotation;
 import com.ktar5.slime.world.tiles.base.WholeTile;
 
@@ -28,18 +29,18 @@ public class Teleporter extends WholeTile {
     }
 
     @Override
-    public boolean preMove(JumpPlayer player) {
-        player.position.set(x, player.getLevel().getGrid().height - y - 1);
+    public boolean preMove(Entity entity) {
+        entity.position.set(x, SlimeGame.getGame().getLevelHandler().getCurrentLevel().getGrid().height - y - 1);
         return false;
     }
 
     @Override
-    public void onPlayerCross(JumpPlayer player) {
+    public void onCross(Entity entity) {
 
     }
 
     @Override
-    public boolean canCrossThrough(JumpPlayer player, Side movement) {
+    public boolean canCrossThrough(Entity entity, Side movement) {
         return false;
     }
 }

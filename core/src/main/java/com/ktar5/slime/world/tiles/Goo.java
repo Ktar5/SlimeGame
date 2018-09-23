@@ -1,8 +1,10 @@
 package com.ktar5.slime.world.tiles;
 
+import com.ktar5.slime.engine.entities.Entity;
 import com.ktar5.slime.engine.util.Side;
-import com.ktar5.slime.player.JumpPlayer;
-import com.ktar5.slime.player.states.Idle;
+import com.ktar5.slime.entities.box.Box;
+import com.ktar5.slime.entities.box.BoxIdle;
+import com.ktar5.slime.entities.player.states.Idle;
 import com.ktar5.slime.world.tiles.base.Rotation;
 import com.ktar5.slime.world.tiles.base.WholeTile;
 
@@ -17,22 +19,21 @@ public class Goo extends WholeTile {
     }
 
     @Override
-    public boolean canCrossThrough(JumpPlayer player, Side movement) {
+    public boolean canCrossThrough(Entity entity, Side movement) {
         return true;
     }
 
     @Override
-    public void onPlayerCross(JumpPlayer player) {
-        player.getEntityState().changeStateAfterUpdate(Idle.class);
-        System.out.println(player.position.x);
-        System.out.println(player.position.y);
-        int x = (int) player.position.x;
-        int y = (int) player.position.y;
-        player.position.set(x, y);
-        //player.position.set(x + .5f, y);
-        System.out.println(".....");
-        System.out.println(player.position.x);
-        System.out.println(player.position.y);
-        //player.position.set();
+    public void onCross(Entity entity) {
+        if(entity.isPlayer()){
+            entity.getEntityState().changeStateAfterUpdate(Idle.class);
+        }else if(entity instanceof Box){
+            entity.getEntityState().changeStateAfterUpdate(BoxIdle.class);
+        }else {
+            return;
+        }
+        int x = (int) entity.position.x;
+        int y = (int) entity.position.y;
+        entity.position.set(x, y);
     }
 }

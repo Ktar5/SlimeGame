@@ -1,4 +1,4 @@
-package com.ktar5.slime.player;
+package com.ktar5.slime.entities.player;
 
 
 import com.badlogic.gdx.math.Vector2;
@@ -7,10 +7,10 @@ import com.ktar5.slime.engine.core.EngineManager;
 import com.ktar5.slime.engine.entities.PlayerEntity;
 import com.ktar5.slime.engine.entities.components.EntityAnimator;
 import com.ktar5.slime.engine.statemachine.SimpleStateMachine;
-import com.ktar5.slime.player.states.Idle;
-import com.ktar5.slime.player.states.Move;
-import com.ktar5.slime.player.states.PlayerState;
-import com.ktar5.slime.player.states.Respawn;
+import com.ktar5.slime.entities.player.states.Idle;
+import com.ktar5.slime.entities.player.states.Move;
+import com.ktar5.slime.entities.player.states.PlayerState;
+import com.ktar5.slime.entities.player.states.Respawn;
 import com.ktar5.slime.world.level.LoadedLevel;
 import lombok.Getter;
 import lombok.Setter;

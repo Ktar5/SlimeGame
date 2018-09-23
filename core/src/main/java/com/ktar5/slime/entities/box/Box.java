@@ -1,10 +1,10 @@
-package com.ktar5.slime.entities;
+package com.ktar5.slime.entities.box;
 
 import com.ktar5.slime.engine.entities.Entity;
 import com.ktar5.slime.engine.entities.components.EntityAnimator;
 import com.ktar5.slime.engine.statemachine.SimpleStateMachine;
 
-public class Box extends Entity {
+public class Box extends Entity<BoxState> {
 
 
     public Box() {
@@ -12,7 +12,7 @@ public class Box extends Entity {
     }
 
     @Override
-    protected SimpleStateMachine initializeStateMachine() {
+    protected SimpleStateMachine<BoxState> initializeStateMachine() {
         return null;
     }
 
@@ -20,4 +20,5 @@ public class Box extends Entity {
     protected EntityAnimator initializeRenderer(float height, float width) {
         return null;
     }
+
 }

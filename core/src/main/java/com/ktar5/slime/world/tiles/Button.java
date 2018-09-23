@@ -1,7 +1,7 @@
 package com.ktar5.slime.world.tiles;
 
+import com.ktar5.slime.engine.entities.Entity;
 import com.ktar5.slime.engine.util.Side;
-import com.ktar5.slime.player.JumpPlayer;
 import com.ktar5.slime.world.tiles.base.Rotation;
 import com.ktar5.slime.world.tiles.base.TriggerableTile;
 
@@ -21,12 +21,12 @@ public class Button extends TriggerableTile {
 
 
     @Override
-    public boolean canCrossThrough(JumpPlayer player, Side movement) {
+    public boolean canCrossThrough(Entity entity, Side movement) {
         return false;
     }
 
     @Override
-    public void onPlayerHitTile(JumpPlayer player, Side hit) {
+    public void onHitTile(Entity entity, Side hit) {
         if (hit == pressableSide) {
             if (pressed) {
                 return;

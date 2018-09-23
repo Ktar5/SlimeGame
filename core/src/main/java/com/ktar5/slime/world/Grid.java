@@ -3,7 +3,7 @@ package com.ktar5.slime.world;
 import com.ktar5.slime.engine.entities.Entity;
 import com.ktar5.slime.engine.util.Side;
 import com.ktar5.slime.engine.util.Updatable;
-import com.ktar5.slime.player.JumpPlayer;
+import com.ktar5.slime.entities.player.JumpPlayer;
 import com.ktar5.slime.world.tiles.base.Tile;
 
 import java.util.ArrayList;
@@ -46,7 +46,7 @@ public class Grid implements Updatable {
     private void playerTouchSideOfTile(int x, int y, JumpPlayer player, Side side) {
         Tile tile = tileFromDirection(x, y, side);
         if (tile != null) {
-            tile.onPlayerTouchSide(player, null, side.opposite());
+            tile.onTouchSide(player, null, side.opposite());
         }
     }
 
@@ -58,7 +58,7 @@ public class Grid implements Updatable {
         playerTouchSideOfTile(x, y, player, Side.LEFT);
         playerTouchSideOfTile(x, y, player, Side.RIGHT);
         if (isInMapRange(x, y)) {
-            grid[x][y].onPlayerCross(player);
+            grid[x][y].onCross(player);
         }
     }
 

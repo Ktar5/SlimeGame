@@ -1,7 +1,7 @@
-package com.ktar5.slime.player.states;
+package com.ktar5.slime.entities.player.states;
 
 import com.ktar5.slime.engine.statemachine.State;
-import com.ktar5.slime.player.JumpPlayer;
+import com.ktar5.slime.entities.player.JumpPlayer;
 import lombok.Getter;
 
 public abstract class PlayerState extends State<PlayerState> {

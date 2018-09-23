@@ -38,6 +38,10 @@ public abstract class Entity<T extends State<T>> extends Identity implements Upd
         entityAnimator.update(dTime);
     }
 
+    public boolean isPlayer(){
+        return false;
+    }
+
     public String getSerialized() {
         return ToStringBuilder.reflectionToString(this, ToStringStyle.JSON_STYLE);
     }

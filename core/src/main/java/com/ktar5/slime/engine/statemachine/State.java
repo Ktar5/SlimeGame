@@ -12,5 +12,4 @@ public abstract class State<T extends State<T>> implements Updatable {
 
     public abstract void changeState(Class<? extends T> state);
 
-
 }

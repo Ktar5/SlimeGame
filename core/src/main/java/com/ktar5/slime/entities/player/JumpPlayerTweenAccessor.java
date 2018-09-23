@@ -1,4 +1,4 @@
-package com.ktar5.slime.player;
+package com.ktar5.slime.entities.player;
 
 import com.ktar5.slime.engine.tweenengine.TweenAccessor;
 

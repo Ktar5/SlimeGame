@@ -1,4 +1,4 @@
-package com.ktar5.slime.entities;
+package com.ktar5.slime.entities.ghost;
 
 import com.ktar5.slime.engine.entities.Entity;
 import com.ktar5.slime.engine.entities.components.EntityAnimator;

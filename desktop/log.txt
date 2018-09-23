@@ -10,15 +10,15 @@
 21:25:440 FileScanner.searchDir() [DEBUG]: |  |  +--unatlased/
 21:25:443 CollectingFileScanner.searchDir() [DEBUG]: +--maps/
 21:25:444 CollectingFileScanner.searchDir() [DEBUG]: |  +--tileset/
-21:25:663 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.player.states.Idle
-21:25:663 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.player.states.Move
-21:25:663 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.player.states.Respawn
+21:25:663 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
+21:25:663 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+21:25:663 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
 21:25:672 GameScreen.show() [DEBUG]: Display started for GameScreen
 21:26:937 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537647686937
 21:26:970 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537647686970
-21:28:342 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.player.states.Idle
-21:28:342 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.player.states.Move
-21:28:342 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.player.states.Respawn
+21:28:342 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
+21:28:342 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+21:28:342 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
 21:28:969 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537647688969
 21:29:003 SimpleStateMachine.changeState() [DEBUG]: Changing state from Move to Idle @ 1537647689003
 21:29:036 SimpleStateMachine.changeState() [DEBUG]: Changing state from Idle to Move @ 1537647689036

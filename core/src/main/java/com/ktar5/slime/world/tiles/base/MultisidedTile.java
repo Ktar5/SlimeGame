@@ -1,7 +1,7 @@
 package com.ktar5.slime.world.tiles.base;
 
 import com.ktar5.slime.engine.util.Side;
-import com.ktar5.slime.player.JumpPlayer;
+import com.ktar5.slime.entities.player.JumpPlayer;
 
 public abstract class MultisidedTile extends Tile {
     private TileSide[] sides;
@@ -24,12 +24,12 @@ public abstract class MultisidedTile extends Tile {
     }
 
     @Override
-    public void onPlayerTouchSide(JumpPlayer player, Side movement, Side touched) {
+    public void onTouchSide(JumpPlayer player, Side movement, Side touched) {
         sides[touched.ordinal()].onPlayerTouchSide(player, movement, touched, this);
     }
 
     @Override
-    public void onPlayerCross(JumpPlayer player) {
+    public void onCross(JumpPlayer player) {
         //todo
     }
 

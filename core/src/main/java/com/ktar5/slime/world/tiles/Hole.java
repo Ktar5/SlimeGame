@@ -1,7 +1,9 @@
 package com.ktar5.slime.world.tiles;
 
+import com.ktar5.slime.engine.entities.Entity;
 import com.ktar5.slime.engine.util.Side;
-import com.ktar5.slime.player.JumpPlayer;
+import com.ktar5.slime.entities.box.Box;
+import com.ktar5.slime.entities.player.JumpPlayer;
 import com.ktar5.slime.world.tiles.base.Rotation;
 import com.ktar5.slime.world.tiles.base.WholeTile;
 
@@ -19,14 +21,23 @@ public class Hole extends WholeTile {
 
 
     @Override
-    public boolean canCrossThrough(JumpPlayer player, Side movement) {
+    public boolean canCrossThrough(Entity entity, Side movement) {
         return true;
     }
 
     @Override
-    public void onPlayerCross(JumpPlayer player) {
-        if (!filled) {
-            player.kill();
+    public void onCross(Entity entity) {
+        if (filled) {
+            return;
         }
+
+        if(entity.isPlayer()){
+            ((JumpPlayer) entity).kill();
+        }else if(entity instanceof Box){
+            filled = true;
+            //todo remove entity
+        }
+
+
     }
 }

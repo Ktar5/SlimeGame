@@ -5,6 +5,7 @@ import com.ktar5.slime.engine.core.AbstractScreen;
 import com.ktar5.slime.engine.core.EngineManager;
 import com.ktar5.slime.engine.rendering.CustomizedRender;
 import com.ktar5.slime.engine.rendering.Renderable;
+import com.ktar5.slime.engine.util.FrameRate;
 import com.ktar5.slime.variables.Constants;
 import org.pmw.tinylog.Logger;
 
@@ -12,6 +13,7 @@ import java.util.Arrays;
 import java.util.List;
 
 public class GameScreen extends AbstractScreen {
+    private FrameRate frameRate;
 
     public GameScreen() {
         super(EngineManager.get().getCameraBase());
@@ -24,9 +26,15 @@ public class GameScreen extends AbstractScreen {
     }
 
     @Override
-    public List<Renderable> initilizeRenderables() {
+    public void preInit() {
+        frameRate = new FrameRate();
+    }
+
+    @Override
+    public List<Renderable> initializeRenderables() {
         return Arrays.asList(
-                SlimeGame.getGame().getLevelHandler()
+                SlimeGame.getGame().getLevelHandler(),
+                frameRate
         );
     }
 
@@ -36,6 +44,7 @@ public class GameScreen extends AbstractScreen {
         updatableList.add(dTime -> EngineManager.get().getTweenManager().update(Constants.FRAME_DT));
         updatableList.add(EngineManager.get().getCameraBase());
         updatableList.add(SlimeGame.getGame().getLevelHandler());
+        updatableList.add(frameRate);
     }
 
     @Override

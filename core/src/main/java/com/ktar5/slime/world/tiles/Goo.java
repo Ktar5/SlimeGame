@@ -25,15 +25,15 @@ public class Goo extends WholeTile {
 
     @Override
     public void onCross(Entity entity) {
-        if(entity.isPlayer()){
+        if (entity.isPlayer()) {
             entity.getEntityState().changeStateAfterUpdate(Idle.class);
-        }else if(entity instanceof Box){
+        } else if (entity instanceof Box) {
             entity.getEntityState().changeStateAfterUpdate(BoxIdle.class);
-        }else {
+        } else {
             return;
         }
-        int x = (int) entity.position.x;
-        int y = (int) entity.position.y;
-        entity.position.set(x, y);
+        int x = (int) entity.position.x / 16;
+        int y = (int) entity.position.y / 16;
+        entity.position.set(x * 16, y * 16);
     }
 }

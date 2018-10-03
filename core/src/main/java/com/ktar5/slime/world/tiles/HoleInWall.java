@@ -30,12 +30,12 @@ public class HoleInWall extends WholeTile {
 
     @Override
     public boolean canCrossThrough(Entity entity, Side movement) {
-        if(entity.isPlayer()){
+        if (entity.isPlayer()) {
             JumpPlayer player = (JumpPlayer) entity;
-            if(player.isSmall()){
-                if(allSides){
+            if (player.isSmall()) {
+                if (allSides) {
                     return true;
-                }else{
+                } else {
                     return movement.opposite().equals(sideOne) || movement.opposite().equals(sideTwo);
                 }
             }
@@ -45,17 +45,17 @@ public class HoleInWall extends WholeTile {
 
     @Override
     public boolean changeMovement(Entity entity, Side movement) {
-        if(entity.isPlayer()){
-            if(allSides){
+        if (entity.isPlayer()) {
+            if (allSides || sideOne.opposite().equals(sideTwo)) {
                 return false;
             }
-            System.out.println("Values: " + sideOne.name() + ", " + sideTwo.name());
-            if(movement.opposite().equals(sideOne)){
-                System.out.println("Entered: " + sideOne.name() + " exited: " + sideTwo.name());
+            //System.out.println("Values: " + sideOne.name() + ", " + sideTwo.name());
+            if (movement.opposite().equals(sideOne)) {
+                //System.out.println("Entered: " + sideOne.name() + " exited: " + sideTwo.name());
                 entity.setLastMovedDirection(sideTwo);
                 return true;
-            }else if(movement.opposite().equals(sideTwo)){
-                System.out.println("Entered: " + sideTwo.name()  + " exited: " + sideOne.name());
+            } else if (movement.opposite().equals(sideTwo)) {
+                //System.out.println("Entered: " + sideTwo.name()  + " exited: " + sideOne.name());
                 entity.setLastMovedDirection(sideOne);
                 return true;
             }

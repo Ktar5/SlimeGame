@@ -23,12 +23,17 @@ public abstract class AbstractScreen implements Screen {
         if(renderManager == null){
             throw new RuntimeException("RenderManager cannot be null");
         }
-        this.renderManager.setRenderables(initilizeRenderables());
+        preInit();
+        this.renderManager.setRenderables(initializeRenderables());
         //todo set customized renderer
         initializeUpdatables();
     }
 
-    public abstract List<Renderable> initilizeRenderables();
+    public void preInit(){
+
+    }
+
+    public abstract List<Renderable> initializeRenderables();
 
     public abstract void initializeUpdatables();
 

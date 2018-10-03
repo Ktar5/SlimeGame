@@ -1,30 +1,24 @@
 package com.ktar5.slime.entities.ghost;
 
 import com.ktar5.slime.engine.statemachine.State;
+import lombok.Getter;
 
-public class GhostState extends State<GhostState> {
-    @Override
-    public void start() {
+public abstract class GhostState extends State<GhostState> {
+    @Getter
+    private final Ghost entity;
 
-    }
-
-    @Override
-    public void onUpdate(float dTime) {
-
-    }
-
-    @Override
-    protected void end() {
-
+    protected GhostState(Ghost entity) {
+        this.entity = entity;
     }
 
     @Override
     public void changeState(Class<? extends GhostState> state) {
-
+        getEntity().getEntityState().changeStateAfterUpdate(state);
     }
 
     @Override
-    public void update(float dTime) {
-
+    public final void update(float dTime) {
+        onUpdate(dTime);
     }
+
 }

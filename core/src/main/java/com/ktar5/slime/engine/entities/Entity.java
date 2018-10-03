@@ -20,6 +20,8 @@ public abstract class Entity<T extends State<T>> extends Identity implements Upd
     private final EntityAnimator entityAnimator;
 
     @Setter
+    private boolean haltMovement = false;
+    @Setter
     private Side lastMovedDirection = Side.UP;
 
     public Entity(float height, float width) {
@@ -36,6 +38,7 @@ public abstract class Entity<T extends State<T>> extends Identity implements Upd
     @CallSuper
     public void update(float dTime) {
         entityAnimator.update(dTime);
+        entityState.update(dTime);
     }
 
     public boolean isPlayer(){

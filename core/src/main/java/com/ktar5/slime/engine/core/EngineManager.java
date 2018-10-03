@@ -39,6 +39,10 @@ public class EngineManager<G extends AbstractGame<G>> implements Disposable {
 
     private final RenderManager renderManager;
 
+    public void setCamera(CameraBase camera){
+        this.cameraBase = camera;
+    }
+
     private EngineManager(G game) {
         initializeLogger();
         

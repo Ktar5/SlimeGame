@@ -18,7 +18,7 @@ public abstract class TriggerableTile extends WholeTile {
     }
 
     @Override
-    public void giveProperties(MapProperties properties) {
+    public void processProperty(MapProperties properties) {
         for (Iterator<String> iter = properties.getKeys(); iter.hasNext(); ) {
             String name = iter.next();
             String value = properties.get(name, String.class);

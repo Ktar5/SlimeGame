@@ -13,7 +13,7 @@ public class MenuScreen extends AbstractScreen {
     }
 
     @Override
-    public List<Renderable> initilizeRenderables() {
+    public List<Renderable> initializeRenderables() {
         return Collections.emptyList();
     }
 

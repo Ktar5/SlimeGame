@@ -7,8 +7,9 @@ import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
+import com.ktar5.slime.entities.EntityData;
 import com.ktar5.slime.world.Grid;
-import com.ktar5.slime.world.level.types.TileType;
+import com.ktar5.slime.world.level.types.TileObjectTypes;
 import com.ktar5.slime.world.tiles.Air;
 import com.ktar5.slime.world.tiles.base.Tile;
 import com.ktar5.utilities.common.data.Pair;
@@ -29,17 +30,18 @@ public class Level {
     protected TiledMap tileMap;
     protected int id;
     protected Grid grid;
+    private List<EntityData> initialEntityData;
     private int gameplayArtLayer;
     private int[] foregroundLayers, backgroundLayers;
 
     public Level(TiledMap tilemap, int id) {
         this.tileMap = tilemap;
         this.id = id;
-
+        initialEntityData = new ArrayList<>();
         initializeGrid();
     }
 
-    public void setLevelDebug(boolean debug){
+    public void setLevelDebug(boolean debug) {
         showDebugLevel = debug;
         tileMap.getLayers().get("Gameplay").setVisible(debug);
     }
@@ -59,12 +61,12 @@ public class Level {
             layer.setOffsetY(8);
             layer.getProperties();
             if (layer.getName().startsWith("Art")) {
-                if(layer.getProperties().containsKey("Front")){
+                if (layer.getProperties().containsKey("Front")) {
                     foregrounds.add(layers.getIndex(layer));
-                }else{
+                } else {
                     backgrounds.add(layers.getIndex(layer));
                 }
-                if(layer.getProperties().containsKey("Modify")){
+                if (layer.getProperties().containsKey("Modify")) {
                     gameplayArtLayer = layers.getIndex(layer);
                 }
 //                layer.setOffsetX(-8);
@@ -85,9 +87,9 @@ public class Level {
             }
         }
 
-        if(!foregrounds.isEmpty()){
+        if (!foregrounds.isEmpty()) {
             foregroundLayers = ArrayUtils.toPrimitive(foregrounds.toArray(new Integer[0]));
-        }else {
+        } else {
             foregroundLayers = new int[0];
         }
         backgroundLayers = ArrayUtils.toPrimitive(backgrounds.toArray(new Integer[0]));
@@ -106,7 +108,7 @@ public class Level {
         //Load gameplay layer
         Grid newGrid = new Grid(gpTileLayer.getWidth(), gpTileLayer.getHeight());
         TiledMapTileLayer.Cell cell;
-        TileType tempType;
+        TileObjectTypes tempType;
         for (int h = 0; h < gpTileLayer.getHeight(); h++) {
             for (int w = 0; w < gpTileLayer.getWidth(); w++) {
                 cell = gpTileLayer.getCell(w, h);
@@ -114,12 +116,22 @@ public class Level {
                     newGrid.grid[w][h] = new Air(w, h);
                     continue;
                 }
-                tempType = TileType.tileFromId(cell.getTile().getId() - 2395);
-                if (tempType != null && tempType.generator != null) {
-                    newGrid.grid[w][h] = tempType.generator.getTile(w, h, cell);
+                //TODO magic value (2395)
+                tempType = TileObjectTypes.tileFromId(cell.getTile().getId() - 2395);
+                if (tempType == null || tempType.generator == null) {
+                    System.out.println("Don't know what to do with tile at " + w + ", " + h +
+                            "with ID " + (cell.getTile().getId() - 2395));
+                } else if (tempType.isTile()) {
+                    //Load a tile
+                    newGrid.grid[w][h] = ((Tile) tempType.generator.get(w, h, cell));
+                } else if (tempType.isEntity()) {
+                    //Load an entity
+                    newGrid.grid[w][h] = new Air(w, h);
+                    initialEntityData.add(((EntityData) tempType.generator.get(w, h, cell)));
                 } else {
                     newGrid.grid[w][h] = new Air(w, h);
-                    loadSpecialCase(tempType, w, h, cell);
+                    System.out.println("Unknown type? Tile at " + w + ", " + h +
+                            "with ID " + (cell.getTile().getId() - 2395));
                 }
             }
         }
@@ -136,38 +148,39 @@ public class Level {
                 this.spawn = new Pair((int) object.getRectangle().x / 16, (int) object.getRectangle().y / 16);
                 check.hasStart = true;
             } else {
-                Tile tile = grid.grid[(int) object.getRectangle().x / 16][(int) object.getRectangle().y / 16];
-
                 //Remove useless properties
-                MapProperties objectProperties = new MapProperties();
-                MapProperties properties = object.getProperties();
-                for (Iterator<String> iter = properties.getKeys(); iter.hasNext(); ) {
+                MapProperties preProcessProperties = object.getProperties();
+                MapProperties postProcessProperties = new MapProperties();
+                for (Iterator<String> iter = preProcessProperties.getKeys(); iter.hasNext(); ) {
                     String name = iter.next();
                     if (lamePropertyNames.contains(name)) {
                         continue;
                     }
-                    objectProperties.put(name, properties.get(name));
+                    postProcessProperties.put(name, preProcessProperties.get(name));
                 }
-                tile.giveProperties(objectProperties);
+
+                Tile tile = grid.grid[(int) object.getRectangle().x / 16][(int) object.getRectangle().y / 16];
+                if (tile instanceof Air) {
+                    for (EntityData entityData : this.initialEntityData) {
+                        if(entityData.initialPosition.equals(tile.x, tile.y)){
+                            entityData.processProperty(postProcessProperties);
+                        }
+                    }
+                } else {
+                    tile.processProperty(postProcessProperties);
+                }
             }
         }
-
-        //Load entities
-        // TODO
 
         System.out.println("Finished loading level: " + id);
     }
 
-    public void loadSpecialCase(TileType tileType, int w, int h, TiledMapTileLayer.Cell cell) {
-
-    }
-
     public int getSpawnX() {
-        return spawn.x;
+        return spawn.x * 16;
     }
 
     public int getSpawnY() {
-        return spawn.y;
+        return spawn.y * 16;
     }
 
 }

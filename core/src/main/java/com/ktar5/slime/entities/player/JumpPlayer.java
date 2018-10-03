@@ -18,38 +18,37 @@ import lombok.Setter;
 @Getter
 @Setter
 public class JumpPlayer extends PlayerEntity<PlayerState> {
+    int lastX = 0;
+    int lastY = 0;
     //This variable is for doing movement that may
     //have been pressed a few frames before it actually
     //should have been pressed
     private Vector2 previousNonZeroMovement;
-
     //This boolean tells whether the slime should be small
     //right now or not (for drains/holes)
     private boolean small = false;
-
     //The current level that this platyer is attached to
     private LoadedLevel level;
 
     public JumpPlayer(LoadedLevel level) {
-        super(2, 1, 1);
+        super(2, 16, 16);
         this.position.set(level.getSpawnX(), level.getSpawnY());
         this.level = level;
         System.out.println("New player created " + System.currentTimeMillis());
     }
 
-    int lastX = 0;
-    int lastY = 0;
-
     @Override
     public void update(float dTime) {
         super.update(dTime);
-        getEntityState().update(dTime);
-        if (lastX == (int) position.x && lastY == (int) position.y) {
-            return;
+        position.set(position.x, position.y);
+        if (!isHaltMovement()) {
+            if (lastX == (int) position.x / 16 && lastY == (int) position.y / 16) {
+                return;
+            }
+            lastY = (int) position.y / 16;
+            lastX = (int) position.x / 16;
+            SlimeGame.getGame().getLevelHandler().getCurrentLevel().getGrid().activateAllTiles(this);
         }
-        lastY = (int) position.y;
-        lastX = (int) position.x;
-        SlimeGame.getGame().getLevelHandler().getCurrentLevel().getGrid().activateAllTiles(this);
     }
 
     public void kill() {
@@ -58,10 +57,21 @@ public class JumpPlayer extends PlayerEntity<PlayerState> {
         }
     }
 
+    public void setSmall(boolean value) {
+        small = value;
+        if (value) {
+            getEntityAnimator().setUnitsX(8);
+            getEntityAnimator().setUnitsY(8);
+        } else {
+            getEntityAnimator().setUnitsX(16);
+            getEntityAnimator().setUnitsY(16);
+        }
+    }
+
     @Override
     protected SimpleStateMachine<PlayerState> initializeStateMachine() {
         return new SimpleStateMachine<>(new Idle(this),
-                new Idle(this), new Move(this), new Respawn(this));
+                new Move(this), new Respawn(this));
     }
 
     @Override

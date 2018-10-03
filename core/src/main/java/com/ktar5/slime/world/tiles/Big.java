@@ -19,9 +19,9 @@ public class Big extends WholeTile {
 
     @Override
     public void onCross(Entity entity) {
-        if(entity.isPlayer()){
+        if (entity.isPlayer()) {
             JumpPlayer player = (JumpPlayer) entity;
-            if(player.isSmall()){
+            if (player.isSmall()) {
                 player.setSmall(false);
             }
 

@@ -21,9 +21,9 @@ public class Drain extends WholeTile {
     public void onCross(Entity entity) {
         if (entity.isPlayer()) {
             JumpPlayer player = (JumpPlayer) entity;
-            if(player.isSmall()){
+            if (player.isSmall()) {
                 player.kill();
-            }else{
+            } else {
                 player.setSmall(true);
             }
         }

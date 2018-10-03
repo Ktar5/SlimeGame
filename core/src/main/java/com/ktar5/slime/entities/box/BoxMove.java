@@ -2,12 +2,16 @@ package com.ktar5.slime.entities.box;
 
 import com.badlogic.gdx.math.Vector2;
 import com.ktar5.slime.SlimeGame;
+import com.ktar5.slime.engine.entities.Entity;
 import com.ktar5.slime.engine.util.Side;
+import com.ktar5.slime.entities.TouchableEntity;
 import com.ktar5.slime.world.Grid;
 import com.ktar5.slime.world.tiles.base.Tile;
 
+import java.util.List;
+
 public class BoxMove extends BoxState {
-    private static final float SPEED = .5f;
+    private static final float SPEED = 6f;
 
     protected BoxMove(Box entity) {
         super(entity);
@@ -15,15 +19,13 @@ public class BoxMove extends BoxState {
 
     @Override
     public void start() {
-        Vector2 input = null;
-        //= new Vector2((int) Math.ceil(input.x), (int) Math.ceil(input.y));
-
-        //If something somehow messed up, let's fix it
-        if (input.equals(Vector2.Zero)) {
+        if (getEntity().currentMovement == null) {
             end();
             changeState(BoxIdle.class);
         }
 
+        Vector2 input = new Vector2((int) Math.ceil(getEntity().currentMovement.x),
+                (int) Math.ceil(getEntity().currentMovement.y));
         //Make sure we only move in ONE direction (x or y)
         if (input.x != 0)
             input.set(input.x, 0);
@@ -36,6 +38,9 @@ public class BoxMove extends BoxState {
 
     @Override
     public void onUpdate(float dTime) {
+        if (getEntity().isHaltMovement()) {
+            return;
+        }
         final Grid grid = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getGrid();
 
         //Get the position that we WOULD BE MOVING TO IF EVERYTHING GOES WELL so that we can use it
@@ -44,7 +49,7 @@ public class BoxMove extends BoxState {
 
         //Initialize some integer variables to represent block locations of these variables
         //For example x/y are current x/y block and newX/newY are future x/y block
-        int x, y, newX, newY;
+        int newX, newY;
 
         //Because of the nature of the grid having the bottom left corner of each tile represent the
         //block integer location (tile 1,2 STARTS at the coordinates 1,2)
@@ -53,15 +58,11 @@ public class BoxMove extends BoxState {
         //player coordinate gives us the correct tile coordinate, whereas the negative directions
         //(-x = left, -y = down) make use of ceiling the player coordinate
         if (getMovement() == Side.DOWN || getMovement() == Side.LEFT) {
-            x = (int) Math.ceil(getEntity().getPosition().x);
-            y = (int) Math.ceil(getEntity().getPosition().y);
-            newX = (int) Math.ceil(newPosition.x);
-            newY = (int) Math.ceil(newPosition.y);
+            newX = (int) Math.ceil(newPosition.x / 16);
+            newY = (int) Math.ceil(newPosition.y / 16);
         } else {
-            x = (int) Math.floor(getEntity().getPosition().x);
-            y = (int) Math.floor(getEntity().getPosition().y);
-            newX = (int) Math.floor(newPosition.x);
-            newY = (int) Math.floor(newPosition.y);
+            newX = (int) Math.floor(newPosition.x / 16);
+            newY = (int) Math.floor(newPosition.y / 16);
         }
 
         //This is the variable that stores the tile at the location of the next step
@@ -71,15 +72,31 @@ public class BoxMove extends BoxState {
         Tile newTile = grid.tileFromDirection(newX, newY, getMovement());
         if (newTile == null) {
             System.out.println(newX + " " + newY);
-
+            return;
         }
+
+        List<Entity> entities = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getEntities();
+        boolean touchedEntity = false;
+        for (Entity entity : entities) {
+            if (entity.position.equals(newTile.x * 16, newTile.y * 16)) {
+                ((TouchableEntity) entity).onEntityTouch(getEntity(), getEntity().getLastMovedDirection());
+                touchedEntity = true;
+                break;
+            }
+        }
+
+        if (touchedEntity) {
+            getEntity().getPosition().moveTo(newX * 16, newY * 16);
+            changeState(BoxIdle.class);
+        }
+
         //In case we want to do something special instead of handle movement
-        if (!newTile.preMove(getEntity())) {
+        else if (!newTile.preMove(getEntity())) {
 
         }
         //In case we want to modify where the player is moving without setting them to idle
         else if (grid.grid[newX][newY].changeMovement(getEntity(), getMovement())) {
-            getEntity().getPosition().moveTo(newX, newY);
+            getEntity().getPosition().moveTo(newX * 16, newY * 16);
             getEntity().getPosition().translate(SPEED * getMovement().x, SPEED * getMovement().y);
         }
         //Check for if the tile that the player WOULD BE GOING INTO is air or not
@@ -91,11 +108,10 @@ public class BoxMove extends BoxState {
             // AND NOT THE *POSITION* of the new movement
             //
             //Ex: going to hit a wall, so snap them to block before wall
-            getEntity().getPosition().moveTo(newX, newY);
+            getEntity().getPosition().moveTo(newX * 16, newY * 16);
 
             //Change state to idle
             changeState(BoxIdle.class);
-            getEntity().getEntityAnimator().setFrame(3);
 
             newTile.onHitTile(getEntity(), getMovement().opposite());
         }
@@ -103,7 +119,6 @@ public class BoxMove extends BoxState {
         else {
             //Translate the player's location by SPEED multiplied by the movement direction
             getEntity().getPosition().translate(SPEED * getMovement().x, SPEED * getMovement().y);
-            System.out.println("Moved");
         }
     }
 

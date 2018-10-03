@@ -12,7 +12,7 @@ public enum Feature {
     CONTROLLER(true),
 
     LOG_MOVEMENT(false),
-    LOG_STATE_MACHINE(true),
+    LOG_STATE_MACHINE(false),
     
     
     ;

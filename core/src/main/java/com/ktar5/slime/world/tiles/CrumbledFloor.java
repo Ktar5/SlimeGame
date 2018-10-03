@@ -26,7 +26,7 @@ public class CrumbledFloor extends WholeTile {
     @Override
     public void onCross(Entity entity) {
         if (crumbled) {
-            if(entity.isPlayer()){
+            if (entity.isPlayer()) {
                 ((JumpPlayer) entity).kill();
             }
         } else {

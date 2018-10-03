@@ -3,10 +3,11 @@ package com.ktar5.slime.world.tiles.base;
 import com.badlogic.gdx.maps.MapProperties;
 import com.ktar5.slime.engine.entities.Entity;
 import com.ktar5.slime.engine.util.Side;
+import com.ktar5.slime.engine.util.TiledPropertyConsumer;
 import lombok.Getter;
 
 @Getter
-public abstract class Tile {
+public abstract class Tile implements TiledPropertyConsumer {
     public final int x, y;
     private final String id;
     private Rotation rotation;
@@ -21,7 +22,7 @@ public abstract class Tile {
     /**
      * @return false if should NOT continue with movement
      */
-    public boolean preMove(Entity entity){
+    public boolean preMove(Entity entity) {
         return true;
     }
 
@@ -39,10 +40,11 @@ public abstract class Tile {
     public void onCross(Entity entity) {
     }
 
-    public abstract boolean canCrossThrough(Entity entity, Side movement);
-
-    public void giveProperties(MapProperties properties) {
+    @Override
+    public void processProperty(MapProperties properties) {
     }
+
+    public abstract boolean canCrossThrough(Entity entity, Side movement);
 
     //public abstract Side nextBlockAfterCross(JumpPlayer player, Side movement);
 

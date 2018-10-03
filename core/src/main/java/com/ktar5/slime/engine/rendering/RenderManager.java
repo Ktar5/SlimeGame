@@ -51,7 +51,7 @@ public class RenderManager implements Disposable, Updatable {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         spriteBatch.setProjectionMatrix(EngineManager.get().getCameraBase().getCamera().combined);
-        
+
         customizedRender.preRender(dTime);
 
         spriteBatch.begin();

@@ -14,32 +14,33 @@ import lombok.Setter;
 @Setter
 public class CameraFollow extends CameraBase implements Renderable {
     private Position position;
-    
+
     public CameraFollow(OrthographicCamera camera, Viewport viewport, Position position) {
         super(camera, viewport);
         this.position = position;
     }
-    
-    public void updatePosition(Position position){
-        this.position = position;
-    }
-    
+
+    Vector3 camPos = this.getCamera().position;
+    float lerp = 0.1f;
     @Override
     public void update(float dTime) {
         if (Feature.CAMERA_MOVEMENT.isDisabled()) {
             return;
         }
-        
-        if(position == null){
+
+        if (position == null) {
             return;
         }
-        
+
+        camPos.x += (position.x - camPos.x) * lerp;
+        camPos.y += (position.y - camPos.y) * lerp;
+
         //Set camera position to fixed vector
-        camera.position.set(new Vector3(position, 0));
+        camera.position.set(new Vector3((int) camPos.x, (int) camPos.y, 0));
         //Update camera
         camera.update();
     }
-    
+
     public Vector3 boundToPlayer(Vector3 camPos, Vector2 playPos, float xDistance, float yDistance) {
         Vector2 v1 = playPos.cpy().add(xDistance, yDistance);
         Vector2 v2 = playPos.cpy().sub(xDistance, yDistance);
@@ -55,21 +56,20 @@ public class CameraFollow extends CameraBase implements Renderable {
         }
         return camPos;
     }
-    
+
     public boolean withinBounds(Vector3 camPos, Vector2 playPos, float xDistance, float yDistance) {
         Vector2 v1 = playPos.cpy().add(xDistance, yDistance);
         Vector2 v2 = playPos.cpy().sub(xDistance, yDistance);
         return (camPos.x < v1.x && camPos.x > v2.x && camPos.y < v1.y && camPos.y > v2.y);
     }
-    
+
     @Override
     public void render(SpriteBatch batch, float dTime) {
-    
+
     }
-    
+
     public void debug(float dTime) {
-        ;
         Renderable.drawSquare(camera.position.x, camera.position.y, .5f, .5f, Color.CYAN);
     }
-    
+
 }

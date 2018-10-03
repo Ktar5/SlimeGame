@@ -3,19 +3,24 @@ package com.ktar5.slime.world.level.types;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.utils.IntMap;
 import com.ktar5.slime.engine.util.Side;
+import com.ktar5.slime.entities.box.BoxEntityData;
+import com.ktar5.slime.entities.ghost.GhostEntityData;
 import com.ktar5.slime.world.tiles.*;
 import com.ktar5.slime.world.tiles.base.Rotation;
-import com.ktar5.slime.world.tiles.base.Tile;
 
-public enum TileType {
+import java.util.Arrays;
+import java.util.HashSet;
+
+public enum TileObjectTypes {
     WIN((x, y, cell) -> new Win(x, y), 0),
+    START((x, y, cell) -> new Air(x, y), 1),
     WALL((x, y, cell) -> new Wall(x, y), 2),
     ONE_DIRECTION((x, y, cell) -> new OneDirection(x, y, Rotation.fromCell(cell)), 3),
     DRAIN((x, y, cell) -> new Drain(x, y), 4),
     GOO((x, y, cell) -> new Goo(x, y), 5),
     BUTTON((x, y, cell) -> new Button(x, y, Rotation.fromCell(cell)), 8),
     PRESSURE_PLATE((x, y, cell) -> new PressurePlate(x, y), 9),
-    BOX(null, 10),
+
     GATE((x, y, cell) -> new Gate(x, y, Rotation.fromCell(cell)), 11),
     DRAIN_PIPE_LEFT_UP((x, y, cell) -> new HoleInWall(x, y, Rotation.fromCell(cell), Side.LEFT, Side.UP), 12),
     DRAIN_PIPE_UP_DOWN((x, y, cell) -> new HoleInWall(x, y, Rotation.fromCell(cell), Side.UP, Side.DOWN), 20),
@@ -26,29 +31,51 @@ public enum TileType {
     CRUMBLING_FLOOR((x, y, cell) -> new CrumbledFloor(x, y), 18),
     TELEPORTER((x, y, cell) -> new Teleporter(x, y), 19),
 
-    GHOST(null, 24),
+    BIG((x, y, cell) -> new Big(x, y), 27),
+
+    //Entities / Special Cases
+    BOX((x, y, cell) -> new BoxEntityData(x, y), 10),
+    GHOST((x, y, cell) -> new GhostEntityData(x, y), 24),
+
+    //TODO
+    MONSTER(null, 99),
     STOMPER(null, 25),
-    FLAMETHROWER(null, 26),
-    BIG((x, y, cell) -> new Big(x, y), 27);
-    private static final IntMap<TileType> tileIds = new IntMap<>();
+    FLAMETHROWER(null, 26);
+
+    private static final IntMap<TileObjectTypes> tileIds = new IntMap<>();
+    public static final HashSet<TileObjectTypes> TILES = new HashSet<>(Arrays.asList(
+            WIN, WALL, ONE_DIRECTION, DRAIN, GOO, BUTTON, PRESSURE_PLATE, GATE, DRAIN_PIPE_ALL_DIR,
+            DRAIN_PIPE_LEFT_UP, DRAIN_PIPE_UP_DOWN, SPIKE, HOLE, CRUMBLING_FLOOR, TELEPORTER, BIG
+    ));
+    public static final HashSet<TileObjectTypes> ENTITIES = new HashSet<TileObjectTypes>(Arrays.asList(
+            BOX, GHOST, MONSTER
+    ));
 
     static {
-        for (TileType t : TileType.values()) {
+        for (TileObjectTypes t : TileObjectTypes.values()) {
             for (int id : t.ids) {
                 tileIds.put(id, t);
             }
         }
     }
 
-    public final TileGenerator generator;
+    public final TileObjectGenerator generator;
     private final int[] ids;
 
-    TileType(TileGenerator generator, int... ids) {
+    TileObjectTypes(TileObjectGenerator generator, int... ids) {
         this.ids = ids;
         this.generator = generator;
     }
 
-    public static TileType tileFromId(int id) {
+    public boolean isTile() {
+        return TILES.contains(this);
+    }
+
+    public boolean isEntity() {
+        return ENTITIES.contains(this);
+    }
+
+    public static TileObjectTypes tileFromId(int id) {
         return tileIds.get(id);
     }
 
@@ -59,8 +86,8 @@ public enum TileType {
         return false;
     }
 
-    public static interface TileGenerator {
-        public Tile getTile(int x, int y, TiledMapTileLayer.Cell cell);
+    public static interface TileObjectGenerator {
+        public Object get(int x, int y, TiledMapTileLayer.Cell cell);
     }
 
 }

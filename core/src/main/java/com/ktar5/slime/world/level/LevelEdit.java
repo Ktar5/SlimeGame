@@ -12,8 +12,8 @@ public class LevelEdit {
     public final int oldID;
 
 
-    public void undo(TiledMap tiledMap){
+    public void undo(TiledMap tiledMap) {
         TiledMapTileLayer mapLayer = ((TiledMapTileLayer) tiledMap.getLayers().get(layer));
-        mapLayer.getCell(x,y).setTile(tiledMap.getTileSets().getTile(oldID));
+        mapLayer.getCell(x, y).setTile(tiledMap.getTileSets().getTile(oldID));
     }
 }

@@ -6,10 +6,10 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.ktar5.slime.engine.core.EngineManager;
+import com.ktar5.slime.engine.entities.Entity;
 import com.ktar5.slime.engine.rendering.Renderable;
 import com.ktar5.slime.engine.tilemap.CustomTmxMapLoader;
 import com.ktar5.slime.engine.util.Updatable;
-import com.ktar5.slime.variables.Constants;
 import com.ktar5.utilities.common.util.CollectingFileScanner;
 import lombok.Getter;
 
@@ -33,15 +33,15 @@ public class LevelHandler implements Renderable, Updatable {
 
     public void setLevel(int levelIndex) {
         currentLevel = new LoadedLevel(levels[levelIndex]);
-        tileMapRenderer = new OrthogonalTiledMapRenderer(currentLevel.getTileMap(), Constants.MAP_SCALE,
+        tileMapRenderer = new OrthogonalTiledMapRenderer(currentLevel.getTileMap(), 1f,
                 EngineManager.get().getRenderManager().getSpriteBatch());
     }
 
-    public void advanceLevel(){
+    public void advanceLevel() {
         setLevel((currentLevel.id + 1) % levels.length);
     }
 
-    public int getLevelCount(){
+    public int getLevelCount() {
         return levels.length;
     }
 
@@ -62,7 +62,7 @@ public class LevelHandler implements Renderable, Updatable {
             int index = Integer.valueOf(
                     file.getName().replace(".tmx", "").replace("Level", "")
             );
-            if(index > fileList.size()){
+            if (index > fileList.size()) {
                 throw new RuntimeException("Error loading level: " + index + ". Its index is too high.");
             }
             tiledMap = loader.load("maps/" + file.getName(), params);
@@ -94,6 +94,9 @@ public class LevelHandler implements Renderable, Updatable {
         batch.begin();
         currentLevel.getPlayer().getEntityAnimator().render(batch, currentLevel.getPlayer().getPosition().x,
                 currentLevel.getPlayer().getPosition().y, currentLevel.getPlayer().getPosition().getAngle());
+        for (Entity entity : currentLevel.getEntities()) {
+            entity.getEntityAnimator().render(batch, entity.getPosition().x, entity.getPosition().y, entity.getPosition().getAngle());
+        }
         batch.end();
         tileMapRenderer.render(currentLevel.getForegroundLayers());
         //tileMapRenderer.render();

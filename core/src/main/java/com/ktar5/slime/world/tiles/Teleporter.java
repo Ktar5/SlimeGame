@@ -1,13 +1,20 @@
 package com.ktar5.slime.world.tiles;
 
 import com.badlogic.gdx.maps.MapProperties;
+import com.badlogic.gdx.math.Vector2;
 import com.ktar5.slime.SlimeGame;
+import com.ktar5.slime.engine.core.EngineManager;
 import com.ktar5.slime.engine.entities.Entity;
+import com.ktar5.slime.engine.tweenengine.Tween;
+import com.ktar5.slime.engine.tweenengine.TweenCallback;
+import com.ktar5.slime.engine.tweenengine.equations.Quint;
 import com.ktar5.slime.engine.util.Side;
 import com.ktar5.slime.world.tiles.base.Rotation;
 import com.ktar5.slime.world.tiles.base.WholeTile;
 
 public class Teleporter extends WholeTile {
+    public static final float TELEPORT_SPEED = .1f;
+
     private int x;
     private int y;
 
@@ -16,7 +23,7 @@ public class Teleporter extends WholeTile {
     }
 
     @Override
-    public void giveProperties(MapProperties properties) {
+    public void processProperty(MapProperties properties) {
         String location = properties.get("location", String.class);
         String[] split = location.split(",");
         x = Integer.valueOf(split[0]);
@@ -30,7 +37,22 @@ public class Teleporter extends WholeTile {
 
     @Override
     public boolean preMove(Entity entity) {
-        entity.position.set(x, SlimeGame.getGame().getLevelHandler().getCurrentLevel().getGrid().height - y - 1);
+        entity.setHaltMovement(true);
+
+        Vector2 target = new Vector2(x * 16, 16 * (SlimeGame.getGame().getLevelHandler().getCurrentLevel().getGrid().height - y - 1));
+        float dst = target.dst(entity.getPosition()) / 16;
+
+
+        Tween.to(entity, 1, dst * TELEPORT_SPEED)
+                .target(x * 16, 16 * (SlimeGame.getGame().getLevelHandler().getCurrentLevel().getGrid().height - y - 1))
+                .setCallback((type, source) -> {
+                    if (type == TweenCallback.COMPLETE) {
+                        entity.position.set(x * 16, 16 * (SlimeGame.getGame().getLevelHandler().getCurrentLevel().getGrid().height - y - 1));
+                        entity.setHaltMovement(false);
+                    }
+                })
+                .ease(Quint.OUT)
+                .start(EngineManager.get().getTweenManager());
         return false;
     }
 

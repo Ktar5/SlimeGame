@@ -1,6 +1,7 @@
 package com.ktar5.slime.engine.util;
 
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Pool;
 import com.ktar5.utilities.common.constants.Direction;
 import lombok.Getter;
@@ -12,6 +13,10 @@ public class Position extends Vector2 implements Pool.Poolable {
 
     public Position(int x, int y) {
         super(x, y);
+    }
+
+    public Position(Vector3 v){
+        this((int) v.x, (int) v.y);
     }
 
     public Position(int x, int y, float angle) {
@@ -46,6 +51,10 @@ public class Position extends Vector2 implements Pool.Poolable {
     @Override
     public void reset() {
         this.x = this.y = 0;
+    }
+
+    public boolean equals(int x, int y){
+        return this.x == x && this.y == y;
     }
 
     @Override

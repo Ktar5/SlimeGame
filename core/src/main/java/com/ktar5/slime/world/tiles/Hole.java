@@ -1,5 +1,7 @@
 package com.ktar5.slime.world.tiles;
 
+import com.ktar5.slime.SlimeGame;
+import com.ktar5.slime.engine.core.EngineManager;
 import com.ktar5.slime.engine.entities.Entity;
 import com.ktar5.slime.engine.util.Side;
 import com.ktar5.slime.entities.box.Box;
@@ -31,11 +33,13 @@ public class Hole extends WholeTile {
             return;
         }
 
-        if(entity.isPlayer()){
+        if (entity.isPlayer()) {
             ((JumpPlayer) entity).kill();
-        }else if(entity instanceof Box){
+        } else if (entity instanceof Box) {
             filled = true;
-            //todo remove entity
+            EngineManager.get().getRenderManager().doOnNextFrame(() -> {
+                SlimeGame.getGame().getLevelHandler().getCurrentLevel().getEntities().remove(entity);
+            });
         }
 
 

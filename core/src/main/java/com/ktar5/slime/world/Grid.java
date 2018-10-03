@@ -3,7 +3,6 @@ package com.ktar5.slime.world;
 import com.ktar5.slime.engine.entities.Entity;
 import com.ktar5.slime.engine.util.Side;
 import com.ktar5.slime.engine.util.Updatable;
-import com.ktar5.slime.entities.player.JumpPlayer;
 import com.ktar5.slime.world.tiles.base.Tile;
 
 import java.util.ArrayList;
@@ -12,8 +11,6 @@ import java.util.List;
 public class Grid implements Updatable {
     public final int width, height;
     public Tile[][] grid;
-    public List<Entity> entities;
-    //TODO check performance for ticks and see if ticking all has any noticeable performance impact
 
     public Grid(int width, int height) {
         this.width = width;
@@ -26,9 +23,9 @@ public class Grid implements Updatable {
 //        for (int x = 0; x < width; x++) {
 //            for (int y = 0; y < height; y++) {
 //                if (x == 0 || x == width - 1 || y == 0 || y == height - 1) {
-//                    grid[x][y] = new WholeTile(x, y, TileType.WALL);
+//                    grid[x][y] = new WholeTile(x, y, TileObjectTypes.WALL);
 //                } else {
-//                    grid[x][y] = new WholeTile(x, y, TileType.AIR);
+//                    grid[x][y] = new WholeTile(x, y, TileObjectTypes.AIR);
 //                }
 //            }
 //        }
@@ -43,22 +40,24 @@ public class Grid implements Updatable {
         return null;
     }
 
-    private void playerTouchSideOfTile(int x, int y, JumpPlayer player, Side side) {
+    private void entityTouchedTileSide(int x, int y, Entity entity, Side side) {
         Tile tile = tileFromDirection(x, y, side);
         if (tile != null) {
-            tile.onTouchSide(player, null, side.opposite());
+            tile.onTouchSide(entity, null, side.opposite());
         }
     }
 
-    public void activateAllTiles(JumpPlayer player) {
-        int x = (int) player.position.x;
-        int y = (int) player.position.y;
-        playerTouchSideOfTile(x, y, player, Side.UP);
-        playerTouchSideOfTile(x, y, player, Side.DOWN);
-        playerTouchSideOfTile(x, y, player, Side.LEFT);
-        playerTouchSideOfTile(x, y, player, Side.RIGHT);
+    public void activateAllTiles(Entity entity) {
+        int x = (int) entity.position.x / 16;
+        int y = (int) entity.position.y / 16;
+        entityTouchedTileSide(x, y, entity, Side.UP);
+        entityTouchedTileSide(x, y, entity, Side.DOWN);
+        entityTouchedTileSide(x, y, entity, Side.LEFT);
+        entityTouchedTileSide(x, y, entity, Side.RIGHT);
         if (isInMapRange(x, y)) {
-            grid[x][y].onCross(player);
+//            System.out.println(grid[x][y]);
+//            System.out.println(SlimeGame.getGame().getLevelHandler().getCurrentLevel().getId());
+            grid[x][y].onCross(entity);
         }
     }
 

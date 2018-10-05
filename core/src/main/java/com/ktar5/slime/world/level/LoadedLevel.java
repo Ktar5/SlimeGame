@@ -40,8 +40,10 @@ public class LoadedLevel extends Level implements Updatable {
         }
     }
 
-    public void addEdit(int x, int y, String layer, int oldID) {
-        edits.add(new LevelEdit(x, y, layer, oldID));
+    public LevelEdit addEdit(int x, int y, String layer, int oldID) {
+        LevelEdit levelEdit = new LevelEdit(x, y, layer, oldID);
+        edits.add(levelEdit);
+        return levelEdit;
     }
 
     public void reset() {

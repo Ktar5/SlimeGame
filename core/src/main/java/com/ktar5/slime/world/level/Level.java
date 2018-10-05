@@ -31,7 +31,7 @@ public class Level {
     protected int id;
     protected Grid grid;
     private List<EntityData> initialEntityData;
-    private int gameplayArtLayer;
+    private int gameplayArtLayerIndex;
     private int[] foregroundLayers, backgroundLayers;
 
     public Level(TiledMap tilemap, int id) {
@@ -44,6 +44,10 @@ public class Level {
     public void setLevelDebug(boolean debug) {
         showDebugLevel = debug;
         tileMap.getLayers().get("Gameplay").setVisible(debug);
+    }
+
+    public TiledMapTileLayer getGameplayArtLayer(){
+        return ((TiledMapTileLayer) tileMap.getLayers().get(gameplayArtLayerIndex));
     }
 
     private void initializeGrid() {
@@ -67,7 +71,7 @@ public class Level {
                     backgrounds.add(layers.getIndex(layer));
                 }
                 if (layer.getProperties().containsKey("Modify")) {
-                    gameplayArtLayer = layers.getIndex(layer);
+                    gameplayArtLayerIndex = layers.getIndex(layer);
                 }
 //                layer.setOffsetX(-8);
 //                layer.setOffsetY(8);
@@ -117,10 +121,14 @@ public class Level {
                     continue;
                 }
                 //TODO magic value (2395)
-                tempType = TileObjectTypes.tileFromId(cell.getTile().getId() - 2395);
+                int i = cell.getTile().getId() - 2395;
+                if(i < 0){
+                    i = cell.getTile().getId() - 1;
+                }
+                tempType = TileObjectTypes.tileFromId(i);
                 if (tempType == null || tempType.generator == null) {
                     System.out.println("Don't know what to do with tile at " + w + ", " + h +
-                            "with ID " + (cell.getTile().getId() - 2395));
+                            "with ID " + (i));
                 } else if (tempType.isTile()) {
                     //Load a tile
                     newGrid.grid[w][h] = ((Tile) tempType.generator.get(w, h, cell));
@@ -131,7 +139,7 @@ public class Level {
                 } else {
                     newGrid.grid[w][h] = new Air(w, h);
                     System.out.println("Unknown type? Tile at " + w + ", " + h +
-                            "with ID " + (cell.getTile().getId() - 2395));
+                            "with ID " + (i));
                 }
             }
         }

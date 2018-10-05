@@ -1,59 +1,28 @@
-30:51:669 FileScanner.searchDir() [DEBUG]: +--assets/
-30:51:671 FileScanner.searchDir() [DEBUG]: |  +--data/
-30:51:672 FileScanner.searchDir() [DEBUG]: |  +--default_skin/
-30:51:677 FileScanner.searchDir() [DEBUG]: |  +--fonts/
-30:51:678 FileScanner.searchDir() [DEBUG]: |  +--maps/
-30:51:680 FileScanner.searchDir() [DEBUG]: |  |  +--tileset/
-30:51:681 FileScanner.searchDir() [DEBUG]: |  +--sounds/
-30:51:684 FileScanner.searchDir() [DEBUG]: |  +--textures/
-30:51:685 FileScanner.searchDir() [DEBUG]: |  |  +--entity/
-30:51:685 FileScanner.searchDir() [DEBUG]: |  |  |  +--box/
-30:51:686 FileScanner.searchDir() [DEBUG]: |  |  |  +--ghost/
-30:51:686 FileScanner.searchDir() [DEBUG]: |  |  +--player/
-30:51:690 FileScanner.searchDir() [DEBUG]: |  |  +--unatlased/
-30:51:699 CollectingFileScanner.searchDir() [DEBUG]: +--maps/
-30:51:700 CollectingFileScanner.searchDir() [DEBUG]: |  +--tileset/
-30:51:971 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
-30:51:971 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
-30:51:991 GameScreen.show() [DEBUG]: Display started for GameScreen
-30:54:110 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-30:54:110 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-30:54:110 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-30:54:110 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-30:54:110 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-30:54:111 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-30:54:111 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-30:54:112 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-30:54:112 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-30:54:112 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-30:54:112 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-30:54:112 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-30:54:112 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-30:54:112 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
-30:54:113 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
-31:15:589 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-31:15:589 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-31:15:589 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-31:15:589 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-31:15:589 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-31:15:589 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-31:15:589 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-31:15:589 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-31:15:589 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-31:15:590 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-31:15:590 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-31:15:590 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-31:15:590 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-31:18:839 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-31:18:839 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-31:18:839 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-31:18:839 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-31:18:839 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-31:18:839 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-31:18:839 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-31:18:839 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-31:18:839 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-31:18:839 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-31:18:840 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-31:18:840 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-31:18:840 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+13:49:699 FileScanner.searchDir() [DEBUG]: +--assets/
+13:49:703 FileScanner.searchDir() [DEBUG]: |  +--data/
+13:49:704 FileScanner.searchDir() [DEBUG]: |  +--default_skin/
+13:49:712 FileScanner.searchDir() [DEBUG]: |  +--fonts/
+13:49:713 FileScanner.searchDir() [DEBUG]: |  +--maps/
+13:49:715 FileScanner.searchDir() [DEBUG]: |  |  +--tileset/
+13:49:717 FileScanner.searchDir() [DEBUG]: |  +--sounds/
+13:49:720 FileScanner.searchDir() [DEBUG]: |  +--textures/
+13:49:721 FileScanner.searchDir() [DEBUG]: |  |  +--entity/
+13:49:721 FileScanner.searchDir() [DEBUG]: |  |  |  +--box/
+13:49:722 FileScanner.searchDir() [DEBUG]: |  |  |  +--ghost/
+13:49:723 FileScanner.searchDir() [DEBUG]: |  |  +--player/
+13:49:728 FileScanner.searchDir() [DEBUG]: |  |  +--unatlased/
+13:49:740 CollectingFileScanner.searchDir() [DEBUG]: +--maps/
+13:49:742 CollectingFileScanner.searchDir() [DEBUG]: |  +--tileset/
+13:50:023 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+13:50:023 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+13:50:044 GameScreen.show() [DEBUG]: Display started for GameScreen
+13:55:260 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+13:55:260 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+14:06:606 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+14:06:606 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+14:14:870 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+14:14:870 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+14:14:870 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+14:14:870 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+14:14:870 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+14:14:870 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn

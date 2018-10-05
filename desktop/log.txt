@@ -1,38 +1,19 @@
-24:48:590 LoadingScreen.show() [DEBUG]: Starting loading screen
-24:48:591 LoadingScreen.show() [DEBUG]: Starting load of loading screen resources
-24:48:604 LoadingScreen.show() [DEBUG]: Finished loading of loading screen resources
-24:48:803 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
-24:48:804 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
-24:48:809 LoadingScreen.render() [DEBUG]: Updating load.. 1.0%
-24:48:809 LoadingScreen.render() [DEBUG]: Finished loading all assets!
-24:48:821 LoadingScreen.hide() [DEBUG]: Disposed of the loading resources
-24:48:821 GameScreen.show() [DEBUG]: Display started for GameScreen
-24:53:297 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
-24:53:297 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
-25:02:061 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
-25:02:062 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
-25:16:832 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-25:16:832 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-25:16:834 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-25:16:834 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-25:16:834 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
-25:16:834 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
-25:33:367 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-25:33:367 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-25:33:367 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-25:33:367 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-25:40:999 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-25:40:999 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-25:40:999 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-25:40:999 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-25:40:999 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-25:40:999 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-25:40:999 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-25:41:000 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-25:41:000 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-25:41:000 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-25:41:001 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-25:41:001 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-25:41:001 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-25:41:001 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
-25:41:001 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+33:53:216 LoadingScreen.show() [DEBUG]: Starting loading screen
+33:53:218 LoadingScreen.show() [DEBUG]: Starting load of loading screen resources
+33:53:231 LoadingScreen.show() [DEBUG]: Finished loading of loading screen resources
+33:53:420 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+33:53:421 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+33:53:428 LoadingScreen.render() [DEBUG]: Updating load.. 1.0%
+33:53:428 LoadingScreen.render() [DEBUG]: Finished loading all assets!
+33:53:443 LoadingScreen.hide() [DEBUG]: Disposed of the loading resources
+33:53:443 GameScreen.show() [DEBUG]: Display started for GameScreen
+33:57:801 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+33:57:801 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+34:06:163 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+34:06:163 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+34:15:960 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+34:15:960 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+34:15:962 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+34:15:962 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+34:15:962 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+34:15:963 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn

@@ -6,9 +6,7 @@ import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.utils.Array;
-import com.ktar5.utilities.common.util.FileScanner;
 
-import java.io.File;
 import java.util.*;
 
 public class AnimationLoader {
@@ -24,18 +22,20 @@ public class AnimationLoader {
     public AnimationLoader() {
         animations = new HashMap<>();
         textures = new HashMap<>();
-        searchAtlases(new File("../assets"));
+//        File internal = new File("../assets");
+//        searchAtlases(internal);
     }
-    
-    public void searchAtlases(File root) {
-        new FileScanner(root, (file) -> {
-            if (file.getName().endsWith(".atlas") && !file.getPath().contains("maps")) {
-                loadAtlas(file.getPath());
-                return true;
-            }
-            return false;
-        });
-    }
+
+//    public void searchAtlases(File root) {
+//        new FileScanner(root, (file) -> {
+//            if (file.getName().endsWith(".atlas") && !file.getPath().contains("maps")) {
+//                System.out.println(file.getPath());
+//                loadAtlas(file.getPath());
+//                return true;
+//            }
+//            return false;
+//        });
+//    }
     
     public Animation<TextureRegion> getAnimation(String animation) {
         if (animation.contains(animation)) {

@@ -1,7 +1,6 @@
 package com.ktar5.slime;
 
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.ktar5.slime.engine.camera.CameraBase;
@@ -13,9 +12,10 @@ import com.ktar5.slime.engine.core.EngineManager;
 import com.ktar5.slime.engine.entities.Entity;
 import com.ktar5.slime.engine.tweenengine.Tween;
 import com.ktar5.slime.entities.EntityTweenAccessor;
-import com.ktar5.slime.screens.GameScreen;
+import com.ktar5.slime.screens.LoadingScreen;
 import com.ktar5.slime.world.level.LevelHandler;
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 public class SlimeGame extends AbstractGame<SlimeGame> {
@@ -24,7 +24,7 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
     //public final GameAnalytics gameAnalytics;
     private float zoomLevel = 4f;
     private FitViewport viewport;
-    private AssetManager manager = new AssetManager();
+    @Setter
     private LevelHandler levelHandler;
 
     public SlimeGame() {
@@ -39,19 +39,14 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
     public void initialize() {
         this.engineManager.getConsole().setDisplayKeyID(Input.Keys.GRAVE);
         Tween.registerAccessor(Entity.class, new EntityTweenAccessor());
-        levelHandler = new LevelHandler();
     }
 
     @Override
     protected CameraBase initializeCameraBase() {
-//        OrthographicCamera orthographicCamera = new OrthographicCamera(480 / Constants.CAMERA_SCALE, 270 / Constants.CAMERA_SCALE);
-//        viewport = new FitViewport(480 / Constants.CAMERA_SCALE, 270 / Constants.CAMERA_SCALE, orthographicCamera);
-//
         OrthographicCamera orthographicCamera = new OrthographicCamera(480, 270);
         viewport = new FitViewport(480, 270, orthographicCamera);
         orthographicCamera.update();
         return new CameraFollow(orthographicCamera, viewport, null);
-        //return new CameraMove(orthographicCamera, viewport);
     }
 
     @Override
@@ -67,7 +62,7 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
 
     @Override
     protected AbstractScreen getStartingScreen() {
-        return new GameScreen();
+        return new LoadingScreen(EngineManager.get().getCameraBase());
     }
 
     @Override

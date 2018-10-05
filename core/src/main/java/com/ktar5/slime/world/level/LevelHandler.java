@@ -1,5 +1,7 @@
 package com.ktar5.slime.world.level;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMap;
@@ -10,10 +12,9 @@ import com.ktar5.slime.engine.entities.Entity;
 import com.ktar5.slime.engine.rendering.Renderable;
 import com.ktar5.slime.engine.tilemap.CustomTmxMapLoader;
 import com.ktar5.slime.engine.util.Updatable;
-import com.ktar5.utilities.common.util.CollectingFileScanner;
 import lombok.Getter;
 
-import java.io.File;
+import java.util.ArrayList;
 import java.util.List;
 
 public class LevelHandler implements Renderable, Updatable {
@@ -46,8 +47,14 @@ public class LevelHandler implements Renderable, Updatable {
     }
 
     private void loadMaps() {
-        File mapsFolder = new File("../assets/maps/");
-        List<File> fileList = new CollectingFileScanner(mapsFolder, (file) -> file.getName().endsWith(".tmx")).getFiles();
+        List<FileHandle> fileList = new ArrayList<>();
+        int i = 0;
+        FileHandle handle = Gdx.files.internal("maps/Level0.tmx");
+        while (handle.exists()) {
+            fileList.add(handle);
+            i++;
+            handle = Gdx.files.internal("maps/Level" + i + ".tmx");
+        }
         levels = new Level[fileList.size()];
 
         TmxMapLoader.Parameters params = new TmxMapLoader.Parameters();
@@ -58,14 +65,14 @@ public class LevelHandler implements Renderable, Updatable {
         CustomTmxMapLoader loader = new CustomTmxMapLoader();
         TiledMap tiledMap;
 
-        for (File file : fileList) {
+        for (FileHandle file : fileList) {
             int index = Integer.valueOf(
-                    file.getName().replace(".tmx", "").replace("Level", "")
+                    file.name().replace(".tmx", "").replace("Level", "")
             );
             if (index > fileList.size()) {
                 throw new RuntimeException("Error loading level: " + index + ". Its index is too high.");
             }
-            tiledMap = loader.load("maps/" + file.getName(), params);
+            tiledMap = loader.load("maps/" + file.name(), params);
             levels[index] = new Level(tiledMap, index);
         }
     }

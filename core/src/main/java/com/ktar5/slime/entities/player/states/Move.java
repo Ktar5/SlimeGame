@@ -140,7 +140,7 @@ public class Move extends PlayerState {
         else if (grid.grid[newX][newY].changeMovement(getPlayer(), getMovement())) {
             getPlayer().getPosition().moveTo(newX * 16, newY * 16);
             getPlayer().getPosition().translate(SPEED * getMovement().x, SPEED * getMovement().y);
-            System.out.println("Moved");
+//            System.out.println("Moved");
         }
         //Check for if the tile that the player WOULD BE GOING INTO is air or not
         else if (!newTile.canCrossThrough(getPlayer(), getMovement())) {

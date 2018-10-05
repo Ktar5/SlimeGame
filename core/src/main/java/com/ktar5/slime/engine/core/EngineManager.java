@@ -1,5 +1,6 @@
 package com.ktar5.slime.engine.core;
 
+import com.badlogic.gdx.assets.AssetManager;
 import com.badlogic.gdx.utils.Disposable;
 import com.ktar5.slime.engine.animation.AnimationLoader;
 import com.ktar5.slime.engine.camera.CameraBase;
@@ -34,7 +35,8 @@ public class EngineManager<G extends AbstractGame<G>> implements Disposable {
     private TweenManager tweenManager;
     private AnimationLoader animationLoader;
     private CooldownManager cooldownManager;
-    
+    private AssetManager assetManager;
+
     private Console console;
 
     private final RenderManager renderManager;
@@ -45,7 +47,8 @@ public class EngineManager<G extends AbstractGame<G>> implements Disposable {
 
     private EngineManager(G game) {
         initializeLogger();
-        
+        assetManager = new AssetManager();
+
         this.console = new GUIConsole();
         this.console.setCommandExecutor(game.getCommandExecutor());
         

@@ -1,28 +1,38 @@
-13:49:699 FileScanner.searchDir() [DEBUG]: +--assets/
-13:49:703 FileScanner.searchDir() [DEBUG]: |  +--data/
-13:49:704 FileScanner.searchDir() [DEBUG]: |  +--default_skin/
-13:49:712 FileScanner.searchDir() [DEBUG]: |  +--fonts/
-13:49:713 FileScanner.searchDir() [DEBUG]: |  +--maps/
-13:49:715 FileScanner.searchDir() [DEBUG]: |  |  +--tileset/
-13:49:717 FileScanner.searchDir() [DEBUG]: |  +--sounds/
-13:49:720 FileScanner.searchDir() [DEBUG]: |  +--textures/
-13:49:721 FileScanner.searchDir() [DEBUG]: |  |  +--entity/
-13:49:721 FileScanner.searchDir() [DEBUG]: |  |  |  +--box/
-13:49:722 FileScanner.searchDir() [DEBUG]: |  |  |  +--ghost/
-13:49:723 FileScanner.searchDir() [DEBUG]: |  |  +--player/
-13:49:728 FileScanner.searchDir() [DEBUG]: |  |  +--unatlased/
-13:49:740 CollectingFileScanner.searchDir() [DEBUG]: +--maps/
-13:49:742 CollectingFileScanner.searchDir() [DEBUG]: |  +--tileset/
-13:50:023 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
-13:50:023 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
-13:50:044 GameScreen.show() [DEBUG]: Display started for GameScreen
-13:55:260 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
-13:55:260 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
-14:06:606 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
-14:06:606 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
-14:14:870 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-14:14:870 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-14:14:870 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-14:14:870 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-14:14:870 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
-14:14:870 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+24:48:590 LoadingScreen.show() [DEBUG]: Starting loading screen
+24:48:591 LoadingScreen.show() [DEBUG]: Starting load of loading screen resources
+24:48:604 LoadingScreen.show() [DEBUG]: Finished loading of loading screen resources
+24:48:803 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+24:48:804 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+24:48:809 LoadingScreen.render() [DEBUG]: Updating load.. 1.0%
+24:48:809 LoadingScreen.render() [DEBUG]: Finished loading all assets!
+24:48:821 LoadingScreen.hide() [DEBUG]: Disposed of the loading resources
+24:48:821 GameScreen.show() [DEBUG]: Display started for GameScreen
+24:53:297 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+24:53:297 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+25:02:061 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+25:02:062 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+25:16:832 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:16:832 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:16:834 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:16:834 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:16:834 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+25:16:834 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+25:33:367 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:33:367 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:33:367 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:33:367 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:40:999 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:40:999 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:40:999 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:40:999 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:40:999 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:40:999 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:40:999 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:41:000 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:41:000 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:41:000 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:41:001 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:41:001 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:41:001 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:41:001 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+25:41:001 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn

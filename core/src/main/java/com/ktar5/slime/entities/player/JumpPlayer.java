@@ -52,8 +52,11 @@ public class JumpPlayer extends PlayerEntity<PlayerState> {
     }
 
     public void kill() {
+        System.out.println("Killing player " + getEntityState().getCurrent().getClass().getSimpleName());
         if (!getEntityState().getCurrent().getClass().equals(Respawn.class)) {
+            System.out.println("Doing the do");
             getEntityState().changeStateAfterUpdate(Respawn.class);
+            System.out.println("Done the done");
         }
     }
 

@@ -1,6 +1,5 @@
-package com.ktar5.slime.entities;
+package com.ktar5.slime.engine.entities;
 
-import com.ktar5.slime.engine.entities.Entity;
 import com.ktar5.slime.engine.tweenengine.TweenAccessor;
 
 import java.math.BigDecimal;

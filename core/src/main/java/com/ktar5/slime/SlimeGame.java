@@ -10,10 +10,11 @@ import com.ktar5.slime.engine.core.AbstractGame;
 import com.ktar5.slime.engine.core.AbstractScreen;
 import com.ktar5.slime.engine.core.EngineManager;
 import com.ktar5.slime.engine.entities.Entity;
+import com.ktar5.slime.engine.entities.EntityTweenAccessor;
 import com.ktar5.slime.engine.tweenengine.Tween;
-import com.ktar5.slime.entities.EntityTweenAccessor;
 import com.ktar5.slime.screens.LoadingScreen;
 import com.ktar5.slime.world.level.LevelHandler;
+import com.ktar5.slime.world.tiles.RetractingSpikes;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -39,6 +40,7 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
     public void initialize() {
         this.engineManager.getConsole().setDisplayKeyID(Input.Keys.GRAVE);
         Tween.registerAccessor(Entity.class, new EntityTweenAccessor());
+        Tween.registerAccessor(RetractingSpikes.class, new RetractingSpikes.SpikesTweenAccessor());
     }
 
     @Override

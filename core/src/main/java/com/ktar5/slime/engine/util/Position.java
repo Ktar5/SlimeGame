@@ -24,6 +24,11 @@ public class Position extends Vector2 implements Pool.Poolable {
         this.angle = angle % 360;
     }
 
+    //TODO create method "Within 16 units of"
+    public Position snappedToTile(){
+        return new Position(((int) this.x / 16) * 16, ((int) this.y / 16) * 16);
+    }
+
     public Direction getDirection() {
         this.direction = Direction.fromAngleCardinal(this.angle);
         return this.direction;

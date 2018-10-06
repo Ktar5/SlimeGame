@@ -87,6 +87,8 @@ public class BoxMove extends BoxState {
 
         if (touchedEntity) {
             getEntity().getPosition().moveTo(newX * 16, newY * 16);
+
+            //TODO test this part may need to remove it
             changeState(BoxIdle.class);
         }
 

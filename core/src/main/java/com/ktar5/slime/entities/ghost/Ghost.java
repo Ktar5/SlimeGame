@@ -12,14 +12,16 @@ import lombok.Getter;
 
 @Getter
 public class Ghost extends Entity<GhostState> implements TouchableEntity {
-    private Axis direction;
+    private Axis axis;
     private boolean positive;
+    private Side movement;
 
     public Ghost(GhostEntityData data) {
-        super(1, 1);
-        this.direction = data.axis;
+        super(16, 16);
+        this.axis = data.axis;
         this.positive = data.positiveDirection;
         this.position.set(data.initialPosition);
+        setPositive(positive);
     }
 
     @Override
@@ -30,13 +32,24 @@ public class Ghost extends Entity<GhostState> implements TouchableEntity {
     @Override
     protected EntityAnimator initializeRenderer(float height, float width) {
         return new EntityAnimator(EntityAnimator.RenderLayer.MIDDLE,
-                EngineManager.get().getAnimationLoader().getTextureAsAnimation("textures/entity/box/box1.png"),
-                1, 1);
+                EngineManager.get().getAnimationLoader().getTextureAsAnimation("textures/entity/ghost/ghost_hor.png"),
+                16, 16);
+    }
+
+    public void setPositive(boolean positive){
+        this.positive = positive;
+        if(axis.equals(Axis.HORIZONTAL)){
+            movement = Side.of(positive ? 1 : -1, 0);
+        }else{
+            movement = Side.of(0, positive ? 1 : -1);
+        }
     }
 
     @Override
     public void onEntityTouch(Entity entity, Side movement) {
+        System.out.println("Ghost touched");
         if (entity.isPlayer()) {
+            System.out.println("Entity is player");
             ((JumpPlayer) entity).kill();
         }
     }

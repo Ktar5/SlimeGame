@@ -35,7 +35,7 @@ public enum TileObjectTypes {
 
     //Entities / Special Cases
     BOX((x, y, cell) -> new BoxEntityData(x, y), 10),
-    GHOST((x, y, cell) -> new GhostEntityData(x, y), 24),
+    GHOST((x, y, cell) -> new GhostEntityData(x, y, Rotation.fromCell(cell)), 24),
 
     //TODO
     MONSTER(null, 99),

@@ -8,6 +8,7 @@ import com.ktar5.slime.engine.statemachine.SimpleStateMachine;
 import com.ktar5.slime.engine.util.Side;
 import com.ktar5.slime.entities.TouchableEntity;
 import com.ktar5.slime.entities.player.JumpPlayer;
+import com.ktar5.slime.entities.player.states.Idle;
 
 public class Box extends Entity<BoxState> implements TouchableEntity {
     public Side currentMovement = null;
@@ -25,7 +26,7 @@ public class Box extends Entity<BoxState> implements TouchableEntity {
     }
 
     @Override
-    public void update(float dTime){
+    public void update(float dTime) {
         super.update(dTime);
         position.set(position.x, position.y);
         if (!isHaltMovement()) {
@@ -47,8 +48,11 @@ public class Box extends Entity<BoxState> implements TouchableEntity {
 
     @Override
     public void onEntityTouch(Entity entity, Side movement) {
-        if(entity.isPlayer() && ((JumpPlayer) entity).isSmall()){
+        if(entity.isPlayer()){
+            entity.getEntityState().changeStateAfterUpdate(Idle.class);
+            if(((JumpPlayer) entity).isSmall()){
                 return;
+            }
         }
         currentMovement = movement;
         this.getEntityState().changeStateAfterUpdate(BoxMove.class);

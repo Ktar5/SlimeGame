@@ -121,11 +121,16 @@ public class Move extends PlayerState {
         List<Entity> entities = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getEntities();
         boolean touchedEntity = false;
         for (Entity entity : entities) {
-            if (entity.position.snappedToTile().equals(newTile.x * 16, newTile.y * 16)) {
+            if(entity.position.isWithinRange(newTile.x * 16, newTile.y * 16, 15)){
                 ((TouchableEntity) entity).onEntityTouch(getPlayer(), getPlayer().getLastMovedDirection());
                 touchedEntity = true;
                 break;
             }
+//            if (entity.position.snappedToTile().equals(newTile.x * 16, newTile.y * 16)) {
+//                ((TouchableEntity) entity).onEntityTouch(getPlayer(), getPlayer().getLastMovedDirection());
+//                touchedEntity = true;
+//                break;
+//            }
         }
 
         if (touchedEntity) {

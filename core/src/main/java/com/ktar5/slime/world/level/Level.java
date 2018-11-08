@@ -15,7 +15,6 @@ import com.ktar5.slime.world.tiles.base.Tile;
 import com.ktar5.utilities.common.data.Pair;
 import lombok.Getter;
 import org.apache.commons.lang3.ArrayUtils;
-import org.apache.commons.lang3.builder.ToStringBuilder;
 
 import java.util.*;
 
@@ -53,8 +52,6 @@ public class Level {
     private void initializeGrid() {
         System.out.println("Loading level: " + id);
 
-        LevelLoadingChecker check = new LevelLoadingChecker();
-
         MapLayers layers = this.getTileMap().getLayers();
         MapLayer gameplayLayer = null;
         MapLayer propertiesLayer = null;
@@ -63,7 +60,6 @@ public class Level {
         for (MapLayer layer : layers) {
             layer.setOffsetX(-8);
             layer.setOffsetY(8);
-            layer.getProperties();
             if (layer.getName().startsWith("Art")) {
                 if (layer.getProperties().containsKey("Front")) {
                     foregrounds.add(layers.getIndex(layer));
@@ -73,21 +69,12 @@ public class Level {
                 if (layer.getProperties().containsKey("Modify")) {
                     gameplayArtLayerIndex = layers.getIndex(layer);
                 }
-//                layer.setOffsetX(-8);
-//                layer.setOffsetY(8);
             } else if (layer.getName().equalsIgnoreCase("Gameplay")) {
-                if (check.hasGameplayLayer) check.moreThanOneGameplayLayer = true;
                 gameplayLayer = layer;
                 foregrounds.add(layers.getIndex(layer));
-                System.out.println(ToStringBuilder.reflectionToString(layer.getProperties()));
                 gameplayLayer.setVisible(showDebugLevel);
-                check.hasGameplayLayer = true;
             } else if (layer.getName().equalsIgnoreCase("Properties")) {
-                if (check.hasPropertiesLayer) check.moreThanOnePropertiesLayer = true;
                 propertiesLayer = layer;
-                check.hasPropertiesLayer = true;
-            } else {
-                check.allLayersKnown = false;
             }
         }
 
@@ -105,7 +92,6 @@ public class Level {
         if (!(gameplayLayer instanceof TiledMapTileLayer)) {
             return;
         }
-        check.gameplayLayerInstanceofTileMapLayer = true;
 
         TiledMapTileLayer gpTileLayer = ((TiledMapTileLayer) gameplayLayer);
 
@@ -127,8 +113,7 @@ public class Level {
                 }
                 tempType = TileObjectTypes.tileFromId(i);
                 if (tempType == null || tempType.generator == null) {
-                    System.out.println("Don't know what to do with tile at " + w + ", " + h +
-                            "with ID " + (i));
+                    System.out.println("Don't know what to do with tile at " + w + ", " + h + "with ID " + (i));
                 } else if (tempType.isTile()) {
                     //Load a tile
                     newGrid.grid[w][h] = ((Tile) tempType.generator.get(w, h, cell));
@@ -138,8 +123,7 @@ public class Level {
                     initialEntityData.add(((EntityData) tempType.generator.get(w, h, cell)));
                 } else {
                     newGrid.grid[w][h] = new Air(w, h);
-                    System.out.println("Unknown type? Tile at " + w + ", " + h +
-                            "with ID " + (i));
+                    System.out.println("Unknown type? Tile at " + w + ", " + h + "with ID " + (i));
                 }
             }
         }
@@ -154,7 +138,6 @@ public class Level {
             RectangleMapObject object = ((RectangleMapObject) o);
             if (object.getName() != null && object.getName().equalsIgnoreCase("spawn")) {
                 this.spawn = new Pair((int) object.getRectangle().x / 16, (int) object.getRectangle().y / 16);
-                check.hasStart = true;
             } else {
                 //Remove useless properties
                 MapProperties preProcessProperties = object.getProperties();

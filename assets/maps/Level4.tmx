@@ -2,7 +2,7 @@
 <map version="1.0" tiledversion="1.1.5" orientation="orthogonal" renderorder="right-down" width="44" height="64" tilewidth="16" tileheight="16" infinite="0" backgroundcolor="#83573f" nextobjectid="40">
  <tileset firstgid="1" source="tileset/GameplayTileset.tsx"/>
  <tileset firstgid="33" source="tileset/SlimeCave.tsx"/>
- <tileset firstgid="584" source="GameplayImages.tsx"/>
+ <tileset firstgid="584" source="tileset/GameplayImages.tsx"/>
  <layer name="Art_Base" width="44" height="64">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,

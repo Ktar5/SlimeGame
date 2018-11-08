@@ -18,6 +18,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LevelHandler implements Renderable, Updatable {
+    public static final boolean LOAD_MAPS_LOCAL = true;
+
     private Level[] levels;
     private OrthogonalTiledMapRenderer tileMapRenderer;
     @Getter
@@ -50,10 +52,19 @@ public class LevelHandler implements Renderable, Updatable {
         List<FileHandle> fileList = new ArrayList<>();
         int i = 0;
         FileHandle handle = Gdx.files.internal("maps/Level0.tmx");
+        if (LOAD_MAPS_LOCAL) {
+            handle = Gdx.files.local("maps/Level0.tmx");
+        }
         while (handle.exists()) {
             fileList.add(handle);
             i++;
-            handle = Gdx.files.internal("maps/Level" + i + ".tmx");
+            if (LOAD_MAPS_LOCAL) {
+                System.out.println("Load local");
+                handle = Gdx.files.local("maps/Level" + i + ".tmx");
+            } else {
+                handle = Gdx.files.internal("maps/Level" + i + ".tmx");
+            }
+
         }
         levels = new Level[fileList.size()];
 

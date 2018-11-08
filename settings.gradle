@@ -1,1 +1,3 @@
 include 'core', 'ios', 'android', 'desktop', 'ios-moe'
+include 'tools'
+

@@ -42,6 +42,10 @@ public class ConsoleCommands extends CommandExecutor {
         SlimeGame.getGame().getLevelHandler().getCurrentLevel().getPlayer().getEntityState().changeStateAfterUpdate(Respawn.class);
     }
 
+    public final void respawn() {
+        SlimeGame.getGame().getLevelHandler().getCurrentLevel().getPlayer().getEntityState().changeStateAfterUpdate(Respawn.class);
+    }
+
     public final void skipLevel() {
         SlimeGame.getGame().getLevelHandler().advanceLevel();
     }

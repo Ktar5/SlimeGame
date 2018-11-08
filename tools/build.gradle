@@ -1,0 +1,19 @@
+sourceSets.main.resources.srcDirs += [rootProject.file('assets').absolutePath]
+sourceCompatibility = 1.8
+
+ext {
+    gdxUtilsVersion = '0.13.4'
+}
+
+
+dependencies {
+    compile project(':core')
+    compile "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
+    compile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+    compile "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
+    compile "com.badlogicgames.gdx:gdx-controllers-desktop:$gdxVersion"
+    compile "com.badlogicgames.gdx:gdx-controllers-platform:$gdxVersion:natives-desktop"
+
+    compile "net.dermetfan.libgdx-utils:libgdx-utils:$gdxUtilsVersion"
+    compile "com.badlogicgames.gdx:gdx-tools:$gdxVersion"
+}

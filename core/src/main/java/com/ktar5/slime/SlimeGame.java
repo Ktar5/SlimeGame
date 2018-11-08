@@ -54,6 +54,8 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
     @Override
     public void resize(int width, int height) {
         EngineManager.get().getCameraBase().getCamera().update();
+        EngineManager.get().getCameraBase().getViewport().update(width, height);
+        EngineManager.get().getConsole().refresh();
         super.resize(width, height);
     }
 

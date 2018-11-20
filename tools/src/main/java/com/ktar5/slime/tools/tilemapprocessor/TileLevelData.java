@@ -35,6 +35,22 @@ public class TileLevelData {
         this.id = id;
         initialEntityData = new ArrayList<>();
         processMap();
+        addGradient();
+    }
+
+    private void addGradient(){
+        TiledMapTileLayer gameplayLayer = (TiledMapTileLayer) tileMap.getLayers().get(gameplayArtLayerIndex);
+        MapLayer layer = new TiledMapTileLayer(
+                gameplayLayer.getWidth(),
+                gameplayLayer.getHeight(),
+                (int) gameplayLayer.getTileWidth(),
+                (int) gameplayLayer.getTileHeight());
+        tileMap.getLayers().add(layer);
+        for (int y = 0; y < gameplayLayer.getHeight(); y++) {
+            for (int x = 0; x < gameplayLayer.getWidth(); x++) {
+
+            }
+        }
     }
 
     private void processMap() {

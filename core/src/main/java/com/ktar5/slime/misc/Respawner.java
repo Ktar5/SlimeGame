@@ -10,7 +10,11 @@ public class Respawner implements Updatable {
     @Override
     public void update(float dTime) {
         if (Gdx.input.isKeyJustPressed(Input.Keys.R)) {
-            SlimeGame.getGame().getLevelHandler().getCurrentLevel().getPlayer().getEntityState().changeStateAfterUpdate(Respawn.class);
+            SlimeGame.getGame().getLevelHandler().getCurrentLevel().getPlayer().getEntityState()
+                    .changeStateAfterUpdate(Respawn.class);
+        }
+        if (Gdx.input.isKeyJustPressed(Input.Keys.TAB)) {
+            SlimeGame.getGame().getLevelHandler().getCurrentLevel().toggleDebug();
         }
     }
 }

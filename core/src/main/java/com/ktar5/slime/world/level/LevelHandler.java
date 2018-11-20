@@ -18,7 +18,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LevelHandler implements Renderable, Updatable {
-    public static final boolean LOAD_MAPS_LOCAL = true;
+    public static final boolean LOAD_MAPS_LOCAL = false;
 
     private Level[] levels;
     private OrthogonalTiledMapRenderer tileMapRenderer;

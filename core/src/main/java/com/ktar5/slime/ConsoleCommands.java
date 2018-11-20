@@ -50,6 +50,16 @@ public class ConsoleCommands extends CommandExecutor {
         SlimeGame.getGame().getLevelHandler().advanceLevel();
     }
 
+    public final void ss(int level) {
+        try {
+            SlimeGame.getGame().getLevelHandler().setLevel(level);
+            console.log("Skipping to level: '" + level, LogLevel.SUCCESS);
+        } catch (IllegalArgumentException e) {
+            console.log("Level with name: " + level + " not found. Max = "
+                    + (SlimeGame.getGame().getLevelHandler().getLevelCount() - 1), LogLevel.ERROR);
+        }
+    }
+
     public final void skipToLevel(int level) {
         try {
             SlimeGame.getGame().getLevelHandler().setLevel(level);

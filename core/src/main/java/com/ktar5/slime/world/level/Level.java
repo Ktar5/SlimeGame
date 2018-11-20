@@ -45,6 +45,10 @@ public class Level {
         tileMap.getLayers().get("Gameplay").setVisible(debug);
     }
 
+    public void toggleDebug() {
+        setLevelDebug(!showDebugLevel);
+    }
+
     public TiledMapTileLayer getGameplayArtLayer(){
         return ((TiledMapTileLayer) tileMap.getLayers().get(gameplayArtLayerIndex));
     }

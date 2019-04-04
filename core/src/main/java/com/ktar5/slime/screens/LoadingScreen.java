@@ -108,7 +108,7 @@ public class LoadingScreen extends AbstractScreen {
         Logger.debug("Updating load.. " + EngineManager.get().getAssetManager().getProgress() + "%");
         if (EngineManager.get().getAssetManager().update()) { // Load some, will return true if done loading
             Logger.debug("Finished loading all assets!");
-            EngineManager.get().getGame().setScreen(new GameScreen());
+            EngineManager.get().getGame().setScreen(new MenuScreen());
         }
 
         // Interpolate the percentage to make it more smooth

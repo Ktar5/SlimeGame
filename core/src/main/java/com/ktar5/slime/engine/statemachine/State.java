@@ -12,4 +12,8 @@ public abstract class State<T extends State<T>> implements Updatable {
 
     public abstract void changeState(Class<? extends T> state);
 
+    @Override
+    public void update(float dTime) {
+        onUpdate(dTime);
+    }
 }

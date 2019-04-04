@@ -17,10 +17,4 @@ public abstract class BoxState extends State<BoxState> {
         getEntity().getEntityState().changeStateAfterUpdate(state);
     }
 
-    @Override
-    public final void update(float dTime) {
-        onUpdate(dTime);
-    }
-
-
 }

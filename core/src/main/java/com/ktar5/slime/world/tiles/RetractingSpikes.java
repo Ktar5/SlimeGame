@@ -1,6 +1,5 @@
 package com.ktar5.slime.world.tiles;
 
-import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.engine.entities.Entity;
 import com.ktar5.slime.engine.tweenengine.Timeline;
 import com.ktar5.slime.engine.tweenengine.Tween;
@@ -9,7 +8,6 @@ import com.ktar5.slime.engine.tweenengine.TweenCallback;
 import com.ktar5.slime.engine.tweenengine.equations.Linear;
 import com.ktar5.slime.engine.util.Side;
 import com.ktar5.slime.entities.player.JumpPlayer;
-import com.ktar5.slime.world.level.LoadedLevel;
 import com.ktar5.slime.world.tiles.base.Rotation;
 import com.ktar5.slime.world.tiles.base.WholeTile;
 
@@ -65,11 +63,6 @@ public class RetractingSpikes extends WholeTile {
         }
 
         this.percentRetracted = newValue;
-    }
-
-    private void setTextureOfTile(int id) {
-        LoadedLevel currentLevel = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
-        currentLevel.getGameplayArtLayer().getCell(x, y).setTile(currentLevel.getTileMap().getTileSets().getTile(id));
     }
 
     public static class SpikesTweenAccessor implements TweenAccessor<RetractingSpikes> {

@@ -40,6 +40,7 @@ public class PressurePlate extends TriggerableTile {
             currentLevel.addEdit(x, y, currentLevel.getGameplayArtLayer().getName(), cell.getTile().getId());
             cell.setTile(currentLevel.getTileMap().getTileSets().getTile(cell.getTile().getId() + 1));
             callEvent(Trigger.ON_PASS);
+
             pressed = true;
         }
     }

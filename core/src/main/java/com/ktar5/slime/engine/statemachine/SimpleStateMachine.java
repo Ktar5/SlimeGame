@@ -44,6 +44,7 @@ public class SimpleStateMachine<T extends State> extends ObjectMap<Class<? exten
         super(states.length);
         current = initial;
         this.put((Class<? extends T>) initial.getClass(), initial);
+        Logger.debug("Registered state class: " + initial.getClass().getName());
         for (T state : states) {
             this.put((Class<? extends T>) state.getClass(), state);
             Logger.debug("Registered state class: " + state.getClass().getName());

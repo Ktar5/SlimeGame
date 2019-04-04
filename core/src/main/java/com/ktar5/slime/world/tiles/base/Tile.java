@@ -1,9 +1,11 @@
 package com.ktar5.slime.world.tiles.base;
 
 import com.badlogic.gdx.maps.MapProperties;
+import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.engine.entities.Entity;
 import com.ktar5.slime.engine.util.Side;
 import com.ktar5.slime.engine.util.TiledPropertyConsumer;
+import com.ktar5.slime.world.level.LoadedLevel;
 import lombok.Getter;
 
 @Getter
@@ -45,6 +47,11 @@ public abstract class Tile implements TiledPropertyConsumer {
     }
 
     public abstract boolean canCrossThrough(Entity entity, Side movement);
+
+    public void setTextureOfTile(int id) {
+        LoadedLevel currentLevel = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
+        currentLevel.getGameplayArtLayer().getCell(x, y).setTile(currentLevel.getTileMap().getTileSets().getTile(id));
+    }
 
     //public abstract Side nextBlockAfterCross(JumpPlayer player, Side movement);
 

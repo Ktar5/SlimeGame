@@ -21,10 +21,4 @@ public abstract class PlayerState extends State<PlayerState> {
         getPlayer().getEntityState().changeStateAfterUpdate(state);
     }
 
-    @Override
-    public final void update(float dTime) {
-        onUpdate(dTime);
-    }
-
-
 }

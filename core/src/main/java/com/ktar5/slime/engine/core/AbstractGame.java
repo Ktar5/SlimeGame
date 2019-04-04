@@ -5,7 +5,6 @@ import com.badlogic.gdx.Gdx;
 import com.ktar5.slime.engine.Const;
 import com.ktar5.slime.engine.camera.CameraBase;
 import com.ktar5.slime.engine.console.CommandExecutor;
-import com.ktar5.slime.engine.util.Updatable;
 import com.ktar5.utilities.annotation.dontoverride.DontOverride;
 
 public abstract class AbstractGame<G extends AbstractGame<G>> implements ApplicationListener {
@@ -60,15 +59,12 @@ public abstract class AbstractGame<G extends AbstractGame<G>> implements Applica
             time -= Const.STEP_TIME;
             //Update the camera
             screen.getCamera().getCamera().update();
-            for (Updatable updatable : screen.getUpdatableList()) {
-                //Update all updatables, in order
-                updatable.update(Const.STEP_TIME);
-            }
+            screen.update(dTime);
         }
         
         screen.getRenderManager().update(Const.STEP_TIME);
         screen.render(dTime);
-        
+
         EngineManager.get().getConsole().draw();
     }
     

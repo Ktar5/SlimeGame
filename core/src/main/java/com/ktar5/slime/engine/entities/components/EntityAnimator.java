@@ -59,6 +59,9 @@ public class EntityAnimator implements Updatable {
 
     public void setFrame(int frame) {
         singleFrameMode = true;
+        if(frame >= getAnimation().getKeyFrames().length){
+            return;
+        }
         this.currentFrame = getAnimation().getKeyFrames()[frame];
     }
 

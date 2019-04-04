@@ -16,9 +16,4 @@ public abstract class GhostState extends State<GhostState> {
         getEntity().getEntityState().changeStateAfterUpdate(state);
     }
 
-    @Override
-    public final void update(float dTime) {
-        onUpdate(dTime);
-    }
-
 }

@@ -29,7 +29,7 @@ public class Running extends GameState {
     @Override
     public void onUpdate(float dTime) {
         if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
-            changeState(Pause.class);
+            changeState(PauseWithBlur2.class);
             return;
         }
         EngineManager.get().getCooldownManager().update(dTime);

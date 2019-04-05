@@ -1,15 +1,15 @@
-58:01:035 LoadingScreen.show() [DEBUG]: Starting loading screen
-58:01:036 LoadingScreen.show() [DEBUG]: Starting load of loading screen resources
-58:01:071 LoadingScreen.show() [DEBUG]: Finished loading of loading screen resources
-58:01:292 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
-58:01:292 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
-58:01:292 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
-58:01:296 LoadingScreen.render() [DEBUG]: Updating load.. 1.0%
-58:01:296 LoadingScreen.render() [DEBUG]: Finished loading all assets!
-58:01:311 LoadingScreen.hide() [DEBUG]: Disposed of the loading resources
-58:02:389 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.Running
-58:02:389 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.Pause
-58:02:389 GameScreen.show() [DEBUG]: Display started for GameScreen
-58:02:389 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
-58:02:389 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
-58:02:389 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+02:07:867 LoadingScreen.show() [DEBUG]: Starting loading screen
+02:07:868 LoadingScreen.show() [DEBUG]: Starting load of loading screen resources
+02:07:879 LoadingScreen.show() [DEBUG]: Finished loading of loading screen resources
+02:08:022 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
+02:08:022 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+02:08:022 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+02:08:027 LoadingScreen.render() [DEBUG]: Updating load.. 1.0%
+02:08:028 LoadingScreen.render() [DEBUG]: Finished loading all assets!
+02:08:041 LoadingScreen.hide() [DEBUG]: Disposed of the loading resources
+02:08:879 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.Running
+02:08:879 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.PauseWithBlur2
+02:08:879 GameScreen.show() [DEBUG]: Display started for GameScreen
+02:08:879 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
+02:08:879 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+02:08:879 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn

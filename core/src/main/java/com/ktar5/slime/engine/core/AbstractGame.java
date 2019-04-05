@@ -15,8 +15,7 @@ public abstract class AbstractGame<G extends AbstractGame<G>> implements Applica
     protected abstract CameraBase initializeCameraBase();
     
     protected abstract AbstractScreen getStartingScreen();
-    
-    
+
     @DontOverride
     public void create() {
         engineManager = EngineManager.initialize(getThis());

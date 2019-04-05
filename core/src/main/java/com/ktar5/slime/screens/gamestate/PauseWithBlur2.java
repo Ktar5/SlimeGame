@@ -20,6 +20,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.engine.Const;
 import com.ktar5.slime.engine.camera.StaticCamera;
+import com.ktar5.slime.engine.core.EngineManager;
 import com.ktar5.slime.engine.postprocessing.PostProcessor;
 import com.ktar5.slime.engine.postprocessing.effects.Vignette;
 import com.ktar5.slime.engine.postprocessing.filters.Blur;
@@ -36,8 +37,8 @@ public class PauseWithBlur2 extends GameState {
     public PauseWithBlur2(GameScreen gameScreen) {
         super(gameScreen);
 
-        TextureAtlas atlas = new TextureAtlas("default_skin/uiskin.atlas");
-        Skin skin = new Skin(Gdx.files.internal("default_skin/uiskin.json"), atlas);
+        TextureAtlas atlas = new TextureAtlas("textures/skins/pixel/skin.atlas");
+        Skin skin = new Skin(Gdx.files.internal("textures/skins/pixel/skin.json"), atlas);
 
         SpriteBatch batch = new SpriteBatch();
 
@@ -45,6 +46,8 @@ public class PauseWithBlur2 extends GameState {
         camera.getCamera().update();
 
         stage = new Stage(camera.getViewport(), batch);
+        Gdx.input.setInputProcessor(stage);
+        EngineManager.get().getConsole().resetInputProcessing();
 
         Table levels = new Table();
         levels.top().right();

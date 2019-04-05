@@ -32,8 +32,8 @@ public class MenuScreen extends AbstractScreen {
     public MenuScreen() {
         super(new StaticCamera(new OrthographicCamera(480, 270)));
 
-        atlas = new TextureAtlas("default_skin/uiskin.atlas");
-        skin = new Skin(Gdx.files.internal("default_skin/uiskin.json"), atlas);
+        atlas = new TextureAtlas("textures/skins/pixel/skin.atlas");
+        skin = new Skin(Gdx.files.internal("textures/skins/pixel/skin.json"), atlas);
 
         batch = new SpriteBatch();
 

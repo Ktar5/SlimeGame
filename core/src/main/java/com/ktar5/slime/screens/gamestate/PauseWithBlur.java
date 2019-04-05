@@ -58,6 +58,11 @@ public class PauseWithBlur extends GameState {
     }
 
     @Override
+    public void resize(int width, int height) {
+
+    }
+
+    @Override
     public void start() {
     }
 

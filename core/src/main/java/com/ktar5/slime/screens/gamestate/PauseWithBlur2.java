@@ -24,9 +24,11 @@ import com.ktar5.slime.engine.core.EngineManager;
 import com.ktar5.slime.engine.postprocessing.PostProcessor;
 import com.ktar5.slime.engine.postprocessing.effects.Vignette;
 import com.ktar5.slime.engine.postprocessing.filters.Blur;
+import com.ktar5.slime.engine.rendering.Renderable;
 import com.ktar5.slime.screens.GameScreen;
 
 import java.util.Collections;
+import java.util.List;
 
 public class PauseWithBlur2 extends GameState {
     Stage stage;
@@ -98,11 +100,7 @@ public class PauseWithBlur2 extends GameState {
 //        Blur blur = new Blur(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
         postProcessor.addEffect(vignette);
-    }
-
-    @Override
-    public void start() {
-        getGameScreen().getRenderManager().setRenderables(Collections.singletonList((internalBatch, dTime) -> {
+        objects = Collections.singletonList((internalBatch, dTime) -> {
 
             postProcessor.capture();
             Gdx.gl.glClearColor(131 / 255f, 87 / 255f, 64 / 255f, 1);
@@ -119,9 +117,30 @@ public class PauseWithBlur2 extends GameState {
 
             stage.act();
             stage.draw();
-        }));
+        });
     }
 
+    List<Renderable> objects;
+
+
+    @Override
+    public void start() {
+        getGameScreen().getRenderManager().setRenderables(objects);
+    }
+
+    @Override
+    public void resize(int width, int height) {
+        camera.getCamera().viewportHeight = height;
+        camera.getCamera().viewportWidth = width;
+        camera.getCamera().update();
+
+//        camera.getViewport().setScreenWidth(Gdx.graphics.getWidth());
+//        camera.getViewport().setScreenWidth(Gdx.graphics.getHeight());
+//        camera.getViewport().apply();
+
+        stage.getViewport().update(width, height, true);
+
+    }
 
     @Override
     public void onUpdate(float dTime) {

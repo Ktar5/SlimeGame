@@ -17,4 +17,6 @@ public abstract class GameState extends State<GameState> {
         gameScreen.getGameState().changeStateAfterUpdate(state);
     }
 
+    public abstract void resize(int width, int height);
+
 }

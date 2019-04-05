@@ -72,6 +72,11 @@ public class GameScreen extends AbstractScreen {
     }
 
     @Override
+    public void resize(int width, int height) {
+        getGameState().getCurrent().resize(width, height);
+    }
+
+    @Override
     public void hide() {
 
     }

@@ -86,7 +86,9 @@ public class Grid implements Updatable {
     public void update(float dTime) {
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
-                grid[x][y].tick();
+                if (grid[x][y] != null) {
+                    grid[x][y].tick();
+                }
             }
         }
     }

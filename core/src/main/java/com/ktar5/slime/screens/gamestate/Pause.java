@@ -24,7 +24,7 @@ import java.util.Arrays;
 
 public class Pause extends GameState {
     Stage stage;
-    StaticCamera camera = new StaticCamera(new OrthographicCamera(480, 270));
+    StaticCamera camera = new StaticCamera(new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight()));
 
 
     public Pause(GameScreen gameScreen) {
@@ -78,6 +78,11 @@ public class Pause extends GameState {
             }
         });
         stage.addActor(levels);
+    }
+
+    @Override
+    public void resize(int width, int height) {
+
     }
 
     @Override

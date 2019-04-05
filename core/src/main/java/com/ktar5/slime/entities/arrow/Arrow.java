@@ -15,6 +15,8 @@ public class Arrow extends Entity<ArrowState> implements TouchableEntity {
     int lastX = 0;
     int lastY = 0;
 
+
+    //TODO object pooling of arrows
     public Arrow(ArrowEntityData data) {
         super(16, 16);
         SlimeGame.getGame().getLevelHandler().getCurrentLevel().getEntities().add(this);

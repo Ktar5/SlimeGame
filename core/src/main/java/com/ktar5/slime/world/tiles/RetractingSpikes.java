@@ -1,5 +1,9 @@
 package com.ktar5.slime.world.tiles;
 
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
+import com.badlogic.gdx.maps.tiled.TiledMapTileSet;
+import com.ktar5.slime.SlimeGame;
+import com.ktar5.slime.engine.core.EngineManager;
 import com.ktar5.slime.engine.entities.Entity;
 import com.ktar5.slime.engine.tweenengine.Timeline;
 import com.ktar5.slime.engine.tweenengine.Tween;
@@ -8,6 +12,7 @@ import com.ktar5.slime.engine.tweenengine.TweenCallback;
 import com.ktar5.slime.engine.tweenengine.equations.Linear;
 import com.ktar5.slime.engine.util.Side;
 import com.ktar5.slime.entities.player.JumpPlayer;
+import com.ktar5.slime.world.level.LoadedLevel;
 import com.ktar5.slime.world.tiles.base.Rotation;
 import com.ktar5.slime.world.tiles.base.WholeTile;
 
@@ -15,24 +20,16 @@ public class RetractingSpikes extends WholeTile {
     public boolean retracted = true;
     public final Side spikeMoveSide;
     private int percentRetracted;
-    private Timeline tween;
 
     public RetractingSpikes(int x, int y, Rotation rotation) {
         super(x, y, rotation);
         spikeMoveSide = Side.DOWN.rotateClockwise(rotation.ordinal());
-        tween = Timeline.createSequence()
-                .push(Tween.to(this, 0, 1).target(100).ease(Linear.INOUT))
-                .pushPause(1.0f)
-                .push(Tween.to(this, 1, 1).target(0).ease(Linear.INOUT))
-                .setCallback((type, source) -> this.percentRetracted = 0)
-                .setCallbackTriggers(TweenCallback.END);
     }
 
     @Override
     public void reset() {
         retracted = true;
         percentRetracted = 0;
-        tween.kill();
     }
 
     @Override
@@ -45,7 +42,19 @@ public class RetractingSpikes extends WholeTile {
     @Override
     public void onCross(Entity entity) {
         if (retracted) {
-            tween.start();
+
+            System.out.println("Attempting to start tween");
+            Timeline.createSequence()
+                    .pushPause(.5f)
+                    .push(Tween.to(this, 0, 1).target(100).ease(Linear.INOUT))
+                    .pushPause(1.0f)
+                    .push(Tween.to(this, 1, 1).target(0).ease(Linear.INOUT))
+                    .setCallback((type, source) -> {
+                        System.out.println("Tween ended");
+                        this.percentRetracted = 0;
+                    })
+                    .setCallbackTriggers(TweenCallback.END)
+                    .start(EngineManager.get().getTweenManager());
         }
     }
 
@@ -57,11 +66,36 @@ public class RetractingSpikes extends WholeTile {
     public void updatePercentRetracted(int newValue, int lowering) {
         if (lowering == 1) { //This means that new value is going from 100 to 0
             //TODO figure out how we want the speed of the animation to be
+            setGraphic((newValue - 2) / 3);
+            if (newValue == 0) {
+                retracted = true;
+            }
         } else { //This means that new value is going from 0 to 100
             //TODO figure out how we want the speed of the animation to be
+            setGraphic((newValue - 2) / 3);
+            retracted = false;
         }
 
         this.percentRetracted = newValue;
+    }
+
+    private void setGraphic(int i) {
+        int id = 807 + i;
+        if (id > 809) {
+            id = 809;
+        }
+        LoadedLevel currentLevel = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
+        TiledMapTileLayer mapLayer = currentLevel.getGameplayArtLayer();
+        TiledMapTileSet gameplayImages = currentLevel.getTileMap().getTileSets().getTileSet("GameplayImages");
+        if (mapLayer.getCell(x, y) == null) {
+            TiledMapTileLayer.Cell newCell = new TiledMapTileLayer.Cell();
+            newCell.setTile(gameplayImages.getTile(id));
+            mapLayer.setCell(x, y, newCell);
+        } else {
+            mapLayer.getCell(x, y).setTile(gameplayImages.getTile(id));
+        }
+
+
     }
 
     public static class SpikesTweenAccessor implements TweenAccessor<RetractingSpikes> {

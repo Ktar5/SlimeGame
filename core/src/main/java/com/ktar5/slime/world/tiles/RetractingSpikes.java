@@ -17,7 +17,6 @@ public class RetractingSpikes extends WholeTile {
     private int percentRetracted;
     private Timeline tween;
 
-    //TODO add to TileObjectType
     public RetractingSpikes(int x, int y, Rotation rotation) {
         super(x, y, rotation);
         spikeMoveSide = Side.DOWN.rotateClockwise(rotation.ordinal());
@@ -33,7 +32,7 @@ public class RetractingSpikes extends WholeTile {
     public void reset() {
         retracted = true;
         percentRetracted = 0;
-        tween.end();
+        tween.kill();
     }
 
     @Override

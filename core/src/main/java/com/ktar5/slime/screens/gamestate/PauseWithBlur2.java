@@ -18,7 +18,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.ktar5.slime.SlimeGame;
-import com.ktar5.slime.engine.Const;
+import com.ktar5.slime.engine.EngConst;
 import com.ktar5.slime.engine.camera.StaticCamera;
 import com.ktar5.slime.engine.core.EngineManager;
 import com.ktar5.slime.engine.postprocessing.PostProcessor;
@@ -107,9 +107,9 @@ public class PauseWithBlur2 extends GameState {
             postProcessor.capture();
             Gdx.gl.glClearColor(131 / 255f, 87 / 255f, 64 / 255f, 1);
             Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-            SlimeGame.getGame().getLevelHandler().render(internalBatch, Const.STEP_TIME);
-            getGameScreen().getFrameRate().render(internalBatch, Const.STEP_TIME);
-            getGameScreen().getVersionInfo().render(internalBatch, Const.STEP_TIME);
+            SlimeGame.getGame().getLevelHandler().render(internalBatch, EngConst.STEP_TIME);
+            getGameScreen().getFrameRate().render(internalBatch, EngConst.STEP_TIME);
+            getGameScreen().getVersionInfo().render(internalBatch, EngConst.STEP_TIME);
 
             blur.setAmount(1f);
             blur.setType(Blur.BlurType.Gaussian3x3b);

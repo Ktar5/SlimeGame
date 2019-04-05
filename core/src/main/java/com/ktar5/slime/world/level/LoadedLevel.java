@@ -38,6 +38,7 @@ public class LoadedLevel extends Level implements Updatable {
         for (Entity entity : entities) {
             entity.update(Constants.FRAME_DT);
         }
+        grid.update(Constants.FRAME_DT);
     }
 
     public LevelEdit addEdit(int x, int y, String layer, int oldID) {

@@ -12,7 +12,7 @@ import com.badlogic.gdx.graphics.glutils.FrameBuffer;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.ktar5.slime.SlimeGame;
-import com.ktar5.slime.engine.Const;
+import com.ktar5.slime.engine.EngConst;
 import com.ktar5.slime.engine.camera.StaticCamera;
 import com.ktar5.slime.screens.GameScreen;
 
@@ -42,9 +42,9 @@ public class PauseWithBlur extends GameState {
             fboA.begin();
             internalBatch.setShader(null);
 
-            SlimeGame.getGame().getLevelHandler().render(internalBatch, Const.STEP_TIME);
-            getGameScreen().getFrameRate().render(internalBatch, Const.STEP_TIME);
-            getGameScreen().getVersionInfo().render(internalBatch, Const.STEP_TIME);
+            SlimeGame.getGame().getLevelHandler().render(internalBatch, EngConst.STEP_TIME);
+            getGameScreen().getFrameRate().render(internalBatch, EngConst.STEP_TIME);
+            getGameScreen().getVersionInfo().render(internalBatch, EngConst.STEP_TIME);
 
             internalBatch.flush();
             fboA.end();
@@ -62,9 +62,9 @@ public class PauseWithBlur extends GameState {
     }
 
     public void renderPreBlur(SpriteBatch batch) {
-        SlimeGame.getGame().getLevelHandler().render(batch, Const.STEP_TIME);
-        getGameScreen().getFrameRate().render(batch, Const.STEP_TIME);
-        getGameScreen().getVersionInfo().render(batch, Const.STEP_TIME);
+        SlimeGame.getGame().getLevelHandler().render(batch, EngConst.STEP_TIME);
+        getGameScreen().getFrameRate().render(batch, EngConst.STEP_TIME);
+        getGameScreen().getVersionInfo().render(batch, EngConst.STEP_TIME);
     }
 
     private void drawTexture(Texture texture, float x, float y, Batch batch) {

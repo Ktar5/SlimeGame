@@ -1,5 +1,6 @@
 package com.ktar5.slime.engine.entities;
 
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.ktar5.slime.engine.entities.components.EntityAnimator;
 import com.ktar5.slime.engine.statemachine.SimpleStateMachine;
 import com.ktar5.slime.engine.statemachine.State;
@@ -33,6 +34,10 @@ public abstract class Entity<T extends State<T>> extends Identity implements Upd
     protected abstract SimpleStateMachine<T> initializeStateMachine();
 
     protected abstract EntityAnimator initializeRenderer(float height, float width);
+
+    public void debugRender(ShapeRenderer renderer){
+
+    }
 
     @Override
     @CallSuper

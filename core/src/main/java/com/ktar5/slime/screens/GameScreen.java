@@ -1,6 +1,6 @@
 package com.ktar5.slime.screens;
 
-import com.ktar5.slime.engine.Const;
+import com.ktar5.slime.engine.EngConst;
 import com.ktar5.slime.engine.core.AbstractScreen;
 import com.ktar5.slime.engine.core.EngineManager;
 import com.ktar5.slime.engine.rendering.CustomizedRender;
@@ -49,7 +49,7 @@ public class GameScreen extends AbstractScreen {
 
     @Override
     public void update(float dTime) {
-        gameState.update(Const.STEP_TIME);
+        gameState.update(EngConst.STEP_TIME);
     }
 
     @Override

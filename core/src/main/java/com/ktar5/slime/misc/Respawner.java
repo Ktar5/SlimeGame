@@ -3,6 +3,7 @@ package com.ktar5.slime.misc;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.ktar5.slime.SlimeGame;
+import com.ktar5.slime.engine.EngConst;
 import com.ktar5.slime.engine.util.Updatable;
 import com.ktar5.slime.entities.player.states.Respawn;
 
@@ -15,6 +16,7 @@ public class Respawner implements Updatable {
         }
         if (Gdx.input.isKeyJustPressed(Input.Keys.TAB)) {
             SlimeGame.getGame().getLevelHandler().getCurrentLevel().toggleDebug();
+            EngConst.DEBUG = !EngConst.DEBUG;
         }
     }
 }

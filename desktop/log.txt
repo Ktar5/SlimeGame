@@ -1,15 +1,41 @@
-32:27:149 LoadingScreen.show() [DEBUG]: Starting loading screen
-32:27:150 LoadingScreen.show() [DEBUG]: Starting load of loading screen resources
-32:27:163 LoadingScreen.show() [DEBUG]: Finished loading of loading screen resources
-32:27:309 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
-32:27:309 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
-32:27:309 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
-32:27:318 LoadingScreen.render() [DEBUG]: Updating load.. 1.0%
-32:27:318 LoadingScreen.render() [DEBUG]: Finished loading all assets!
-32:27:340 LoadingScreen.hide() [DEBUG]: Disposed of the loading resources
-33:12:754 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.Running
-33:12:754 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.PauseWithBlur2
-33:12:754 GameScreen.show() [DEBUG]: Display started for GameScreen
-33:32:155 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
-33:32:156 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
-33:32:157 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+59:01:052 LoadingScreen.show() [DEBUG]: Starting loading screen
+59:01:053 LoadingScreen.show() [DEBUG]: Starting load of loading screen resources
+59:01:101 LoadingScreen.show() [DEBUG]: Finished loading of loading screen resources
+59:01:349 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
+59:01:350 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+59:01:350 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+59:01:354 LoadingScreen.render() [DEBUG]: Updating load.. 1.0%
+59:01:354 LoadingScreen.render() [DEBUG]: Finished loading all assets!
+59:01:378 LoadingScreen.hide() [DEBUG]: Disposed of the loading resources
+59:02:644 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.Running
+59:02:644 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.PauseWithBlur2
+59:02:644 GameScreen.show() [DEBUG]: Display started for GameScreen
+59:02:645 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
+59:02:645 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+59:02:645 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+59:03:473 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+59:03:473 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+59:04:495 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+59:04:496 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+59:05:468 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+59:05:468 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+59:06:469 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+59:06:469 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+59:07:468 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+59:07:469 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+59:08:469 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+59:08:469 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+59:09:468 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+59:09:468 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+59:10:469 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+59:10:469 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+59:11:466 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+59:11:466 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+59:12:466 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+59:12:466 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+59:13:467 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+59:13:467 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+59:14:467 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+59:14:467 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+59:15:469 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+59:15:470 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove

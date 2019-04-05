@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="32" height="32" tilewidth="16" tileheight="16" infinite="0" backgroundcolor="#83573f" nextlayerid="5" nextobjectid="11">
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="left-up" width="32" height="32" tilewidth="16" tileheight="16" infinite="0" backgroundcolor="#83573f" nextlayerid="5" nextobjectid="11">
  <tileset firstgid="1" source="tileset/GameplayTileset.tsx"/>
  <tileset firstgid="33" source="tileset/SlimeCave.tsx"/>
  <tileset firstgid="584" source="tileset/GameplayImages.tsx"/>
@@ -78,7 +78,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer id="3" name="Gameplay" width="32" height="32" locked="1" opacity="0.16">
+ <layer id="3" name="Gameplay" width="32" height="32" opacity="0.16">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -104,7 +104,7 @@
 0,0,0,0,0,0,3,0,0,0,0,3,3,3,0,3,0,3,3,3,3,0,0,3,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,3,0,3,3,0,3,3,3,0,3,0,17,17,17,17,0,3,3,3,3,3,0,0,0,0,0,
 0,0,0,0,0,0,3,0,3,3,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,3,0,0,0,0,0,
-0,0,0,3,3,3,3,0,3,3,3,3,3,3,3,3,3,3,3,3,0,0,0,3,3,0,3,0,0,0,0,0,
+0,0,0,3,3,3,3,0,3,22,22,3,3,3,3,3,3,3,3,3,0,0,0,3,3,0,3,0,0,0,0,0,
 0,0,0,3,0,0,0,0,0,0,0,0,0,3,3,0,0,0,3,3,3,3,0,0,0,0,3,0,0,0,0,0,
 0,0,0,3,0,0,0,0,3,3,3,3,0,0,0,0,0,0,3,0,3,17,0,0,0,0,3,0,0,0,0,0,
 0,0,0,3,0,0,0,0,3,0,0,3,3,3,3,3,0,0,3,0,3,17,0,0,0,0,3,0,0,0,0,0,

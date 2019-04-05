@@ -4,7 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.controllers.Controller;
 import com.badlogic.gdx.math.Vector2;
-import com.ktar5.slime.engine.Const;
+import com.ktar5.slime.engine.EngConst;
 import com.ktar5.slime.engine.Feature;
 import com.ktar5.slime.engine.input.devices.Xbox360Pad;
 import com.ktar5.slime.engine.util.Updatable;
@@ -23,7 +23,7 @@ public abstract class Movement implements Updatable {
     private Axis preferred = null;
 
     public Movement(float speed) {
-        this.speed = speed * Const.STEP_TIME * Const.SCALE;
+        this.speed = speed * EngConst.STEP_TIME * EngConst.SCALE;
         //if (Controllers.getControllers().size > 0 && Feature.CONTROLLER.isEnabled())
         //    controller = Controllers.getControllers().get(0);
         velocity = new Vector2();

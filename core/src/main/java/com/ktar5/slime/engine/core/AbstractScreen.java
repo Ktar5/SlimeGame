@@ -1,7 +1,7 @@
 package com.ktar5.slime.engine.core;
 
 import com.badlogic.gdx.Screen;
-import com.ktar5.slime.engine.Const;
+import com.ktar5.slime.engine.EngConst;
 import com.ktar5.slime.engine.camera.CameraBase;
 import com.ktar5.slime.engine.rendering.RenderManager;
 import com.ktar5.slime.engine.rendering.Renderable;
@@ -84,7 +84,7 @@ public abstract class AbstractScreen implements Screen, Updatable {
         addedUpdatables.clear();
         for (Updatable updatable : updatableList) {
             //Update all updatables, in order
-            updatable.update(Const.STEP_TIME);
+            updatable.update(EngConst.STEP_TIME);
         }
     }
 }

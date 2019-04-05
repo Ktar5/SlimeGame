@@ -5,9 +5,8 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.utils.Disposable;
-import com.ktar5.slime.engine.Const;
+import com.ktar5.slime.engine.EngConst;
 import com.ktar5.slime.engine.core.EngineManager;
-import com.ktar5.slime.engine.debug.Debug;
 import com.ktar5.slime.engine.util.Updatable;
 import com.ktar5.utilities.common.collections.DelayedAddList;
 import lombok.Getter;
@@ -63,13 +62,17 @@ public class RenderManager implements Disposable, Updatable {
         customizedRender.postRender(dTime);
         customizedRender.preDebug(dTime);
 
-        if (Const.DEBUG) {
+        if (EngConst.DEBUG) {
             shapeRenderer.setProjectionMatrix(EngineManager.get().getCameraBase().getCamera().combined);
+            shapeRenderer.setAutoShapeType(true);
+            shapeRenderer.begin();
             for (Renderable renderable : renderables) {
-                if (Debug.shouldDebug(renderable.getClass())) {
-                    renderable.debug(dTime);
-                }
+                renderable.debug(dTime);
+//                if (Debug.shouldDebug(renderable.getClass())) {
+//                    renderable.debug(dTime);
+//                }
             }
+            shapeRenderer.end();
         }
 
         customizedRender.postDebug(dTime);

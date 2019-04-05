@@ -123,6 +123,8 @@ public class LevelHandler implements Renderable, Updatable {
 
     @Override
     public void debug(float dTime) {
-
+        for (Entity entity : currentLevel.getEntities()) {
+            entity.debugRender(EngineManager.get().getRenderManager().getShapeRenderer());
+        }
     }
 }

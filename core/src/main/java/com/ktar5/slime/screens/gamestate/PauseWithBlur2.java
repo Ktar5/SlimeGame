@@ -66,7 +66,7 @@ public class PauseWithBlur2 extends GameState {
             button.addListener(new ClickListener() {
                 @Override
                 public void clicked(InputEvent event, float x, float y) {
-                    SlimeGame.getGame().setScreen(new GameScreen());
+                    changeState(Running.class);
                     SlimeGame.getGame().getLevelHandler().setLevel(finalI);
                 }
             });

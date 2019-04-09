@@ -62,7 +62,7 @@ public class LoadedLevel extends Level implements Updatable {
         for (EntityData initialEntityDatum : this.getInitialEntityData()) {
             entities.add(initialEntityDatum.create());
         }
-        player.setSmall(false);
+        player.reset();
     }
 
 }

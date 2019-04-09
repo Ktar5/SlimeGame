@@ -18,6 +18,8 @@ public class Teleporter extends WholeTile {
     private int x;
     private int y;
 
+    private Tween tween;
+
     public Teleporter(int x, int y) {
         super(x, y, Rotation.DEG_0);
     }
@@ -32,7 +34,10 @@ public class Teleporter extends WholeTile {
 
     @Override
     public void reset() {
-
+        if (tween != null && tween.isStarted() && !tween.isFinished()){
+            System.out.println("Killing tween");
+            tween.kill();
+        }
     }
 
     @Override
@@ -42,8 +47,7 @@ public class Teleporter extends WholeTile {
         Vector2 target = new Vector2(x * 16, 16 * (SlimeGame.getGame().getLevelHandler().getCurrentLevel().getGrid().height - y - 1));
         float dst = target.dst(entity.getPosition()) / 16;
 
-
-        Tween.to(entity, 1, dst * TELEPORT_SPEED)
+        tween = Tween.to(entity, 1, dst * TELEPORT_SPEED)
                 .target(x * 16, 16 * (SlimeGame.getGame().getLevelHandler().getCurrentLevel().getGrid().height - y - 1))
                 .setCallback((type, source) -> {
                     if (type == TweenCallback.COMPLETE) {

@@ -39,6 +39,10 @@ public abstract class Entity<T extends State<T>> extends Identity implements Upd
 
     }
 
+    public void reset(){
+
+    }
+
     @Override
     @CallSuper
     public void update(float dTime) {

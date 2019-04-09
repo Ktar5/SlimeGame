@@ -51,12 +51,20 @@ public class JumpPlayer extends PlayerEntity<PlayerState> {
         }
     }
 
+    @Override
+    public void reset() {
+        setSmall(false);
+        ((Respawn) getEntityState().get(Respawn.class)).cancel();
+        getPosition().set(SlimeGame.getGame().getLevelHandler().getSpawnX(),
+                SlimeGame.getGame().getLevelHandler().getSpawnY());
+        resetAnimation("slime_jump_down");
+        setHaltMovement(false);
+        getEntityState().changeStateAfterUpdate(Idle.class);
+    }
+
     public void kill() {
-        System.out.println("Killing player " + getEntityState().getCurrent().getClass().getSimpleName());
         if (!getEntityState().getCurrent().getClass().equals(Respawn.class)) {
-            System.out.println("Doing the do");
             getEntityState().changeStateAfterUpdate(Respawn.class);
-            System.out.println("Done the done");
         }
     }
 
@@ -91,4 +99,5 @@ public class JumpPlayer extends PlayerEntity<PlayerState> {
     protected String getDefaultAnimation() {
         return "slime_jump_down";
     }
+
 }

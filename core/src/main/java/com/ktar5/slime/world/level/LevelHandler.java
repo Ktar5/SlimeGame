@@ -35,6 +35,10 @@ public class LevelHandler implements Renderable, Updatable {
     }
 
     public void setLevel(int levelIndex) {
+        if(currentLevel != null && levelIndex == currentLevel.getId()){
+            currentLevel.reset();
+            return;
+        }
         currentLevel = new LoadedLevel(levels[levelIndex]);
         tileMapRenderer = new OrthogonalTiledMapRenderer(currentLevel.getTileMap(), 1f,
                 EngineManager.get().getRenderManager().getSpriteBatch());

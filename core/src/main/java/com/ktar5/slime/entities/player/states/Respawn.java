@@ -6,6 +6,8 @@ import com.ktar5.slime.engine.core.EngineManager;
 import com.ktar5.slime.entities.player.JumpPlayer;
 
 public class Respawn extends PlayerState {
+    public Timer.Task schedule;
+
     public Respawn(JumpPlayer player) {
         super(player);
     }
@@ -14,14 +16,9 @@ public class Respawn extends PlayerState {
     public void start() {
         getPlayer().getEntityAnimator().setAnimation(EngineManager.get().getAnimationLoader()
                 .getTextureAsAnimation("slime_jump_down"));
-        Timer.schedule(new Timer.Task() {
+        schedule = Timer.schedule(new Timer.Task() {
             @Override
             public void run() {
-                getPlayer().getPosition().set(SlimeGame.getGame().getLevelHandler().getSpawnX(),
-                        SlimeGame.getGame().getLevelHandler().getSpawnY());
-                getPlayer().resetAnimation("slime_jump_down");
-
-                getThis().changeState(Idle.class);
                 SlimeGame.getGame().getLevelHandler().resetLevel();
             }
         }, 2f);
@@ -39,5 +36,11 @@ public class Respawn extends PlayerState {
 
     private Respawn getThis() {
         return this;
+    }
+
+    public void cancel() {
+        if (schedule != null) {
+            schedule.cancel();
+        }
     }
 }

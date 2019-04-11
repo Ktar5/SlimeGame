@@ -7,11 +7,11 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.ktar5.slime.engine.core.EngineManager;
-import com.ktar5.slime.engine.entities.Entity;
-import com.ktar5.slime.engine.rendering.Renderable;
-import com.ktar5.slime.engine.tilemap.CustomTmxMapLoader;
-import com.ktar5.slime.engine.util.Updatable;
+import com.ktar5.gameengine.core.EngineManager;
+import com.ktar5.gameengine.entities.Entity;
+import com.ktar5.gameengine.rendering.Renderable;
+import com.ktar5.gameengine.tilemap.CustomTmxMapLoader;
+import com.ktar5.gameengine.util.Updatable;
 import lombok.Getter;
 
 import java.util.ArrayList;

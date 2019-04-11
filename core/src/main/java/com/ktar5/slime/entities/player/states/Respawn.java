@@ -1,8 +1,8 @@
 package com.ktar5.slime.entities.player.states;
 
 import com.badlogic.gdx.utils.Timer;
+import com.ktar5.gameengine.core.EngineManager;
 import com.ktar5.slime.SlimeGame;
-import com.ktar5.slime.engine.core.EngineManager;
 import com.ktar5.slime.entities.player.JumpPlayer;
 
 public class Respawn extends PlayerState {

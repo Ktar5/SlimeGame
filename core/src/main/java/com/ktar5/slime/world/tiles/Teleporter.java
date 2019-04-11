@@ -2,13 +2,13 @@ package com.ktar5.slime.world.tiles;
 
 import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.math.Vector2;
+import com.ktar5.gameengine.core.EngineManager;
+import com.ktar5.gameengine.entities.Entity;
+import com.ktar5.gameengine.tweenengine.Tween;
+import com.ktar5.gameengine.tweenengine.TweenCallback;
+import com.ktar5.gameengine.tweenengine.equations.Quint;
+import com.ktar5.gameengine.util.Side;
 import com.ktar5.slime.SlimeGame;
-import com.ktar5.slime.engine.core.EngineManager;
-import com.ktar5.slime.engine.entities.Entity;
-import com.ktar5.slime.engine.tweenengine.Tween;
-import com.ktar5.slime.engine.tweenengine.TweenCallback;
-import com.ktar5.slime.engine.tweenengine.equations.Quint;
-import com.ktar5.slime.engine.util.Side;
 import com.ktar5.slime.world.tiles.base.Rotation;
 import com.ktar5.slime.world.tiles.base.WholeTile;
 

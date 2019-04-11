@@ -1,9 +1,9 @@
 package com.ktar5.slime.world.level;
 
-import com.ktar5.slime.engine.camera.CameraFollow;
-import com.ktar5.slime.engine.core.EngineManager;
-import com.ktar5.slime.engine.entities.Entity;
-import com.ktar5.slime.engine.util.Updatable;
+import com.ktar5.gameengine.camera.CameraFollow;
+import com.ktar5.gameengine.core.EngineManager;
+import com.ktar5.gameengine.entities.Entity;
+import com.ktar5.gameengine.util.Updatable;
 import com.ktar5.slime.entities.EntityData;
 import com.ktar5.slime.entities.player.JumpPlayer;
 import com.ktar5.slime.variables.Constants;

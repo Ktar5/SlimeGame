@@ -1,8 +1,8 @@
 package com.ktar5.slime.entities.ghost;
 
 import com.badlogic.gdx.math.Vector2;
+import com.ktar5.gameengine.util.Side;
 import com.ktar5.slime.SlimeGame;
-import com.ktar5.slime.engine.util.Side;
 import com.ktar5.slime.world.Grid;
 import com.ktar5.slime.world.tiles.base.Tile;
 

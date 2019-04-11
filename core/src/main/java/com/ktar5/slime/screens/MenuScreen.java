@@ -14,11 +14,11 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.ktar5.gameengine.camera.StaticCamera;
+import com.ktar5.gameengine.core.AbstractScreen;
+import com.ktar5.gameengine.core.EngineManager;
+import com.ktar5.gameengine.rendering.Renderable;
 import com.ktar5.slime.SlimeGame;
-import com.ktar5.slime.engine.camera.StaticCamera;
-import com.ktar5.slime.engine.core.AbstractScreen;
-import com.ktar5.slime.engine.core.EngineManager;
-import com.ktar5.slime.engine.rendering.Renderable;
 
 import java.util.ArrayList;
 import java.util.List;

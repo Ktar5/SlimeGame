@@ -10,11 +10,11 @@ import com.badlogic.gdx.math.Interpolation;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
+import com.ktar5.gameengine.camera.CameraBase;
+import com.ktar5.gameengine.core.AbstractScreen;
+import com.ktar5.gameengine.core.EngineManager;
+import com.ktar5.gameengine.rendering.Renderable;
 import com.ktar5.slime.SlimeGame;
-import com.ktar5.slime.engine.camera.CameraBase;
-import com.ktar5.slime.engine.core.AbstractScreen;
-import com.ktar5.slime.engine.core.EngineManager;
-import com.ktar5.slime.engine.rendering.Renderable;
 import com.ktar5.slime.world.level.LevelHandler;
 import org.pmw.tinylog.Logger;
 

@@ -2,7 +2,7 @@ package com.ktar5.slime.world.level.types;
 
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.utils.IntMap;
-import com.ktar5.slime.engine.util.Side;
+import com.ktar5.gameengine.util.Side;
 import com.ktar5.slime.entities.box.BoxEntityData;
 import com.ktar5.slime.entities.ghost.GhostEntityData;
 import com.ktar5.slime.world.tiles.*;

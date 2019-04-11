@@ -1,6 +1,6 @@
 package com.ktar5.slime.screens.gamestate;
 
-import com.ktar5.slime.engine.statemachine.State;
+import com.ktar5.gameengine.statemachine.State;
 import com.ktar5.slime.screens.GameScreen;
 import lombok.Getter;
 

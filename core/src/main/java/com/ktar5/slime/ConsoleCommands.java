@@ -1,8 +1,8 @@
 package com.ktar5.slime;
 
-import com.ktar5.slime.engine.Feature;
-import com.ktar5.slime.engine.console.CommandExecutor;
-import com.ktar5.slime.engine.console.LogLevel;
+import com.ktar5.gameengine.Feature;
+import com.ktar5.gameengine.console.CommandExecutor;
+import com.ktar5.gameengine.console.LogLevel;
 import com.ktar5.slime.entities.player.states.Respawn;
 
 public class ConsoleCommands extends CommandExecutor {

@@ -1,13 +1,13 @@
 package com.ktar5.slime.screens;
 
-import com.ktar5.slime.engine.EngConst;
-import com.ktar5.slime.engine.core.AbstractScreen;
-import com.ktar5.slime.engine.core.EngineManager;
-import com.ktar5.slime.engine.rendering.CustomizedRender;
-import com.ktar5.slime.engine.rendering.Renderable;
-import com.ktar5.slime.engine.statemachine.SimpleStateMachine;
-import com.ktar5.slime.engine.util.textoverlay.FrameRate;
-import com.ktar5.slime.engine.util.textoverlay.TextDisplay;
+import com.ktar5.gameengine.EngConst;
+import com.ktar5.gameengine.core.AbstractScreen;
+import com.ktar5.gameengine.core.EngineManager;
+import com.ktar5.gameengine.rendering.CustomizedRender;
+import com.ktar5.gameengine.rendering.Renderable;
+import com.ktar5.gameengine.statemachine.SimpleStateMachine;
+import com.ktar5.gameengine.util.textoverlay.FrameRate;
+import com.ktar5.gameengine.util.textoverlay.TextDisplay;
 import com.ktar5.slime.misc.VersionInfo;
 import com.ktar5.slime.screens.gamestate.GameState;
 import com.ktar5.slime.screens.gamestate.PauseWithBlur2;

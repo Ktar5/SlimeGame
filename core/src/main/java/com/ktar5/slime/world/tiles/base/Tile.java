@@ -1,10 +1,10 @@
 package com.ktar5.slime.world.tiles.base;
 
 import com.badlogic.gdx.maps.MapProperties;
+import com.ktar5.gameengine.entities.Entity;
+import com.ktar5.gameengine.util.Side;
+import com.ktar5.gameengine.util.TiledPropertyConsumer;
 import com.ktar5.slime.SlimeGame;
-import com.ktar5.slime.engine.entities.Entity;
-import com.ktar5.slime.engine.util.Side;
-import com.ktar5.slime.engine.util.TiledPropertyConsumer;
 import com.ktar5.slime.world.level.LoadedLevel;
 import lombok.Getter;
 

@@ -2,8 +2,8 @@ package com.ktar5.slime.screens.gamestate;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.ktar5.gameengine.core.EngineManager;
 import com.ktar5.slime.SlimeGame;
-import com.ktar5.slime.engine.core.EngineManager;
 import com.ktar5.slime.misc.Respawner;
 import com.ktar5.slime.screens.GameScreen;
 

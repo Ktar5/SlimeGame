@@ -2,11 +2,11 @@ package com.ktar5.slime.entities.player;
 
 
 import com.badlogic.gdx.math.Vector2;
+import com.ktar5.gameengine.core.EngineManager;
+import com.ktar5.gameengine.entities.PlayerEntity;
+import com.ktar5.gameengine.entities.components.EntityAnimator;
+import com.ktar5.gameengine.statemachine.SimpleStateMachine;
 import com.ktar5.slime.SlimeGame;
-import com.ktar5.slime.engine.core.EngineManager;
-import com.ktar5.slime.engine.entities.PlayerEntity;
-import com.ktar5.slime.engine.entities.components.EntityAnimator;
-import com.ktar5.slime.engine.statemachine.SimpleStateMachine;
 import com.ktar5.slime.entities.player.states.Idle;
 import com.ktar5.slime.entities.player.states.Move;
 import com.ktar5.slime.entities.player.states.PlayerState;

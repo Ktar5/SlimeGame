@@ -1,7 +1,7 @@
 package com.ktar5.slime.entities.box;
 
 import com.badlogic.gdx.maps.MapProperties;
-import com.ktar5.slime.engine.entities.Entity;
+import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.slime.entities.EntityData;
 import com.ktar5.slime.entities.EntityType;
 

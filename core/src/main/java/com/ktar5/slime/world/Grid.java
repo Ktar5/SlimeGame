@@ -1,8 +1,8 @@
 package com.ktar5.slime.world;
 
-import com.ktar5.slime.engine.entities.Entity;
-import com.ktar5.slime.engine.util.Side;
-import com.ktar5.slime.engine.util.Updatable;
+import com.ktar5.gameengine.entities.Entity;
+import com.ktar5.gameengine.util.Side;
+import com.ktar5.gameengine.util.Updatable;
 import com.ktar5.slime.world.tiles.base.Tile;
 
 import java.util.ArrayList;

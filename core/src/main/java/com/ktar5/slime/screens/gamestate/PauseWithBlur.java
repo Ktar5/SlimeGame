@@ -11,9 +11,9 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.FrameBuffer;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.ktar5.gameengine.EngConst;
+import com.ktar5.gameengine.camera.StaticCamera;
 import com.ktar5.slime.SlimeGame;
-import com.ktar5.slime.engine.EngConst;
-import com.ktar5.slime.engine.camera.StaticCamera;
 import com.ktar5.slime.screens.GameScreen;
 
 import java.util.Collections;

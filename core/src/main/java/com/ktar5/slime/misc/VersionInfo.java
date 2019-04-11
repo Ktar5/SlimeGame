@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.badlogic.gdx.math.Vector3;
-import com.ktar5.slime.engine.util.textoverlay.TextDisplay;
+import com.ktar5.gameengine.util.textoverlay.TextDisplay;
 
 public class VersionInfo extends TextDisplay {
 

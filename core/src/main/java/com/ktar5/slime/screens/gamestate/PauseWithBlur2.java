@@ -17,14 +17,15 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.ktar5.gameengine.EngConst;
+import com.ktar5.gameengine.camera.StaticCamera;
+import com.ktar5.gameengine.core.EngineManager;
+import com.ktar5.gameengine.postprocessing.PostProcessor;
+import com.ktar5.gameengine.postprocessing.effects.Vignette;
+import com.ktar5.gameengine.postprocessing.filters.Blur;
+import com.ktar5.gameengine.postprocessing.utils.ShaderLoader;
+import com.ktar5.gameengine.rendering.Renderable;
 import com.ktar5.slime.SlimeGame;
-import com.ktar5.slime.engine.EngConst;
-import com.ktar5.slime.engine.camera.StaticCamera;
-import com.ktar5.slime.engine.core.EngineManager;
-import com.ktar5.slime.engine.postprocessing.PostProcessor;
-import com.ktar5.slime.engine.postprocessing.effects.Vignette;
-import com.ktar5.slime.engine.postprocessing.filters.Blur;
-import com.ktar5.slime.engine.rendering.Renderable;
 import com.ktar5.slime.screens.GameScreen;
 
 import java.util.Collections;
@@ -91,7 +92,7 @@ public class PauseWithBlur2 extends GameState {
         stage.addActor(levels);
 
 
-        com.bitfire.utils.ShaderLoader.BasePath = "shaders/";
+        ShaderLoader.BasePath = "shaders/";
         blur = new Blur(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         postProcessor = new PostProcessor(false, false, true);
         Vignette vignette = new Vignette(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), false);

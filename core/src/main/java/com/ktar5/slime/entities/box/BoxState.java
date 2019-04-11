@@ -1,6 +1,6 @@
 package com.ktar5.slime.entities.box;
 
-import com.ktar5.slime.engine.statemachine.State;
+import com.ktar5.gameengine.statemachine.State;
 import lombok.Getter;
 
 public abstract class BoxState extends State<BoxState> {

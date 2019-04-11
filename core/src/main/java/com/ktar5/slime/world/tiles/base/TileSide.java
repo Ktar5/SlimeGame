@@ -1,7 +1,7 @@
 package com.ktar5.slime.world.tiles.base;
 
-import com.ktar5.slime.engine.entities.Entity;
-import com.ktar5.slime.engine.util.Side;
+import com.ktar5.gameengine.entities.Entity;
+import com.ktar5.gameengine.util.Side;
 
 public abstract class TileSide {
     public void tick() {

@@ -1,6 +1,6 @@
 package com.ktar5.slime.entities.player.states;
 
-import com.ktar5.slime.engine.statemachine.State;
+import com.ktar5.gameengine.statemachine.State;
 import com.ktar5.slime.entities.player.JumpPlayer;
 import lombok.Getter;
 

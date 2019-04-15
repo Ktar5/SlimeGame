@@ -61,6 +61,7 @@ public class LoadingScreen extends AbstractScreen {
         EngineManager.get().getAssetManager().finishLoading();
         Logger.debug("Finished loading of loading screen resources");
 
+
         // Initialize the stage where we will place everything
         stage = new Stage();
 

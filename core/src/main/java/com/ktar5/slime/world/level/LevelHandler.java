@@ -13,12 +13,13 @@ import com.ktar5.gameengine.rendering.Renderable;
 import com.ktar5.gameengine.tilemap.CustomTmxMapLoader;
 import com.ktar5.gameengine.util.Updatable;
 import lombok.Getter;
+import org.pmw.tinylog.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class LevelHandler implements Renderable, Updatable {
-    public static final boolean LOAD_MAPS_LOCAL = false;
+    public static boolean LOAD_MAPS_LOCAL = true;
 
     private Level[] levels;
     private OrthogonalTiledMapRenderer tileMapRenderer;
@@ -58,14 +59,16 @@ public class LevelHandler implements Renderable, Updatable {
         List<FileHandle> fileList = new ArrayList<>();
         int i = 0;
         FileHandle handle = Gdx.files.internal("maps/Level0.tmx");
-        if (LOAD_MAPS_LOCAL) {
+        LOAD_MAPS_LOCAL = false;
+        if (Gdx.files.local("maps/Level0.tmx").exists()) {
+            Logger.debug("Using local maps instead of internal.");
             handle = Gdx.files.local("maps/Level0.tmx");
+            LOAD_MAPS_LOCAL = true;
         }
         while (handle.exists()) {
             fileList.add(handle);
             i++;
             if (LOAD_MAPS_LOCAL) {
-                System.out.println("Load local");
                 handle = Gdx.files.local("maps/Level" + i + ".tmx");
             } else {
                 handle = Gdx.files.internal("maps/Level" + i + ".tmx");

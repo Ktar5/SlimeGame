@@ -7,7 +7,7 @@ import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
-import com.ktar5.slime.engine.tilemap.CustomTmxMapLoader;
+import com.ktar5.gameengine.tilemap.CustomTmxMapLoader;
 import com.ktar5.utilities.common.util.CollectingFileScanner;
 
 import java.io.File;

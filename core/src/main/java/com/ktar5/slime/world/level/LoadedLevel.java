@@ -42,7 +42,13 @@ public class LoadedLevel extends Level implements Updatable {
     }
 
     public LevelEdit addEdit(int x, int y, String layer, int oldID) {
-        LevelEdit levelEdit = new LevelEdit(x, y, layer, oldID);
+        LevelEdit levelEdit = new LevelEdit.StringLevelEdit(x, y, layer, oldID);
+        edits.add(levelEdit);
+        return levelEdit;
+    }
+
+    public LevelEdit addEdit(int x, int y, int layer, int oldID) {
+        LevelEdit levelEdit = new LevelEdit.IntLevelEdit(x, y, layer, oldID);
         edits.add(levelEdit);
         return levelEdit;
     }
@@ -53,6 +59,11 @@ public class LoadedLevel extends Level implements Updatable {
                 if (tile != null) {
                     tile.reset();
                 }
+            }
+        }
+        for (int x = 0; x < getSlimeCovered().length; x++) {
+            for (int y = 0; y < getSlimeCovered()[x].length; y++) {
+                getSlimeCovered()[x][y] = false;
             }
         }
         for (LevelEdit edit : edits) {

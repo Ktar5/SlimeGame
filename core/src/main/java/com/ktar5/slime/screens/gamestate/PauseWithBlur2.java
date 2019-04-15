@@ -104,7 +104,7 @@ public class PauseWithBlur2 extends GameState {
         objects = Collections.singletonList((internalBatch, dTime) -> {
 
             postProcessor.capture();
-            Gdx.gl.glClearColor(131 / 255f, 87 / 255f, 64 / 255f, 1);
+            Gdx.gl.glClearColor(168 / 255f, 118 / 255f, 86 / 255f, 1);
             Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
             SlimeGame.getGame().getLevelHandler().render(internalBatch, EngConst.STEP_TIME);
             getGameScreen().getFrameRate().render(internalBatch, EngConst.STEP_TIME);

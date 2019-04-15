@@ -1,6 +1,8 @@
 package com.ktar5.slime.entities.player;
 
 
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
+import com.badlogic.gdx.maps.tiled.TiledMapTileSet;
 import com.badlogic.gdx.math.Vector2;
 import com.ktar5.gameengine.core.EngineManager;
 import com.ktar5.gameengine.entities.PlayerEntity;
@@ -48,6 +50,21 @@ public class JumpPlayer extends PlayerEntity<PlayerState> {
             lastY = (int) position.y / 16;
             lastX = (int) position.x / 16;
             SlimeGame.getGame().getLevelHandler().getCurrentLevel().getGrid().activateAllTiles(this);
+            boolean[][] slimeCovered = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getSlimeCovered();
+            if(!slimeCovered[lastX][lastY]){
+                slimeCovered[lastX][lastY] = true;
+                LoadedLevel currentLevel = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
+                TiledMapTileLayer mapLayer = currentLevel.getGameplayArtLayer();
+                TiledMapTileSet gameplayImages = currentLevel.getTileMap().getTileSets().getTileSet("GameplayImages");
+                currentLevel.addEdit(lastX, lastY, "Art_Gameplay", 0);
+                if (mapLayer.getCell(lastX, lastY) == null) {
+                    TiledMapTileLayer.Cell newCell = new TiledMapTileLayer.Cell();
+                    newCell.setTile(gameplayImages.getTile(791));
+                    mapLayer.setCell(lastX, lastY, newCell);
+                } else {
+                    mapLayer.getCell(lastX, lastY).setTile(gameplayImages.getTile(791));
+                }
+            }
         }
     }
 

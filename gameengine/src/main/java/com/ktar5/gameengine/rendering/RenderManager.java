@@ -46,7 +46,7 @@ public class RenderManager implements Disposable, Updatable {
     @Override
     public void update(float dTime) {
         //Because OpenGL needs this.
-        Gdx.gl.glClearColor(131/255f, 87/255f, 64/255f, 1);
+        Gdx.gl.glClearColor(168 / 255f, 118 / 255f, 86 / 255f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         spriteBatch.setProjectionMatrix(EngineManager.get().getCameraBase().getCamera().combined);

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="32" height="32" tilewidth="16" tileheight="16" infinite="0" backgroundcolor="#83573f" nextlayerid="5" nextobjectid="5">
+<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="32" height="32" tilewidth="16" tileheight="16" infinite="0" backgroundcolor="#a87656" nextlayerid="5" nextobjectid="5">
  <tileset firstgid="1" source="tileset/GameplayTileset.tsx"/>
  <tileset firstgid="33" source="tileset/SlimeCave.tsx"/>
  <tileset firstgid="584" source="tileset/GameplayImages.tsx"/>
@@ -39,7 +39,7 @@
 262,263,173,263,263,263,263,264,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer id="2" name="Art_Gameplay" width="32" height="32" locked="1">
+ <layer id="2" name="Art_Gameplay" width="32" height="32">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,

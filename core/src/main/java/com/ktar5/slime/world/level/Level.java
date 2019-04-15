@@ -29,6 +29,7 @@ public class Level {
     protected TiledMap tileMap;
     protected int id;
     protected Grid grid;
+    protected boolean[][] slimeCovered;
     private List<EntityData> initialEntityData;
     private int gameplayArtLayerIndex;
     private int[] foregroundLayers, backgroundLayers;
@@ -38,6 +39,7 @@ public class Level {
         this.id = id;
         initialEntityData = new ArrayList<>();
         initializeGrid();
+        slimeCovered = new boolean[this.grid.width][this.grid.height];
     }
 
     public void setLevelDebug(boolean debug) {
@@ -49,7 +51,7 @@ public class Level {
         setLevelDebug(!showDebugLevel);
     }
 
-    public TiledMapTileLayer getGameplayArtLayer(){
+    public TiledMapTileLayer getGameplayArtLayer() {
         return ((TiledMapTileLayer) tileMap.getLayers().get(gameplayArtLayerIndex));
     }
 
@@ -70,7 +72,7 @@ public class Level {
                 } else {
                     backgrounds.add(layers.getIndex(layer));
                 }
-                if (layer.getProperties().containsKey("Modify")) {
+                if (layer.getName().equals("Art_Gameplay")) {
                     gameplayArtLayerIndex = layers.getIndex(layer);
                 }
             } else if (layer.getName().equalsIgnoreCase("Gameplay")) {
@@ -112,7 +114,7 @@ public class Level {
                 }
                 //TODO magic value (2395)
                 int i = cell.getTile().getId() - 2395;
-                if(i < 0){
+                if (i < 0) {
                     i = cell.getTile().getId() - 1;
                 }
                 tempType = TileObjectTypes.tileFromId(i);
@@ -157,7 +159,7 @@ public class Level {
                 Tile tile = grid.grid[(int) object.getRectangle().x / 16][(int) object.getRectangle().y / 16];
                 if (tile instanceof Air) {
                     for (EntityData entityData : this.initialEntityData) {
-                        if(entityData.initialPosition.equals(tile.x, tile.y)){
+                        if (entityData.initialPosition.equals(tile.x, tile.y)) {
                             entityData.processProperty(postProcessProperties);
                         }
                     }

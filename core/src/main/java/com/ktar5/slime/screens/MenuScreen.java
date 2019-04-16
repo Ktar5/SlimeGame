@@ -85,7 +85,7 @@ public class MenuScreen extends AbstractScreen {
 
         //Add table to stage
         stage.addActor(new Actor(){
-            Texture texture = EngineManager.get().getAnimationLoader().getTexture("default_skin/slimebgart.png");
+            Texture texture = EngineManager.get().getAnimationLoader().getTexture("textures/MenuBG.png");
 
             @Override
             public void draw(Batch batch, float parentAlpha) {
@@ -99,13 +99,16 @@ public class MenuScreen extends AbstractScreen {
         levels.top().right();
         levels.pad(15,0,0,15);
         levels.setFillParent(true);
+//        levels.defaults().center().uniformX().fillX();
         int levelCount = SlimeGame.getGame().getLevelHandler().getLevelCount();
         for (int i = 0; i < levelCount ; i++){
             TextButton button = new TextButton(String.valueOf(i), skin);
             if(i % 3 == 0){
                 levels.row();
             }
-            levels.add(button).pad(0,0,5,5);
+            levels.add(button).pad(0, 0, 5, 5).width(25f);
+//            levels.add(button).pad(0, 0, 5, 5);
+
             int finalI = i;
             button.addListener(new ClickListener(){
                 @Override

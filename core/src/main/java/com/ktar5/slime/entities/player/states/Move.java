@@ -8,6 +8,7 @@ import com.ktar5.gameengine.util.Side;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.entities.TouchableEntity;
 import com.ktar5.slime.entities.player.JumpPlayer;
+import com.ktar5.slime.variables.Settings;
 import com.ktar5.slime.world.Grid;
 import com.ktar5.slime.world.tiles.base.Tile;
 import org.pmw.tinylog.Logger;
@@ -16,7 +17,7 @@ import java.util.List;
 
 public class Move extends PlayerState {
     private static final int preMovementFrames = 4;
-    private static final float SPEED = 6f;//3.2f;
+    private static final float SPEED = Settings.PLAYER_MOVE_SPEED;//3.2f;
     int blocksMoved = 0;
     private int preMovementFrameCount = preMovementFrames;
 

@@ -3,6 +3,7 @@ package com.ktar5.slime;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.kotcrab.vis.ui.VisUI;
 import com.ktar5.gameengine.camera.CameraBase;
 import com.ktar5.gameengine.camera.CameraFollow;
 import com.ktar5.gameengine.console.CommandExecutor;
@@ -38,6 +39,7 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
 
     @Override
     public void initialize() {
+        VisUI.load();
         this.engineManager.getConsole().setDisplayKeyID(Input.Keys.GRAVE);
         Tween.registerAccessor(Entity.class, new EntityTweenAccessor());
         Tween.registerAccessor(RetractingSpikes.class, new RetractingSpikes.SpikesTweenAccessor());

@@ -5,13 +5,14 @@ import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.gameengine.util.Side;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.entities.TouchableEntity;
+import com.ktar5.slime.variables.Settings;
 import com.ktar5.slime.world.Grid;
 import com.ktar5.slime.world.tiles.base.Tile;
 
 import java.util.List;
 
 public class BoxMove extends BoxState {
-    private static final float SPEED = 6f;
+    private static final float SPEED = Settings.BOX_MOVE_SPEED;
 
     protected BoxMove(Box entity) {
         super(entity);

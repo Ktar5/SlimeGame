@@ -49,8 +49,6 @@ public class PauseWithBlur2 extends GameState {
         camera.getCamera().update();
 
         stage = new Stage(camera.getViewport(), batch);
-        Gdx.input.setInputProcessor(stage);
-        EngineManager.get().getConsole().resetInputProcessing();
 
         Table levels = new Table();
         levels.top().right();
@@ -62,7 +60,7 @@ public class PauseWithBlur2 extends GameState {
             if (i % 3 == 0) {
                 levels.row();
             }
-            levels.add(button).pad(0, 0, 5, 5);
+            levels.add(button).pad(0, 0, 5, 5).width(25f);
             int finalI = i;
             button.addListener(new ClickListener() {
                 @Override
@@ -126,6 +124,9 @@ public class PauseWithBlur2 extends GameState {
 
     @Override
     public void start() {
+        Gdx.input.setInputProcessor(stage);
+        EngineManager.get().getConsole().resetInputProcessing();
+
         getGameScreen().getRenderManager().setRenderables(objects);
     }
 

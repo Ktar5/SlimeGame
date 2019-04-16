@@ -12,6 +12,7 @@ import com.ktar5.slime.misc.VersionInfo;
 import com.ktar5.slime.screens.gamestate.GameState;
 import com.ktar5.slime.screens.gamestate.PauseWithBlur2;
 import com.ktar5.slime.screens.gamestate.Running;
+import com.ktar5.slime.screens.gamestate.Winning;
 import lombok.Getter;
 import org.pmw.tinylog.Logger;
 
@@ -33,7 +34,8 @@ public class GameScreen extends AbstractScreen {
                 //EngineManager.get().getWorldManager().debug(dTime);
             }
         });
-        gameState = new SimpleStateMachine<>(new Running(this), new PauseWithBlur2(this));
+        gameState = new SimpleStateMachine<>(new Running(this), new PauseWithBlur2(this),
+                new Winning(this));
     }
 
     @Override
@@ -63,6 +65,9 @@ public class GameScreen extends AbstractScreen {
 
     @Override
     public void pause() {
+        if(gameState.getCurrent().getClass().equals(Winning.class)){
+            return;
+        }
         gameState.changeStateAfterUpdate(PauseWithBlur2.class);
     }
 

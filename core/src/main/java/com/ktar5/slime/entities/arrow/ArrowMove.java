@@ -7,13 +7,14 @@ import com.ktar5.gameengine.util.Side;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.entities.TouchableEntity;
 import com.ktar5.slime.entities.player.JumpPlayer;
+import com.ktar5.slime.variables.Settings;
 import com.ktar5.slime.world.Grid;
 import com.ktar5.slime.world.tiles.base.Tile;
 
 import java.util.List;
 
 public class ArrowMove extends ArrowState {
-    private static final float SPEED = 1f;
+    private static final float SPEED = Settings.ARROW_MOVE_SPEED;
 
     protected ArrowMove(Arrow entity) {
         super(entity);
@@ -125,7 +126,6 @@ public class ArrowMove extends ArrowState {
 //            changeState(ArrowIdle.class);
 
             newTile.onHitTile(getEntity(), getMovement().opposite());
-            System.out.println("arrow hitwall and die");
             EngineManager.get().getRenderManager().doOnNextFrame(() -> {
                 SlimeGame.getGame().getLevelHandler().getCurrentLevel().getEntities().remove(getEntity());
             });

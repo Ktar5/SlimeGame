@@ -50,7 +50,7 @@ public class Pause extends GameState {
             if (i % 3 == 0) {
                 levels.row();
             }
-            levels.add(button).pad(0, 0, 5, 5);
+            levels.add(button).pad(0, 0, 5, 5).width(25f);
             int finalI = i;
             button.addListener(new ClickListener() {
                 @Override

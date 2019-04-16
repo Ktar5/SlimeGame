@@ -3,11 +3,12 @@ package com.ktar5.slime.entities.ghost;
 import com.badlogic.gdx.math.Vector2;
 import com.ktar5.gameengine.util.Side;
 import com.ktar5.slime.SlimeGame;
+import com.ktar5.slime.variables.Settings;
 import com.ktar5.slime.world.Grid;
 import com.ktar5.slime.world.tiles.base.Tile;
 
 public class GhostMove extends GhostState {
-    private static final float SPEED = 2f;
+    private static final float SPEED = Settings.GHOST_MOVE_SPEED;
 
     protected GhostMove(Ghost entity) {
         super(entity);

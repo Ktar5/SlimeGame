@@ -18,6 +18,8 @@ public class LoadedLevel extends Level implements Updatable {
     private JumpPlayer player;
     private ArrayList<LevelEdit> edits;
     private List<Entity> entities;
+    private int collectibles = 0;
+    private int numberTilesSlimed = 0;
 
     public LoadedLevel(Level level) {
         super(level.tileMap, level.id);
@@ -69,6 +71,10 @@ public class LoadedLevel extends Level implements Updatable {
         for (LevelEdit edit : edits) {
             edit.undo(tileMap);
         }
+
+        collectibles = 0;
+        numberTilesSlimed = 0;
+
         entities.clear();
         for (EntityData initialEntityDatum : this.getInitialEntityData()) {
             entities.add(initialEntityDatum.create());
@@ -76,4 +82,7 @@ public class LoadedLevel extends Level implements Updatable {
         player.reset();
     }
 
+    public void incrementSlimeCovered() {
+        numberTilesSlimed += 1;
+    }
 }

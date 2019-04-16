@@ -54,6 +54,7 @@ public class JumpPlayer extends PlayerEntity<PlayerState> {
             if(!slimeCovered[lastX][lastY]){
                 slimeCovered[lastX][lastY] = true;
                 LoadedLevel currentLevel = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
+                currentLevel.incrementSlimeCovered();
                 TiledMapTileLayer mapLayer = currentLevel.getGameplayArtLayer();
                 TiledMapTileSet gameplayImages = currentLevel.getTileMap().getTileSets().getTileSet("GameplayImages");
                 currentLevel.addEdit(lastX, lastY, "Art_Gameplay", 0);

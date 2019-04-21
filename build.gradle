@@ -20,7 +20,6 @@ allprojects {
 
 configure(subprojects - project(':android')) {
     apply plugin: 'java'
-    sourceCompatibility = 1.8
 }
 
 subprojects {

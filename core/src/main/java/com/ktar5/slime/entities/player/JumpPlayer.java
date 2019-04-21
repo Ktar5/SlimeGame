@@ -2,7 +2,7 @@ package com.ktar5.slime.entities.player;
 
 
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
-import com.badlogic.gdx.maps.tiled.TiledMapTileSet;
+import com.badlogic.gdx.maps.tiled.TiledMapTileSets;
 import com.badlogic.gdx.math.Vector2;
 import com.ktar5.gameengine.core.EngineManager;
 import com.ktar5.gameengine.entities.PlayerEntity;
@@ -51,19 +51,27 @@ public class JumpPlayer extends PlayerEntity<PlayerState> {
             lastX = (int) position.x / 16;
             SlimeGame.getGame().getLevelHandler().getCurrentLevel().getGrid().activateAllTiles(this);
             boolean[][] slimeCovered = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getSlimeCovered();
-            if(!slimeCovered[lastX][lastY]){
+
+            //TODO implement this code everywhere
+            if (!slimeCovered[lastX][lastY]) {
                 slimeCovered[lastX][lastY] = true;
                 LoadedLevel currentLevel = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
                 currentLevel.incrementSlimeCovered();
                 TiledMapTileLayer mapLayer = currentLevel.getGameplayArtLayer();
-                TiledMapTileSet gameplayImages = currentLevel.getTileMap().getTileSets().getTileSet("GameplayImages");
-                currentLevel.addEdit(lastX, lastY, "Art_Gameplay", 0);
+                TiledMapTileSets tileSets = currentLevel.getTileMap().getTileSets();
+                int i = tileSets.getTileSet("GameplayImages").getProperties().get("firstgid", Integer.class);
                 if (mapLayer.getCell(lastX, lastY) == null) {
                     TiledMapTileLayer.Cell newCell = new TiledMapTileLayer.Cell();
-                    newCell.setTile(gameplayImages.getTile(791));
+                    newCell.setTile(tileSets.getTile(i + 207));
                     mapLayer.setCell(lastX, lastY, newCell);
+                    currentLevel.addEdit(lastX, lastY, "Art_Gameplay", 0);
                 } else {
-                    mapLayer.getCell(lastX, lastY).setTile(gameplayImages.getTile(791));
+                    if(mapLayer.getCell(lastX, lastY).getTile() == null){
+                        currentLevel.addEdit(lastX, lastY, "Art_Gameplay", 0);
+                    }else {
+                        currentLevel.addEdit(lastX, lastY, "Art_Gameplay", mapLayer.getCell(lastX, lastY).getTile().getId());
+                    }
+                    mapLayer.getCell(lastX, lastY).setTile(tileSets.getTile(i + 207));
                 }
             }
         }

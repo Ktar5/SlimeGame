@@ -15,6 +15,8 @@ import com.ktar5.gameengine.util.Updatable;
 import lombok.Getter;
 import org.pmw.tinylog.Logger;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -36,7 +38,7 @@ public class LevelHandler implements Renderable, Updatable {
     }
 
     public void setLevel(int levelIndex) {
-        if (currentLevel != null){
+        if (currentLevel != null) {
             currentLevel.reset();
             if (levelIndex == currentLevel.getId()) {
                 return;
@@ -48,6 +50,7 @@ public class LevelHandler implements Renderable, Updatable {
     }
 
     public void advanceLevel() {
+        Logger.debug(new Throwable(), "Advanced Level");
         setLevel((currentLevel.id + 1) % levels.length);
     }
 
@@ -57,24 +60,33 @@ public class LevelHandler implements Renderable, Updatable {
 
     private void loadMaps() {
         List<FileHandle> fileList = new ArrayList<>();
-        int i = 0;
-        FileHandle handle = Gdx.files.internal("maps/Level0.tmx");
+
+        FileHandle levelAtlas = Gdx.files.internal("maps/levels.txt");
         LOAD_MAPS_LOCAL = false;
-        if (Gdx.files.local("maps/Level0.tmx").exists()) {
+        if (Gdx.files.local("maps/levels.txt").exists()) {
             Logger.debug("Using local maps instead of internal.");
-            handle = Gdx.files.local("maps/Level0.tmx");
+            levelAtlas = Gdx.files.local("maps/levels.txt");
             LOAD_MAPS_LOCAL = true;
         }
-        while (handle.exists()) {
-            fileList.add(handle);
-            i++;
-            if (LOAD_MAPS_LOCAL) {
-                handle = Gdx.files.local("maps/Level" + i + ".tmx");
-            } else {
-                handle = Gdx.files.internal("maps/Level" + i + ".tmx");
-            }
 
+        BufferedReader bufferedReader = new BufferedReader(levelAtlas.reader());
+        String line;
+        try {
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] split = line.split(":");
+                String levelName = split[1].replace(" ", "");
+                if (LOAD_MAPS_LOCAL) {
+                    fileList.add(Gdx.files.local("maps/" + levelName + ".tmx"));
+                } else {
+                    fileList.add(Gdx.files.internal("maps/" + levelName + ".tmx"));
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("ERROR >> Couldn't load levels!");
+            e.printStackTrace();
+            return;
         }
+
         levels = new Level[fileList.size()];
 
         TmxMapLoader.Parameters params = new TmxMapLoader.Parameters();
@@ -85,15 +97,9 @@ public class LevelHandler implements Renderable, Updatable {
         CustomTmxMapLoader loader = new CustomTmxMapLoader();
         TiledMap tiledMap;
 
-        for (FileHandle file : fileList) {
-            int index = Integer.valueOf(
-                    file.name().replace(".tmx", "").replace("Level", "")
-            );
-            if (index > fileList.size()) {
-                throw new RuntimeException("Error loading level: " + index + ". Its index is too high.");
-            }
-            tiledMap = loader.load("maps/" + file.name(), params);
-            levels[index] = new Level(tiledMap, index);
+        for (int i = 0; i < fileList.size(); i++) {
+            tiledMap = loader.load("maps/" + fileList.get(i).name(), params);
+            levels[i] = new Level(tiledMap, i);
         }
     }
 

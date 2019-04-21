@@ -37,7 +37,9 @@ public abstract class AbstractGame<G extends AbstractGame<G>> implements Applica
     
     @Override
     public void pause() {
-        if (screen != null) screen.pause();
+        if (screen != null){
+            screen.pause();
+        }
     }
     
     @Override

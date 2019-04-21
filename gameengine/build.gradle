@@ -7,7 +7,6 @@ repositories {
 
 group 'com.ktar5'
 version '1.0'
-
 dependencies {
     //game stuff
     compile 'com.ktar5:common:1.0-SNAPSHOT'

@@ -5,9 +5,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.kotcrab.vis.ui.widget.VisLabel;
 import com.ktar5.gameengine.EngConst;
@@ -33,10 +31,6 @@ public class Winning extends GameState {
 
     public Winning(GameScreen gameScreen) {
         super(gameScreen);
-
-        TextureAtlas atlas = new TextureAtlas("textures/skins/pixel/skin.atlas");
-        Skin skin = new Skin(Gdx.files.internal("textures/skins/pixel/skin.json"), atlas);
-
         SpriteBatch batch = new SpriteBatch();
 
         camera.getCamera().position.set(camera.getCamera().viewportWidth / 2, camera.getCamera().viewportHeight / 2, 0);
@@ -133,8 +127,11 @@ public class Winning extends GameState {
     @Override
     public void onUpdate(float dTime) {
         if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE) || Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+            System.out.println("Here1");
             SlimeGame.getGame().getLevelHandler().advanceLevel();
+            System.out.println("Here2");
             changeState(Running.class);
+            System.out.println("Here3");
         }
     }
 

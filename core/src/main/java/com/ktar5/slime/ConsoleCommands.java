@@ -26,6 +26,11 @@ public class ConsoleCommands extends CommandExecutor {
         }
     }
 
+    public final void test() {
+        System.out.println("test");
+    }
+
+
     public final void reset() {
         SlimeGame.getGame().getLevelHandler().getCurrentLevel().reset();
     }

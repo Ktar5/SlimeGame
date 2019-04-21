@@ -4,6 +4,7 @@ import com.badlogic.gdx.Files.FileType;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.ktar5.slime.SlimeGame;
+import com.ktar5.tileeditor.Main;
 
 /**
  * Launches the desktop (LWJGL) application.
@@ -24,8 +25,8 @@ public class DesktopLauncher {
         if(env == Environment.GAME){
             return new LwjglApplication(new SlimeGame(), getGameConfiguration());
         }else if(env == Environment.EDITOR){
-//            return new LwjglApplication(new Main(), getEditorConfiguration());
-            return new LwjglApplication(new SlimeGame(), getEditorConfiguration());
+            return new LwjglApplication(new Main(), getEditorConfiguration());
+//            return new LwjglApplication(new SlimeGame(), getEditorConfiguration());
         }
         return null;
     }

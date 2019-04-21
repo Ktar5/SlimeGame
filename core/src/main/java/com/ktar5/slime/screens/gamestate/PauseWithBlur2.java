@@ -114,7 +114,6 @@ public class PauseWithBlur2 extends GameState {
             blur.render(postProcessor.getCombinedBuffer());
             postProcessor.render();
 
-            stage.act();
             stage.draw();
         });
     }
@@ -146,6 +145,7 @@ public class PauseWithBlur2 extends GameState {
 
     @Override
     public void onUpdate(float dTime) {
+        stage.act();
         if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
             changeState(Running.class);
         }

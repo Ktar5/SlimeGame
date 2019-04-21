@@ -1,77 +1,170 @@
-50:30:312 LoadingScreen.show() [DEBUG]: Starting loading screen
-50:30:313 LoadingScreen.show() [DEBUG]: Starting load of loading screen resources
-50:30:336 LoadingScreen.show() [DEBUG]: Finished loading of loading screen resources
-50:30:674 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-50:30:674 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-50:30:674 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-50:30:674 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-50:30:674 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-50:30:674 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-50:30:674 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-50:30:674 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-50:30:674 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-50:30:674 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-50:30:674 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-50:30:674 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-50:30:677 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-50:30:677 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-50:30:678 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.ghost.GhostMove
-50:30:678 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.ghost.GhostMove
-50:30:678 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-50:30:678 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-50:30:678 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.ghost.GhostMove
-50:30:678 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-50:30:678 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-50:30:678 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-50:30:678 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-50:30:678 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-50:30:678 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-50:30:678 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-50:30:678 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-50:30:679 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-50:30:679 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-50:30:681 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
-50:30:681 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
-50:30:681 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
-50:30:686 LoadingScreen.render() [DEBUG]: Updating load.. 1.0%
-50:30:686 LoadingScreen.render() [DEBUG]: Finished loading all assets!
-50:30:712 LoadingScreen.hide() [DEBUG]: Disposed of the loading resources
-50:31:596 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.Running
-50:31:596 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.PauseWithBlur2
-50:31:597 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.Winning
-50:31:597 GameScreen.show() [DEBUG]: Display started for GameScreen
-50:31:597 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-50:31:597 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-50:31:597 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-50:31:597 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-50:31:597 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-50:31:597 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-50:31:597 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-50:31:597 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-50:31:597 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-50:31:597 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-50:31:597 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-50:31:598 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-50:31:598 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-50:31:598 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-50:31:598 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.ghost.GhostMove
-50:31:598 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.ghost.GhostMove
-50:31:598 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-50:31:598 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-50:31:598 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.ghost.GhostMove
-50:31:598 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-50:31:598 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-50:31:598 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-50:31:598 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-50:31:598 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-50:31:598 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-50:31:598 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-50:31:598 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-50:31:598 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-50:31:598 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-50:31:599 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
-50:31:599 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
-50:31:599 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
-50:34:709 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
-50:34:710 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
-50:34:710 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+25:37:774 LoadingScreen.show() [DEBUG]: Starting loading screen
+25:37:775 LoadingScreen.show() [DEBUG]: Starting load of loading screen resources
+25:37:787 LoadingScreen.show() [DEBUG]: Finished loading of loading screen resources
+25:37:919 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+25:37:919 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:37:919 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+25:37:919 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:37:919 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+25:37:920 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:37:920 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+25:37:920 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:37:920 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+25:37:920 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:37:920 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+25:37:920 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:37:922 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+25:37:922 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:37:924 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.ghost.GhostMove
+25:37:924 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.ghost.GhostMove
+25:37:924 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+25:37:924 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:37:924 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.ghost.GhostMove
+25:37:924 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+25:37:924 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:37:924 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+25:37:924 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:37:924 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+25:37:924 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:37:924 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+25:37:924 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:37:924 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+25:37:924 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:37:927 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
+25:37:927 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+25:37:927 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+25:37:931 LoadingScreen.render() [DEBUG]: Updating load.. 1.0%
+25:37:931 LoadingScreen.render() [DEBUG]: Finished loading all assets!
+25:37:952 LoadingScreen.hide() [DEBUG]: Disposed of the loading resources
+25:39:380 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.Running
+25:39:380 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.PauseWithBlur2
+25:39:380 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.Winning
+25:39:380 GameScreen.show() [DEBUG]: Display started for GameScreen
+25:39:381 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+25:39:381 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:39:381 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+25:39:381 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:39:381 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+25:39:381 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:39:381 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+25:39:381 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:39:381 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+25:39:381 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:39:381 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+25:39:381 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:39:381 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+25:39:381 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:39:382 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.ghost.GhostMove
+25:39:382 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.ghost.GhostMove
+25:39:382 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+25:39:382 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:39:382 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.ghost.GhostMove
+25:39:382 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+25:39:382 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:39:382 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+25:39:382 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:39:382 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+25:39:382 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:39:382 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+25:39:382 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:39:382 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+25:39:382 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+25:39:383 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
+25:39:383 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+25:39:383 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+25:51:012 LevelHandler.advanceLevel() [DEBUG]: Advanced Level: java.lang.Throwable
+	at com.ktar5.slime.world.level.LevelHandler.advanceLevel(LevelHandler.java:53)
+	at com.ktar5.slime.screens.gamestate.Winning.onUpdate(Winning.java:133)
+	at com.ktar5.gameengine.statemachine.State.update(State.java:17)
+	at com.ktar5.gameengine.statemachine.SimpleStateMachine.update(SimpleStateMachine.java:61)
+	at com.ktar5.slime.screens.GameScreen.update(GameScreen.java:54)
+	at com.ktar5.gameengine.core.AbstractGame.render(AbstractGame.java:65)
+	at com.badlogic.gdx.backends.lwjgl.LwjglApplication.mainLoop(LwjglApplication.java:225)
+	at com.badlogic.gdx.backends.lwjgl.LwjglApplication$1.run(LwjglApplication.java:126)
+25:51:014 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
+25:51:014 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+25:51:014 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+25:51:362 PauseWithBlur2.start() [DEBUG]: Started pause with blur 2: java.lang.Throwable
+	at com.ktar5.slime.screens.gamestate.PauseWithBlur2.start(PauseWithBlur2.java:127)
+	at com.ktar5.gameengine.statemachine.SimpleStateMachine.changeState(SimpleStateMachine.java:82)
+	at com.ktar5.gameengine.statemachine.SimpleStateMachine.update(SimpleStateMachine.java:63)
+	at com.ktar5.slime.screens.GameScreen.update(GameScreen.java:54)
+	at com.ktar5.gameengine.core.AbstractGame.render(AbstractGame.java:65)
+	at com.badlogic.gdx.backends.lwjgl.LwjglApplication.mainLoop(LwjglApplication.java:225)
+	at com.badlogic.gdx.backends.lwjgl.LwjglApplication$1.run(LwjglApplication.java:126)
+25:51:715 PauseWithBlur2.start() [DEBUG]: Started pause with blur 2: java.lang.Throwable
+	at com.ktar5.slime.screens.gamestate.PauseWithBlur2.start(PauseWithBlur2.java:127)
+	at com.ktar5.gameengine.statemachine.SimpleStateMachine.changeState(SimpleStateMachine.java:82)
+	at com.ktar5.gameengine.statemachine.SimpleStateMachine.update(SimpleStateMachine.java:63)
+	at com.ktar5.slime.screens.GameScreen.update(GameScreen.java:54)
+	at com.ktar5.gameengine.core.AbstractGame.render(AbstractGame.java:65)
+	at com.badlogic.gdx.backends.lwjgl.LwjglApplication.mainLoop(LwjglApplication.java:225)
+	at com.badlogic.gdx.backends.lwjgl.LwjglApplication$1.run(LwjglApplication.java:126)
+25:52:231 PauseWithBlur2.start() [DEBUG]: Started pause with blur 2: java.lang.Throwable
+	at com.ktar5.slime.screens.gamestate.PauseWithBlur2.start(PauseWithBlur2.java:127)
+	at com.ktar5.gameengine.statemachine.SimpleStateMachine.changeState(SimpleStateMachine.java:82)
+	at com.ktar5.gameengine.statemachine.SimpleStateMachine.update(SimpleStateMachine.java:63)
+	at com.ktar5.slime.screens.GameScreen.update(GameScreen.java:54)
+	at com.ktar5.gameengine.core.AbstractGame.render(AbstractGame.java:65)
+	at com.badlogic.gdx.backends.lwjgl.LwjglApplication.mainLoop(LwjglApplication.java:225)
+	at com.badlogic.gdx.backends.lwjgl.LwjglApplication$1.run(LwjglApplication.java:126)
+25:52:596 PauseWithBlur2.start() [DEBUG]: Started pause with blur 2: java.lang.Throwable
+	at com.ktar5.slime.screens.gamestate.PauseWithBlur2.start(PauseWithBlur2.java:127)
+	at com.ktar5.gameengine.statemachine.SimpleStateMachine.changeState(SimpleStateMachine.java:82)
+	at com.ktar5.gameengine.statemachine.SimpleStateMachine.update(SimpleStateMachine.java:63)
+	at com.ktar5.slime.screens.GameScreen.update(GameScreen.java:54)
+	at com.ktar5.gameengine.core.AbstractGame.render(AbstractGame.java:65)
+	at com.badlogic.gdx.backends.lwjgl.LwjglApplication.mainLoop(LwjglApplication.java:225)
+	at com.badlogic.gdx.backends.lwjgl.LwjglApplication$1.run(LwjglApplication.java:126)
+25:53:262 PauseWithBlur2.start() [DEBUG]: Started pause with blur 2: java.lang.Throwable
+	at com.ktar5.slime.screens.gamestate.PauseWithBlur2.start(PauseWithBlur2.java:127)
+	at com.ktar5.gameengine.statemachine.SimpleStateMachine.changeState(SimpleStateMachine.java:82)
+	at com.ktar5.gameengine.statemachine.SimpleStateMachine.update(SimpleStateMachine.java:63)
+	at com.ktar5.slime.screens.GameScreen.update(GameScreen.java:54)
+	at com.ktar5.gameengine.core.AbstractGame.render(AbstractGame.java:65)
+	at com.badlogic.gdx.backends.lwjgl.LwjglApplication.mainLoop(LwjglApplication.java:225)
+	at com.badlogic.gdx.backends.lwjgl.LwjglApplication$1.run(LwjglApplication.java:126)
+25:53:586 PauseWithBlur2.start() [DEBUG]: Started pause with blur 2: java.lang.Throwable
+	at com.ktar5.slime.screens.gamestate.PauseWithBlur2.start(PauseWithBlur2.java:127)
+	at com.ktar5.gameengine.statemachine.SimpleStateMachine.changeState(SimpleStateMachine.java:82)
+	at com.ktar5.gameengine.statemachine.SimpleStateMachine.update(SimpleStateMachine.java:63)
+	at com.ktar5.slime.screens.GameScreen.update(GameScreen.java:54)
+	at com.ktar5.gameengine.core.AbstractGame.render(AbstractGame.java:65)
+	at com.badlogic.gdx.backends.lwjgl.LwjglApplication.mainLoop(LwjglApplication.java:225)
+	at com.badlogic.gdx.backends.lwjgl.LwjglApplication$1.run(LwjglApplication.java:126)
+26:01:685 LevelHandler.advanceLevel() [DEBUG]: Advanced Level: java.lang.Throwable
+	at com.ktar5.slime.world.level.LevelHandler.advanceLevel(LevelHandler.java:53)
+	at com.ktar5.slime.screens.gamestate.Winning.onUpdate(Winning.java:133)
+	at com.ktar5.gameengine.statemachine.State.update(State.java:17)
+	at com.ktar5.gameengine.statemachine.SimpleStateMachine.update(SimpleStateMachine.java:61)
+	at com.ktar5.slime.screens.GameScreen.update(GameScreen.java:54)
+	at com.ktar5.gameengine.core.AbstractGame.render(AbstractGame.java:65)
+	at com.badlogic.gdx.backends.lwjgl.LwjglApplication.mainLoop(LwjglApplication.java:225)
+	at com.badlogic.gdx.backends.lwjgl.LwjglApplication$1.run(LwjglApplication.java:126)
+26:01:689 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
+26:01:690 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+26:01:690 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+26:07:379 PauseWithBlur2.start() [DEBUG]: Started pause with blur 2: java.lang.Throwable
+	at com.ktar5.slime.screens.gamestate.PauseWithBlur2.start(PauseWithBlur2.java:127)
+	at com.ktar5.gameengine.statemachine.SimpleStateMachine.changeState(SimpleStateMachine.java:82)
+	at com.ktar5.gameengine.statemachine.SimpleStateMachine.changeStateAfterUpdate(SimpleStateMachine.java:71)
+	at com.ktar5.slime.screens.GameScreen.pause(GameScreen.java:71)
+	at com.ktar5.gameengine.core.AbstractGame.pause(AbstractGame.java:41)
+	at com.badlogic.gdx.backends.lwjgl.LwjglApplication.mainLoop(LwjglApplication.java:170)
+	at com.badlogic.gdx.backends.lwjgl.LwjglApplication$1.run(LwjglApplication.java:126)
+26:13:839 PauseWithBlur2.start() [DEBUG]: Started pause with blur 2: java.lang.Throwable
+	at com.ktar5.slime.screens.gamestate.PauseWithBlur2.start(PauseWithBlur2.java:127)
+	at com.ktar5.gameengine.statemachine.SimpleStateMachine.changeState(SimpleStateMachine.java:82)
+	at com.ktar5.gameengine.statemachine.SimpleStateMachine.changeStateAfterUpdate(SimpleStateMachine.java:71)
+	at com.ktar5.slime.screens.GameScreen.pause(GameScreen.java:71)
+	at com.ktar5.gameengine.core.AbstractGame.pause(AbstractGame.java:41)
+	at com.badlogic.gdx.backends.lwjgl.LwjglApplication.mainLoop(LwjglApplication.java:170)
+	at com.badlogic.gdx.backends.lwjgl.LwjglApplication$1.run(LwjglApplication.java:126)
+26:14:285 PauseWithBlur2.start() [DEBUG]: Started pause with blur 2: java.lang.Throwable
+	at com.ktar5.slime.screens.gamestate.PauseWithBlur2.start(PauseWithBlur2.java:127)
+	at com.ktar5.gameengine.statemachine.SimpleStateMachine.changeState(SimpleStateMachine.java:82)
+	at com.ktar5.gameengine.statemachine.SimpleStateMachine.changeStateAfterUpdate(SimpleStateMachine.java:71)
+	at com.ktar5.slime.screens.GameScreen.pause(GameScreen.java:71)
+	at com.ktar5.gameengine.core.AbstractGame.pause(AbstractGame.java:41)
+	at com.badlogic.gdx.backends.lwjgl.LwjglApplication.mainLoop(LwjglApplication.java:170)
+	at com.badlogic.gdx.backends.lwjgl.LwjglApplication$1.run(LwjglApplication.java:126)

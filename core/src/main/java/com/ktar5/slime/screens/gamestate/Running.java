@@ -24,6 +24,8 @@ public class Running extends GameState {
 
     @Override
     public void start() {
+        Gdx.input.setInputProcessor(null);
+        EngineManager.get().getConsole().resetInputProcessing();
         getGameScreen().getRenderManager().setRenderables(Arrays.asList(
                 SlimeGame.getGame().getLevelHandler(),
                 getGameScreen().getFrameRate(),

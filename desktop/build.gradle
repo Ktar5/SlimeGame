@@ -1,12 +1,13 @@
 apply plugin: 'application'
 
 sourceSets.main.resources.srcDirs += [rootProject.file('assets').absolutePath]
+println rootProject.file('assets').absolutePath
 mainClassName = 'com.ktar5.slime.desktop.DesktopLauncher'
 sourceCompatibility = 1.8
 
 dependencies {
     compile project(':core')
-//    compile project(':editor')
+    compile project(':editor')
     compile "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
     compile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
     compile "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"

@@ -131,16 +131,16 @@ public class PauseWithBlur2 extends GameState {
 
     @Override
     public void resize(int width, int height) {
-        camera.getCamera().viewportHeight = height;
-        camera.getCamera().viewportWidth = width;
-        camera.getCamera().update();
-
+//        camera.getCamera().viewportHeight = height;
+//        camera.getCamera().viewportWidth = width;
+//        camera.getCamera().update();
+//
 //        camera.getViewport().setScreenWidth(Gdx.graphics.getWidth());
 //        camera.getViewport().setScreenWidth(Gdx.graphics.getHeight());
 //        camera.getViewport().apply();
 
-        stage.getViewport().update(width, height, true);
-
+//        stage.getViewport().update(width, height, true);
+        getGameScreen().getCamera().getViewport().update(width, height);
     }
 
     @Override

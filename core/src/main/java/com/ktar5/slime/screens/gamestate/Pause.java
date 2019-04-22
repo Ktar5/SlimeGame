@@ -82,7 +82,7 @@ public class Pause extends GameState {
 
     @Override
     public void resize(int width, int height) {
-
+        getGameScreen().getCamera().getViewport().update(width, height);
     }
 
     @Override

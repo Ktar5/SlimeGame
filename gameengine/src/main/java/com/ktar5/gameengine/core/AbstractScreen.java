@@ -65,11 +65,6 @@ public abstract class AbstractScreen implements Screen, Updatable {
         //Do nothing?
     }
 
-    @Override
-    public void resize(int width, int height) {
-        //Nothing
-    }
-
     public void addUpdatable(Updatable updatable){
         addedUpdatables.add(updatable);
     }

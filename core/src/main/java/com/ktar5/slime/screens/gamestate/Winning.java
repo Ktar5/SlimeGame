@@ -120,7 +120,7 @@ public class Winning extends GameState {
 //        camera.getViewport().apply();
 
         stage.getViewport().update(width, height, true);
-
+        getGameScreen().getCamera().getViewport().update(width, height);
     }
 
 

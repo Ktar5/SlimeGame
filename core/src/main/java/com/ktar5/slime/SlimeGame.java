@@ -2,7 +2,6 @@ package com.ktar5.slime;
 
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.kotcrab.vis.ui.VisUI;
 import com.ktar5.gameengine.camera.CameraBase;
 import com.ktar5.gameengine.camera.CameraFollow;
@@ -13,6 +12,7 @@ import com.ktar5.gameengine.core.EngineManager;
 import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.gameengine.entities.EntityTweenAccessor;
 import com.ktar5.gameengine.tweenengine.Tween;
+import com.ktar5.slime.misc.PixelPerfectViewport;
 import com.ktar5.slime.screens.LoadingScreen;
 import com.ktar5.slime.world.level.LevelHandler;
 import com.ktar5.slime.world.tiles.RetractingSpikes;
@@ -25,7 +25,7 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
 
     //public final GameAnalytics gameAnalytics;
     private float zoomLevel = 4f;
-    private FitViewport viewport;
+    private PixelPerfectViewport viewport;
     @Setter
     private LevelHandler levelHandler;
 
@@ -48,7 +48,7 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
     @Override
     protected CameraBase initializeCameraBase() {
         OrthographicCamera orthographicCamera = new OrthographicCamera(480, 270);
-        viewport = new FitViewport(480, 270, orthographicCamera);
+        viewport = new PixelPerfectViewport(480, 270, orthographicCamera);
         orthographicCamera.update();
         return new CameraFollow(orthographicCamera, viewport, null);
     }

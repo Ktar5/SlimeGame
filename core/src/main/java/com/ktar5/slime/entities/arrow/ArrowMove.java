@@ -84,7 +84,7 @@ public class ArrowMove extends ArrowState {
         for (Entity entity : entities) {
             if (entity.position.equals(newTile.x * 16, newTile.y * 16)) {
                 if(entity instanceof Arrow){
-                    return;
+                    continue;
                 }
                 ((TouchableEntity) entity).onEntityTouch(getEntity(), getEntity().getLastMovedDirection());
                 if(entity instanceof JumpPlayer){

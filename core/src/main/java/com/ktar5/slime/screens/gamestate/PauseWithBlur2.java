@@ -57,18 +57,22 @@ public class PauseWithBlur2 extends GameState {
         int levelCount = SlimeGame.getGame().getLevelHandler().getLevelCount();
         for (int i = 0; i < levelCount; i++) {
             TextButton button = new TextButton(String.valueOf(i), skin);
+            if (SlimeGame.getGame().getLevelHandler().isLevelNull(i)) {
+                button.setDisabled(true);
+            } else {
+                int finalI = i;
+                button.addListener(new ClickListener() {
+                    @Override
+                    public void clicked(InputEvent event, float x, float y) {
+                        changeState(Running.class);
+                        SlimeGame.getGame().getLevelHandler().setLevel(finalI);
+                    }
+                });
+            }
             if (i % 3 == 0) {
                 levels.row();
             }
             levels.add(button).pad(0, 0, 5, 5).width(25f);
-            int finalI = i;
-            button.addListener(new ClickListener() {
-                @Override
-                public void clicked(InputEvent event, float x, float y) {
-                    changeState(Running.class);
-                    SlimeGame.getGame().getLevelHandler().setLevel(finalI);
-                }
-            });
         }
 
 

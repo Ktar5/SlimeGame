@@ -22,6 +22,8 @@ public class Arrow extends Entity<ArrowState> implements TouchableEntity {
         SlimeGame.getGame().getLevelHandler().getCurrentLevel().getEntities().add(this);
         this.position.set(data.initialPosition);
         this.currentMovement = data.movement;
+        //TODO
+        this.position.setRotation(90 * data.movement.ordinal());
         getEntityState().changeStateAfterUpdate(ArrowMove.class);
     }
 

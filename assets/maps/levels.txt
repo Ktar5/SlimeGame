@@ -1,5 +1,23 @@
-0: Level0
-1: Level1
-2: Level2
-3: Level3
-4: Level4
+0:Level_Prototype01
+1:Level_Prototype02
+2:Level_Prototype03
+3:Level_Prototype04
+4:Level_RandomName
+5:Level_RandomName2
+6:
+7: 
+8: 
+9: 
+10:Level_Story_PathToKing
+11:Level_Tutorial_Movement
+12:Level_Tutorial_Collectibles
+13:Level_Tutorial_Goo
+14:Level_Tutorial_Gates
+15:Level_Tutorial_Dying
+16:
+17:
+18:
+19:
+20:
+21:
+22:

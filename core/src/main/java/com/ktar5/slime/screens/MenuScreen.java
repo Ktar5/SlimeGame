@@ -84,7 +84,7 @@ public class MenuScreen extends AbstractScreen {
         mainTable.add(exitButton).pad(10, 0, 0, 0);
 
         //Add table to stage
-        stage.addActor(new Actor(){
+        stage.addActor(new Actor() {
             Texture texture = EngineManager.get().getAnimationLoader().getTexture("textures/MenuBG.png");
 
             @Override
@@ -97,26 +97,28 @@ public class MenuScreen extends AbstractScreen {
 
         Table levels = new Table();
         levels.top().right();
-        levels.pad(15,0,0,15);
+        levels.pad(15, 0, 0, 15);
         levels.setFillParent(true);
 //        levels.defaults().center().uniformX().fillX();
         int levelCount = SlimeGame.getGame().getLevelHandler().getLevelCount();
-        for (int i = 0; i < levelCount ; i++){
+        for (int i = 0; i < levelCount; i++) {
             TextButton button = new TextButton(String.valueOf(i), skin);
-            if(i % 3 == 0){
+            if (SlimeGame.getGame().getLevelHandler().isLevelNull(i)) {
+                button.setDisabled(true);
+            } else {
+                int finalI = i;
+                button.addListener(new ClickListener() {
+                    @Override
+                    public void clicked(InputEvent event, float x, float y) {
+                        SlimeGame.getGame().setScreen(new GameScreen());
+                        SlimeGame.getGame().getLevelHandler().setLevel(finalI);
+                    }
+                });
+            }
+            if (i % 3 == 0) {
                 levels.row();
             }
             levels.add(button).pad(0, 0, 5, 5).width(25f);
-//            levels.add(button).pad(0, 0, 5, 5);
-
-            int finalI = i;
-            button.addListener(new ClickListener(){
-                @Override
-                public void clicked(InputEvent event, float x, float y) {
-                    SlimeGame.getGame().setScreen(new GameScreen());
-                    SlimeGame.getGame().getLevelHandler().setLevel(finalI);
-                }
-            });
         }
 
         stage.addActor(levels);

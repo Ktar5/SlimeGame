@@ -3,6 +3,7 @@ package com.ktar5.gameengine.entities.components;
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.ktar5.gameengine.util.Side;
 import com.ktar5.gameengine.util.Updatable;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,6 +14,7 @@ import org.apache.commons.lang3.builder.ToStringStyle;
 public class EntityAnimator implements Updatable {
     public boolean halted = false, looping = true, singleFrameMode = false;
     private float lifetimeOfAnimation;
+    public Side rotation = Side.DOWN;
     private RenderLayer layer;
     @Setter
     private float unitsX, unitsY;

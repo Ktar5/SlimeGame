@@ -1,0 +1,12 @@
+[compileJava, compileTestJava]*.options*.encoding = 'UTF-8'
+
+repositories {
+    mavenLocal()
+}
+
+dependencies {
+    //editor stuff
+    compile group: 'org.json', name: 'json', version: '20180130'
+    compile 'com.gdetotut:jundo-framework:1.15'
+    compile project(':gameengine')
+}

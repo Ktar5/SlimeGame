@@ -27,6 +27,12 @@ run {
     ignoreExitValue = true
 }
 
+task(runEditor, dependsOn: 'classes', type: JavaExec) {
+    main = 'com.ktar5.slime.desktop.EditorLauncher'
+    classpath = sourceSets.main.runtimeClasspath
+}
+
+
 
 project.ext.mainClassName = "com.ktar5.slime.desktop.DesktopLauncher"
 project.ext.assetsDir = new File("../assets")

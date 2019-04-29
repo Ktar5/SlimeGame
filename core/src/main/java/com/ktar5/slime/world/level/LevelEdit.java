@@ -46,9 +46,12 @@ public abstract class LevelEdit {
         @Override
         public void undo(TiledMap tiledMap) {
             TiledMapTileLayer mapLayer = ((TiledMapTileLayer) tiledMap.getLayers().get(layer));
-            if (oldID == 0)
-                mapLayer.getCell(x, y).setTile(null);
-            else
+            if (oldID == 0) {
+                System.out.println(mapLayer.getName());
+                if(mapLayer.getCell(x, y) != null){
+                    mapLayer.getCell(x, y).setTile(null);
+                }
+            }else
                 mapLayer.getCell(x, y).setTile(tiledMap.getTileSets().getTile(oldID));
 
         }

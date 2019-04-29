@@ -1,8 +1,6 @@
 package com.ktar5.slime.entities.player;
 
 
-import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
-import com.badlogic.gdx.maps.tiled.TiledMapTileSets;
 import com.badlogic.gdx.math.Vector2;
 import com.ktar5.gameengine.core.EngineManager;
 import com.ktar5.gameengine.entities.PlayerEntity;
@@ -53,27 +51,27 @@ public class JumpPlayer extends PlayerEntity<PlayerState> {
             boolean[][] slimeCovered = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getSlimeCovered();
 
             //TODO implement this code everywhere
-            if (!slimeCovered[lastX][lastY]) {
-                slimeCovered[lastX][lastY] = true;
-                LoadedLevel currentLevel = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
-                currentLevel.incrementSlimeCovered();
-                TiledMapTileLayer mapLayer = currentLevel.getGameplayArtLayer();
-                TiledMapTileSets tileSets = currentLevel.getTileMap().getTileSets();
-                int i = tileSets.getTileSet("GameplayImages").getProperties().get("firstgid", Integer.class);
-                if (mapLayer.getCell(lastX, lastY) == null) {
-                    TiledMapTileLayer.Cell newCell = new TiledMapTileLayer.Cell();
-                    newCell.setTile(tileSets.getTile(i + 207));
-                    mapLayer.setCell(lastX, lastY, newCell);
-                    currentLevel.addEdit(lastX, lastY, "Art_Gameplay", 0);
-                } else {
-                    if(mapLayer.getCell(lastX, lastY).getTile() == null){
-                        currentLevel.addEdit(lastX, lastY, "Art_Gameplay", 0);
-                    }else {
-                        currentLevel.addEdit(lastX, lastY, "Art_Gameplay", mapLayer.getCell(lastX, lastY).getTile().getId());
-                    }
-                    mapLayer.getCell(lastX, lastY).setTile(tileSets.getTile(i + 207));
-                }
-            }
+//            if (!slimeCovered[lastX][lastY]) {
+//                slimeCovered[lastX][lastY] = true;
+//                LoadedLevel currentLevel = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
+//                currentLevel.incrementSlimeCovered();
+//                TiledMapTileLayer mapLayer = (TiledMapTileLayer) currentLevel.getTileMap().getLayers().get("SlimeCover");
+//                TiledMapTileSets tileSets = currentLevel.getTileMap().getTileSets();
+//                int i = tileSets.getTileSet("GameplayImages").getProperties().get("firstgid", Integer.class);
+//                if (mapLayer.getCell(lastX, lastY) == null) {
+//                    TiledMapTileLayer.Cell newCell = new TiledMapTileLayer.Cell();
+//                    newCell.setTile(tileSets.getTile(i + 207));
+//                    mapLayer.setCell(lastX, lastY, newCell);
+//                    currentLevel.addEdit(lastX, lastY, "SlimeCover", 0);
+//                } else {
+//                    if(mapLayer.getCell(lastX, lastY).getTile() == null){
+//                        currentLevel.addEdit(lastX, lastY, "SlimeCover", 0);
+//                    }else {
+//                        currentLevel.addEdit(lastX, lastY, "SlimeCover", mapLayer.getCell(lastX, lastY).getTile().getId());
+//                    }
+//                    mapLayer.getCell(lastX, lastY).setTile(tileSets.getTile(i + 207));
+//                }
+//            }
         }
     }
 

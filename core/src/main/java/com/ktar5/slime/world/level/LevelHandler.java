@@ -78,7 +78,6 @@ public class LevelHandler implements Renderable, Updatable {
         FileHandle handle;
         ArrayList<Level> levelList = new ArrayList<>();
 
-
         BufferedReader bufferedReader = new BufferedReader(levelAtlas.reader());
         String line;
         try {

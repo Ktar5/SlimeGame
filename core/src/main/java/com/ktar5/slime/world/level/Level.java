@@ -6,6 +6,7 @@ import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TiledMapImageLayer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.ktar5.slime.entities.EntityData;
 import com.ktar5.slime.world.Grid;
@@ -64,8 +65,14 @@ public class Level {
         List<Integer> foregrounds = new ArrayList<>();
         List<Integer> backgrounds = new ArrayList<>();
         for (MapLayer layer : layers) {
-            layer.setOffsetX(-8);
-            layer.setOffsetY(8);
+            if (layer.getName().equals("Art_Image")) {
+                TiledMapImageLayer layer1 = (TiledMapImageLayer) layer;
+                layer1.setX(-8);
+                layer1.setY(-8);
+            } else {
+                layer.setOffsetX(-8);
+                layer.setOffsetY(8);
+            }
             if (layer.getName().startsWith("Art")) {
                 if (layer.getProperties().containsKey("Front")) {
                     foregrounds.add(layers.getIndex(layer));
@@ -75,6 +82,8 @@ public class Level {
                 if (layer.getName().equals("Art_Gameplay")) {
                     gameplayArtLayerIndex = layers.getIndex(layer);
                 }
+            } else if (layer.getName().equalsIgnoreCase("SlimeCover")) {
+                backgrounds.add(layers.getIndex(layer));
             } else if (layer.getName().equalsIgnoreCase("Gameplay")) {
                 gameplayLayer = layer;
                 foregrounds.add(layers.getIndex(layer));

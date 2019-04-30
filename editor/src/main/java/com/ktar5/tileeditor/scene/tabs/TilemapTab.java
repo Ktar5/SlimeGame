@@ -1,6 +1,6 @@
-package com.ktar5.tileeditor.scene.centerview.tabs;
+package com.ktar5.tileeditor.scene.tabs;
 
-import com.ktar5.tileeditor.scene.centerview.sidebars.properties.PropertiesSidebar;
+import com.ktar5.tileeditor.scene.sidebars.properties.PropertiesSidebar;
 import com.ktar5.tileeditor.tilemap.MapManager;
 import com.ktar5.tileeditor.tilemap.Tilemap;
 import com.ktar5.tileeditor.tilemap.TilemapActor;

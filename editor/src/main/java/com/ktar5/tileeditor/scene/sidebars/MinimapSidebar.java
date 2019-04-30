@@ -1,4 +1,4 @@
-package com.ktar5.tileeditor.scene.centerview.sidebars;
+package com.ktar5.tileeditor.scene.sidebars;
 
 import javafx.scene.layout.Pane;
 

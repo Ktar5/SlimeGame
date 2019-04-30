@@ -5,6 +5,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.ktar5.tileeditor.tilemap.Tilemap;
 import com.ktar5.tileeditor.tilemap.TilemapActor;
 import com.ktar5.tileeditor.tilemap.whole.WholeTile;
+import com.ktar5.tileeditor.tileset.BaseTileset;
 import com.ktar5.tileeditor.tileset.Tile;
 import com.ktar5.utilities.common.constants.Direction;
 import lombok.AccessLevel;
@@ -39,6 +40,10 @@ public class TileLayer extends BaseLayer {
                 jsonArray.put(y, builder.toString());
                 Hence, data is stored "y-value, row string"
                 */
+                /*
+                We need to flip it because the 0th row read from the file (top down)
+                is actually the top row of the tileset
+                 */
                 int flippedY = getParent().getNumTilesHigh() - 1 - y;
                 deserializeBlock(blocks[y][x], x, flippedY);
             }
@@ -52,6 +57,9 @@ public class TileLayer extends BaseLayer {
 
     @Override
     public void render(Batch batch, TilemapActor actor) {
+        if(!isVisible()){
+            return;
+        }
         float scale = actor.getScale();
         float panX = actor.getPanX();
         float panY = actor.getPanY();
@@ -138,6 +146,18 @@ public class TileLayer extends BaseLayer {
             return Optional.empty();
         else
             return Optional.of(grid[x][y]);
+    }
+
+    public void setTile(int blockId, int direction, BaseTileset tileset, int x, int y){
+
+    }
+
+    public void setTile(WholeTile tile, int x, int y){
+
+    }
+
+    public void removeTile(int x, int y){
+
     }
 
     @Deprecated

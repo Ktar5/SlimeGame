@@ -1,10 +1,10 @@
 package com.ktar5.tileeditor.tilemap;
 
 import com.ktar5.tileeditor.Main;
-import com.ktar5.tileeditor.scene.centerview.tabs.TilemapTab;
 import com.ktar5.tileeditor.scene.dialogs.CreateTilemap;
 import com.ktar5.tileeditor.scene.dialogs.GenericAlert;
 import com.ktar5.tileeditor.scene.dialogs.LoadDialog;
+import com.ktar5.tileeditor.scene.tabs.TilemapTab;
 import com.ktar5.tileeditor.util.StringUtil;
 import org.json.JSONObject;
 import org.pmw.tinylog.Configurator;

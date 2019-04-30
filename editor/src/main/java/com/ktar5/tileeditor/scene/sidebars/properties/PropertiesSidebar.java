@@ -1,4 +1,4 @@
-package com.ktar5.tileeditor.scene.centerview.sidebars.properties;
+package com.ktar5.tileeditor.scene.sidebars.properties;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
@@ -74,7 +74,7 @@ public class PropertiesSidebar extends VisTree {
             ClickListener clickListener = new ClickListener(Input.Buttons.RIGHT) {
                 @Override
                 public void clicked(InputEvent event, float x, float y) {
-                    PropertiesRClickMenu propertiesRClickMenu = new PropertiesRClickMenu(property, sidebar);
+                    com.ktar5.tileeditor.scene.sidebars.properties.PropertiesRClickMenu propertiesRClickMenu = new PropertiesRClickMenu(property, sidebar);
                     propertiesRClickMenu.showMenu(Main.getInstance().getRoot(), Gdx.input.getX(), Gdx.graphics.getHeight() - Gdx.input.getY());
                 }
             };

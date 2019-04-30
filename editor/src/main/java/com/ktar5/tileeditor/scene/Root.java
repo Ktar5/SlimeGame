@@ -10,7 +10,7 @@ import com.kotcrab.vis.ui.widget.file.FileChooser;
 import com.kotcrab.vis.ui.widget.file.internal.FilePopupMenu;
 import com.kotcrab.vis.ui.widget.tabbedpane.Tab;
 import com.kotcrab.vis.ui.widget.tabbedpane.TabbedPaneAdapter;
-import com.ktar5.tileeditor.scene.centerview.TabHoldingPane;
+import com.ktar5.tileeditor.scene.tabs.TabHoldingPane;
 import com.ktar5.tileeditor.scene.topmenu.TopMenu;
 import com.ktar5.tileeditor.scene.utils.KtarFilePopupMenu;
 import lombok.Getter;

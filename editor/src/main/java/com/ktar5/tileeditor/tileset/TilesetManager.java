@@ -6,9 +6,9 @@ import com.kotcrab.vis.ui.widget.file.FileChooser;
 import com.kotcrab.vis.ui.widget.file.FileChooserAdapter;
 import com.kotcrab.vis.ui.widget.file.FileTypeFilter;
 import com.ktar5.tileeditor.Main;
-import com.ktar5.tileeditor.scene.centerview.tabs.TilesetTab;
 import com.ktar5.tileeditor.scene.dialogs.CreateWholeTileset;
 import com.ktar5.tileeditor.scene.dialogs.GenericAlert;
+import com.ktar5.tileeditor.scene.tabs.TilesetTab;
 import com.ktar5.tileeditor.tilemap.whole.WholeTileset;
 import com.ktar5.tileeditor.util.StringUtil;
 import org.json.JSONObject;
@@ -89,13 +89,12 @@ public class TilesetManager {
                 createDialog.getTileWidth(), createDialog.getTileHeight());
 
         tilesetHashMap.put(tileset.getId(), tileset);
-        TilesetTab tab;
-        Main.getInstance().getRoot().getTabHoldingPane().addTab(tab = new TilesetTab(tileset.getId()));
+        Main.getInstance().getRoot().getTabHoldingPane().addTab(new TilesetTab(tileset.getId()));
         return tileset;
     }
 
     //TODO Optimize
-    public BaseTileset getOrLoadTileset(File loaderFile) {
+    public BaseTileset getOrLoadTileset(File loaderFile, boolean openTab) {
         String data = StringUtil.readFileAsString(loaderFile);
         if (data == null || data.isEmpty()) {
             return null;
@@ -108,7 +107,7 @@ public class TilesetManager {
                 return temp;
             }
         }
-        return loadTileset(loaderFile);
+        return loadTileset(loaderFile, openTab);
     }
 
     /**
@@ -116,7 +115,7 @@ public class TilesetManager {
      *
      * @return the tileset of type <T> that has been instantiated, otherwise null
      */
-    public WholeTileset loadTileset(File loaderFile) {
+    public WholeTileset loadTileset(File loaderFile, boolean openTab) {
         Logger.info("Beginning to load tileset from file: " + loaderFile.getPath());
 
         String data = StringUtil.readFileAsString(loaderFile);
@@ -134,7 +133,8 @@ public class TilesetManager {
 
         tilesetHashMap.put(tileset.getId(), tileset);
         TilesetTab tilesetTab = new TilesetTab(tileset.getId());
-        Main.getInstance().getRoot().getTabHoldingPane().addTab(tilesetTab);
+        if (openTab)
+            Main.getInstance().getRoot().getTabHoldingPane().addTab(tilesetTab);
         Logger.info("Finished loading tileset: " + tileset.getSaveFile().getName());
         return tileset;
     }
@@ -143,7 +143,7 @@ public class TilesetManager {
      * Loads a tileset from a file selected in an "open file" dialog, and instantiates it using
      * the serialization constructor of tileset.
      */
-    public void loadTileset(Consumer<WholeTileset> consumer) {
+    public void loadTileset(Consumer<WholeTileset> consumer, boolean openTab) {
         FileChooser fileChooser = Main.getInstance().getRoot().getFileChooser();
         fileChooser.setMode(com.kotcrab.vis.ui.widget.file.FileChooser.Mode.OPEN);
         fileChooser.setSelectionMode(com.kotcrab.vis.ui.widget.file.FileChooser.SelectionMode.FILES);
@@ -162,7 +162,7 @@ public class TilesetManager {
                 } else if (!file.exists()) {
                     new GenericAlert("The selected file: " + file.path() + " does not exist. Try again.");
                 }
-                consumer.accept(loadTileset(file.file()));
+                consumer.accept(loadTileset(file.file(), openTab));
                 fileChooser.fadeOut();
             }
         });

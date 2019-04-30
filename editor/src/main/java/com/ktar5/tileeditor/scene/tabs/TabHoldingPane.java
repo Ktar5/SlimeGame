@@ -1,10 +1,9 @@
-package com.ktar5.tileeditor.scene.centerview;
+package com.ktar5.tileeditor.scene.tabs;
 
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.kotcrab.vis.ui.widget.tabbedpane.Tab;
 import com.kotcrab.vis.ui.widget.tabbedpane.TabbedPane;
 import com.kotcrab.vis.ui.widget.tabbedpane.TabbedPaneAdapter;
-import com.ktar5.tileeditor.scene.centerview.tabs.AbstractTab;
 
 import java.util.UUID;
 

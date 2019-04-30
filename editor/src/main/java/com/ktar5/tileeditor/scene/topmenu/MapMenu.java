@@ -3,8 +3,8 @@ package com.ktar5.tileeditor.scene.topmenu;
 import com.kotcrab.vis.ui.widget.Menu;
 import com.kotcrab.vis.ui.widget.MenuItem;
 import com.ktar5.tileeditor.Main;
-import com.ktar5.tileeditor.scene.centerview.tabs.AbstractTab;
-import com.ktar5.tileeditor.scene.centerview.tabs.TilemapTab;
+import com.ktar5.tileeditor.scene.tabs.AbstractTab;
+import com.ktar5.tileeditor.scene.tabs.TilemapTab;
 import com.ktar5.tileeditor.tilemap.Layers;
 import com.ktar5.tileeditor.tilemap.MapManager;
 import com.ktar5.tileeditor.tilemap.Tilemap;
@@ -23,7 +23,7 @@ public class MapMenu extends Menu {
                 TilesetManager.get().loadTileset(wholeTileset -> {
                     Tilemap map = MapManager.get().getMap((currentTab).getTabId());
                     map.getTilesets().addTileset(wholeTileset);
-                });
+                }, false);
             }
         }));
         final MenuItem addLayer = new MenuItem("Add Layer", new KChangeListener((changeEvent, actor) -> {

@@ -47,7 +47,7 @@ public class Tilesets {
     private void loadTileset(String path) {
         System.out.println("Loading tileset: " + path);
         File file = Paths.get(parent.getSaveFile().getPath()).resolve(path).toFile();
-        BaseTileset tileset = TilesetManager.get().getOrLoadTileset(file);
+        BaseTileset tileset = TilesetManager.get().getOrLoadTileset(file, false);
         System.out.println("Does tileset: " + path + " equal null?: " + (tileset == null));
         if (tileset.getTileHeight() != parent.getTileHeight() || tileset.getTileWidth() != parent.getTileWidth()) {
             new GenericAlert("Tileset's tilesize does not match map's tilesize");

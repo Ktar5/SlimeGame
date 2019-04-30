@@ -1,4 +1,4 @@
-package com.ktar5.tileeditor.scene.centerview.sidebars.properties;
+package com.ktar5.tileeditor.scene.sidebars.properties;
 
 import com.kotcrab.vis.ui.util.dialog.Dialogs;
 import com.kotcrab.vis.ui.util.dialog.InputDialogAdapter;

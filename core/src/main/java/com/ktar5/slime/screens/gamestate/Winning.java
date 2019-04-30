@@ -127,11 +127,8 @@ public class Winning extends GameState {
     @Override
     public void onUpdate(float dTime) {
         if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE) || Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
-            System.out.println("Here1");
             SlimeGame.getGame().getLevelHandler().advanceLevel();
-            System.out.println("Here2");
             changeState(Running.class);
-            System.out.println("Here3");
         }
     }
 

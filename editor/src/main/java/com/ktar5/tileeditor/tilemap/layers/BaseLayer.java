@@ -49,6 +49,9 @@ public abstract class BaseLayer {
         return json;
     }
 
+    public void setVisible(boolean value) {
+        this.visible = value;
+    }
 
     public abstract void render(Batch batch, TilemapActor actor);
 

@@ -1,5 +1,6 @@
 package com.ktar5.tileeditor.scene.tabs;
 
+import com.kotcrab.vis.ui.widget.VisTable;
 import com.ktar5.tileeditor.scene.sidebars.properties.PropertiesSidebar;
 import com.ktar5.tileeditor.tileset.TilesetActor;
 import com.ktar5.tileeditor.tileset.TilesetManager;
@@ -27,10 +28,14 @@ public class TilesetTab extends AbstractTab {
 //        getContent().add(split).width(175).growY();
 //        getContentTable().debugAll();
         propertiesSidebar = new PropertiesSidebar(TilesetManager.get().getTileset(getTabId()).getRootProperty());
-        tilesetActor = new TilesetActor(TilesetManager.get().getTileset(getTabId()));
+        tilesetActor = new TilesetActor(TilesetManager.get().getTileset(getTabId()), true);
 
         getContentTable().add(propertiesSidebar).width(175).growY();
         getContentTable().add(tilesetActor).grow();
+    }
+
+    public static class CustomTable extends VisTable {
+
     }
 
     @Override

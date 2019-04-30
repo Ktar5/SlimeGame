@@ -9,9 +9,8 @@ public class TilemapActor extends ZoomablePannableWidget {
     private Tilemap tilemap;
 
     public TilemapActor(Tilemap tilemap) {
-        this.debug();
+//        this.debug();
         this.tilemap = tilemap;
-
     }
 
     Rectangle clip = new Rectangle();
@@ -27,6 +26,7 @@ public class TilemapActor extends ZoomablePannableWidget {
         batch.end();
 
         shapeRenderer.setProjectionMatrix(batch.getProjectionMatrix());
+        shapeRenderer.setTransformMatrix(batch.getTransformMatrix());
         shapeRenderer.begin();
 
         for (int i = 1; i < tilemap.getNumTilesWide(); i++) {
@@ -50,6 +50,8 @@ public class TilemapActor extends ZoomablePannableWidget {
         ScissorStack.popScissors();
         batch.begin();
     }
+
+
 
     @Override
     public float getContentCenterX() {

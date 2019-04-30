@@ -22,11 +22,10 @@ public abstract class ZoomablePannableWidget extends Widget {
     protected float panX, panY;
 
     public ZoomablePannableWidget() {
-        debug();
+//        debug();
         shapeRenderer = new ShapeRenderer();
         shapeRenderer.setProjectionMatrix(Main.getInstance().getRoot().getCamera().combined);
         shapeRenderer.setAutoShapeType(true);
-
         addListener(new InputListener() {
             float lastX, lastY;
 
@@ -35,17 +34,31 @@ public abstract class ZoomablePannableWidget extends Widget {
             public void touchDragged(InputEvent event, float mx, float my, int pointer) {
                 panX += mx - lastX;
                 panY += my - lastY;
-                if (getContentCenterX() >= getWidth() + getX() && getContentCenterX() > (5 * scale) + (getWidth() + getX())) {
-                    panX -= mx - lastX;
-                } else if (getContentCenterX() <= 0 + getX() && getContentCenterX() > -((5 * scale) + (getWidth() + getX()))) {
+//                if (getContentCenterX() >= getWidth() + getX() && getContentCenterX() > (5 * scale) + (getWidth() + getX())) {
+//                    panX -= mx - lastX;
+//                } else if (getContentCenterX() <= 0 + getX() && getContentCenterX() > -((5 * scale) + (getWidth() + getX()))) {
+//
+//                }
+//
+//
+//                if (getContentCenterY() >= getHeight() + getY() && getContentCenterY() > (5 * scale) + (getHeight() + getY())) {
+//                    panY -= my - lastY;
+//                }
 
-                }
-
-
-                if (getContentCenterY() >= getHeight() + getY() && getContentCenterY() > (5 * scale) + (getHeight() + getY())) {
-                    panY -= my - lastY;
-                }
-
+//                if (getContentCenterX() >= getWidth() + getX()) {
+//                    float v = getContentCenterX() - (getWidth() + getX());
+//                    panX -= mx - lastX;
+//                    System.out.println(v);
+////                    panX += v;
+//                }else if(getContentCenterX() <= 0 + getX()){
+//                    System.out.println("-0----");
+//                    System.out.println("PanX1: " + panX);
+//                    System.out.println("Content center: " + getContentCenterX());
+//                    panX -= mx - lastX;
+//                    System.out.println("PanX2: " + panX);
+//
+//                }
+//                System.out.println(panX);
                 if (getContentCenterX() >= getWidth() + getX() || getContentCenterX() <= 0 + getX()) {
                     panX -= mx - lastX;
                 }
@@ -94,7 +107,6 @@ public abstract class ZoomablePannableWidget extends Widget {
         panX = panX - (newCX - previousCX);
         panY = panY - (newCY - previousCY);
     }
-
 
     public abstract float getContentCenterX();
 

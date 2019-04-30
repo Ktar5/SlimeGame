@@ -1,9 +1,12 @@
 package com.ktar5.tileeditor.scene.tabs;
 
+import com.ktar5.tileeditor.scene.sidebars.LayerSidebar;
 import com.ktar5.tileeditor.scene.sidebars.properties.PropertiesSidebar;
 import com.ktar5.tileeditor.tilemap.MapManager;
 import com.ktar5.tileeditor.tilemap.Tilemap;
 import com.ktar5.tileeditor.tilemap.TilemapActor;
+import com.ktar5.tileeditor.tileset.TilesetActor;
+import com.ktar5.tileeditor.util.CustomSplitPane;
 import com.ktar5.tileeditor.util.Tabbable;
 import lombok.Getter;
 
@@ -12,20 +15,53 @@ public class TilemapTab extends AbstractTab {
     private PropertiesSidebar propertiesSidebar;
     private TilemapActor tilemapActor;
 
+    CustomSplitPane editorLeft;
+    CustomSplitPane rightSidebar;
+    CustomSplitPane editorRight;
+
     public TilemapTab(Tilemap tilemap) {
         super(tilemap.getId());
         propertiesSidebar = new PropertiesSidebar(tilemap.getRootProperty());
         tilemapActor = new TilemapActor(tilemap);
 
-//        VisSplitPane split = new VisSplitPane(
-//                propertiesSidebar = new PropertiesSidebar(MapManager.get().getMap(getTabId()).getRootProperty()),
-//                new VisSplitPane(new Actor(), new Actor(), true),
-//                true
-//        );
+        //pane
+        //  properties
+        //  pane
+        //    editor
+        //    pane
+        //      layers
+        //      tileset
 
-        getContentTable().add(propertiesSidebar).width(175).growY();
-        getContentTable().add(tilemapActor).grow();
-        getContentTable().add(propertiesSidebar).width(175).growY();
+
+        editorLeft = new CustomSplitPane(propertiesSidebar, tilemapActor, false);
+
+        rightSidebar = new CustomSplitPane(
+                new LayerSidebar(tilemap),
+                new TilesetActor(tilemap.getTilesets().getTileset(0), false),
+                true
+        );
+
+        editorRight = new CustomSplitPane(editorLeft, rightSidebar, false);
+
+
+//        getContentTable().add(propertiesSidebar).width(175).growY();
+//        getContentTable().add(tilemapActor).grow();
+
+
+//        split.debugAll();
+
+        getContentTable().add(editorRight).grow();
+        lastAWidth = propertiesSidebar.getWidth();
+    }
+
+    float lastRightSplit = .5f;
+    float lastAWidth;
+    public void update(){
+//        if(editorRight.getSplit() != lastRightSplit){
+//            editorLeft.setSplitAmount(lastAWidth / editorLeft.getWidth());
+//            lastRightSplit = editorRight.getSplit();
+//            lastAWidth = propertiesSidebar.getWidth();
+//        }
     }
 
     @Override
@@ -36,23 +72,5 @@ public class TilemapTab extends AbstractTab {
     @Override
     public void onSelect() {
     }
-//
-//    @Listener
-//    public static class WholeTilemapTab extends TilemapTab {
-//        public WholeTilemapTab(UUID tilemap) {
-//            super(tilemap);
-//            EventCoordinator.get().registerListener(this);
-//        }
-//
-//        @Handler
-//        public void onSelectTile(TileSelectEvent event) {
-//            if (event.getTab().equals(this.getTabId())) {
-//                Image image = event.getTileset().getTileImages().get(event.getId());
-//                getTilesetSidebar().getSelectedTileView().setTile(new PixelatedImageView(image));
-//                WholeTileLayer tilemap = ((WholeTileLayer) getTabbable());
-//                tilemap.setCurrentData(event.getId(), 0);
-//            }
-//        }
-//    }
 
 }

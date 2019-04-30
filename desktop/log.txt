@@ -1,6 +1,6 @@
-41:53:608 MapManager.loadMap() [INFO]: Beginning to load map from file: C:\Users\Carter\Desktop\TestTilemap.json
-41:53:632 TilesetManager.loadTileset() [INFO]: Beginning to load tileset from file: C:\Users\Carter\Desktop\TestTilemap.json\..\RainbowTileset.json
-41:53:652 TilesetManager.loadTileset() [INFO]: Finished loading tileset: RainbowTileset.json
-41:53:662 TilesetManager.loadTileset() [INFO]: Beginning to load tileset from file: C:\Users\Carter\Desktop\TestTilemap.json\..\TestTileset.json
-41:53:673 TilesetManager.loadTileset() [INFO]: Finished loading tileset: TestTileset.json
-41:53:684 MapManager.loadMap() [INFO]: Finished loading map: TestTilemap.json
+14:10:376 MapManager.loadMap() [INFO]: Beginning to load map from file: C:\Users\Carter\Desktop\TestTilemap.json
+14:10:391 TilesetManager.loadTileset() [INFO]: Beginning to load tileset from file: C:\Users\Carter\Desktop\TestTilemap.json\..\RainbowTileset.json
+14:10:406 TilesetManager.loadTileset() [INFO]: Finished loading tileset: RainbowTileset.json
+14:10:408 TilesetManager.loadTileset() [INFO]: Beginning to load tileset from file: C:\Users\Carter\Desktop\TestTilemap.json\..\TestTileset.json
+14:10:414 TilesetManager.loadTileset() [INFO]: Finished loading tileset: TestTileset.json
+14:10:438 MapManager.loadMap() [INFO]: Finished loading map: TestTilemap.json

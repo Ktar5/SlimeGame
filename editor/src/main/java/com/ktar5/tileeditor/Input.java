@@ -28,6 +28,7 @@ public class Input implements InputProcessor {
 
     @Override
     public boolean touchDown(int screenX, int screenY, int pointer, int button) {
+
         return false;
     }
 
@@ -48,10 +49,10 @@ public class Input implements InputProcessor {
 
     @Override
     public boolean scrolled(int amount) {
-        Actor hit = Main.getInstance().getRoot().hit(Gdx.input.getX(), Gdx.input.getY(), false);
+        Actor hit = Main.getInstance().getRoot().hit(Gdx.input.getX(), Gdx.graphics.getHeight() - Gdx.input.getY(), false);
         if (hit instanceof ZoomablePannableWidget) {
             ((ZoomablePannableWidget) hit).scale(amount);
         }
-        return false;
+        return true;
     }
 }

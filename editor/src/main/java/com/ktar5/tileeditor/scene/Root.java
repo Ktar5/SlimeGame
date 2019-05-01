@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
-import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.kotcrab.vis.ui.widget.VisTable;
 import com.kotcrab.vis.ui.widget.file.FileChooser;
@@ -12,7 +11,6 @@ import com.kotcrab.vis.ui.widget.file.internal.FilePopupMenu;
 import com.kotcrab.vis.ui.widget.tabbedpane.Tab;
 import com.kotcrab.vis.ui.widget.tabbedpane.TabbedPaneAdapter;
 import com.ktar5.tileeditor.scene.tabs.TabHoldingPane;
-import com.ktar5.tileeditor.scene.tabs.TilemapTab;
 import com.ktar5.tileeditor.scene.topmenu.TopMenu;
 import com.ktar5.tileeditor.scene.utils.KtarFilePopupMenu;
 import lombok.Getter;
@@ -65,13 +63,13 @@ public class Root extends Stage {
     @Override
     public void act() {
         super.act();
-        Array.ArrayIterator<Tab> arrayIterator = new Array.ArrayIterator<>(tabHoldingPane.getTabs());
-        for (Tab tab : arrayIterator) {
-            if (tab instanceof TilemapTab) {
-                TilemapTab tab1 = (TilemapTab) tab;
-                tab1.update();
-            }
-        }
+//        Array.ArrayIterator<Tab> arrayIterator = new Array.ArrayIterator<>(tabHoldingPane.getTabs());
+//        for (Tab tab : arrayIterator) {
+//            if (tab instanceof TilemapTab) {
+//                TilemapTab tab1 = (TilemapTab) tab;
+//                tab1.update();
+//            }
+//        }
     }
 
     public void injectFileChooser() {

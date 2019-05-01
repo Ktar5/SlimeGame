@@ -29,20 +29,22 @@ public class TilemapActor extends ZoomablePannableWidget {
         shapeRenderer.setTransformMatrix(batch.getTransformMatrix());
         shapeRenderer.begin();
 
+        //Down to up
         for (int i = 1; i < tilemap.getNumTilesWide(); i++) {
             drawDottedLine(shapeRenderer, 2,
-                    panX + getX() + (getWidth() / 2) + (i * tilemap.getTileWidth() * scale),
-                    getY() + panY + (getHeight() / 2) + (tilemap.getTileHeight() * scale) - (tilemap.getTileHeight() * scale),
-                    (i * tilemap.getTileWidth() * scale) + panX + getX() + (getWidth() / 2),
-                    (tilemap.getDimensionY() * scale) + getY() + panY + (getHeight() / 2));
+                    getTotalX() + (i * tilemap.getTileWidth() * scale),
+                    getTotalY(),
+                    getTotalX() + (i * tilemap.getTileWidth() * scale),
+                    getTotalY() + (tilemap.getDimensionY() * scale));
         }
 
+        //Left to right
         for (int i = 1; i < tilemap.getNumTilesHigh(); i++) {
             drawDottedLine(shapeRenderer, 2,
-                    getX() + panX + (getWidth() / 2),
-                    (i * tilemap.getTileHeight() * scale) + panY + getY() + (getHeight() / 2),
-                    (tilemap.getDimensionX() * scale) + getX() + panX + (getWidth() / 2),
-                    (i * tilemap.getTileHeight() * scale) + panY + getY() + (getHeight() / 2));
+                    getTotalX(),
+                    getTotalY() + (i * tilemap.getTileHeight() * scale),
+                    getTotalX() + (tilemap.getDimensionX() * scale),
+                    getTotalY() + (i * tilemap.getTileHeight() * scale));
         }
 
 //        shapeRenderer.circle(getContentCenterX(), getContentCenterY(), 5);
@@ -52,15 +54,14 @@ public class TilemapActor extends ZoomablePannableWidget {
     }
 
 
-
     @Override
     public float getContentCenterX() {
-        return panX + getX() + (getWidth() / 2f) + (tilemap.getDimensionX() * scale / 2f);
+        return getTotalX() + (tilemap.getDimensionX() * scale / 2f);
     }
 
     @Override
     public float getContentCenterY() {
-        return panY + getY() + (getHeight() / 2) + (tilemap.getDimensionY() * scale / 2);
+        return getTotalY() + (tilemap.getDimensionY() * scale / 2f);
     }
 
 }

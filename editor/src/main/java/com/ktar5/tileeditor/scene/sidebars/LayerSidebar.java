@@ -8,17 +8,21 @@ import com.kotcrab.vis.ui.widget.VisTextButton;
 import com.ktar5.tileeditor.tilemap.Tilemap;
 import com.ktar5.tileeditor.tilemap.layers.BaseLayer;
 import com.ktar5.tileeditor.util.KChangeListener;
+import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 
+@Getter
 public class LayerSidebar extends VisTable {
     private final Tilemap tilemap;
+    private final ListView<BaseLayer> listView;
+    private final LayerAdapter adapter;
 
     public LayerSidebar(Tilemap tilemap) {
         this.tilemap = tilemap;
-        LayerAdapter adapter = new LayerAdapter(tilemap.getLayers().getLayers());
-        ListView<BaseLayer> listView = new ListView<BaseLayer>(adapter);
+        adapter = new LayerAdapter(tilemap.getLayers().getLayers());
+        listView = new ListView<>(adapter);
         add(listView.getMainTable()).grow();
     }
 

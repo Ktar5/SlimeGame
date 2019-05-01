@@ -1,6 +1,6 @@
-14:10:376 MapManager.loadMap() [INFO]: Beginning to load map from file: C:\Users\Carter\Desktop\TestTilemap.json
-14:10:391 TilesetManager.loadTileset() [INFO]: Beginning to load tileset from file: C:\Users\Carter\Desktop\TestTilemap.json\..\RainbowTileset.json
-14:10:406 TilesetManager.loadTileset() [INFO]: Finished loading tileset: RainbowTileset.json
-14:10:408 TilesetManager.loadTileset() [INFO]: Beginning to load tileset from file: C:\Users\Carter\Desktop\TestTilemap.json\..\TestTileset.json
-14:10:414 TilesetManager.loadTileset() [INFO]: Finished loading tileset: TestTileset.json
-14:10:438 MapManager.loadMap() [INFO]: Finished loading map: TestTilemap.json
+22:36:323 MapManager.loadMap() [INFO]: Beginning to load map from file: D:\GameDev\Projects\Personal\SlimeJump\assets\maps\TestTilemap.json
+22:36:338 TilesetManager.loadTileset() [INFO]: Beginning to load tileset from file: D:\GameDev\Projects\Personal\SlimeJump\assets\maps\TestTilemap.json\..\RainbowTileset.json
+22:36:350 TilesetManager.loadTileset() [INFO]: Finished loading tileset: RainbowTileset.json
+22:36:352 TilesetManager.loadTileset() [INFO]: Beginning to load tileset from file: D:\GameDev\Projects\Personal\SlimeJump\assets\maps\TestTilemap.json\..\TestTileset.json
+22:36:360 TilesetManager.loadTileset() [INFO]: Finished loading tileset: TestTileset.json
+22:36:381 MapManager.loadMap() [INFO]: Finished loading map: TestTilemap.json

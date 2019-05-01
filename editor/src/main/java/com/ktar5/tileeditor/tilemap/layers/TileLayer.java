@@ -57,7 +57,7 @@ public class TileLayer extends BaseLayer {
 
     @Override
     public void render(Batch batch, TilemapActor actor) {
-        if(!isVisible()){
+        if (!isVisible()) {
             return;
         }
         float scale = actor.getScale();
@@ -74,8 +74,8 @@ public class TileLayer extends BaseLayer {
                 }
 
                 TextureRegion tileImage = grid[col][row].getTextureRegion();
-                float x = panX + actor.getX() + (actor.getWidth() / 2) + (col * getParent().getTileWidth() * scale);
-                float y = panY + actor.getY() + (actor.getHeight() / 2) + (row * getParent().getTileHeight() * scale);
+                float x = actor.getTotalX() + (col * getParent().getTileWidth() * scale);
+                float y = actor.getTotalY() + (row * getParent().getTileHeight() * scale);
                 x += (getParent().getTileWidth() / 2f) * (scale - 1);
                 y += (getParent().getTileHeight() / 2f) * (scale - 1);
                 batch.draw(tileImage, (int) x, (int) y,
@@ -148,15 +148,15 @@ public class TileLayer extends BaseLayer {
             return Optional.of(grid[x][y]);
     }
 
-    public void setTile(int blockId, int direction, BaseTileset tileset, int x, int y){
+    public void setTile(int blockId, int direction, BaseTileset tileset, int x, int y) {
 
     }
 
-    public void setTile(WholeTile tile, int x, int y){
+    public void setTile(WholeTile tile, int x, int y) {
 
     }
 
-    public void removeTile(int x, int y){
+    public void removeTile(int x, int y) {
 
     }
 

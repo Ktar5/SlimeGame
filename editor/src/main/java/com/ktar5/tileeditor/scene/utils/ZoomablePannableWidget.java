@@ -26,6 +26,7 @@ public abstract class ZoomablePannableWidget extends Widget {
         shapeRenderer = new ShapeRenderer();
         shapeRenderer.setProjectionMatrix(Main.getInstance().getRoot().getCamera().combined);
         shapeRenderer.setAutoShapeType(true);
+
         addListener(new InputListener() {
             float lastX, lastY;
 
@@ -106,6 +107,14 @@ public abstract class ZoomablePannableWidget extends Widget {
 
         panX = panX - (newCX - previousCX);
         panY = panY - (newCY - previousCY);
+    }
+
+    public float getTotalX() {
+        return getPanX() + getX() + (getWidth() / 2);
+    }
+
+    public float getTotalY() {
+        return getPanY() + getY() + (getHeight() / 2);
     }
 
     public abstract float getContentCenterX();

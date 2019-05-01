@@ -1,8 +1,12 @@
 package com.ktar5.tileeditor.tileset;
 
+import com.ktar5.tileeditor.Main;
 import com.ktar5.tileeditor.scene.dialogs.GenericAlert;
+import com.ktar5.tileeditor.scene.sidebars.tileset.MapTilesetTab;
+import com.ktar5.tileeditor.scene.tabs.TilemapTab;
 import com.ktar5.tileeditor.tilemap.Tilemap;
 import com.ktar5.tileeditor.tilemap.whole.WholeTileset;
+import lombok.Getter;
 import org.json.JSONArray;
 
 import java.io.File;
@@ -11,8 +15,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Tilesets {
+public class Tilesets extends ArrayList<BaseTileset> {
     private Tilemap parent;
+    @Getter
     private ArrayList<BaseTileset> tilesets;
     private Map<String, Integer> tilesetNameMap;
 
@@ -53,7 +58,8 @@ public class Tilesets {
             new GenericAlert("Tileset's tilesize does not match map's tilesize");
             return;
         }
-        this.addTileset(tileset);
+        tilesets.add(tileset);
+        tilesetNameMap.put(tileset.getName().toLowerCase(), tilesets.size() - 1);
     }
 
     public JSONArray serialize() {
@@ -69,8 +75,13 @@ public class Tilesets {
     }
 
     public void addTileset(BaseTileset wholeTileset) {
+        if (tilesets.contains(wholeTileset)) {
+            return;
+        }
         tilesets.add(wholeTileset);
         tilesetNameMap.put(wholeTileset.getName().toLowerCase(), tilesets.size() - 1);
+        TilemapTab tab = (TilemapTab) Main.getInstance().getRoot().getTabHoldingPane().getTab(parent.getId());
+        tab.getTilesetSidebar().getTabHoldingPane().addTab(new MapTilesetTab(wholeTileset));
     }
 
     public void removeTileset(WholeTileset wholeTileset) {

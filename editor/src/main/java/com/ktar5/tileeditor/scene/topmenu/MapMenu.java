@@ -29,10 +29,12 @@ public class MapMenu extends Menu {
         final MenuItem addLayer = new MenuItem("Add Layer", new KChangeListener((changeEvent, actor) -> {
             AbstractTab currentTab = Main.getInstance().getRoot().getTabHoldingPane().getCurrentTab();
             if (currentTab instanceof TilemapTab) {
+                TilemapTab mapTab = (TilemapTab) currentTab;
                 Tilemap map = MapManager.get().getMap((currentTab).getTabId());
                 Layers layers = map.getLayers();
                 //TODO create dialog
                 layers.getLayers().add(new TileLayer(map, "layer" + layers.getLayers().size(), true, 0, 0));
+                mapTab.getLayerSidebar().getAdapter().itemsChanged();
             }
         }));
         this.addItem(addTileset);

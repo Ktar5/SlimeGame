@@ -25,7 +25,6 @@ public class TabHoldingPane extends TabbedPane {
 
     public void addTab(AbstractTab tab) {
         this.add(tab);
-//        this.getTabs().add(tab);
     }
 
 //    public void setSelectedTab(UUID uuid) {

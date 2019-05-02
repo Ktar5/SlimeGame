@@ -48,6 +48,11 @@ public class MapTilesetTab extends AbstractTab {
     }
 
     @Override
+    public boolean isCloseableByUser() {
+        return false;
+    }
+
+    @Override
     public String getTabTitle() {
         return getTabbable().getName().replace(".json", "");
     }

@@ -1,34 +1,10 @@
-50:35:243 MapManager.loadMap() [INFO]: Beginning to load map from file: D:\GameDev\Projects\Personal\SlimeJump\assets\maps\TestTilemap.json
-50:35:266 Tilesets.loadTileset() [DEBUG]: Loading tileset: ..\RainbowTileset.json
-50:35:277 TilesetManager.loadTileset() [INFO]: Beginning to load tileset from file: D:\GameDev\Projects\Personal\SlimeJump\assets\maps\TestTilemap.json\..\RainbowTileset.json
-50:35:292 TilesetManager.loadTileset() [INFO]: Finished loading tileset: RainbowTileset.json
-50:35:292 Tilesets.loadTileset() [DEBUG]: Does tileset: ..\RainbowTileset.json equal null?: false
-50:35:292 Tilesets.loadTileset() [DEBUG]: Loading tileset: ..\TestTileset.json
-50:35:293 TilesetManager.loadTileset() [INFO]: Beginning to load tileset from file: D:\GameDev\Projects\Personal\SlimeJump\assets\maps\TestTilemap.json\..\TestTileset.json
-50:35:302 TilesetManager.loadTileset() [INFO]: Finished loading tileset: TestTileset.json
-50:35:302 Tilesets.loadTileset() [DEBUG]: Does tileset: ..\TestTileset.json equal null?: false
-50:35:324 MapManager.loadMap() [INFO]: Finished loading map: TestTilemap.json
-50:38:341 TileLayer.setTile() [DEBUG]: Tried setting tile outside of bounds, ignored.
-50:38:358 TileLayer.setTile() [DEBUG]: Tried setting tile outside of bounds, ignored.
-50:38:376 TileLayer.setTile() [DEBUG]: Tried setting tile outside of bounds, ignored.
-50:38:392 TileLayer.setTile() [DEBUG]: Tried setting tile outside of bounds, ignored.
-50:40:092 TileLayer.setTile() [DEBUG]: Tried setting tile outside of bounds, ignored.
-50:40:109 TileLayer.setTile() [DEBUG]: Tried setting tile outside of bounds, ignored.
-50:40:126 TileLayer.setTile() [DEBUG]: Tried setting tile outside of bounds, ignored.
-50:40:142 TileLayer.setTile() [DEBUG]: Tried setting tile outside of bounds, ignored.
-50:40:159 TileLayer.setTile() [DEBUG]: Tried setting tile outside of bounds, ignored.
-50:40:176 TileLayer.setTile() [DEBUG]: Tried setting tile outside of bounds, ignored.
-50:40:209 TileLayer.setTile() [DEBUG]: Tried setting tile outside of bounds, ignored.
-50:40:242 TileLayer.setTile() [DEBUG]: Tried setting tile outside of bounds, ignored.
-50:40:259 TileLayer.setTile() [DEBUG]: Tried setting tile outside of bounds, ignored.
-50:40:276 TileLayer.setTile() [DEBUG]: Tried setting tile outside of bounds, ignored.
-50:40:292 TileLayer.setTile() [DEBUG]: Tried setting tile outside of bounds, ignored.
-50:40:376 TileLayer.setTile() [DEBUG]: Tried setting tile outside of bounds, ignored.
-50:40:476 TileLayer.setTile() [DEBUG]: Tried setting tile outside of bounds, ignored.
-50:50:742 TileLayer.setTile() [DEBUG]: Tried setting tile outside of bounds, ignored.
-50:50:759 TileLayer.setTile() [DEBUG]: Tried setting tile outside of bounds, ignored.
-50:50:776 TileLayer.setTile() [DEBUG]: Tried setting tile outside of bounds, ignored.
-50:50:792 TileLayer.setTile() [DEBUG]: Tried setting tile outside of bounds, ignored.
-50:50:809 TileLayer.setTile() [DEBUG]: Tried setting tile outside of bounds, ignored.
-51:06:809 MapManager.saveMap() [INFO]: Starting save for tilemap (1176f208-c83b-4263-aa97-5a6aae71b5d3)
-51:06:833 MapManager.saveMap() [INFO]: Finished save for tilemap (1176f208-c83b-4263-aa97-5a6aae71b5d3) in "D:\GameDev\Projects\Personal\SlimeJump\assets\maps\TestTilemap.json"
+54:23:840 MapManager.loadMap() [INFO]: Beginning to load map from file: D:\GameDev\Projects\Personal\SlimeJump\assets\maps\TestTilemap.json
+54:23:861 Tilesets.loadTileset() [DEBUG]: Loading tileset: ..\RainbowTileset.json
+54:23:873 TilesetManager.loadTileset() [INFO]: Beginning to load tileset from file: D:\GameDev\Projects\Personal\SlimeJump\assets\maps\TestTilemap.json\..\RainbowTileset.json
+54:23:889 TilesetManager.loadTileset() [INFO]: Finished loading tileset: RainbowTileset.json
+54:23:889 Tilesets.loadTileset() [DEBUG]: Does tileset: ..\RainbowTileset.json equal null?: false
+54:23:890 Tilesets.loadTileset() [DEBUG]: Loading tileset: ..\TestTileset.json
+54:23:891 TilesetManager.loadTileset() [INFO]: Beginning to load tileset from file: D:\GameDev\Projects\Personal\SlimeJump\assets\maps\TestTilemap.json\..\TestTileset.json
+54:23:900 TilesetManager.loadTileset() [INFO]: Finished loading tileset: TestTileset.json
+54:23:900 Tilesets.loadTileset() [DEBUG]: Does tileset: ..\TestTileset.json equal null?: false
+54:23:921 MapManager.loadMap() [INFO]: Finished loading map: TestTilemap.json

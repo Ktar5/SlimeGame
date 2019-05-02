@@ -11,6 +11,7 @@ import java.util.ArrayList;
 @Getter
 public class Layers {
     private Tilemap parent;
+    private int activeLayerId = 0;
     private ArrayList<BaseLayer> layers;
 
     public Layers(Tilemap parent) {
@@ -37,4 +38,18 @@ public class Layers {
             layers.get(i).render(batch, actor);
         }
     }
+
+    public void setActiveLayerId(int id){
+        if(id >= layers.size()){
+            throw new RuntimeException("ERROR >> You cannot have a layer id higher than layers size");
+        }
+        this.activeLayerId = id;
+    }
+
+    public BaseLayer getActiveLayer(){
+        return layers.get(activeLayerId);
+    }
+
+
+
 }

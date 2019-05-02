@@ -1,6 +1,6 @@
 package com.ktar5.tileeditor.tilemap;
 
-import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
@@ -10,6 +10,9 @@ import com.badlogic.gdx.scenes.scene2d.utils.ScissorStack;
 import com.ktar5.tileeditor.Main;
 import com.ktar5.tileeditor.scene.tabs.TilemapTab;
 import com.ktar5.tileeditor.scene.utils.ZoomablePannableWidget;
+import com.ktar5.tileeditor.tilemap.layers.BaseLayer;
+import com.ktar5.tileeditor.tilemap.layers.TileLayer;
+import com.ktar5.tileeditor.tileset.Tile;
 
 public class TilemapActor extends ZoomablePannableWidget {
     private final Tilemap tilemap;
@@ -22,15 +25,22 @@ public class TilemapActor extends ZoomablePannableWidget {
             @Override
             public boolean mouseMoved(InputEvent event, float x, float y) {
                 tileHovered.x = (getX() + x - getRenderX()) / (scale * tilemap.getTileWidth());
+                //This is because (int) -0.5 = 0
+                if (tileHovered.x < 0) {
+                    tileHovered.x = -2;
+                }
                 tileHovered.x = (int) tileHovered.x;
 
                 tileHovered.y = (getY() + y - getRenderY()) / (scale * tilemap.getTileHeight());
-                tileHovered.y = tilemap.getNumTilesHigh() - ((int) Math.abs(tileHovered.y));
+                //This is because (int) -0.5 = 0
+                if (tileHovered.y < 0) {
+                    tileHovered.y = -2;
+                }
+                tileHovered.y = tilemap.getNumTilesHigh() - ((int) tileHovered.y);
                 tileHovered.y -= 1;
 
                 if (tileHovered.x >= tilemap.getNumTilesWide() || tileHovered.x < 0
                         || tileHovered.y < 0 || tileHovered.y >= tilemap.getNumTilesHigh()) {
-                    System.out.println("Fucking anus.");
                     tileHovered.x = -1;
                     tileHovered.y = -1;
                 }
@@ -41,10 +51,40 @@ public class TilemapActor extends ZoomablePannableWidget {
                  * how it wants to be. Mkaaaay? Mkkkayyyy? Thanks. Don't touch it.
                  */
 
-//                System.out.println("TILE # = " + tileHovered.x + ", " + tileHovered.y);
+//                Logger.debug("TILE # = " + tileHovered.x + ", " + tileHovered.y);
                 return true;
             }
 
+            int buttonTouchedDown = 0;
+
+            @Override
+            public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
+                if (button == Input.Buttons.LEFT) {
+                    Tile selectedTile = getTab().getTilesetSidebar().getSelectedTile();
+                    if (selectedTile == null) {
+                        return false;
+                    }
+                    BaseLayer activeLayer = tilemap.getLayers().getActiveLayer();
+                    if (activeLayer instanceof TileLayer) {
+                        TileLayer tileLayer = (TileLayer) activeLayer;
+                        tileLayer.setTile(selectedTile, (int) tileHovered.x, (int) (tilemap.getNumTilesHigh() - tileHovered.y));
+                    }
+                } else if (button == Input.Buttons.RIGHT) {
+                    BaseLayer activeLayer = tilemap.getLayers().getActiveLayer();
+                    if (activeLayer instanceof TileLayer) {
+                        TileLayer tileLayer = (TileLayer) activeLayer;
+                        tileLayer.setTile(null, (int) tileHovered.x, (int) (tilemap.getNumTilesHigh() - tileHovered.y));
+                    }
+                }
+                buttonTouchedDown = button;
+                return true;
+            }
+
+            @Override
+            public void touchDragged(InputEvent event, float x, float y, int pointer) {
+                mouseMoved(event, x, y);
+                touchDown(event, x, y, pointer, buttonTouchedDown);
+            }
         });
     }
 
@@ -65,6 +105,10 @@ public class TilemapActor extends ZoomablePannableWidget {
             float x = getRenderX() + (tileHovered.x * tilemap.getTileWidth() * scale);
             float y = getRenderY() + (tilemap.getDimensionY() * scale);
             y = y - (tileHovered.y * tilemap.getTileHeight() * scale);
+            if (getTab().getTilesetSidebar().getSelectedTile() != null) {
+                batch.draw(getTab().getTilesetSidebar().getSelectedTile().getTextureRegion(), (int) x, (int) y, 0, 0,
+                        tilemap.getTileWidth(), tilemap.getTileHeight(), scale, scale, 0);
+            }
             batch.draw(Main.getInstance().getSelection(), (int) x, (int) y, 0, 0,
                     tilemap.getTileWidth(), tilemap.getTileHeight(), scale, scale, 0);
         }
@@ -76,11 +120,11 @@ public class TilemapActor extends ZoomablePannableWidget {
         shapeRenderer.setTransformMatrix(batch.getTransformMatrix());
         shapeRenderer.begin();
 
-        shapeRenderer.setColor(Color.BLUE);
-        shapeRenderer.circle(getRenderX(), getRenderY(), 5);
-        shapeRenderer.setColor(Color.GREEN);
-        shapeRenderer.circle(getContentCenterX(), getContentCenterY(), 5);
-        shapeRenderer.setColor(Color.WHITE);
+//        shapeRenderer.setColor(Color.BLUE);
+//        shapeRenderer.circle(getRenderX(), getRenderY(), 5);
+//        shapeRenderer.setColor(Color.GREEN);
+//        shapeRenderer.circle(getContentCenterX(), getContentCenterY(), 5);
+//        shapeRenderer.setColor(Color.WHITE);
         //Down to up
         for (int i = 1; i < tilemap.getNumTilesWide(); i++) {
             drawDottedLine(shapeRenderer, 2,

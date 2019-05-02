@@ -11,6 +11,7 @@ import lombok.Setter;
 import org.apache.commons.lang3.NotImplementedException;
 import org.json.JSONObject;
 import org.mini2Dx.gdx.utils.IntMap;
+import org.pmw.tinylog.Logger;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -208,7 +209,7 @@ public class Tileset implements Tabbable {
 
     public int getIdFromXY(int x, int y) {
         if (y >= getRows() || x >= getColumns() || x < 0 || y < 0) {
-            System.out.println("ERROR >> Finding tileset tile x: " + x + " y:" + y + " OUT OF BOUNDS");
+            Logger.debug("ERROR >> Finding tileset tile x: " + x + " y:" + y + " OUT OF BOUNDS");
             return -1;
         }
         return (y * (getColumns())) + x;

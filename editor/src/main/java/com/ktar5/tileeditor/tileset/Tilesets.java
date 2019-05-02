@@ -7,6 +7,7 @@ import com.ktar5.tileeditor.scene.tabs.TilemapTab;
 import com.ktar5.tileeditor.tilemap.Tilemap;
 import lombok.Getter;
 import org.json.JSONArray;
+import org.pmw.tinylog.Logger;
 
 import java.io.File;
 import java.nio.file.Paths;
@@ -49,10 +50,10 @@ public class Tilesets extends ArrayList<Tileset> {
      * @param path the relative path to the tileset file
      */
     private void loadTileset(String path) {
-        System.out.println("Loading tileset: " + path);
+        Logger.debug("Loading tileset: " + path);
         File file = Paths.get(parent.getSaveFile().getPath()).resolve(path).toFile();
         Tileset tileset = TilesetManager.get().getOrLoadTileset(file, false);
-        System.out.println("Does tileset: " + path + " equal null?: " + (tileset == null));
+        Logger.debug("Does tileset: " + path + " equal null?: " + (tileset == null));
         if (tileset.getTileHeight() != parent.getTileHeight() || tileset.getTileWidth() != parent.getTileWidth()) {
             new GenericAlert("Tileset's tilesize does not match map's tilesize");
             return;

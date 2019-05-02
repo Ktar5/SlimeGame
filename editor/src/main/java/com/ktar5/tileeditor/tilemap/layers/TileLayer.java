@@ -11,6 +11,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.pmw.tinylog.Logger;
 
 import java.util.Optional;
 
@@ -60,17 +61,15 @@ public class TileLayer extends BaseLayer {
             return;
         }
         float scale = actor.getScale();
-        float panX = actor.getPanX();
-        float panY = actor.getPanY();
         for (int row = getParent().getNumTilesHigh() - 1; row >= 0; row--) {
             for (int col = 0; col <= getParent().getNumTilesWide() - 1; col++) {
                 if (grid[col][row] == null) {
                     continue;
                 }
-                int blockId = grid[col][row].getBlockId();
-                if (blockId == 0) {
-                    continue;
-                }
+//                int blockId = grid[col][row].getBlockId();
+//                if (blockId == 0) {
+//                    continue;
+//                }
 
                 TextureRegion tileImage = grid[col][row].getTextureRegion();
                 float x = actor.getRenderX() + (col * getParent().getTileWidth() * scale);
@@ -130,7 +129,7 @@ public class TileLayer extends BaseLayer {
                 this.grid[x][y] = new Tile(Integer.valueOf(split[1]), Integer.valueOf(split[2]),
                         getParent().getTilesets().getTileset(Integer.valueOf(split[0])));
             } else {
-                System.out.println("Length > 3 error");
+                Logger.debug("Length > 3 error");
             }
         }
     }
@@ -148,15 +147,19 @@ public class TileLayer extends BaseLayer {
     }
 
     public void setTile(int blockId, int direction, Tileset tileset, int x, int y) {
-
+        this.setTile(new Tile(blockId, direction, tileset), x, y);
     }
 
     public void setTile(Tile tile, int x, int y) {
-
+        if (x < 0 || y < 0 || x >= grid.length || y >= grid[0].length) {
+            Logger.debug("Tried setting tile outside of bounds, ignored.");
+            return;
+        }
+        grid[x][y] = tile;
     }
 
     public void removeTile(int x, int y) {
-
+        setTile(null, x, y);
     }
 
     @Deprecated

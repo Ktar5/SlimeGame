@@ -30,7 +30,7 @@
 //                this.grid[x][y] = new Tile(Integer.valueOf(split[1]), Integer.valueOf(split[2]),
 //                        getParent().getTilesets().getTileset(split[0]));
 //            } else {
-//                System.out.println("Length > 3 error");
+//                Logger.debug("Length > 3 error");
 //            }
 //        }
 //    }

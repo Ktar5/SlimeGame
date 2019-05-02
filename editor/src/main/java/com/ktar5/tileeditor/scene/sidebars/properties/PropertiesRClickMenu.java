@@ -8,6 +8,7 @@ import com.ktar5.tileeditor.properties.ParentProperty;
 import com.ktar5.tileeditor.properties.Property;
 import com.ktar5.tileeditor.properties.StringProperty;
 import com.ktar5.tileeditor.util.KChangeListener;
+import org.pmw.tinylog.Logger;
 
 public class PropertiesRClickMenu extends PopupMenu {
 
@@ -52,7 +53,7 @@ public class PropertiesRClickMenu extends PopupMenu {
                         return;
                     }
                     Property newProperty = ((ParentProperty) property).createProperty(input, "None");
-                    System.out.println(property.getPath());
+                    Logger.debug(property.getPath());
                     sidebar.addNode(sidebar.nodes.get(property.getPath()), newProperty);
                 }
             });

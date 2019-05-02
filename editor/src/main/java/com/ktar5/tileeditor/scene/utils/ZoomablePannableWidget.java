@@ -62,17 +62,17 @@ public abstract class ZoomablePannableWidget extends Widget {
 //                if (getContentCenterX() >= getWidth() + getX()) {
 //                    float v = getContentCenterX() - (getWidth() + getX());
 //                    panX -= mx - lastX;
-//                    System.out.println(v);
+//                    Logger.debug(v);
 ////                    panX += v;
 //                }else if(getContentCenterX() <= 0 + getX()){
-//                    System.out.println("-0----");
-//                    System.out.println("PanX1: " + panX);
-//                    System.out.println("Content center: " + getContentCenterX());
+//                    Logger.debug("-0----");
+//                    Logger.debug("PanX1: " + panX);
+//                    Logger.debug("Content center: " + getContentCenterX());
 //                    panX -= mx - lastX;
-//                    System.out.println("PanX2: " + panX);
+//                    Logger.debug("PanX2: " + panX);
 //
 //                }
-//                System.out.println(panX);
+//                Logger.debug(panX);
                 if (getContentCenterX() >= getWidth() + getX() || getContentCenterX() <= 0 + getX()) {
                     panX -= mx - lastX;
                 }

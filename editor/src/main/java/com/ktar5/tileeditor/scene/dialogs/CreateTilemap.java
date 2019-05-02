@@ -12,6 +12,7 @@ import com.ktar5.tileeditor.scene.utils.FileOpenChangeListener;
 import com.ktar5.tileeditor.util.KChangeListener;
 import lombok.Builder;
 import lombok.Getter;
+import org.pmw.tinylog.Logger;
 
 import java.util.function.Consumer;
 
@@ -54,7 +55,7 @@ public class CreateTilemap {
             }
         });
 
-        System.out.println("Hello this is happening.");
+        Logger.debug("Hello this is happening.");
 
         VisValidatableTextField width = new VisValidatableTextField();
         width.setSize(20, width.getHeight());

@@ -99,6 +99,7 @@ public class MapManager {
                 createTilemap.getHeight(),
                 createTilemap.getTileWidth(),
                 createTilemap.getTileHeight());
+
         openMaps.put(tilemap.getId(), tilemap);
         Main.getInstance().getRoot().getTabHoldingPane().addTab(new TilemapTab(tilemap));
     }

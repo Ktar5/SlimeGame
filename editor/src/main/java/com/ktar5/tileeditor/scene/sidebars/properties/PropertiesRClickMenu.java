@@ -52,6 +52,7 @@ public class PropertiesRClickMenu extends PopupMenu {
                         return;
                     }
                     Property newProperty = ((ParentProperty) property).createProperty(input, "None");
+                    System.out.println(property.getPath());
                     sidebar.addNode(sidebar.nodes.get(property.getPath()), newProperty);
                 }
             });

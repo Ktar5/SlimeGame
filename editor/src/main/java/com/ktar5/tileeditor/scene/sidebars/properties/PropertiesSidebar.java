@@ -25,10 +25,11 @@ public class PropertiesSidebar extends VisTree {
         super();
         this.nodes = new HashMap<>();
         this.root = root;
-        Node rootNode = new PropertyNode(root, this);
+        PropertyNode rootNode = new PropertyNode(root, this);
         for (Property property : root.getChildren().values()) {
             addNode(rootNode, property);
         }
+        nodes.put("properties", rootNode);
         rootNode.setExpanded(true);
         this.add(rootNode);
     }
@@ -87,7 +88,7 @@ public class PropertiesSidebar extends VisTree {
 
         public void update() {
             nameLabel.setText(property.getName());
-            if(property instanceof StringProperty){
+            if (property instanceof StringProperty) {
                 valueLabel.setText(((StringProperty) property).getValue());
             }
         }

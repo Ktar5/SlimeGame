@@ -19,7 +19,7 @@ import java.nio.file.Paths;
 import java.util.UUID;
 
 @Getter
-public abstract class BaseTileset implements Tabbable {
+public class Tileset implements Tabbable {
     public static final int SCALE = 1;
     private RootProperty rootProperty;
 
@@ -41,7 +41,7 @@ public abstract class BaseTileset implements Tabbable {
      * @param saveFile the file used for saving
      * @param json     the json serialization of the tileset
      */
-    public BaseTileset(File saveFile, JSONObject json) {
+    public Tileset(File saveFile, JSONObject json) {
         this(Paths.get(saveFile.getPath()).resolve(json.getString("sourceFile")).toFile(),
                 saveFile,
                 json.getJSONObject("padding").getInt("vertical"),
@@ -66,8 +66,8 @@ public abstract class BaseTileset implements Tabbable {
      * @param tileWidth         the width of each tile in pixels
      * @param tileHeight        the height of each tile in pixels
      */
-    public BaseTileset(File sourceFile, File saveFile, int paddingVertical, int paddingHorizontal,
-                       int offsetLeft, int offsetUp, int tileWidth, int tileHeight) {
+    public Tileset(File sourceFile, File saveFile, int paddingVertical, int paddingHorizontal,
+                   int offsetLeft, int offsetUp, int tileWidth, int tileHeight) {
         this.sourceFile = sourceFile;
         this.saveFile = saveFile;
         this.tileWidth = tileWidth;
@@ -110,19 +110,30 @@ public abstract class BaseTileset implements Tabbable {
 
 
     /**
-     * Initializes and sets {@link BaseTileset#tileImages}
-     *
-     * @param image
+     * Initializes and sets {@link Tileset#tileImages}
      */
-    public abstract void getTilesetImages(Texture image);
+    public void getTilesetImages(Texture texture) {
+        int index = 0;
 
-    @Override
-    @CallSuper
+        for (int row = 0; row < getRows(); row++) {
+            for (int col = 0; col < getColumns(); col++) {
+                TextureRegion region = new TextureRegion(texture,
+                        getOffsetLeft() + getPaddingHorizontal() + (((2 * getPaddingHorizontal()) + getTileWidth()) * col),
+                        getOffsetUp() + getPaddingVertical() + (((2 * getPaddingVertical()) + getTileHeight()) * row),
+                        getTileWidth(), getTileHeight()
+                );
+                this.getTileImages().put(index++, region);
+            }
+        }
+    }
+
     /**
      * Serializes the information stored in the tileset to a json file.
      * Subclasses should override this and provide specific implementations.
      * NOTE: all subclasses must call super or else code won't compile.
      */
+    @Override
+    @CallSuper
     public JSONObject serialize() {
         JSONObject json = new JSONObject();
 
@@ -147,51 +158,77 @@ public abstract class BaseTileset implements Tabbable {
         return json;
     }
 
-    @Override
     /**
      * Removes the map from the application.
      */
+    @Override
     public void remove() {
         TilesetManager.get().remove(getId());
     }
 
-    @Override
     /**
      * Returns a UUID that should be randomly generated in the constructor of any subclass
      */
+    @Override
     public UUID getId() {
         return this.id;
     }
 
-    @Override
     /**
      * Saves the tileset to a file.
      */
+    @Override
     public void save() {
         TilesetManager.get().saveTileset(getId());
     }
 
-    @Override
     /**
      * Gets the name of the tileset.
      */
+    @Override
     public String getName() {
         return getSaveFile().getName();
     }
 
-    @Override
     /**
      * Returns the save file
      */
+    @Override
     public File getSaveFile() {
         return saveFile;
     }
 
-    @Override
     /**
      * Change the save file to a different file.
      */
+    @Override
     public void updateSaveFile(File file) {
         this.saveFile = file;
     }
+
+    public int getIdFromXY(int x, int y) {
+        if (y >= getRows() || x >= getColumns() || x < 0 || y < 0) {
+            System.out.println("ERROR >> Finding tileset tile x: " + x + " y:" + y + " OUT OF BOUNDS");
+            return -1;
+        }
+        return (y * (getColumns())) + x;
+    }
+
+    public TextureRegion getTextureRegionFromXY(int x, int y) {
+        int id = getIdFromXY(x, y);
+        if (id == -1) {
+            return null;
+        }
+        return getTileImages().get(id);
+    }
+
+    public Tile getTileFromXY(int x, int y) {
+        int id = getIdFromXY(x, y);
+        if (id == -1) {
+            return null;
+        }
+        return new Tile(id, 0, this);
+    }
+
+
 }

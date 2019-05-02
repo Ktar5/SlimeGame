@@ -20,9 +20,9 @@ public class MapMenu extends Menu {
         final MenuItem addTileset = new MenuItem("Add Tileset", new KChangeListener((changeEvent, actor) -> {
             AbstractTab currentTab = Main.getInstance().getRoot().getTabHoldingPane().getCurrentTab();
             if (currentTab instanceof TilemapTab) {
-                TilesetManager.get().loadTileset(wholeTileset -> {
+                TilesetManager.get().loadTileset(Tileset -> {
                     Tilemap map = MapManager.get().getMap((currentTab).getTabId());
-                    map.getTilesets().addTileset(wholeTileset);
+                    map.getTilesets().addTileset(Tileset);
                 }, false);
             }
         }));

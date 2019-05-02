@@ -17,12 +17,12 @@ import java.util.function.Consumer;
 
 @Builder
 @Getter
-public class CreateWholeTileset {
+public class CreateTileset {
     private FileHandle sourceFile, tilesetFile;
     private int tileWidth, tileHeight, paddingVertical, paddingHorizontal, offsetLeft, offsetUp;
 
-    public static void create(Consumer<CreateWholeTileset> consumer) {
-        CreateWholeTilesetBuilder builder = new CreateWholeTilesetBuilder();
+    public static void create(Consumer<CreateTileset> consumer) {
+        CreateTilesetBuilder builder = new CreateTilesetBuilder();
 
         // Create the custom dialog.
         VisWindow dialog = new VisWindow("Create New Tilemap");

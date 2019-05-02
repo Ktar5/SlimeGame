@@ -1,7 +1,5 @@
 package com.ktar5.tileeditor.scene.tabs;
 
-import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Pixmap;
 import com.ktar5.tileeditor.scene.sidebars.LayerSidebar;
 import com.ktar5.tileeditor.scene.sidebars.properties.PropertiesSidebar;
 import com.ktar5.tileeditor.scene.sidebars.tileset.TilesetSidebar;
@@ -14,8 +12,6 @@ import lombok.Getter;
 
 @Getter
 public class TilemapTab extends AbstractTab {
-    public Pixmap selection;
-
     private PropertiesSidebar propertiesSidebar;
     private TilemapActor tilemapActor;
     private LayerSidebar layerSidebar;
@@ -27,12 +23,6 @@ public class TilemapTab extends AbstractTab {
 
     public TilemapTab(Tilemap tilemap) {
         super(tilemap.getId());
-        selection= new Pixmap(1, 1, Pixmap.Format.RGBA4444);
-        Color color = new Color(Color.BLUE);
-        color.a = .5f;
-        selection.setColor(color);
-        selection.fill();
-
         propertiesSidebar = new PropertiesSidebar(tilemap.getRootProperty());
         propertiesSidebar.setWidth(150f);
         tilemapActor = new TilemapActor(tilemap);

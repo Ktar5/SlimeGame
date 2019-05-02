@@ -3,7 +3,7 @@
 //import com.badlogic.gdx.InputProcessor;
 //import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 //import com.ktar5.tileeditor.tilemap.Tilemap;
-//import com.ktar5.tileeditor.tilemap.whole.WholeTile;
+//import com.ktar5.tileeditor.tilemap.whole.Tile;
 //import javafx.scene.input.MouseButton;
 //import javafx.scene.input.MouseEvent;
 //import javafx.scene.layout.Pane;
@@ -24,10 +24,10 @@
 //        } else {
 //            String[] split = block.split("_");
 //            if (split.length == 2) {
-//                this.grid[x][y] = new WholeTile(Integer.valueOf(split[1]), 0,
+//                this.grid[x][y] = new Tile(Integer.valueOf(split[1]), 0,
 //                        getParent().getTilesets().getTileset(split[0]));
 //            } else if (split.length == 3) {
-//                this.grid[x][y] = new WholeTile(Integer.valueOf(split[1]), Integer.valueOf(split[2]),
+//                this.grid[x][y] = new Tile(Integer.valueOf(split[1]), Integer.valueOf(split[2]),
 //                        getParent().getTilesets().getTileset(split[0]));
 //            } else {
 //                System.out.println("Length > 3 error");
@@ -113,7 +113,7 @@
 //                if (grid[x][y] == null) {
 //                    continue;
 //                }
-//                int blockId = ((WholeTile) grid[x][y]).getBlockId();
+//                int blockId = ((Tile) grid[x][y]).getBlockId();
 //                if (blockId == 0) {
 //                    continue;
 //                }
@@ -122,7 +122,7 @@
 //        }
 //    }
 //
-//    public void set(int x, int y, WholeTile tile) {
+//    public void set(int x, int y, Tile tile) {
 //        if (tile == null || getTileset() == null) {
 //            return;
 //        }
@@ -137,14 +137,14 @@
 //    public void setCurrent(int x, int y) {
 //        if (getTileset() == null) return;
 //
-//        if (grid[x][y] != null && grid[x][y] instanceof WholeTile) {
-//            WholeTile wholeTile = (WholeTile) this.grid[x][y];
-//            wholeTile.setBlockId(currentId);
-//            wholeTile.setDirection(currentData);
-//            wholeTile.updateAllImageViews();
+//        if (grid[x][y] != null && grid[x][y] instanceof Tile) {
+//            Tile Tile = (Tile) this.grid[x][y];
+//            Tile.setBlockId(currentId);
+//            Tile.setDirection(currentData);
+//            Tile.updateAllImageViews();
 //        } else {
 //            remove(x, y);
-//            this.grid[x][y] = new WholeTile(currentId, currentData, getTileset());
+//            this.grid[x][y] = new Tile(currentId, currentData, getTileset());
 //            this.grid[x][y].updateAllImageViews();
 //            Pane pane = EditorCoordinator.get().getEditor().getTabDrawingPane(getId());
 //            this.grid[x][y].draw(pane, x * getTileWidth(), y * getTileWidth());

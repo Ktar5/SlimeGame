@@ -1,13 +1,6 @@
-16:08:005 LoadingScreen.show() [DEBUG]: Starting loading screen
-16:08:010 LoadingScreen.show() [DEBUG]: Starting load of loading screen resources
-16:08:036 LoadingScreen.show() [DEBUG]: Finished loading of loading screen resources
-16:08:752 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
-16:08:752 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
-16:08:752 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
-16:08:762 LoadingScreen.render() [DEBUG]: Updating load.. 1.0%
-16:08:762 LoadingScreen.render() [DEBUG]: Finished loading all assets!
-16:08:828 LoadingScreen.hide() [DEBUG]: Disposed of the loading resources
-16:27:879 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.Running
-16:27:880 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.PauseWithBlur2
-16:27:880 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.Winning
-16:27:880 GameScreen.show() [DEBUG]: Display started for GameScreen
+24:23:009 MapManager.loadMap() [INFO]: Beginning to load map from file: D:\GameDev\Projects\Personal\SlimeJump\assets\maps\TestTilemap.json
+24:23:028 TilesetManager.loadTileset() [INFO]: Beginning to load tileset from file: D:\GameDev\Projects\Personal\SlimeJump\assets\maps\TestTilemap.json\..\RainbowTileset.json
+24:23:043 TilesetManager.loadTileset() [INFO]: Finished loading tileset: RainbowTileset.json
+24:23:044 TilesetManager.loadTileset() [INFO]: Beginning to load tileset from file: D:\GameDev\Projects\Personal\SlimeJump\assets\maps\TestTilemap.json\..\TestTileset.json
+24:23:053 TilesetManager.loadTileset() [INFO]: Finished loading tileset: TestTileset.json
+24:23:075 MapManager.loadMap() [INFO]: Finished loading map: TestTilemap.json

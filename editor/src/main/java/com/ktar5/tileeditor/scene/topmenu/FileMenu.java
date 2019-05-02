@@ -21,7 +21,7 @@ public class FileMenu extends Menu {
         }));
 
         final MenuItem openTileset = new MenuItem("Open Tileset", new KChangeListener((changeEvent, actor) -> {
-            TilesetManager.get().loadTileset(wholeTileset -> {
+            TilesetManager.get().loadTileset(Tileset -> {
 //                    EditorCoordinator.get().getEditor().setSelectedTab(baseTileset.getId());
             }, true);
         }));

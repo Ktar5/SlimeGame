@@ -4,9 +4,8 @@ import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.ktar5.tileeditor.tilemap.Tilemap;
 import com.ktar5.tileeditor.tilemap.TilemapActor;
-import com.ktar5.tileeditor.tilemap.whole.WholeTile;
-import com.ktar5.tileeditor.tileset.BaseTileset;
 import com.ktar5.tileeditor.tileset.Tile;
+import com.ktar5.tileeditor.tileset.Tileset;
 import com.ktar5.utilities.common.constants.Direction;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -18,11 +17,11 @@ import java.util.Optional;
 @Getter
 public class TileLayer extends BaseLayer {
     @Getter(AccessLevel.NONE)
-    protected WholeTile[][] grid;
+    protected Tile[][] grid;
 
     public TileLayer(Tilemap parent, JSONObject json) {
         super(parent, json);
-        grid = new WholeTile[parent.getNumTilesWide()][parent.getNumTilesHigh()];
+        grid = new Tile[parent.getNumTilesWide()][parent.getNumTilesHigh()];
         JSONArray jsonArray = json.getJSONArray("tiles");
         String[][] blocks = new String[jsonArray.length()][];
         for (int i = 0; i < jsonArray.length(); i++) {
@@ -52,7 +51,7 @@ public class TileLayer extends BaseLayer {
 
     public TileLayer(Tilemap parent, String name, boolean visible, int xOffset, int yOffset) {
         super(parent, name, visible, xOffset, yOffset);
-        this.grid = new WholeTile[getParent().getNumTilesWide()][getParent().getNumTilesHigh()];
+        this.grid = new Tile[getParent().getNumTilesWide()][getParent().getNumTilesHigh()];
     }
 
     @Override
@@ -74,8 +73,8 @@ public class TileLayer extends BaseLayer {
                 }
 
                 TextureRegion tileImage = grid[col][row].getTextureRegion();
-                float x = actor.getTotalX() + (col * getParent().getTileWidth() * scale);
-                float y = actor.getTotalY() + (row * getParent().getTileHeight() * scale);
+                float x = actor.getRenderX() + (col * getParent().getTileWidth() * scale);
+                float y = actor.getRenderY() + (row * getParent().getTileHeight() * scale);
                 x += (getParent().getTileWidth() / 2f) * (scale - 1);
                 y += (getParent().getTileHeight() / 2f) * (scale - 1);
                 batch.draw(tileImage, (int) x, (int) y,
@@ -125,10 +124,10 @@ public class TileLayer extends BaseLayer {
         if (!block.equals("0")) {
             String[] split = block.split("_");
             if (split.length == 2) {
-                this.grid[x][y] = new WholeTile(Integer.valueOf(split[1]), 0,
+                this.grid[x][y] = new Tile(Integer.valueOf(split[1]), 0,
                         getParent().getTilesets().getTileset(Integer.valueOf(split[0])));
             } else if (split.length == 3) {
-                this.grid[x][y] = new WholeTile(Integer.valueOf(split[1]), Integer.valueOf(split[2]),
+                this.grid[x][y] = new Tile(Integer.valueOf(split[1]), Integer.valueOf(split[2]),
                         getParent().getTilesets().getTileset(Integer.valueOf(split[0])));
             } else {
                 System.out.println("Length > 3 error");
@@ -148,11 +147,11 @@ public class TileLayer extends BaseLayer {
             return Optional.of(grid[x][y]);
     }
 
-    public void setTile(int blockId, int direction, BaseTileset tileset, int x, int y) {
+    public void setTile(int blockId, int direction, Tileset tileset, int x, int y) {
 
     }
 
-    public void setTile(WholeTile tile, int x, int y) {
+    public void setTile(Tile tile, int x, int y) {
 
     }
 

@@ -5,7 +5,6 @@ import com.ktar5.tileeditor.scene.dialogs.GenericAlert;
 import com.ktar5.tileeditor.scene.sidebars.tileset.MapTilesetTab;
 import com.ktar5.tileeditor.scene.tabs.TilemapTab;
 import com.ktar5.tileeditor.tilemap.Tilemap;
-import com.ktar5.tileeditor.tilemap.whole.WholeTileset;
 import lombok.Getter;
 import org.json.JSONArray;
 
@@ -15,10 +14,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Tilesets extends ArrayList<BaseTileset> {
+public class Tilesets extends ArrayList<Tileset> {
     private Tilemap parent;
     @Getter
-    private ArrayList<BaseTileset> tilesets;
+    private ArrayList<Tileset> tilesets;
     private Map<String, Integer> tilesetNameMap;
 
     public Tilesets(Tilemap parent) {
@@ -37,7 +36,7 @@ public class Tilesets extends ArrayList<BaseTileset> {
     public String toString() {
         StringBuilder stringBuilder = new StringBuilder("tilesets: ");
         int i = 0;
-        for (BaseTileset tileset : tilesets) {
+        for (Tileset tileset : tilesets) {
             stringBuilder.append(i).append(": ").append(tileset.getName());
             i++;
         }
@@ -52,7 +51,7 @@ public class Tilesets extends ArrayList<BaseTileset> {
     private void loadTileset(String path) {
         System.out.println("Loading tileset: " + path);
         File file = Paths.get(parent.getSaveFile().getPath()).resolve(path).toFile();
-        BaseTileset tileset = TilesetManager.get().getOrLoadTileset(file, false);
+        Tileset tileset = TilesetManager.get().getOrLoadTileset(file, false);
         System.out.println("Does tileset: " + path + " equal null?: " + (tileset == null));
         if (tileset.getTileHeight() != parent.getTileHeight() || tileset.getTileWidth() != parent.getTileWidth()) {
             new GenericAlert("Tileset's tilesize does not match map's tilesize");
@@ -74,19 +73,19 @@ public class Tilesets extends ArrayList<BaseTileset> {
         return json;
     }
 
-    public void addTileset(BaseTileset wholeTileset) {
-        if (tilesets.contains(wholeTileset)) {
+    public void addTileset(Tileset Tileset) {
+        if (tilesets.contains(Tileset)) {
             return;
         }
-        tilesets.add(wholeTileset);
-        tilesetNameMap.put(wholeTileset.getName().toLowerCase(), tilesets.size() - 1);
+        tilesets.add(Tileset);
+        tilesetNameMap.put(Tileset.getName().toLowerCase(), tilesets.size() - 1);
         TilemapTab tab = (TilemapTab) Main.getInstance().getRoot().getTabHoldingPane().getTab(parent.getId());
-        tab.getTilesetSidebar().getTabHoldingPane().addTab(new MapTilesetTab(wholeTileset));
+        tab.getTilesetSidebar().getTabHoldingPane().addTab(new MapTilesetTab(Tileset, tab.getTilesetSidebar()));
     }
 
-    public void removeTileset(WholeTileset wholeTileset) {
-        tilesets.remove(wholeTileset);
-        tilesetNameMap.remove(wholeTileset.getName().toLowerCase());
+    public void removeTileset(Tileset Tileset) {
+        tilesets.remove(Tileset);
+        tilesetNameMap.remove(Tileset.getName().toLowerCase());
     }
 
     public void removeTileset(int index) {
@@ -94,22 +93,22 @@ public class Tilesets extends ArrayList<BaseTileset> {
             new GenericAlert("Cannot remove tileset id greater than size: " + index);
             return;
         }
-        BaseTileset remove = tilesets.remove(index);
+        Tileset remove = tilesets.remove(index);
         tilesetNameMap.remove(remove.getName().toLowerCase());
     }
 
-    public BaseTileset getTileset(String name) {
+    public Tileset getTileset(String name) {
         if (tilesetNameMap.containsKey(name.toLowerCase())) {
             return tilesets.get(tilesetNameMap.get(name.toLowerCase()));
         }
         return null;
     }
 
-    public int getIndexByTileset(BaseTileset tileset) {
+    public int getIndexByTileset(Tileset tileset) {
         return tilesetNameMap.get(tileset.getName().toLowerCase());
     }
 
-    public BaseTileset getTileset(int index) {
+    public Tileset getTileset(int index) {
         if (index >= tilesets.size()) {
             new GenericAlert("Cannot remove tileset id greater than size: " + index);
             return null;

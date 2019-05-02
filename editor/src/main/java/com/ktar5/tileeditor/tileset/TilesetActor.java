@@ -5,15 +5,17 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.scenes.scene2d.utils.ScissorStack;
 import com.ktar5.tileeditor.scene.utils.ZoomablePannableWidget;
+import lombok.Getter;
 
+@Getter
 public class TilesetActor extends ZoomablePannableWidget {
-    private final BaseTileset tileset;
+    private final Tileset tileset;
 
-    public TilesetActor(BaseTileset tileset) {
+    public TilesetActor(Tileset tileset) {
         this.tileset = tileset;
     }
 
-    Rectangle clip = new Rectangle();
+    private Rectangle clip = new Rectangle();
 
     @Override
     public void draw(Batch batch, float parentAlpha) {
@@ -33,8 +35,8 @@ public class TilesetActor extends ZoomablePannableWidget {
             int col = i % tileset.getColumns();
 
 
-            float x = getTotalX() + (col * tileset.getTileWidth() * scale);
-            float y = getTotalY() + (row * tileset.getTileHeight() * scale);
+            float x = getRenderX() + (col * tileset.getTileWidth() * scale);
+            float y = getRenderY() + (row * tileset.getTileHeight() * scale);
 
             batch.draw(tileset.getTileImages().get(i), (int) x, (int) y, 0, 0,
                     tileset.getTileWidth(), tileset.getTileHeight(), scale, scale, 0);
@@ -47,19 +49,19 @@ public class TilesetActor extends ZoomablePannableWidget {
         //Down to up
         for (int i = 1; i < tileset.getColumns(); i++) {
             drawDottedLine(shapeRenderer, 2,
-                    getTotalX() + (i * tileset.getTileWidth() * scale),
-                    getTotalY(),
-                    getTotalX() + (i * tileset.getTileWidth() * scale),
-                    getTotalY() + (tileset.getDimensionY() * scale));
+                    getRenderX() + (i * tileset.getTileWidth() * scale),
+                    getRenderY(),
+                    getRenderX() + (i * tileset.getTileWidth() * scale),
+                    getRenderY() + (tileset.getDimensionY() * scale));
         }
 
         //Left to right
         for (int i = 1; i < tileset.getRows(); i++) {
             drawDottedLine(shapeRenderer, 2,
-                    getTotalX(),
-                    getTotalY() + (i * tileset.getTileHeight() * scale),
-                    getTotalX() + (tileset.getDimensionX() * scale),
-                    getTotalY() + (i * tileset.getTileHeight() * scale));
+                    getRenderX(),
+                    getRenderY() + (i * tileset.getTileHeight() * scale),
+                    getRenderX() + (tileset.getDimensionX() * scale),
+                    getRenderY() + (i * tileset.getTileHeight() * scale));
         }
 
         shapeRenderer.end();
@@ -69,11 +71,11 @@ public class TilesetActor extends ZoomablePannableWidget {
 
     @Override
     public float getContentCenterX() {
-        return getTotalX() + (tileset.getDimensionX() * scale / 2f);
+        return getRenderX() + (tileset.getDimensionX() * scale / 2f);
     }
 
     @Override
     public float getContentCenterY() {
-        return getTotalY() + (tileset.getDimensionY() * scale / 2f);
+        return getRenderY() + (tileset.getDimensionY() * scale / 2f);
     }
 }

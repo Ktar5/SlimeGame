@@ -1,5 +1,6 @@
 package com.ktar5.tileeditor.scene.utils;
 
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -28,11 +29,23 @@ public abstract class ZoomablePannableWidget extends Widget {
         shapeRenderer.setAutoShapeType(true);
 
         addListener(new InputListener() {
-            float lastX, lastY;
+            private float lastX, lastY;
+            private boolean isDragging = false;
+
+            @Override
+            public void touchUp(InputEvent event, float x, float y, int pointer, int button) {
+                if (button == Input.Buttons.MIDDLE) {
+                    isDragging = false;
+                }
+            }
 
             //TODO have a max allowed distance away from the edge from the center
             @Override
             public void touchDragged(InputEvent event, float mx, float my, int pointer) {
+                if (!isDragging) {
+                    return;
+                }
+
                 panX += mx - lastX;
                 panY += my - lastY;
 //                if (getContentCenterX() >= getWidth() + getX() && getContentCenterX() > (5 * scale) + (getWidth() + getX())) {
@@ -72,9 +85,14 @@ public abstract class ZoomablePannableWidget extends Widget {
 
             @Override
             public boolean touchDown(InputEvent event, float x, float y, int pointer, int button) {
-                lastX = x;
-                lastY = y;
-                return true;
+                if (button == Input.Buttons.MIDDLE) {
+                    isDragging = true;
+                    lastX = x;
+                    lastY = y;
+                    return true;
+                } else {
+                    return false;
+                }
             }
 
         });
@@ -109,11 +127,11 @@ public abstract class ZoomablePannableWidget extends Widget {
         panY = panY - (newCY - previousCY);
     }
 
-    public float getTotalX() {
+    public float getRenderX() {
         return getPanX() + getX() + (getWidth() / 2);
     }
 
-    public float getTotalY() {
+    public float getRenderY() {
         return getPanY() + getY() + (getHeight() / 2);
     }
 

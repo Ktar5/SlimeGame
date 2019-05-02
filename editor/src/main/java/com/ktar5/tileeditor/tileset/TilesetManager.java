@@ -6,10 +6,9 @@ import com.kotcrab.vis.ui.widget.file.FileChooser;
 import com.kotcrab.vis.ui.widget.file.FileChooserAdapter;
 import com.kotcrab.vis.ui.widget.file.FileTypeFilter;
 import com.ktar5.tileeditor.Main;
-import com.ktar5.tileeditor.scene.dialogs.CreateWholeTileset;
+import com.ktar5.tileeditor.scene.dialogs.CreateTileset;
 import com.ktar5.tileeditor.scene.dialogs.GenericAlert;
 import com.ktar5.tileeditor.scene.tabs.TilesetTab;
-import com.ktar5.tileeditor.tilemap.whole.WholeTileset;
 import com.ktar5.tileeditor.util.StringUtil;
 import org.json.JSONObject;
 import org.pmw.tinylog.Logger;
@@ -23,7 +22,7 @@ import java.util.function.Consumer;
 
 public class TilesetManager {
     private static TilesetManager instance;
-    private HashMap<UUID, BaseTileset> tilesetHashMap;
+    private HashMap<UUID, Tileset> tilesetHashMap;
 
     public TilesetManager() {
         this.tilesetHashMap = new HashMap<>();
@@ -52,15 +51,15 @@ public class TilesetManager {
     /**
      * Return the tileset (if it exists) with the given id
      */
-    public BaseTileset getTileset(UUID id) {
+    public Tileset getTileset(UUID id) {
         if (!tilesetHashMap.containsKey(id)) {
-            throw new RuntimeException("BaseTileset with id: " + id + " doesn't exist");
+            throw new RuntimeException("Tileset with id: " + id + " doesn't exist");
         }
         return tilesetHashMap.get(id);
     }
 
     public void createTileset() {
-        CreateWholeTileset.create(this::createTileset);
+        CreateTileset.create(this::createTileset);
     }
 
     /**
@@ -68,14 +67,14 @@ public class TilesetManager {
      *
      * @return the tileset of type <T> that has been instantiated, otherwise null
      */
-    public WholeTileset createTileset(CreateWholeTileset createDialog) {
+    public Tileset createTileset(CreateTileset createDialog) {
         if (createDialog == null) {
             new GenericAlert("Something went wrong during the process of creating the tileset, please try again.");
             return null;
         }
 
         File tilesetFile = createDialog.getTilesetFile().file();
-        for (BaseTileset tileset1 : tilesetHashMap.values()) {
+        for (Tileset tileset1 : tilesetHashMap.values()) {
             if (tileset1.getSaveFile().getPath().equals(tilesetFile.getPath())) {
                 new GenericAlert("Tileset with path " + tilesetFile.getAbsolutePath() + " already loaded.\n" +
                         "Please close tab for " + tilesetFile.getName() + " then try creating new tileset again.");
@@ -83,7 +82,7 @@ public class TilesetManager {
             }
         }
 
-        WholeTileset tileset = new WholeTileset(createDialog.getSourceFile().file(), createDialog.getTilesetFile().file(),
+        Tileset tileset = new Tileset(createDialog.getSourceFile().file(), createDialog.getTilesetFile().file(),
                 createDialog.getPaddingVertical(), createDialog.getPaddingHorizontal(),
                 createDialog.getOffsetLeft(), createDialog.getOffsetUp(),
                 createDialog.getTileWidth(), createDialog.getTileHeight());
@@ -94,15 +93,15 @@ public class TilesetManager {
     }
 
     //TODO Optimize
-    public BaseTileset getOrLoadTileset(File loaderFile, boolean openTab) {
+    public Tileset getOrLoadTileset(File loaderFile, boolean openTab) {
         String data = StringUtil.readFileAsString(loaderFile);
         if (data == null || data.isEmpty()) {
             return null;
         }
 
-        WholeTileset tileset = new WholeTileset(loaderFile, new JSONObject(data));
+        Tileset tileset = new Tileset(loaderFile, new JSONObject(data));
 
-        for (BaseTileset temp : tilesetHashMap.values()) {
+        for (Tileset temp : tilesetHashMap.values()) {
             if (temp.getSaveFile().getPath().equals(tileset.getSaveFile().getPath())) {
                 return temp;
             }
@@ -115,7 +114,7 @@ public class TilesetManager {
      *
      * @return the tileset of type <T> that has been instantiated, otherwise null
      */
-    public WholeTileset loadTileset(File loaderFile, boolean openTab) {
+    public Tileset loadTileset(File loaderFile, boolean openTab) {
         Logger.info("Beginning to load tileset from file: " + loaderFile.getPath());
 
         String data = StringUtil.readFileAsString(loaderFile);
@@ -123,9 +122,9 @@ public class TilesetManager {
             return null;
         }
 
-        WholeTileset tileset = new WholeTileset(loaderFile, new JSONObject(data));
+        Tileset tileset = new Tileset(loaderFile, new JSONObject(data));
 
-        for (BaseTileset temp : tilesetHashMap.values()) {
+        for (Tileset temp : tilesetHashMap.values()) {
             if (temp.getSaveFile().getPath().equals(tileset.getSaveFile().getPath())) {
                 new GenericAlert("Tileset with path " + tileset.getSaveFile().getAbsolutePath() + " already loaded");
             }
@@ -143,7 +142,7 @@ public class TilesetManager {
      * Loads a tileset from a file selected in an "open file" dialog, and instantiates it using
      * the serialization constructor of tileset.
      */
-    public void loadTileset(Consumer<WholeTileset> consumer, boolean openTab) {
+    public void loadTileset(Consumer<Tileset> consumer, boolean openTab) {
         FileChooser fileChooser = Main.getInstance().getRoot().getFileChooser();
         fileChooser.setMode(com.kotcrab.vis.ui.widget.file.FileChooser.Mode.OPEN);
         fileChooser.setSelectionMode(com.kotcrab.vis.ui.widget.file.FileChooser.SelectionMode.FILES);
@@ -176,32 +175,32 @@ public class TilesetManager {
      * @param id the uuid of the tileset to be saved.
      */
     public void saveTileset(UUID id) {
-        Logger.info("Starting save for baseTileset (" + id + ")");
+        Logger.info("Starting save for tileset (" + id + ")");
 
         if (!tilesetHashMap.containsKey(id)) {
-            Logger.info("BaseTileset not loaded so could not be saved id: (" + id + ")");
+            Logger.info("Tileset not loaded so could not be saved id: (" + id + ")");
             return;
         }
 
-        BaseTileset baseTileset = tilesetHashMap.get(id);
+        Tileset tileset = tilesetHashMap.get(id);
 
-        if (baseTileset.getSaveFile().exists()) {
-            baseTileset.getSaveFile().delete();
+        if (tileset.getSaveFile().exists()) {
+            tileset.getSaveFile().delete();
         }
 
         try {
-            baseTileset.getSaveFile().createNewFile();
-            FileWriter writer = new FileWriter(baseTileset.getSaveFile());
-            writer.write(baseTileset.serialize().toString(4));
+            tileset.getSaveFile().createNewFile();
+            FileWriter writer = new FileWriter(tileset.getSaveFile());
+            writer.write(tileset.serialize().toString(4));
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();
             Logger.error("An error occured during save");
             return;
         }
-        Main.getInstance().getRoot().getTabHoldingPane().getTab(baseTileset.getId()).setEdit(false);
-        Main.getInstance().getRoot().getTabHoldingPane().getTab(baseTileset.getId()).setDirty(false);
-        Logger.info("Finished save for baseTileset (" + id + ") in " + "\"" + baseTileset.getSaveFile() + "\"");
+        Main.getInstance().getRoot().getTabHoldingPane().getTab(tileset.getId()).setEdit(false);
+        Main.getInstance().getRoot().getTabHoldingPane().getTab(tileset.getId()).setDirty(false);
+        Logger.info("Finished save for tileset (" + id + ") in " + "\"" + tileset.getSaveFile() + "\"");
     }
 
 

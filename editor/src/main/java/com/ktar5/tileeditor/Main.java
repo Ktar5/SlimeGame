@@ -4,7 +4,9 @@ import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.kotcrab.vis.ui.VisUI;
 import com.ktar5.gameengine.EngConst;
 import com.ktar5.tileeditor.scene.Root;
@@ -16,12 +18,16 @@ public class Main implements ApplicationListener {
     private Root root;
     private SpriteBatch spriteBatch;
 
+    private TextureRegion selection;
+
+
     public static Main getInstance() {
         return instance;
     }
 
     public void create() {
         instance = this;
+        selection = new TextureRegion(new Texture(Gdx.files.internal("textures/selection-highlight.png")));
         VisUI.load();
         root = new Root();
         root.injectFileChooser();

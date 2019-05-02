@@ -1,0 +1,14 @@
+{
+    "padding": {
+        "horizontal": 1,
+        "vertical": 1
+    },
+    "offset": {
+        "left": 1,
+        "up": 1
+    },
+    "tileWidth": 16,
+    "sourceFile": "..\\tileset\\tilemapimage.png",
+    "properties": {},
+    "tileHeight": 16
+}

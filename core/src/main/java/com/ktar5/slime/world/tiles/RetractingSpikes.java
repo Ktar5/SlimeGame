@@ -28,8 +28,10 @@ public class RetractingSpikes extends WholeTile {
 
     @Override
     public void reset() {
+        tween.kill();
         retracted = true;
         percentRetracted = 0;
+        setGraphic(0);
     }
 
     @Override
@@ -39,12 +41,13 @@ public class RetractingSpikes extends WholeTile {
         }
     }
 
+    Timeline tween;
     @Override
     public void onCross(Entity entity) {
         if (retracted) {
 
             System.out.println("Attempting to start tween");
-            Timeline.createSequence()
+            tween = Timeline.createSequence()
                     .pushPause(.5f)
                     .push(Tween.to(this, 0, 1).target(100).ease(Linear.INOUT))
                     .pushPause(1.0f)
@@ -64,6 +67,13 @@ public class RetractingSpikes extends WholeTile {
     }
 
     public void updatePercentRetracted(int newValue, int lowering) {
+        if (!this.retracted) {
+            JumpPlayer player = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getPlayer();
+            if (((int) (player.position.x / 16)) == this.x && ((int) (player.position.y / 16)) == this.y) {
+                player.kill();
+            }
+        }
+
         if (lowering == 1) { //This means that new value is going from 100 to 0
             //TODO figure out how we want the speed of the animation to be
             setGraphic((newValue - 2) / 3);
@@ -74,6 +84,9 @@ public class RetractingSpikes extends WholeTile {
             //TODO figure out how we want the speed of the animation to be
             setGraphic((newValue - 2) / 3);
             retracted = false;
+//            if(newValue > 50){
+//                retracted = false;
+//            }
         }
 
         this.percentRetracted = newValue;

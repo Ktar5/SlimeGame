@@ -1,10 +1,42 @@
-54:23:840 MapManager.loadMap() [INFO]: Beginning to load map from file: D:\GameDev\Projects\Personal\SlimeJump\assets\maps\TestTilemap.json
-54:23:861 Tilesets.loadTileset() [DEBUG]: Loading tileset: ..\RainbowTileset.json
-54:23:873 TilesetManager.loadTileset() [INFO]: Beginning to load tileset from file: D:\GameDev\Projects\Personal\SlimeJump\assets\maps\TestTilemap.json\..\RainbowTileset.json
-54:23:889 TilesetManager.loadTileset() [INFO]: Finished loading tileset: RainbowTileset.json
-54:23:889 Tilesets.loadTileset() [DEBUG]: Does tileset: ..\RainbowTileset.json equal null?: false
-54:23:890 Tilesets.loadTileset() [DEBUG]: Loading tileset: ..\TestTileset.json
-54:23:891 TilesetManager.loadTileset() [INFO]: Beginning to load tileset from file: D:\GameDev\Projects\Personal\SlimeJump\assets\maps\TestTilemap.json\..\TestTileset.json
-54:23:900 TilesetManager.loadTileset() [INFO]: Finished loading tileset: TestTileset.json
-54:23:900 Tilesets.loadTileset() [DEBUG]: Does tileset: ..\TestTileset.json equal null?: false
-54:23:921 MapManager.loadMap() [INFO]: Finished loading map: TestTilemap.json
+58:22:328 LoadingScreen.show() [DEBUG]: Starting loading screen
+58:22:329 LoadingScreen.show() [DEBUG]: Starting load of loading screen resources
+58:22:341 LoadingScreen.show() [DEBUG]: Finished loading of loading screen resources
+58:23:105 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
+58:23:105 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+58:23:105 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+58:23:111 LoadingScreen.render() [DEBUG]: Updating load.. 1.0%
+58:23:111 LoadingScreen.render() [DEBUG]: Finished loading all assets!
+58:23:131 LoadingScreen.hide() [DEBUG]: Disposed of the loading resources
+58:24:660 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.Running
+58:24:660 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.PauseWithBlur2
+58:24:660 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.Winning
+58:24:660 GameScreen.show() [DEBUG]: Display started for GameScreen
+58:24:662 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
+58:24:662 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+58:24:663 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+58:54:140 LevelHandler.advanceLevel() [DEBUG]: Advanced Level: java.lang.Throwable
+	at com.ktar5.slime.world.level.LevelHandler.advanceLevel(LevelHandler.java:61)
+	at com.ktar5.slime.screens.gamestate.Winning.onUpdate(Winning.java:134)
+	at com.ktar5.gameengine.statemachine.State.update(State.java:17)
+	at com.ktar5.gameengine.statemachine.SimpleStateMachine.update(SimpleStateMachine.java:61)
+	at com.ktar5.slime.screens.GameScreen.update(GameScreen.java:54)
+	at com.ktar5.gameengine.core.AbstractGame.render(AbstractGame.java:65)
+	at com.badlogic.gdx.backends.lwjgl.LwjglApplication.mainLoop(LwjglApplication.java:225)
+	at com.badlogic.gdx.backends.lwjgl.LwjglApplication$1.run(LwjglApplication.java:126)
+58:54:144 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
+58:54:144 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+58:54:144 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+58:58:157 LevelHandler.advanceLevel() [DEBUG]: Advanced Level: java.lang.Throwable
+	at com.ktar5.slime.world.level.LevelHandler.advanceLevel(LevelHandler.java:61)
+	at com.ktar5.slime.screens.gamestate.Winning.onUpdate(Winning.java:134)
+	at com.ktar5.gameengine.statemachine.State.update(State.java:17)
+	at com.ktar5.gameengine.statemachine.SimpleStateMachine.update(SimpleStateMachine.java:61)
+	at com.ktar5.slime.screens.GameScreen.update(GameScreen.java:54)
+	at com.ktar5.gameengine.core.AbstractGame.render(AbstractGame.java:65)
+	at com.badlogic.gdx.backends.lwjgl.LwjglApplication.mainLoop(LwjglApplication.java:225)
+	at com.badlogic.gdx.backends.lwjgl.LwjglApplication$1.run(LwjglApplication.java:126)
+58:58:159 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
+58:58:160 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+58:58:160 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+58:59:161 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+58:59:161 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove

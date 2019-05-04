@@ -6,25 +6,26 @@
     "layers": [
         {
             "tiles": [
-                "0,0,0,0",
-                "0,1_2,1_2,0",
-                "0,1_2,1_2,0",
-                "0,0,0,0"
+                "0_36,0_59,0_59,0_36",
+                "0_36,0_52,0_52,0_36",
+                "0_36,0_52,0_52,0_36",
+                "0_36,0_59,0_59,0_36"
             ],
             "visible": true,
             "offset": {
                 "x": 0,
                 "y": 0
             },
-            "name": "layer0",
+            "transparency": 100,
+            "name": "layer1",
             "class": "com.ktar5.tileeditor.tilemap.layers.TileLayer",
             "properties": {}
         },
         {
             "tiles": [
                 "0,0,0,0",
-                "0,0,0,0",
-                "0,0,0,0",
+                "0,0_3,0_3,0",
+                "0,0_3,0_3,0",
                 "0,0,0,0"
             ],
             "visible": true,
@@ -32,12 +33,16 @@
                 "x": 0,
                 "y": 0
             },
-            "name": "layer1",
+            "transparency": 62,
+            "name": "layer0",
             "class": "com.ktar5.tileeditor.tilemap.layers.TileLayer",
             "properties": {}
         }
     ],
-    "properties": {"Test": "None"},
+    "properties": {
+        "Test": "YOLO",
+        "Testing2": "None"
+    },
     "dimensions": {
         "numTilesHigh": 4,
         "numTilesWide": 4,

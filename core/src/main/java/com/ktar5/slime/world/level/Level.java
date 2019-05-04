@@ -86,6 +86,8 @@ public class Level {
                 backgrounds.add(layers.getIndex(layer));
             } else if (layer.getName().equalsIgnoreCase("Gameplay")) {
                 gameplayLayer = layer;
+                layer.setVisible(false);
+                layer.setOpacity(.3f);
                 foregrounds.add(layers.getIndex(layer));
                 gameplayLayer.setVisible(showDebugLevel);
             } else if (layer.getName().equalsIgnoreCase("Properties")) {

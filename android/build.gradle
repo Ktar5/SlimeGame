@@ -33,7 +33,7 @@ android {
     }
     defaultConfig {
         applicationId 'com.ktar5.slime'
-        minSdkVersion 14
+        minSdkVersion 15
         targetSdkVersion 28
     }
 }
@@ -53,6 +53,7 @@ dependencies {
     natives "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-arm64-v8a"
     natives "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-x86"
     natives "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-x86_64"
+    api "de.golfgl.gdxgameanalytics:gdx-gameanalytics-android:0.1.3"
 }
 
 // Called every time gradle gets executed, takes the native dependencies of

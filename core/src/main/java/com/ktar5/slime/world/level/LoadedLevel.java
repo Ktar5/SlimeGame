@@ -4,10 +4,12 @@ import com.ktar5.gameengine.camera.CameraFollow;
 import com.ktar5.gameengine.core.EngineManager;
 import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.gameengine.util.Updatable;
+import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.entities.EntityData;
 import com.ktar5.slime.entities.player.JumpPlayer;
 import com.ktar5.slime.variables.Constants;
 import com.ktar5.slime.world.tiles.base.Tile;
+import de.golfgl.gdxgameanalytics.GameAnalytics;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -32,6 +34,11 @@ public class LoadedLevel extends Level implements Updatable {
         }
         this.player = new JumpPlayer(this);
         ((CameraFollow) EngineManager.get().getCameraBase()).setPosition(player.position);
+
+        if(SlimeGame.getGame().getGameAnalytics() != null){
+            SlimeGame.getGame().getGameAnalytics().submitProgressionEvent(GameAnalytics.ProgressionStatus.Start,
+                    String.valueOf(getId()),"", "");
+        }
     }
 
     @Override

@@ -249,7 +249,10 @@
 </data>
  </layer>
  <imagelayer id="20" name="Art_Image">
-  <image source="tileset/lightmap.png"/>
+  <image source="tileset/lightmap.png" width="720" height="720"/>
+  <properties>
+   <property name="Front" value=""/>
+  </properties>
  </imagelayer>
  <layer id="13" name="Gameplay" width="45" height="45" visible="0" locked="1" opacity="0.2">
   <data encoding="csv">

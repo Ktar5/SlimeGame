@@ -18,6 +18,7 @@ import com.ktar5.gameengine.postprocessing.utils.ShaderLoader;
 import com.ktar5.gameengine.rendering.Renderable;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.screens.GameScreen;
+import de.golfgl.gdxgameanalytics.GameAnalytics;
 
 import java.util.Collections;
 import java.util.List;
@@ -107,6 +108,9 @@ public class Winning extends GameState {
                 + " tiles in slime!");
         winText.setText("You got the treasure on level " +
                 SlimeGame.getGame().getLevelHandler().getCurrentLevel().getId() + "!");
+
+        SlimeGame.getGame().getGameAnalytics().submitProgressionEvent(GameAnalytics.ProgressionStatus.Complete,
+                String.valueOf(SlimeGame.getGame().getLevelHandler().getCurrentLevel().getId()),"", "");
     }
 
     @Override

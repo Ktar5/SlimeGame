@@ -1,6 +1,8 @@
 package com.ktar5.slime;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.kotcrab.vis.ui.VisUI;
 import com.ktar5.gameengine.camera.CameraBase;
@@ -16,6 +18,7 @@ import com.ktar5.slime.misc.PixelPerfectViewport;
 import com.ktar5.slime.screens.LoadingScreen;
 import com.ktar5.slime.world.level.LevelHandler;
 import com.ktar5.slime.world.tiles.RetractingSpikes;
+import de.golfgl.gdxgameanalytics.GameAnalytics;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -29,12 +32,29 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
     @Setter
     private LevelHandler levelHandler;
 
+    private GameAnalytics gameAnalytics;
+
     public SlimeGame() {
         instance = this;
     }
 
     public static SlimeGame getGame() {
+        if(instance.gameAnalytics == null){
+            instance.initGameAnalytics();
+        }
         return instance;
+    }
+
+    @Override
+    public void pause() {
+        super.pause();
+        gameAnalytics.closeSession();
+    }
+
+    @Override
+    public void resume() {
+        super.resume();
+        gameAnalytics.startSession();
     }
 
     @Override
@@ -74,6 +94,24 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
     @Override
     public SlimeGame getThis() {
         return this;
+    }
+
+    String gameVersionNumber = "0.5.0";
+    boolean devMode = true;
+
+    protected void initGameAnalytics() {
+        gameAnalytics = new GameAnalytics();
+        gameAnalytics.setPlatformVersionString("1");
+
+        Preferences prefs = Gdx.app.getPreferences("TESTING");
+        gameAnalytics.setPrefs(prefs);
+        gameAnalytics.setPlatform(GameAnalytics.Platform.Windows);
+        gameAnalytics.setGameBuildNumber(devMode ? "debug" : gameVersionNumber);
+
+//        gameAnalytics.setPrefs();
+        gameAnalytics.setGameKey("58ffd0af688f2a76303fb092abb994ee");
+        gameAnalytics.setGameSecretKey("16dfb7bb5c2a7e50d8ae88876f965691b96b11f5");
+        gameAnalytics.startSession();
     }
 
 }

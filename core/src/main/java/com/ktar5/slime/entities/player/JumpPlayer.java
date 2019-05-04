@@ -12,6 +12,7 @@ import com.ktar5.slime.entities.player.states.Move;
 import com.ktar5.slime.entities.player.states.PlayerState;
 import com.ktar5.slime.entities.player.states.Respawn;
 import com.ktar5.slime.world.level.LoadedLevel;
+import de.golfgl.gdxgameanalytics.GameAnalytics;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -89,6 +90,8 @@ public class JumpPlayer extends PlayerEntity<PlayerState> {
     public void kill() {
         if (!getEntityState().getCurrent().getClass().equals(Respawn.class)) {
             getEntityState().changeStateAfterUpdate(Respawn.class);
+            SlimeGame.getGame().getGameAnalytics().submitProgressionEvent(GameAnalytics.ProgressionStatus.Fail,
+                    String.valueOf(SlimeGame.getGame().getLevelHandler().getCurrentLevel().getId()),"", "");
         }
     }
 

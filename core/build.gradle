@@ -6,5 +6,7 @@ repositories {
 
 dependencies {
     compile project(':gameengine')
+    compile "de.golfgl.gdxgameanalytics:gdx-gameanalytics-core:0.1.3"
+
 }
         

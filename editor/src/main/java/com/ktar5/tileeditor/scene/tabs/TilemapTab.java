@@ -45,6 +45,29 @@ public class TilemapTab extends AbstractTab {
         editorRight.setSplitAmount(.75f);
 
         getContentTable().add(editorRight).grow();
+
+        layerSidebar.getAdapter().getSelectionManager().select(tilemap.getLayers().getActiveLayer());
+    }
+
+    @Override
+    public boolean save() {
+        if (!isSavable()) {
+            return false;
+        }
+        getTabbable().save();
+        return true;
+    }
+
+    @Override
+    public void onClosed() {
+        MapManager.get().remove(getTabId());
+//        propertiesSidebar = null;
+//        tilemapActor = null;
+//        layerSidebar = null;
+//        tilesetSidebar = null;
+//        editorLeft = null;
+//        rightSidebar = null;
+//        editorRight = null;
     }
 
     @Override

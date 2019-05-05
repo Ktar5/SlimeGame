@@ -4,6 +4,7 @@ import com.kotcrab.vis.ui.util.dialog.Dialogs;
 import com.kotcrab.vis.ui.util.dialog.InputDialogAdapter;
 import com.kotcrab.vis.ui.widget.MenuItem;
 import com.kotcrab.vis.ui.widget.PopupMenu;
+import com.ktar5.tileeditor.Main;
 import com.ktar5.tileeditor.properties.ParentProperty;
 import com.ktar5.tileeditor.properties.Property;
 import com.ktar5.tileeditor.properties.StringProperty;
@@ -55,6 +56,7 @@ public class PropertiesRClickMenu extends PopupMenu {
                     Property newProperty = ((ParentProperty) property).createProperty(input, "None");
                     Logger.debug(property.getPath());
                     sidebar.addNode(sidebar.nodes.get(property.getPath()), newProperty);
+                    Main.getInstance().getRoot().getTabHoldingPane().getCurrentTab().setDirty(true);
                 }
             });
         }));
@@ -62,8 +64,9 @@ public class PropertiesRClickMenu extends PopupMenu {
 
         //Delete menu
         MenuItem removeMenuItem = new MenuItem("Delete", new KChangeListener((changeEvent, actor) -> {
-                property.getParent().getChildren().remove(property.getName());
-                sidebar.removeNode(property.getPath());
+            property.getParent().getChildren().remove(property.getName());
+            sidebar.removeNode(property.getPath());
+            Main.getInstance().getRoot().getTabHoldingPane().getCurrentTab().setDirty(true);
         }));
         addItem(removeMenuItem);
     }

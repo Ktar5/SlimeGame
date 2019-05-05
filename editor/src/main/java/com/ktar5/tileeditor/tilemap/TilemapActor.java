@@ -69,12 +69,14 @@ public class TilemapActor extends ZoomablePannableWidget {
                         TileLayer tileLayer = (TileLayer) activeLayer;
                         tileLayer.setTile(selectedTile, (int) tileHovered.x, (int) (tilemap.getNumTilesHigh() - tileHovered.y));
                     }
+                    getTab().setDirty(true);
                 } else if (button == Input.Buttons.RIGHT) {
                     BaseLayer activeLayer = tilemap.getLayers().getActiveLayer();
                     if (activeLayer instanceof TileLayer) {
                         TileLayer tileLayer = (TileLayer) activeLayer;
                         tileLayer.setTile(null, (int) tileHovered.x, (int) (tilemap.getNumTilesHigh() - tileHovered.y));
                     }
+                    getTab().setDirty(true);
                 }
                 buttonTouchedDown = button;
                 return true;

@@ -4,6 +4,7 @@ import com.kotcrab.vis.ui.util.dialog.Dialogs;
 import com.kotcrab.vis.ui.util.dialog.InputDialogAdapter;
 import com.kotcrab.vis.ui.widget.MenuItem;
 import com.kotcrab.vis.ui.widget.PopupMenu;
+import com.ktar5.tileeditor.Main;
 import com.ktar5.tileeditor.properties.Property;
 import com.ktar5.tileeditor.properties.RootProperty;
 import com.ktar5.tileeditor.util.KChangeListener;
@@ -20,6 +21,7 @@ public class PropertiesRootRClickMenu extends PopupMenu {
                     }
                     Property newProperty = property.createProperty(input);
                     sidebar.addNode(sidebar.nodes.get(property.getPath()), newProperty);
+                    Main.getInstance().getRoot().getTabHoldingPane().getCurrentTab().setDirty(true);
                 }
             });
         }));

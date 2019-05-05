@@ -1,4 +1,4 @@
-package com.ktar5.tileeditor.scene.topmenu;
+package com.ktar5.tileeditor.scene.menu;
 
 
 import com.kotcrab.vis.ui.widget.Menu;

@@ -5,6 +5,7 @@ import com.ktar5.tileeditor.scene.dialogs.CreateTilemap;
 import com.ktar5.tileeditor.scene.dialogs.GenericAlert;
 import com.ktar5.tileeditor.scene.dialogs.LoadDialog;
 import com.ktar5.tileeditor.scene.tabs.TilemapTab;
+import com.ktar5.tileeditor.tilemap.layers.TileLayer;
 import com.ktar5.tileeditor.util.StringUtil;
 import org.json.JSONObject;
 import org.pmw.tinylog.Configurator;
@@ -99,9 +100,12 @@ public class MapManager {
                 createTilemap.getHeight(),
                 createTilemap.getTileWidth(),
                 createTilemap.getTileHeight());
-
+        TileLayer tileLayer = new TileLayer(tilemap, "Tile Layer", true, 0, 0);
+        tilemap.getLayers().getLayers().add(tileLayer);
         openMaps.put(tilemap.getId(), tilemap);
-        Main.getInstance().getRoot().getTabHoldingPane().addTab(new TilemapTab(tilemap));
+        TilemapTab tilemapTab = new TilemapTab(tilemap);
+        tilemapTab.setDirty(true);
+        Main.getInstance().getRoot().getTabHoldingPane().addTab(tilemapTab);
     }
 
 
@@ -168,7 +172,6 @@ public class MapManager {
             tilemap.getSaveFile().createNewFile();
             FileWriter writer = new FileWriter(tilemap.getSaveFile());
             writer.write(tilemap.serialize().toString(4));
-            Main.getInstance().getRoot().getTabHoldingPane().getTab(id).setEdit(false);
             Main.getInstance().getRoot().getTabHoldingPane().getTab(id).setDirty(false);
             writer.close();
         } catch (IOException e) {

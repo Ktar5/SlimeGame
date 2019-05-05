@@ -31,6 +31,12 @@ public class TilesetTab extends AbstractTab {
 
         getContentTable().add(propertiesSidebar).width(175).growY();
         getContentTable().add(tilesetActor).grow();
+        setDirty(false);
+    }
+
+    @Override
+    public void onClosed() {
+        TilesetManager.get().remove(getTabId());
     }
 
     @Override

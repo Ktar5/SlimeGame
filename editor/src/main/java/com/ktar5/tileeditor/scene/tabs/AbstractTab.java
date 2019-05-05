@@ -11,7 +11,6 @@ import java.util.UUID;
 @Getter
 public abstract class AbstractTab extends Tab {
     private final UUID tabId;
-    private boolean hasEdits = false;
     private final VisTable content;
 
     public AbstractTab(UUID uuid) {
@@ -22,7 +21,7 @@ public abstract class AbstractTab extends Tab {
 
     @Override
     public String getTabTitle() {
-        return hasEdits ? getTabbable().getName() + "*" : getTabbable().getName();
+        return getTabbable().getName();
     }
 
     @Override
@@ -30,16 +29,10 @@ public abstract class AbstractTab extends Tab {
         return content;
     }
 
+    public abstract void onClosed();
+
     public abstract Tabbable getTabbable();
 
     public abstract void onSelect();
-
-    public void setEdit(boolean value) {
-        if (value == hasEdits) {
-            return;
-        }
-        hasEdits = value;
-        //TODO update name
-    }
 
 }

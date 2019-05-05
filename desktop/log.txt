@@ -1,42 +1,22 @@
-58:22:328 LoadingScreen.show() [DEBUG]: Starting loading screen
-58:22:329 LoadingScreen.show() [DEBUG]: Starting load of loading screen resources
-58:22:341 LoadingScreen.show() [DEBUG]: Finished loading of loading screen resources
-58:23:105 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
-58:23:105 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
-58:23:105 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
-58:23:111 LoadingScreen.render() [DEBUG]: Updating load.. 1.0%
-58:23:111 LoadingScreen.render() [DEBUG]: Finished loading all assets!
-58:23:131 LoadingScreen.hide() [DEBUG]: Disposed of the loading resources
-58:24:660 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.Running
-58:24:660 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.PauseWithBlur2
-58:24:660 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.Winning
-58:24:660 GameScreen.show() [DEBUG]: Display started for GameScreen
-58:24:662 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
-58:24:662 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
-58:24:663 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
-58:54:140 LevelHandler.advanceLevel() [DEBUG]: Advanced Level: java.lang.Throwable
-	at com.ktar5.slime.world.level.LevelHandler.advanceLevel(LevelHandler.java:61)
-	at com.ktar5.slime.screens.gamestate.Winning.onUpdate(Winning.java:134)
-	at com.ktar5.gameengine.statemachine.State.update(State.java:17)
-	at com.ktar5.gameengine.statemachine.SimpleStateMachine.update(SimpleStateMachine.java:61)
-	at com.ktar5.slime.screens.GameScreen.update(GameScreen.java:54)
-	at com.ktar5.gameengine.core.AbstractGame.render(AbstractGame.java:65)
-	at com.badlogic.gdx.backends.lwjgl.LwjglApplication.mainLoop(LwjglApplication.java:225)
-	at com.badlogic.gdx.backends.lwjgl.LwjglApplication$1.run(LwjglApplication.java:126)
-58:54:144 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
-58:54:144 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
-58:54:144 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
-58:58:157 LevelHandler.advanceLevel() [DEBUG]: Advanced Level: java.lang.Throwable
-	at com.ktar5.slime.world.level.LevelHandler.advanceLevel(LevelHandler.java:61)
-	at com.ktar5.slime.screens.gamestate.Winning.onUpdate(Winning.java:134)
-	at com.ktar5.gameengine.statemachine.State.update(State.java:17)
-	at com.ktar5.gameengine.statemachine.SimpleStateMachine.update(SimpleStateMachine.java:61)
-	at com.ktar5.slime.screens.GameScreen.update(GameScreen.java:54)
-	at com.ktar5.gameengine.core.AbstractGame.render(AbstractGame.java:65)
-	at com.badlogic.gdx.backends.lwjgl.LwjglApplication.mainLoop(LwjglApplication.java:225)
-	at com.badlogic.gdx.backends.lwjgl.LwjglApplication$1.run(LwjglApplication.java:126)
-58:58:159 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
-58:58:160 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
-58:58:160 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
-58:59:161 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
-58:59:161 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+53:44:637 MapManager.loadMap() [INFO]: Beginning to load map from file: D:\GameDev\Projects\Personal\SlimeJump\assets\maps\ExampleTilemap.json
+53:44:647 Tilesets.loadTileset() [DEBUG]: Loading tileset: ..\SlimeCaveTileMap.json
+53:44:670 TilesetManager.loadTileset() [INFO]: Beginning to load tileset from file: D:\GameDev\Projects\Personal\SlimeJump\assets\maps\ExampleTilemap.json\..\SlimeCaveTileMap.json
+53:44:703 TilesetManager.loadTileset() [INFO]: Finished loading tileset: SlimeCaveTileMap.json
+53:44:703 Tilesets.loadTileset() [DEBUG]: Does tileset: ..\SlimeCaveTileMap.json equal null?: false
+53:44:703 Tilesets.loadTileset() [DEBUG]: Loading tileset: ..\GameplayTileset.json
+53:44:705 TilesetManager.loadTileset() [INFO]: Beginning to load tileset from file: D:\GameDev\Projects\Personal\SlimeJump\assets\maps\ExampleTilemap.json\..\GameplayTileset.json
+53:44:712 TilesetManager.loadTileset() [INFO]: Finished loading tileset: GameplayTileset.json
+53:44:712 Tilesets.loadTileset() [DEBUG]: Does tileset: ..\GameplayTileset.json equal null?: false
+53:44:737 MapManager.loadMap() [INFO]: Finished loading map: ExampleTilemap.json
+53:48:955 MapManager.loadMap() [INFO]: Beginning to load map from file: D:\GameDev\Projects\Personal\SlimeJump\assets\maps\TestTilemap.json
+53:48:956 Tilesets.loadTileset() [DEBUG]: Loading tileset: ..\RainbowTileset.json
+53:48:958 TilesetManager.loadTileset() [INFO]: Beginning to load tileset from file: D:\GameDev\Projects\Personal\SlimeJump\assets\maps\TestTilemap.json\..\RainbowTileset.json
+53:48:967 TilesetManager.loadTileset() [INFO]: Finished loading tileset: RainbowTileset.json
+53:48:967 Tilesets.loadTileset() [DEBUG]: Does tileset: ..\RainbowTileset.json equal null?: false
+53:48:967 Tilesets.loadTileset() [DEBUG]: Loading tileset: ..\TestTileset.json
+53:48:969 TilesetManager.loadTileset() [INFO]: Beginning to load tileset from file: D:\GameDev\Projects\Personal\SlimeJump\assets\maps\TestTilemap.json\..\TestTileset.json
+53:48:975 TilesetManager.loadTileset() [INFO]: Finished loading tileset: TestTileset.json
+53:48:975 Tilesets.loadTileset() [DEBUG]: Does tileset: ..\TestTileset.json equal null?: false
+53:48:989 MapManager.loadMap() [INFO]: Finished loading map: TestTilemap.json
+53:51:108 MapManager.remove() [DEBUG]: Removed tilemap: TestTilemap.json
+53:51:957 MapManager.remove() [DEBUG]: Removed tilemap: ExampleTilemap.json

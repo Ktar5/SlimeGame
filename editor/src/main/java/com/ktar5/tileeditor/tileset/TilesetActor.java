@@ -31,9 +31,8 @@ public class TilesetActor extends ZoomablePannableWidget {
 
         //Render tiles
         for (int i = 0; i < tileset.getTileImages().size; i++) {
-            int row = (tileset.getColumns() - (i / tileset.getColumns())) - 1;
+            int row = (tileset.getRows() - (i / tileset.getColumns())) - 1;
             int col = i % tileset.getColumns();
-
 
             float x = getRenderX() + (col * tileset.getTileWidth() * scale);
             float y = getRenderY() + (row * tileset.getTileHeight() * scale);
@@ -45,6 +44,8 @@ public class TilesetActor extends ZoomablePannableWidget {
         batch.end();
 
         shapeRenderer.begin();
+
+        shapeRenderer.circle(getRenderX(), getRenderY(), 5);
 
         //Down to up
         for (int i = 1; i < tileset.getColumns(); i++) {

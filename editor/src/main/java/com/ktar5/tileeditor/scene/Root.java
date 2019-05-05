@@ -5,13 +5,15 @@ import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.utils.viewport.ScreenViewport;
+import com.kotcrab.vis.ui.widget.MenuItem;
 import com.kotcrab.vis.ui.widget.VisTable;
 import com.kotcrab.vis.ui.widget.file.FileChooser;
 import com.kotcrab.vis.ui.widget.file.internal.FilePopupMenu;
 import com.kotcrab.vis.ui.widget.tabbedpane.Tab;
 import com.kotcrab.vis.ui.widget.tabbedpane.TabbedPaneAdapter;
+import com.ktar5.tileeditor.scene.menu.TopMenu;
+import com.ktar5.tileeditor.scene.tabs.AbstractTab;
 import com.ktar5.tileeditor.scene.tabs.TabHoldingPane;
-import com.ktar5.tileeditor.scene.topmenu.TopMenu;
 import com.ktar5.tileeditor.scene.utils.KtarFilePopupMenu;
 import lombok.Getter;
 import org.apache.commons.lang3.reflect.FieldUtils;
@@ -24,6 +26,7 @@ public class Root extends Stage {
     private VisTable mainTable = new VisTable();
     private VisTable editorTable = new VisTable();
 
+    private TopMenu topMenu;
     private FileChooser fileChooser;
     private TabHoldingPane tabHoldingPane;
 
@@ -39,7 +42,8 @@ public class Root extends Stage {
         mainTable.top();
 
         //Add menu bar
-        mainTable.add(new TopMenu().getTable()).fillX().expandX();
+        topMenu = new TopMenu();
+        mainTable.add(topMenu.getTable()).fillX().expandX();
         mainTable.row();
 
         //Add tab holding pane
@@ -53,11 +57,25 @@ public class Root extends Stage {
                 editorTable.clearChildren();
                 editorTable.add(tab.getContentTable()).expand().fill();
             }
+
+            @Override
+            public void removedTab(Tab tab) {
+                ((AbstractTab) tab).onClosed();
+            }
+
+            @Override
+            public void removedAllTabs() {
+                editorTable.clearChildren();
+            }
         });
-        editorTable.setBackground("button");
+//        editorTable.setBackground("button");
 
         mainTable.add(editorTable).grow();
         this.addActor(mainTable);
+    }
+
+    public void registerTool(MenuItem toolMenuItem) {
+        this.getTopMenu().getToolMenu().addItem(toolMenuItem);
     }
 
     @Override

@@ -39,17 +39,44 @@ public class Layers {
         }
     }
 
-    public void setActiveLayerId(int id){
-        if(id >= layers.size()){
+    //Move it closer to the top of the stack
+    public void moveLayerUp(int layerId) {
+        if (layerId >= layers.size() || layerId < 0) {
+            return;
+        }
+        BaseLayer layer = layers.get(layerId + 1);
+        layers.set(layerId + 1, layers.get(layerId));
+        layers.set(layerId, layer);
+    }
+
+    //Move it closer to the bottom of the stack (0 being lowest)
+    public void moveLayerDown(int layerId) {
+        if (layerId >= layers.size() || layerId < 1) {
+            return;
+        }
+        BaseLayer layer = layers.get(layerId - 1);
+        layers.set(layerId - 1, layers.get(layerId));
+        layers.set(layerId, layer);
+    }
+
+    public void setActiveLayerId(int id) {
+        if (id >= layers.size()) {
             throw new RuntimeException("ERROR >> You cannot have a layer id higher than layers size");
         }
         this.activeLayerId = id;
     }
 
-    public BaseLayer getActiveLayer(){
+    public BaseLayer getActiveLayer() {
         return layers.get(activeLayerId);
     }
 
+    public int idFromLayer(BaseLayer layer) {
+        return layers.indexOf(layer);
+    }
 
 
+    public void remove(BaseLayer layer) {
+        int id = idFromLayer(layer);
+        layers.remove(layer);
+    }
 }

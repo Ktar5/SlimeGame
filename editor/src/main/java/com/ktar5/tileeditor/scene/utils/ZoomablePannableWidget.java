@@ -48,37 +48,22 @@ public abstract class ZoomablePannableWidget extends Widget {
 
                 panX += mx - lastX;
                 panY += my - lastY;
-//                if (getContentCenterX() >= getWidth() + getX() && getContentCenterX() > (5 * scale) + (getWidth() + getX())) {
-//                    panX -= mx - lastX;
-//                } else if (getContentCenterX() <= 0 + getX() && getContentCenterX() > -((5 * scale) + (getWidth() + getX()))) {
-//
-//                }
-//
-//
-//                if (getContentCenterY() >= getHeight() + getY() && getContentCenterY() > (5 * scale) + (getHeight() + getY())) {
-//                    panY -= my - lastY;
-//                }
 
-//                if (getContentCenterX() >= getWidth() + getX()) {
-//                    float v = getContentCenterX() - (getWidth() + getX());
-//                    panX -= mx - lastX;
-//                    Logger.debug(v);
-////                    panX += v;
-//                }else if(getContentCenterX() <= 0 + getX()){
-//                    Logger.debug("-0----");
-//                    Logger.debug("PanX1: " + panX);
-//                    Logger.debug("Content center: " + getContentCenterX());
-//                    panX -= mx - lastX;
-//                    Logger.debug("PanX2: " + panX);
-//
-//                }
-//                Logger.debug(panX);
-                if (getContentCenterX() >= getWidth() + getX() || getContentCenterX() <= 0 + getX()) {
+                float leftX = getRenderX();
+                float bottomY = getRenderY();
+
+                if (leftX >= getWidth() + getX() + 10 * scale|| leftX + ((getContentCenterX() - leftX) * 2) < 10 * scale) {
                     panX -= mx - lastX;
                 }
-                if (getContentCenterY() >= getHeight() || getContentCenterY() <= 0) {
+                if (bottomY >= getHeight() + getY() + 10 * scale || bottomY + ((getContentCenterY() - bottomY) * 2) < 10 * scale) {
                     panY -= my - lastY;
                 }
+//                if (getContentCenterX() >= getWidth() + getX() || getContentCenterX() <= 0 + getX()) {
+//                    panX -= mx - lastX;
+//                }
+//                if (getContentCenterY() >= getHeight() || getContentCenterY() <= 0) {
+//                    panY -= my - lastY;
+//                }
                 lastX = mx;
                 lastY = my;
             }

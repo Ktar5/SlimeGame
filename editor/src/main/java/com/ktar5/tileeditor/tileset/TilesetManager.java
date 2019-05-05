@@ -89,6 +89,7 @@ public class TilesetManager {
 
         tilesetHashMap.put(tileset.getId(), tileset);
         Main.getInstance().getRoot().getTabHoldingPane().addTab(new TilesetTab(tileset.getId()));
+        saveTileset(tileset.getId());
         return tileset;
     }
 
@@ -198,7 +199,6 @@ public class TilesetManager {
             Logger.error("An error occured during save");
             return;
         }
-        Main.getInstance().getRoot().getTabHoldingPane().getTab(tileset.getId()).setEdit(false);
         Main.getInstance().getRoot().getTabHoldingPane().getTab(tileset.getId()).setDirty(false);
         Logger.info("Finished save for tileset (" + id + ") in " + "\"" + tileset.getSaveFile() + "\"");
     }

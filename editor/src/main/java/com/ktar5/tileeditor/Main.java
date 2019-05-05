@@ -46,12 +46,10 @@ public class Main implements ApplicationListener {
 
     @Override
     public void pause() {
-
     }
 
     @Override
     public void resume() {
-
     }
 
     float time = 0;
@@ -69,7 +67,9 @@ public class Main implements ApplicationListener {
         }
 
         //Because OpenGL needs this.
-        Gdx.gl.glClearColor(131 / 255f, 87 / 255f, 64 / 255f, 1);
+        //51
+        int i = 60;
+        Gdx.gl.glClearColor(i / 255f, i / 255f, i / 255f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         root.draw();

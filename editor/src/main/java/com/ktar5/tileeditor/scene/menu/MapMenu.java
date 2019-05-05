@@ -1,4 +1,4 @@
-package com.ktar5.tileeditor.scene.topmenu;
+package com.ktar5.tileeditor.scene.menu;
 
 import com.kotcrab.vis.ui.widget.Menu;
 import com.kotcrab.vis.ui.widget.MenuItem;
@@ -24,6 +24,7 @@ public class MapMenu extends Menu {
                     Tilemap map = MapManager.get().getMap((currentTab).getTabId());
                     map.getTilesets().addTileset(Tileset);
                 }, false);
+                currentTab.setDirty(true);
             }
         }));
         final MenuItem addLayer = new MenuItem("Add Layer", new KChangeListener((changeEvent, actor) -> {
@@ -33,8 +34,11 @@ public class MapMenu extends Menu {
                 Tilemap map = MapManager.get().getMap((currentTab).getTabId());
                 Layers layers = map.getLayers();
                 //TODO create dialog
-                layers.getLayers().add(new TileLayer(map, "layer" + layers.getLayers().size(), true, 0, 0));
+                TileLayer tileLayer = new TileLayer(map, "layer" + layers.getLayers().size(), true, 0, 0);
+                layers.getLayers().add(tileLayer);
                 mapTab.getLayerSidebar().getAdapter().itemsChanged();
+                mapTab.getLayerSidebar().getAdapter().getSelectionManager().select(tileLayer);
+                mapTab.setDirty(true);
             }
         }));
         this.addItem(addTileset);

@@ -58,6 +58,11 @@ public class MapTilesetTab extends AbstractTab {
     }
 
     @Override
+    public void onClosed() {
+
+    }
+
+    @Override
     public Tabbable getTabbable() {
         return TilesetManager.get().getTileset(getTabId());
     }

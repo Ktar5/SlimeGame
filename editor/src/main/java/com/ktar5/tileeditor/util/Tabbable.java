@@ -50,7 +50,6 @@ public interface Tabbable extends Interactable {
      */
     @DontOverride
     public default void setChanged(boolean value) {
-        Main.getInstance().getRoot().getTabHoldingPane().getTab(getId()).setEdit(value);
         Main.getInstance().getRoot().getTabHoldingPane().getTab(getId()).setDirty(value);
     }
 

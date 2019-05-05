@@ -60,6 +60,7 @@ public class TileLayer extends BaseLayer {
         if (!isVisible()) {
             return;
         }
+        batch.setColor(1, 1, 1, getTransparency() / 100f);
         float scale = actor.getScale();
         for (int row = getParent().getNumTilesHigh() - 1; row >= 0; row--) {
             for (int col = 0; col <= getParent().getNumTilesWide() - 1; col++) {
@@ -83,8 +84,7 @@ public class TileLayer extends BaseLayer {
                         grid[col][row].getDirection() * 90);
             }
         }
-
-
+        batch.setColor(1, 1, 1, 1);
     }
 
     @Override

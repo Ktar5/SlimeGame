@@ -5,9 +5,13 @@ println rootProject.file('assets').absolutePath
 mainClassName = 'com.ktar5.slime.desktop.DesktopLauncher'
 sourceCompatibility = 1.8
 
+repositories {
+    mavenLocal()
+}
+
 dependencies {
     compile project(':core')
-    compile project(':editor')
+    compile "com.ktar5:tileeditor:1.0-SNAPSHOT"
     compile "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
     compile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
     compile "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"

@@ -5,8 +5,14 @@ repositories {
 }
 
 dependencies {
-    //editor stuff
     compile group: 'org.json', name: 'json', version: '20180130'
+
     compile 'com.gdetotut:jundo-framework:1.15'
-    compile project(':gameengine')
+
+    compile 'com.ktar5:common:1.0-SNAPSHOT'
+
+    compile "com.kotcrab.vis:vis-ui:1.4.2"
+
+    compile "com.badlogicgames.gdx:gdx:$gdxVersion"
+    compile "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
 }

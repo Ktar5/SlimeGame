@@ -1,0 +1,14 @@
+{
+    "padding": {
+        "horizontal": 1,
+        "vertical": 1
+    },
+    "offset": {
+        "left": 0,
+        "up": 0
+    },
+    "tileWidth": 16,
+    "sourceFile": "..\\tileset\\SlimeCave.png",
+    "properties": {},
+    "tileHeight": 16
+}

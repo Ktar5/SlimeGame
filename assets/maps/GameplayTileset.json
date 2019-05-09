@@ -1,0 +1,14 @@
+{
+    "padding": {
+        "horizontal": 0,
+        "vertical": 0
+    },
+    "offset": {
+        "left": 0,
+        "up": 0
+    },
+    "tileWidth": 16,
+    "sourceFile": "..\\tileset\\GameplayTileset.png",
+    "properties": {},
+    "tileHeight": 16
+}

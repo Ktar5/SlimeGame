@@ -8,7 +8,6 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
 import com.kotcrab.vis.ui.VisUI;
-import com.ktar5.gameengine.EngConst;
 import com.ktar5.tileeditor.scene.Root;
 import lombok.Getter;
 
@@ -54,15 +53,18 @@ public class Main implements ApplicationListener {
 
     float time = 0;
 
+    public static final float MAX_FRAME_TIME = .25f;
+    public static final float STEP_TIME = 1f / 60f;
+
     @Override
     public void render() {
         //Get time since last frame
         float dTime = Gdx.graphics.getDeltaTime();
         //If game too laggy, prevent massive bugs by using a small constant number
-        time += Math.min(dTime, EngConst.MAX_FRAME_TIME);
+        time += Math.min(dTime, MAX_FRAME_TIME);
         //While our time is greater than our fixed step size...
-        while (time >= EngConst.STEP_TIME) {
-            time -= EngConst.STEP_TIME;
+        while (time >= STEP_TIME) {
+            time -= STEP_TIME;
             root.act();
         }
 

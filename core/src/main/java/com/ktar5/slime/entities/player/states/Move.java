@@ -11,7 +11,7 @@ import com.ktar5.slime.entities.player.JumpPlayer;
 import com.ktar5.slime.variables.Settings;
 import com.ktar5.slime.world.Grid;
 import com.ktar5.slime.world.tiles.base.Tile;
-import org.pmw.tinylog.Logger;
+import org.tinylog.Logger;
 
 import java.util.List;
 
@@ -116,7 +116,7 @@ public class Move extends PlayerState {
         //This is one block into the future, basically
         Tile newTile = grid.tileFromDirection(newX, newY, getMovement());
         if (newTile == null) {
-            System.out.println("Null tile at: " + newX + ", " + newY);
+            Logger.debug("Null tile at: " + newX + ", " + newY);
         }
 
         List<Entity> entities = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getEntities();
@@ -145,7 +145,7 @@ public class Move extends PlayerState {
         else if (grid.grid[newX][newY].changeMovement(getPlayer(), getMovement())) {
             getPlayer().getPosition().moveTo(newX * 16, newY * 16);
             getPlayer().getPosition().translate(SPEED * getMovement().x, SPEED * getMovement().y);
-//            System.out.println("Moved");
+//            Logger.debug("Moved");
         }
         //Check for if the tile that the player WOULD BE GOING INTO is air or not
         else if (!newTile.canCrossThrough(getPlayer(), getMovement())) {
@@ -168,7 +168,7 @@ public class Move extends PlayerState {
         else {
             //Translate the player's location by SPEED multiplied by the movement direction
             getPlayer().getPosition().translate(SPEED * getMovement().x, SPEED * getMovement().y);
-//            System.out.println("Moved");
+//            Logger.debug("Moved");
         }
 
         //Keeps count of tiles crossed for the animation

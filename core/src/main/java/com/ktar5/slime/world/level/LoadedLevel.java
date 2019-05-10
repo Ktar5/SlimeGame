@@ -1,44 +1,47 @@
 package com.ktar5.slime.world.level;
 
+import com.ktar5.gameengine.analytics.Analytics;
 import com.ktar5.gameengine.camera.CameraFollow;
 import com.ktar5.gameengine.core.EngineManager;
 import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.gameengine.util.Updatable;
-import com.ktar5.slime.SlimeGame;
+import com.ktar5.slime.analytics.LevelStartEvent;
 import com.ktar5.slime.entities.EntityData;
 import com.ktar5.slime.entities.player.JumpPlayer;
 import com.ktar5.slime.variables.Constants;
 import com.ktar5.slime.world.tiles.base.Tile;
-import de.golfgl.gdxgameanalytics.GameAnalytics;
 import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Getter
-public class LoadedLevel extends Level implements Updatable {
+public class LoadedLevel extends LevelData implements Updatable {
     private JumpPlayer player;
     private ArrayList<LevelEdit> edits;
     private List<Entity> entities;
     private int collectibles = 0;
     private int numberTilesSlimed = 0;
 
-    public LoadedLevel(Level level) {
-        super(level.tileMap, level.id);
-        this.grid = level.grid;
-        this.spawn = level.spawn;
+    public LoadedLevel(LevelData levelData) {
+        super(levelData);
+
         this.edits = new ArrayList<>();
+
         this.entities = new ArrayList<>();
         for (EntityData initialEntityDatum : this.getInitialEntityData()) {
             entities.add(initialEntityDatum.create());
         }
+
         this.player = new JumpPlayer(this);
         ((CameraFollow) EngineManager.get().getCameraBase()).setPosition(player.position);
 
-        if(SlimeGame.getGame().getGameAnalytics() != null){
-            SlimeGame.getGame().getGameAnalytics().submitProgressionEvent(GameAnalytics.ProgressionStatus.Start,
-                    String.valueOf(getId()),"", "");
-        }
+//        if(SlimeGame.getGame().getGameAnalytics() != null){
+        Analytics.addEvent(new LevelStartEvent(UUID.randomUUID(), "levelData" + getId(), getId()));
+//            SlimeGame.getGame().getGameAnalytics().submitProgressionEvent(GameAnalytics.ProgressionStatus.Start,
+//                    String.valueOf(getId()),"", "");
+//        }
     }
 
     @Override

@@ -12,10 +12,10 @@ public enum Rotation {
     public static Rotation fromCell(TiledMapTileLayer.Cell cell) {
         CustomTmxMapLoader.CustomCell customCell = (CustomTmxMapLoader.CustomCell) cell;
         int rotation = customCell.getRealRotationBecauseFuckYouThatsWhy();
-//        System.out.println(rotation);
+//        Logger.debug(rotation);
         Rotation value = Rotation.values()[rotation % 4];
-//        System.out.println(cell.getTile().getId());
-//        System.out.println(value);
+//        Logger.debug(cell.getTile().getId());
+//        Logger.debug(value);
         return value;
     }
 

@@ -11,6 +11,7 @@ import com.ktar5.gameengine.util.Side;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.world.tiles.base.Rotation;
 import com.ktar5.slime.world.tiles.base.WholeTile;
+import org.tinylog.Logger;
 
 public class Teleporter extends WholeTile {
     public static final float TELEPORT_SPEED = .1f;
@@ -35,7 +36,7 @@ public class Teleporter extends WholeTile {
     @Override
     public void reset() {
         if (tween != null && tween.isStarted() && !tween.isFinished()){
-            System.out.println("Killing tween");
+            Logger.debug("Killing tween");
             tween.kill();
         }
     }

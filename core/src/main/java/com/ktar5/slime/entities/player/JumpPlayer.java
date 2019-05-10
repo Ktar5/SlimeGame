@@ -2,19 +2,21 @@ package com.ktar5.slime.entities.player;
 
 
 import com.badlogic.gdx.math.Vector2;
+import com.ktar5.gameengine.analytics.Analytics;
 import com.ktar5.gameengine.core.EngineManager;
 import com.ktar5.gameengine.entities.PlayerEntity;
 import com.ktar5.gameengine.entities.components.EntityAnimator;
 import com.ktar5.gameengine.statemachine.SimpleStateMachine;
 import com.ktar5.slime.SlimeGame;
+import com.ktar5.slime.analytics.LevelFailEvent;
 import com.ktar5.slime.entities.player.states.Idle;
 import com.ktar5.slime.entities.player.states.Move;
 import com.ktar5.slime.entities.player.states.PlayerState;
 import com.ktar5.slime.entities.player.states.Respawn;
 import com.ktar5.slime.world.level.LoadedLevel;
-import de.golfgl.gdxgameanalytics.GameAnalytics;
 import lombok.Getter;
 import lombok.Setter;
+import org.tinylog.Logger;
 
 @Getter
 @Setter
@@ -35,7 +37,7 @@ public class JumpPlayer extends PlayerEntity<PlayerState> {
         super(2, 16, 16);
         this.position.set(level.getSpawnX(), level.getSpawnY());
         this.level = level;
-        System.out.println("New player created " + System.currentTimeMillis());
+        Logger.debug("New player created " + System.currentTimeMillis());
     }
 
     @Override
@@ -87,11 +89,16 @@ public class JumpPlayer extends PlayerEntity<PlayerState> {
         getEntityState().changeStateAfterUpdate(Idle.class);
     }
 
-    public void kill() {
+    public void kill(String cause) {
         if (!getEntityState().getCurrent().getClass().equals(Respawn.class)) {
             getEntityState().changeStateAfterUpdate(Respawn.class);
-            SlimeGame.getGame().getGameAnalytics().submitProgressionEvent(GameAnalytics.ProgressionStatus.Fail,
-                    String.valueOf(SlimeGame.getGame().getLevelHandler().getCurrentLevel().getId()),"", "");
+            int id = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getId();
+            if(id != level.getId()){
+                throw new RuntimeException("LevelData not equal id");
+            }
+            Analytics.addEvent(new LevelFailEvent(this, cause));
+//            SlimeGame.getGame().getGameAnalytics().submitProgressionEvent(GameAnalytics.ProgressionStatus.Fail,
+//                    String.valueOf(SlimeGame.getGame().getLevelHandler().getCurrentLevel().getId()), "", "");
         }
     }
 

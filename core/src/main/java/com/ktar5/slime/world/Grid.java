@@ -55,8 +55,8 @@ public class Grid implements Updatable {
         entityTouchedTileSide(x, y, entity, Side.LEFT);
         entityTouchedTileSide(x, y, entity, Side.RIGHT);
         if (isInMapRange(x, y)) {
-//            System.out.println(grid[x][y]);
-//            System.out.println(SlimeGame.getGame().getLevelHandler().getCurrentLevel().getId());
+//            Logger.debug(grid[x][y]);
+//            Logger.debug(SlimeGame.getGame().getLevelHandler().getCurrentLevel().getId());
             grid[x][y].onCross(entity);
         }
     }

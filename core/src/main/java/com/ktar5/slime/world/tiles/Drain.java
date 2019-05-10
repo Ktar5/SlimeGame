@@ -22,7 +22,7 @@ public class Drain extends WholeTile {
         if (entity.isPlayer()) {
             JumpPlayer player = (JumpPlayer) entity;
             if (player.isSmall()) {
-                player.kill();
+                player.kill("drain");
             } else {
                 player.setSmall(true);
             }

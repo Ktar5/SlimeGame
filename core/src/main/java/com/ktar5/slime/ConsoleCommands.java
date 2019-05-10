@@ -3,7 +3,6 @@ package com.ktar5.slime;
 import com.ktar5.gameengine.Feature;
 import com.ktar5.gameengine.console.CommandExecutor;
 import com.ktar5.gameengine.console.LogLevel;
-import com.ktar5.slime.entities.player.states.Respawn;
 
 public class ConsoleCommands extends CommandExecutor {
 
@@ -38,14 +37,6 @@ public class ConsoleCommands extends CommandExecutor {
         SlimeGame.getGame().getLevelHandler().getCurrentLevel().setLevelDebug(value);
     }
 
-    public final void restartLevel() {
-        SlimeGame.getGame().getLevelHandler().getCurrentLevel().getPlayer().getEntityState().changeStateAfterUpdate(Respawn.class);
-    }
-
-    public final void respawn() {
-        SlimeGame.getGame().getLevelHandler().getCurrentLevel().getPlayer().getEntityState().changeStateAfterUpdate(Respawn.class);
-    }
-
     public final void skipLevel() {
         SlimeGame.getGame().getLevelHandler().advanceLevel();
     }
@@ -55,7 +46,7 @@ public class ConsoleCommands extends CommandExecutor {
             SlimeGame.getGame().getLevelHandler().setLevel(level);
             console.log("Skipping to level: '" + level, LogLevel.SUCCESS);
         } catch (IllegalArgumentException e) {
-            console.log("Level with name: " + level + " not found. Max = "
+            console.log("LevelData with name: " + level + " not found. Max = "
                     + (SlimeGame.getGame().getLevelHandler().getLevelCount() - 1), LogLevel.ERROR);
         }
     }
@@ -65,7 +56,7 @@ public class ConsoleCommands extends CommandExecutor {
             SlimeGame.getGame().getLevelHandler().setLevel(level);
             console.log("Skipping to level: '" + level, LogLevel.SUCCESS);
         } catch (IllegalArgumentException e) {
-            console.log("Level with name: " + level + " not found. Max = "
+            console.log("LevelData with name: " + level + " not found. Max = "
                     + (SlimeGame.getGame().getLevelHandler().getLevelCount() - 1), LogLevel.ERROR);
         }
     }

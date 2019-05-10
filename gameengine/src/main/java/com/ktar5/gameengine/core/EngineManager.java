@@ -15,11 +15,8 @@ import net.engio.mbassy.bus.MBassador;
 import net.engio.mbassy.bus.config.BusConfiguration;
 import net.engio.mbassy.bus.config.Feature;
 import net.engio.mbassy.bus.config.IBusConfiguration;
-import org.pmw.tinylog.Configurator;
-import org.pmw.tinylog.Level;
-import org.pmw.tinylog.Logger;
-import org.pmw.tinylog.writers.ConsoleWriter;
-import org.pmw.tinylog.writers.FileWriter;
+import org.tinylog.Logger;
+import org.tinylog.jul.JulTinylogBridge;
 
 @Getter
 public class EngineManager<G extends AbstractGame<G>> implements Disposable {
@@ -64,13 +61,7 @@ public class EngineManager<G extends AbstractGame<G>> implements Disposable {
     }
 
     private void initializeLogger() {
-        Configurator.defaultConfig()
-                .writer(new ConsoleWriter())
-                .level(Level.DEBUG)
-                .addWriter(new FileWriter("log.txt"))
-                //{date:yyyy-MM-dd HH:mm:ss} {class}.{method}()\n{level}: {message}
-                .formatPattern("{date:mm:ss:SSS} {class_name}.{method}() [{level}]: {message}")
-                .activate();
+        JulTinylogBridge.activate();
     }
 
     private MBassador<GameEvent> initializeEventBus() {

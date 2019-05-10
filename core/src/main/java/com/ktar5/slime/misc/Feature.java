@@ -1,6 +1,6 @@
 package com.ktar5.slime.misc;
 
-import org.pmw.tinylog.Logger;
+import org.tinylog.Logger;
 
 public abstract class Feature<T> {
     private final String name;

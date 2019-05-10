@@ -49,13 +49,13 @@ public class HoleInWall extends WholeTile {
             if (allSides || sideOne.opposite().equals(sideTwo)) {
                 return false;
             }
-            //System.out.println("Values: " + sideOne.name() + ", " + sideTwo.name());
+            //Logger.debug("Values: " + sideOne.name() + ", " + sideTwo.name());
             if (movement.opposite().equals(sideOne)) {
-                //System.out.println("Entered: " + sideOne.name() + " exited: " + sideTwo.name());
+                //Logger.debug("Entered: " + sideOne.name() + " exited: " + sideTwo.name());
                 entity.setLastMovedDirection(sideTwo);
                 return true;
             } else if (movement.opposite().equals(sideTwo)) {
-                //System.out.println("Entered: " + sideTwo.name()  + " exited: " + sideOne.name());
+                //Logger.debug("Entered: " + sideTwo.name()  + " exited: " + sideOne.name());
                 entity.setLastMovedDirection(sideOne);
                 return true;
             }

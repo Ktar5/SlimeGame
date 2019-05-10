@@ -2,6 +2,7 @@ package com.ktar5.slime.world.events;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
+import org.tinylog.Logger;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -33,7 +34,7 @@ public class MethodCall implements Runnable {
     public void run() {
         try {
             for (String[] methodCallParameter : methodCallParameters) {
-                System.out.println(ToStringBuilder.reflectionToString(methodCallParameter, ToStringStyle.SIMPLE_STYLE));
+                Logger.debug(ToStringBuilder.reflectionToString(methodCallParameter, ToStringStyle.SIMPLE_STYLE));
                 method.invoke(null, (Object[]) methodCallParameter);
             }
         } catch (IllegalAccessException e) {

@@ -1,7 +1,7 @@
 package com.ktar5.gameengine.debug;
 
 import com.ktar5.gameengine.Feature;
-import org.pmw.tinylog.Logger;
+import org.tinylog.Logger;
 
 import java.util.HashMap;
 

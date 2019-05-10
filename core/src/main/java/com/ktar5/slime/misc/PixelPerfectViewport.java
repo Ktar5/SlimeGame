@@ -4,6 +4,7 @@ import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import org.tinylog.Logger;
 
 public class PixelPerfectViewport extends Viewport {
     /**
@@ -26,7 +27,7 @@ public class PixelPerfectViewport extends Viewport {
         float sourceRatio = getWorldHeight() / getWorldWidth();
         float scale = screenRatio > sourceRatio ? screenWidth / getWorldWidth() : screenHeight / getWorldHeight();
         scale = (int) scale;
-        System.out.println("Viewport Scale: " + scale);
+        Logger.debug("Viewport Scale: " + scale);
         scaled.x = getWorldWidth() * scale;
         scaled.y = getWorldHeight() * scale;
 

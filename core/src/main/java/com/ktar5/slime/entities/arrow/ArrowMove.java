@@ -10,6 +10,7 @@ import com.ktar5.slime.entities.player.JumpPlayer;
 import com.ktar5.slime.variables.Settings;
 import com.ktar5.slime.world.Grid;
 import com.ktar5.slime.world.tiles.base.Tile;
+import org.tinylog.Logger;
 
 import java.util.List;
 
@@ -24,7 +25,7 @@ public class ArrowMove extends ArrowState {
     public void start() {
         if (getEntity().currentMovement == null) {
             end();
-            System.out.println("broken arrows!!!!!!!!!!!!");
+            Logger.debug("broken arrows!!!!!!!!!!!!");
             return;
         }
 
@@ -75,7 +76,7 @@ public class ArrowMove extends ArrowState {
         //This is one block into the future, basically
         Tile newTile = grid.tileFromDirection(newX, newY, getMovement());
         if (newTile == null) {
-            System.out.println(newX + " " + newY);
+            Logger.debug(newX + " " + newY);
             return;
         }
 
@@ -88,7 +89,7 @@ public class ArrowMove extends ArrowState {
                 }
                 ((TouchableEntity) entity).onEntityTouch(getEntity(), getEntity().getLastMovedDirection());
                 if(entity instanceof JumpPlayer){
-                    ((JumpPlayer) entity).kill();
+                    ((JumpPlayer) entity).kill("arrow");
                 }
                 touchedEntity = true;
                 break;

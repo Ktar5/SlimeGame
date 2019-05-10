@@ -38,7 +38,7 @@ public class TiledMapProcessor {
 
                 for (File file : fileList) {
                     int index = Integer.valueOf(
-                            file.getName().replace(".tmx", "").replace("Level", "")
+                            file.getName().replace(".tmx", "").replace("LevelData", "")
                     );
                     if (index > fileList.size()) {
                         throw new RuntimeException("Error loading level: " + index + ". Its index is too high.");

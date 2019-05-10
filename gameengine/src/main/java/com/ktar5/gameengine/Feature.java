@@ -1,6 +1,6 @@
 package com.ktar5.gameengine;
 
-import org.pmw.tinylog.Logger;
+import org.tinylog.Logger;
 
 public enum Feature {
     PLAYER_MOVEMENT(true),

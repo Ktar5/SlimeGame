@@ -14,7 +14,7 @@ import com.ktar5.slime.screens.gamestate.PauseWithBlur2;
 import com.ktar5.slime.screens.gamestate.Running;
 import com.ktar5.slime.screens.gamestate.Winning;
 import lombok.Getter;
-import org.pmw.tinylog.Logger;
+import org.tinylog.Logger;
 
 import java.util.Collections;
 import java.util.List;

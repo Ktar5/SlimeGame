@@ -25,7 +25,7 @@ public final class Events {
         TiledMapTileLayer mapLayer = ((TiledMapTileLayer) currentLevel.getTileMap().getLayers().get(layer));
         TiledMapTileLayer.Cell cell = mapLayer.getCell(x, y);
         currentLevel.addEdit(x, y, layer, cell.getTile().getId());
-//        System.out.println("ID: " + (tileID + 1));
+//        Logger.debug("ID: " + (tileID + 1));
         cell.setTile(currentLevel.getTileMap().getTileSets().getTile(tileID + 1));
     }
 

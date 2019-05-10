@@ -19,7 +19,7 @@ public class Spikes extends WholeTile {
     @Override
     public void onHitTile(Entity entity, Side hit) {
         if (entity.isPlayer()) {
-            ((JumpPlayer) entity).kill();
+            ((JumpPlayer) entity).kill("spikes");
         }
     }
 

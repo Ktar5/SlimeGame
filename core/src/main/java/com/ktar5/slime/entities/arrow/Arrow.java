@@ -76,7 +76,7 @@ public class Arrow extends Entity<ArrowState> implements TouchableEntity {
     @Override
     public void onEntityTouch(Entity entity, Side movement) {
         if (entity.isPlayer()) {
-            ((JumpPlayer) entity).kill();
+            ((JumpPlayer) entity).kill("arrow");
         }
         EngineManager.get().getRenderManager().doOnNextFrame(() -> {
             SlimeGame.getGame().getLevelHandler().getCurrentLevel().getEntities().remove(this);

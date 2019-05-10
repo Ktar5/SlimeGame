@@ -196,7 +196,7 @@ public class TileLevelData {
     }
 
     public void err(String message) {
-        throw new RuntimeException("An error has occurred during the processing of Level #" + id + ". " +
+        throw new RuntimeException("An error has occurred during the processing of LevelData #" + id + ". " +
                 "Here is the error message: " + message);
     }
 

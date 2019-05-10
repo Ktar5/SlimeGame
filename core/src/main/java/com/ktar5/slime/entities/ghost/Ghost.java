@@ -9,6 +9,7 @@ import com.ktar5.slime.entities.TouchableEntity;
 import com.ktar5.slime.entities.player.JumpPlayer;
 import com.ktar5.utilities.common.constants.Axis;
 import lombok.Getter;
+import org.tinylog.Logger;
 
 @Getter
 public class Ghost extends Entity<GhostState> implements TouchableEntity {
@@ -47,10 +48,10 @@ public class Ghost extends Entity<GhostState> implements TouchableEntity {
 
     @Override
     public void onEntityTouch(Entity entity, Side movement) {
-        System.out.println("Ghost touched");
+        Logger.debug("Ghost touched");
         if (entity.isPlayer()) {
-            System.out.println("Entity is player");
-            ((JumpPlayer) entity).kill();
+            Logger.debug("Entity is player");
+            ((JumpPlayer) entity).kill("ghost");
         }
     }
 }

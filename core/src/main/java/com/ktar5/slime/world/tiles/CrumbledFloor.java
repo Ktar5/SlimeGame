@@ -30,7 +30,7 @@ public class CrumbledFloor extends WholeTile {
     public void onCross(Entity entity) {
         if (crumbled) {
             if (entity.isPlayer()) {
-                ((JumpPlayer) entity).kill();
+                ((JumpPlayer) entity).kill("crumbled_floor");
             }
         } else {
 

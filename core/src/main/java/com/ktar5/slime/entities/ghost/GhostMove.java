@@ -6,6 +6,7 @@ import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.variables.Settings;
 import com.ktar5.slime.world.Grid;
 import com.ktar5.slime.world.tiles.base.Tile;
+import org.tinylog.Logger;
 
 public class GhostMove extends GhostState {
     private static final float SPEED = Settings.GHOST_MOVE_SPEED;
@@ -54,7 +55,7 @@ public class GhostMove extends GhostState {
         //This is one block into the future, basically
         Tile newTile = grid.tileFromDirection(newX, newY, getMovement());
         if (newTile == null) {
-            System.out.println(newX + " " + newY);
+            Logger.debug(newX + " " + newY);
             return;
         }
 

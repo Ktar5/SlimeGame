@@ -34,7 +34,7 @@ public class Hole extends WholeTile {
         }
 
         if (entity.isPlayer()) {
-            ((JumpPlayer) entity).kill();
+            ((JumpPlayer) entity).kill("hole");
         } else if (entity instanceof Box) {
             filled = true;
             EngineManager.get().getRenderManager().doOnNextFrame(() -> {

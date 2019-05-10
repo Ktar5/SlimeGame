@@ -15,6 +15,7 @@ import com.ktar5.slime.entities.player.JumpPlayer;
 import com.ktar5.slime.world.level.LoadedLevel;
 import com.ktar5.slime.world.tiles.base.Rotation;
 import com.ktar5.slime.world.tiles.base.WholeTile;
+import org.tinylog.Logger;
 
 public class RetractingSpikes extends WholeTile {
     public boolean retracted = true;
@@ -37,7 +38,7 @@ public class RetractingSpikes extends WholeTile {
     @Override
     public void onHitTile(Entity entity, Side hit) {
         if (entity.isPlayer()) {
-            ((JumpPlayer) entity).kill();
+            ((JumpPlayer) entity).kill("retracting_spikes");
         }
     }
 
@@ -46,14 +47,14 @@ public class RetractingSpikes extends WholeTile {
     public void onCross(Entity entity) {
         if (retracted) {
 
-            System.out.println("Attempting to start tween");
+            Logger.debug("Attempting to start tween");
             tween = Timeline.createSequence()
                     .pushPause(.5f)
                     .push(Tween.to(this, 0, 1).target(100).ease(Linear.INOUT))
                     .pushPause(1.0f)
                     .push(Tween.to(this, 1, 1).target(0).ease(Linear.INOUT))
                     .setCallback((type, source) -> {
-                        System.out.println("Tween ended");
+                        Logger.debug("Tween ended");
                         this.percentRetracted = 0;
                     })
                     .setCallbackTriggers(TweenCallback.END)
@@ -70,7 +71,7 @@ public class RetractingSpikes extends WholeTile {
         if (!this.retracted) {
             JumpPlayer player = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getPlayer();
             if (((int) (player.position.x / 16)) == this.x && ((int) (player.position.y / 16)) == this.y) {
-                player.kill();
+                player.kill("retracting_spikes");
             }
         }
 

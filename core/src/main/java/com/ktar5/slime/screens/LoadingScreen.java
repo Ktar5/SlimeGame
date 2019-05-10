@@ -16,7 +16,7 @@ import com.ktar5.gameengine.core.EngineManager;
 import com.ktar5.gameengine.rendering.Renderable;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.world.level.LevelHandler;
-import org.pmw.tinylog.Logger;
+import org.tinylog.Logger;
 
 import java.util.Collections;
 import java.util.List;

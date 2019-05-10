@@ -292,7 +292,7 @@ ssl.KeyManagerFactory.algorithm=SunX509
 ssl.TrustManagerFactory.algorithm=PKIX
 
 #
-# The Java-level namelookup cache policy for successful lookups:
+# The Java-levelData namelookup cache policy for successful lookups:
 #
 # any negative value: caching forever
 # any positive value: the number of seconds to cache an address for
@@ -309,7 +309,7 @@ ssl.TrustManagerFactory.algorithm=PKIX
 #
 #networkaddress.cache.ttl=-1
 
-# The Java-level namelookup cache policy for failed lookups:
+# The Java-levelData namelookup cache policy for failed lookups:
 #
 # any negative value: cache forever
 # any positive value: the number of seconds to cache negative lookup results

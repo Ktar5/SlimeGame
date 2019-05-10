@@ -4,7 +4,7 @@ import com.badlogic.gdx.utils.ObjectMap;
 import com.ktar5.gameengine.Feature;
 import com.ktar5.gameengine.util.Updatable;
 import lombok.Getter;
-import org.pmw.tinylog.Logger;
+import org.tinylog.Logger;
 
 import java.lang.reflect.InvocationTargetException;
 

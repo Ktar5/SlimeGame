@@ -9,7 +9,8 @@ group 'com.ktar5'
 version '1.0'
 dependencies {
     //game stuff
-    compile 'org.mongodb:mongodb-driver-reactivestreams:1.11.0'
+//    compile 'org.mongodb:mongodb-driver-reactivestreams:1.11.0'
+    compile 'org.mongodb:mongodb-driver-sync:3.10.1'
     
     compile 'com.ktar5:common:1.0-SNAPSHOT'
     

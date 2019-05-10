@@ -13,7 +13,7 @@ import com.ktar5.gameengine.rendering.Renderable;
 import com.ktar5.gameengine.tilemap.CustomTmxMapLoader;
 import com.ktar5.gameengine.util.Updatable;
 import lombok.Getter;
-import org.pmw.tinylog.Logger;
+import org.tinylog.Logger;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -22,7 +22,7 @@ import java.util.ArrayList;
 public class LevelHandler implements Renderable, Updatable {
     public static boolean LOAD_MAPS_LOCAL = true;
 
-    private Level[] levels;
+    private LevelData[] levelData;
     private OrthogonalTiledMapRenderer tileMapRenderer;
     @Getter
     private LoadedLevel currentLevel;
@@ -37,12 +37,12 @@ public class LevelHandler implements Renderable, Updatable {
     }
 
     public boolean isLevelNull(int levelIndex) {
-        return levels[levelIndex % levels.length] == null;
+        return levelData[levelIndex % levelData.length] == null;
     }
 
     public void setLevel(int levelIndex) {
-        levelIndex = levelIndex % levels.length;
-        if (levels[levelIndex] == null) {
+        levelIndex = levelIndex % levelData.length;
+        if (levelData[levelIndex] == null) {
             setLevel(levelIndex + 1);
             return;
         }
@@ -52,18 +52,17 @@ public class LevelHandler implements Renderable, Updatable {
                 return;
             }
         }
-        currentLevel = new LoadedLevel(levels[levelIndex]);
+        currentLevel = new LoadedLevel(levelData[levelIndex]);
         tileMapRenderer = new OrthogonalTiledMapRenderer(currentLevel.getTileMap(), 1f,
                 EngineManager.get().getRenderManager().getSpriteBatch());
     }
 
     public void advanceLevel() {
-        Logger.debug(new Throwable(), "Advanced Level");
-        setLevel((currentLevel.id + 1) % levels.length);
+        setLevel((currentLevel.getId() + 1) % levelData.length);
     }
 
     public int getLevelCount() {
-        return levels.length;
+        return levelData.length;
     }
 
     private void loadMaps() {
@@ -76,7 +75,7 @@ public class LevelHandler implements Renderable, Updatable {
         }
 
         FileHandle handle;
-        ArrayList<Level> levelList = new ArrayList<>();
+        ArrayList<LevelData> levelDataList = new ArrayList<>();
 
         BufferedReader bufferedReader = new BufferedReader(levelAtlas.reader());
         String line;
@@ -85,8 +84,8 @@ public class LevelHandler implements Renderable, Updatable {
             while ((line = bufferedReader.readLine()) != null) {
                 String[] split = line.split(":");
                 if (split.length == 1 || split[1].isEmpty() || split[1].equals(" ")) {
-                    System.out.println("Null level: " + i);
-                    levelList.add(i, null);
+                    Logger.debug("Null level: " + i);
+                    levelDataList.add(i, null);
                     i++;
                     continue;
                 }
@@ -104,19 +103,19 @@ public class LevelHandler implements Renderable, Updatable {
                 CustomTmxMapLoader loader = new CustomTmxMapLoader();
                 TiledMap tiledMap;
 
-                System.out.println("Loading " + i);
+                Logger.debug("Loading " + i);
                 tiledMap = loader.load("maps/" + handle.name(), params);
-                levelList.add(i, new Level(tiledMap, i));
+                levelDataList.add(i, new LevelData(tiledMap, levelName, i));
                 i++;
             }
         } catch (IOException e) {
-            System.out.println("ERROR >> Couldn't load levels!");
+            Logger.debug("ERROR >> Couldn't load levelData!");
             e.printStackTrace();
             return;
         }
-        levels = new Level[levelList.size()];
-        for (int i = 0; i < levelList.size(); i++) {
-            levels[i] = levelList.get(i);
+        levelData = new LevelData[levelDataList.size()];
+        for (int i = 0; i < levelDataList.size(); i++) {
+            levelData[i] = levelDataList.get(i);
         }
 
     }
@@ -140,8 +139,8 @@ public class LevelHandler implements Renderable, Updatable {
     public void render(SpriteBatch batch, float dTime) {
         batch.end();
         tileMapRenderer.setView(EngineManager.get().getCameraBase().getCamera());
-        //System.out.println(ToStringBuilder.reflectionToString(EngineManager.get().getCameraBase().getCamera(), ToStringStyle.JSON_STYLE));
-        //System.out.println("\n\n\n");
+        //Logger.debug(ToStringBuilder.reflectionToString(EngineManager.get().getCameraBase().getCamera(), ToStringStyle.JSON_STYLE));
+        //Logger.debug("\n\n\n");
         tileMapRenderer.render(currentLevel.getBackgroundLayers());
         batch.begin();
         currentLevel.getPlayer().getEntityAnimator().render(batch, currentLevel.getPlayer().getPosition().x,

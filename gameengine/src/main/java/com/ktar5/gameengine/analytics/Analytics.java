@@ -2,6 +2,8 @@ package com.ktar5.gameengine.analytics;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
+import com.badlogic.gdx.utils.Disposable;
+import com.badlogic.gdx.utils.async.AsyncExecutor;
 import org.bson.Document;
 
 import java.util.ArrayList;
@@ -9,15 +11,18 @@ import java.util.List;
 import java.util.Locale;
 import java.util.UUID;
 
-public class Analytics {
+public class Analytics implements Disposable {
     private static Analytics session;
 
     private MongoDBInstance mongo;
 
+    private AsyncExecutor executor = new AsyncExecutor(1);
     private int session_num, currentEventNumber = 0;
     private String platform, user_id, build_id;
     private String session_id = UUID.randomUUID().toString();
     private Locale locale = Locale.getDefault();
+    private long sessionStartTime = System.currentTimeMillis();
+
 
     private List<Document> events;
 
@@ -47,12 +52,21 @@ public class Analytics {
     }
 
     public static void flush() {
-        session.mongo.getCollection("analytics").insertMany(new ArrayList<>(session.events));
-        session.events.clear();
+        Analytics analytics = get();
+
+        ArrayList<Document> documents = new ArrayList<>(analytics.events);
+        analytics.executor.submit(() -> {
+            analytics.mongo.getCollection("analytics").insertMany(documents);
+            System.out.println("Just flushed");
+            return true;
+        });
+
+        analytics.events.clear();
     }
 
     public static void addEvent(AnalyticEvent event) {
-        Analytics.session.event(event);
+        Analytics analytics = get();
+        analytics.event(event);
     }
 
     private void event(AnalyticEvent event) {
@@ -62,6 +76,8 @@ public class Analytics {
                 .append("session_num", session_num)
                 .append("platform", platform)
                 .append("build_id", build_id)
+                .append("system_time", "$currentTime")
+                .append("time_since_start", System.currentTimeMillis() - sessionStartTime)
                 .append("country", locale.getCountry())
                 .append("event_order", currentEventNumber)
                 .append("event_id", event.getEventName());
@@ -72,8 +88,10 @@ public class Analytics {
         events.add(document);
     }
 
-    public static Analytics create(String appName, MongoDBInstance mongo, String build_id) {
-        session = new Analytics(Gdx.app.getPreferences(appName), mongo, build_id);
+    public static Analytics create(Preferences preferences, MongoDBInstance mongo, String build_id) {
+        System.out.println("Created analytics");
+        session = new Analytics(preferences, mongo, build_id);
+        flush();
         return session;
     }
 
@@ -84,4 +102,12 @@ public class Analytics {
         return session;
     }
 
+    @Override
+    public void dispose() {
+        event(new SessionEndEvent());
+        get().mongo.getCollection("analytics").insertMany(get().events);
+        System.out.println("Just flushed");
+        mongo.dispose();
+        executor.dispose();
+    }
 }

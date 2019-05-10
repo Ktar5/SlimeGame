@@ -2,7 +2,7 @@ package com.ktar5.gameengine.debug;
 
 import com.badlogic.gdx.utils.ObjectMap;
 import com.ktar5.gameengine.Feature;
-import org.pmw.tinylog.Logger;
+import org.tinylog.Logger;
 
 public class Debug {
     private static final ObjectMap<Class, Boolean> debugMap = new ObjectMap<>();

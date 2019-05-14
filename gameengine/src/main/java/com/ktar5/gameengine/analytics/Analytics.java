@@ -37,9 +37,19 @@ public class Analytics implements Disposable {
         platform = Platform.getDefaultPlatform(Gdx.app.getType()).name();
 
         //preferences
+        String previousAnalyticsVersion = prefs.getString("analytics_version", null);
+        if(previousAnalyticsVersion == null){
+            Logger.tag("analytics").debug("Initializing analytics at version: " + analytics_version);
+            prefs.putString("analytics_version", analytics_version);
+        }else if(!previousAnalyticsVersion.equals(analytics_version)){
+            //TODO if i want to reset the local user preferences
+            Logger.tag("analytics").debug("Updating from analytics " + previousAnalyticsVersion + " to " + analytics_version);
+            prefs.putString("analytics_version", analytics_version);
+        }
+
         user_id = prefs.getString("analytics_user_id", null);
         if (user_id == null) {
-            Gdx.app.log("Analytics", "No user id found. Generating a new one.");
+            Logger.tag("analytics").debug("No user id found. Generating a new one.");
             user_id = UUID.randomUUID().toString();
             prefs.putString("analytics_user_id", user_id);
         }
@@ -92,7 +102,7 @@ public class Analytics implements Disposable {
     }
 
     public static Analytics create(Preferences preferences, MongoDBInstance mongo, String build_id, String analytics_version) {
-        System.out.println("Created analytics");
+        Logger.tag("analytics").debug("Created analytics");
         session = new Analytics(preferences, mongo, build_id, analytics_version);
         flush();
         return session;
@@ -109,7 +119,7 @@ public class Analytics implements Disposable {
     public void dispose() {
         event(new SessionEndEvent());
         get().mongo.getCollection("analytics").insertMany(get().events);
-        System.out.println("Just flushed");
+        Logger.tag("analytics").debug("Just flushed");
         mongo.dispose();
         executor.dispose();
     }

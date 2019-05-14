@@ -1,89 +1,82 @@
-45:40:010 LoadingScreen.show() [DEBUG]: Starting loading screen
-45:40:011 LoadingScreen.show() [DEBUG]: Starting load of loading screen resources
-45:40:024 LoadingScreen.show() [DEBUG]: Finished loading of loading screen resources
-45:40:043 LevelHandler.loadMaps() [DEBUG]: Loading 0
-45:40:091 LevelData.initializeGrid() [DEBUG]: Loading level: '_TutorialGoo' with id:0
-45:40:101 LevelData.initializeGrid() [DEBUG]: Unknown type? Tile at 21, 30with ID 1
-45:40:103 LevelData.initializeGrid() [DEBUG]: Finished loading level: 0
-45:40:103 LevelHandler.loadMaps() [DEBUG]: Loading 1
-45:40:124 LevelData.initializeGrid() [DEBUG]: Loading level: '_TutorialDrain' with id:1
-45:40:125 LevelData.initializeGrid() [DEBUG]: Unknown type? Tile at 21, 26with ID 1
-45:40:126 LevelData.initializeGrid() [DEBUG]: Finished loading level: 1
-45:40:127 LevelHandler.loadMaps() [DEBUG]: Null level: 2
-45:40:127 LevelHandler.loadMaps() [DEBUG]: Null level: 3
-45:40:127 LevelHandler.loadMaps() [DEBUG]: Loading 4
-45:40:146 LevelData.initializeGrid() [DEBUG]: Loading level: 'Level_Prototype01' with id:4
-45:40:147 LevelData.initializeGrid() [DEBUG]: Finished loading level: 4
-45:40:147 LevelHandler.loadMaps() [DEBUG]: Loading 5
-45:40:161 LevelData.initializeGrid() [DEBUG]: Loading level: 'Level_Prototype02' with id:5
-45:40:163 LevelData.initializeGrid() [DEBUG]: Finished loading level: 5
-45:40:163 LevelHandler.loadMaps() [DEBUG]: Loading 6
-45:40:174 LevelData.initializeGrid() [DEBUG]: Loading level: 'Level_Prototype03' with id:6
-45:40:174 LevelData.initializeGrid() [DEBUG]: Finished loading level: 6
-45:40:174 LevelHandler.loadMaps() [DEBUG]: Loading 7
-45:40:186 LevelData.initializeGrid() [DEBUG]: Loading level: 'Level_Prototype04' with id:7
-45:40:187 LevelData.initializeGrid() [DEBUG]: Finished loading level: 7
-45:40:187 LevelHandler.loadMaps() [DEBUG]: Loading 8
-45:40:203 LevelData.initializeGrid() [DEBUG]: Loading level: 'Level_Prototype05' with id:8
-45:40:203 LevelData.initializeGrid() [DEBUG]: Unknown type? Tile at 13, 11with ID 1
-45:40:203 LevelData.initializeGrid() [DEBUG]: Finished loading level: 8
-45:40:203 LevelHandler.loadMaps() [DEBUG]: Loading 9
-45:40:216 LevelData.initializeGrid() [DEBUG]: Loading level: 'Level_Prototype06' with id:9
-45:40:216 LevelData.initializeGrid() [DEBUG]: Unknown type? Tile at 15, 6with ID 1
-45:40:216 LevelData.initializeGrid() [DEBUG]: Finished loading level: 9
-45:40:216 LevelHandler.loadMaps() [DEBUG]: Loading 10
-45:40:229 LevelData.initializeGrid() [DEBUG]: Loading level: 'Level_Prototype07' with id:10
-45:40:229 LevelData.initializeGrid() [DEBUG]: Unknown type? Tile at 17, 10with ID 1
-45:40:230 LevelData.initializeGrid() [DEBUG]: Finished loading level: 10
-45:40:230 LevelHandler.loadMaps() [DEBUG]: Loading 11
-45:40:239 LevelData.initializeGrid() [DEBUG]: Loading level: 'Level_Prototype08' with id:11
-45:40:239 LevelData.initializeGrid() [DEBUG]: Unknown type? Tile at 17, 10with ID 1
-45:40:240 LevelData.initializeGrid() [DEBUG]: Finished loading level: 11
-45:40:240 LevelHandler.loadMaps() [DEBUG]: Loading 12
-45:40:246 LevelData.initializeGrid() [DEBUG]: Loading level: 'Level_Prototype09' with id:12
-45:40:246 LevelData.initializeGrid() [DEBUG]: Unknown type? Tile at 13, 10with ID 1
-45:40:248 LevelData.initializeGrid() [DEBUG]: Finished loading level: 12
-45:40:248 LevelHandler.loadMaps() [DEBUG]: Loading 13
-45:40:261 LevelData.initializeGrid() [DEBUG]: Loading level: 'Level_Story_PathToKing' with id:13
-45:40:261 LevelData.initializeGrid() [DEBUG]: Unknown type? Tile at 28, 13with ID 1
-45:40:261 LevelData.initializeGrid() [DEBUG]: Finished loading level: 13
-45:40:261 LevelHandler.loadMaps() [DEBUG]: Loading 14
-45:40:272 LevelData.initializeGrid() [DEBUG]: Loading level: 'Level_Tutorial_Movement' with id:14
-45:40:273 LevelData.initializeGrid() [DEBUG]: Unknown type? Tile at 20, 9with ID 1
-45:40:273 LevelData.initializeGrid() [DEBUG]: Finished loading level: 14
-45:40:273 LevelHandler.loadMaps() [DEBUG]: Loading 15
-45:40:284 LevelData.initializeGrid() [DEBUG]: Loading level: 'Level_Tutorial_Collectibles' with id:15
-45:40:284 LevelData.initializeGrid() [DEBUG]: Unknown type? Tile at 22, 10with ID 1
-45:40:285 LevelData.initializeGrid() [DEBUG]: Finished loading level: 15
-45:40:285 LevelHandler.loadMaps() [DEBUG]: Loading 16
-45:40:297 LevelData.initializeGrid() [DEBUG]: Loading level: 'Level_Tutorial_Goo' with id:16
-45:40:297 LevelData.initializeGrid() [DEBUG]: Unknown type? Tile at 13, 12with ID 1
-45:40:297 LevelData.initializeGrid() [DEBUG]: Finished loading level: 16
-45:40:297 LevelHandler.loadMaps() [DEBUG]: Loading 17
-45:40:308 LevelData.initializeGrid() [DEBUG]: Loading level: 'Level_Tutorial_Gates' with id:17
-45:40:309 LevelData.initializeGrid() [DEBUG]: Unknown type? Tile at 37, 15with ID 1
-45:40:312 LevelData.initializeGrid() [DEBUG]: Finished loading level: 17
-45:40:312 LevelHandler.loadMaps() [DEBUG]: Loading 18
-45:40:317 LevelData.initializeGrid() [DEBUG]: Loading level: 'Level_Tutorial_Dying' with id:18
-45:40:318 LevelData.initializeGrid() [DEBUG]: Unknown type? Tile at 17, 25with ID 1
-45:40:318 LevelData.initializeGrid() [DEBUG]: Finished loading level: 18
-45:40:318 LevelHandler.loadMaps() [DEBUG]: Null level: 19
-45:40:318 LevelHandler.loadMaps() [DEBUG]: Null level: 20
-45:40:318 LevelHandler.loadMaps() [DEBUG]: Null level: 21
-45:40:318 LevelHandler.loadMaps() [DEBUG]: Null level: 22
-45:40:323 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
-45:40:323 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
-45:40:323 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
-45:40:325 JumpPlayer.<init>() [DEBUG]: New player created 1557524740325
-45:40:327 PixelPerfectViewport.update() [DEBUG]: Viewport Scale: 2.0
-45:40:327 LoadingScreen.render() [DEBUG]: Updating load.. 1.0%
-45:40:327 LoadingScreen.render() [DEBUG]: Finished loading all assets!
-45:40:342 LoadingScreen.hide() [DEBUG]: Disposed of the loading resources
-45:51:775 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.Running
-45:51:775 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.PauseWithBlur2
-45:51:775 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.Winning
-45:51:775 GameScreen.show() [DEBUG]: Display started for GameScreen
-45:51:776 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
-45:51:776 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
-45:51:776 SimpleStateMachine.<init>() [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
-45:51:776 JumpPlayer.<init>() [DEBUG]: New player created 1557524751776
+20:55:09:352 LoadingScreen.show() [] [DEBUG]: Starting loading screen
+20:55:09:354 LoadingScreen.show() [] [DEBUG]: Starting load of loading screen resources
+20:55:09:364 LoadingScreen.show() [] [DEBUG]: Finished loading of loading screen resources
+20:55:09:385 LevelHandler.loadMaps() [] [DEBUG]: Loading 0
+20:55:09:437 LevelData.initializeGrid() [] [DEBUG]: Loading level: '_TutorialGoo' with id:0
+20:55:09:447 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 21, 30with ID 1
+20:55:09:449 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 0
+20:55:09:449 LevelHandler.loadMaps() [] [DEBUG]: Loading 1
+20:55:09:472 LevelData.initializeGrid() [] [DEBUG]: Loading level: '_TutorialDrain' with id:1
+20:55:09:473 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 21, 26with ID 1
+20:55:09:475 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 1
+20:55:09:475 LevelHandler.loadMaps() [] [DEBUG]: Null level: 2
+20:55:09:475 LevelHandler.loadMaps() [] [DEBUG]: Null level: 3
+20:55:09:475 LevelHandler.loadMaps() [] [DEBUG]: Loading 4
+20:55:09:525 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Prototype01' with id:4
+20:55:09:526 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 4
+20:55:09:526 LevelHandler.loadMaps() [] [DEBUG]: Loading 5
+20:55:09:560 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Prototype02' with id:5
+20:55:09:562 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 5
+20:55:09:562 LevelHandler.loadMaps() [] [DEBUG]: Loading 6
+20:55:09:600 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Prototype03' with id:6
+20:55:09:600 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 6
+20:55:09:601 LevelHandler.loadMaps() [] [DEBUG]: Loading 7
+20:55:09:637 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Prototype04' with id:7
+20:55:09:638 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 7
+20:55:09:638 LevelHandler.loadMaps() [] [DEBUG]: Loading 8
+20:55:09:677 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Prototype05' with id:8
+20:55:09:677 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 13, 11with ID 1
+20:55:09:677 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 8
+20:55:09:677 LevelHandler.loadMaps() [] [DEBUG]: Loading 9
+20:55:09:709 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Prototype06' with id:9
+20:55:09:709 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 15, 6with ID 1
+20:55:09:709 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 9
+20:55:09:709 LevelHandler.loadMaps() [] [DEBUG]: Loading 10
+20:55:09:743 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Prototype07' with id:10
+20:55:09:743 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 17, 10with ID 1
+20:55:09:744 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 10
+20:55:09:744 LevelHandler.loadMaps() [] [DEBUG]: Loading 11
+20:55:09:754 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Prototype08' with id:11
+20:55:09:755 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 17, 10with ID 1
+20:55:09:755 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 11
+20:55:09:755 LevelHandler.loadMaps() [] [DEBUG]: Loading 12
+20:55:09:766 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Prototype09' with id:12
+20:55:09:766 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 13, 10with ID 1
+20:55:09:767 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 12
+20:55:09:767 LevelHandler.loadMaps() [] [DEBUG]: Loading 13
+20:55:09:799 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Story_PathToKing' with id:13
+20:55:09:799 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 28, 13with ID 1
+20:55:09:800 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 13
+20:55:09:800 LevelHandler.loadMaps() [] [DEBUG]: Loading 14
+20:55:09:836 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Tutorial_Movement' with id:14
+20:55:09:837 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 20, 9with ID 1
+20:55:09:837 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 14
+20:55:09:837 LevelHandler.loadMaps() [] [DEBUG]: Loading 15
+20:55:09:870 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Tutorial_Collectibles' with id:15
+20:55:09:870 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 22, 10with ID 1
+20:55:09:870 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 15
+20:55:09:871 LevelHandler.loadMaps() [] [DEBUG]: Loading 16
+20:55:09:897 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Tutorial_Goo' with id:16
+20:55:09:897 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 13, 12with ID 1
+20:55:09:898 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 16
+20:55:09:898 LevelHandler.loadMaps() [] [DEBUG]: Loading 17
+20:55:09:918 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Tutorial_Gates' with id:17
+20:55:09:918 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 37, 15with ID 1
+20:55:09:920 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 17
+20:55:09:921 LevelHandler.loadMaps() [] [DEBUG]: Loading 18
+20:55:09:924 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Tutorial_Dying' with id:18
+20:55:09:925 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 17, 25with ID 1
+20:55:09:925 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 18
+20:55:09:926 LevelHandler.loadMaps() [] [DEBUG]: Null level: 19
+20:55:09:926 LevelHandler.loadMaps() [] [DEBUG]: Null level: 20
+20:55:09:926 LevelHandler.loadMaps() [] [DEBUG]: Null level: 21
+20:55:09:926 LevelHandler.loadMaps() [] [DEBUG]: Null level: 22
+20:55:09:930 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
+20:55:09:930 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+20:55:09:930 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+20:55:09:932 JumpPlayer.<init>() [] [DEBUG]: New player created 1557806109932
+20:55:09:934 PixelPerfectViewport.update() [] [DEBUG]: Viewport Scale: 2.0
+20:55:09:936 LoadingScreen.render() [] [DEBUG]: Updating load.. 1.0%
+20:55:09:936 LoadingScreen.render() [] [DEBUG]: Finished loading all assets!
+20:55:09:953 LoadingScreen.hide() [] [DEBUG]: Disposed of the loading resources
+20:55:11:439 Analytics.lambda$flush$0() [analytics] [DEBUG]: Just flushed

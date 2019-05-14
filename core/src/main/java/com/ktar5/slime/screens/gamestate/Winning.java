@@ -23,7 +23,6 @@ import com.ktar5.slime.screens.GameScreen;
 
 import java.util.Collections;
 import java.util.List;
-import java.util.UUID;
 
 public class Winning extends GameState {
     private Stage stage;
@@ -111,10 +110,7 @@ public class Winning extends GameState {
         winText.setText("You got the treasure on level " +
                 SlimeGame.getGame().getLevelHandler().getCurrentLevel().getId() + "!");
 
-        int id = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getId();
-        Analytics.addEvent(new LevelCompleteEvent(UUID.randomUUID(), "level" + id, id));
-//        SlimeGame.getGame().getGameAnalytics().submitProgressionEvent(GameAnalytics.ProgressionStatus.Complete,
-//                String.valueOf(SlimeGame.getGame().getLevelHandler().getCurrentLevel().getId()),"", "");
+        Analytics.addEvent(new LevelCompleteEvent(SlimeGame.getGame().getLevelHandler().getCurrentLevel()));
         Analytics.flush();
     }
 

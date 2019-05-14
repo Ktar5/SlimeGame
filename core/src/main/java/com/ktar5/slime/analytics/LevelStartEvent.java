@@ -1,10 +1,10 @@
 package com.ktar5.slime.analytics;
 
-import java.util.UUID;
+import com.ktar5.slime.world.level.LevelData;
 
-public class LevelStartEvent extends LevelEvent{
-    public LevelStartEvent(UUID level, String levelName, int levelNum) {
-        super(level, levelName, levelNum);
+public class LevelStartEvent extends LevelEvent {
+    public LevelStartEvent(LevelData level) {
+        super(level);
     }
 
     @Override

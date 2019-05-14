@@ -14,7 +14,6 @@ import lombok.Getter;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
 
 @Getter
 public class LoadedLevel extends LevelData implements Updatable {
@@ -37,11 +36,7 @@ public class LoadedLevel extends LevelData implements Updatable {
         this.player = new JumpPlayer(this);
         ((CameraFollow) EngineManager.get().getCameraBase()).setPosition(player.position);
 
-//        if(SlimeGame.getGame().getGameAnalytics() != null){
-        Analytics.addEvent(new LevelStartEvent(UUID.randomUUID(), "levelData" + getId(), getId()));
-//            SlimeGame.getGame().getGameAnalytics().submitProgressionEvent(GameAnalytics.ProgressionStatus.Start,
-//                    String.valueOf(getId()),"", "");
-//        }
+        Analytics.addEvent(new LevelStartEvent(this));
     }
 
     @Override

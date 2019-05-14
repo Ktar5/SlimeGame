@@ -11,7 +11,7 @@ public class LevelFailEvent extends LevelEvent {
     private Side directionMoving;
 
     public LevelFailEvent(JumpPlayer player, String cause) {
-        super(player.getLevel().getUuid(), player.getLevel().getName(), player.getLevel().getId());
+        super(player.getLevel());
 
         this.cause = cause;
 

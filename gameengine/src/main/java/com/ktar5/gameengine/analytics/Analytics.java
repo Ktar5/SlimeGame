@@ -5,6 +5,7 @@ import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.async.AsyncExecutor;
 import org.bson.Document;
+import org.tinylog.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,7 +19,7 @@ public class Analytics implements Disposable {
 
     private AsyncExecutor executor = new AsyncExecutor(1);
     private int session_num, currentEventNumber = 0;
-    private String platform, user_id, build_id;
+    private String platform, user_id, build_id, analytics_version;
     private String session_id = UUID.randomUUID().toString();
     private Locale locale = Locale.getDefault();
     private long sessionStartTime = System.currentTimeMillis();
@@ -26,9 +27,10 @@ public class Analytics implements Disposable {
 
     private List<Document> events;
 
-    private Analytics(Preferences prefs, MongoDBInstance mongo, String build_id) {
+    private Analytics(Preferences prefs, MongoDBInstance mongo, String build_id, String analytics_version) {
         this.mongo = mongo;
         this.build_id = build_id;
+        this.analytics_version = analytics_version;
 
         events = new ArrayList<>();
 
@@ -57,7 +59,7 @@ public class Analytics implements Disposable {
         ArrayList<Document> documents = new ArrayList<>(analytics.events);
         analytics.executor.submit(() -> {
             analytics.mongo.getCollection("analytics").insertMany(documents);
-            System.out.println("Just flushed");
+            Logger.tag("analytics").debug("Just flushed");
             return true;
         });
 
@@ -76,6 +78,7 @@ public class Analytics implements Disposable {
                 .append("session_num", session_num)
                 .append("platform", platform)
                 .append("build_id", build_id)
+                .append("analytics_ver", analytics_version)
                 .append("system_time", "$currentTime")
                 .append("time_since_start", System.currentTimeMillis() - sessionStartTime)
                 .append("country", locale.getCountry())
@@ -88,9 +91,9 @@ public class Analytics implements Disposable {
         events.add(document);
     }
 
-    public static Analytics create(Preferences preferences, MongoDBInstance mongo, String build_id) {
+    public static Analytics create(Preferences preferences, MongoDBInstance mongo, String build_id, String analytics_version) {
         System.out.println("Created analytics");
-        session = new Analytics(preferences, mongo, build_id);
+        session = new Analytics(preferences, mongo, build_id, analytics_version);
         flush();
         return session;
     }

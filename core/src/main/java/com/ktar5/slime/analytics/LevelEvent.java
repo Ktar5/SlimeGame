@@ -1,6 +1,7 @@
 package com.ktar5.slime.analytics;
 
 import com.ktar5.gameengine.analytics.AnalyticEvent;
+import com.ktar5.slime.world.level.LevelData;
 import com.ktar5.utilities.annotation.callsuper.CallSuper;
 import org.bson.Document;
 
@@ -11,10 +12,10 @@ public abstract class LevelEvent implements AnalyticEvent {
     private String levelName;
     private int levelNum;
 
-    public LevelEvent(UUID level, String levelName, int levelNum){
-        this.level = level;
-        this.levelName = levelName;
-        this.levelNum = levelNum;
+    public LevelEvent(LevelData data) {
+        this.level = data.getUuid();
+        this.levelName = data.getName();
+        this.levelNum = data.getId();
     }
 
     @Override

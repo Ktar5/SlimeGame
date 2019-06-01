@@ -94,9 +94,10 @@ public class ArrowMove extends ArrowState {
                     continue;
                 }
                 ((TouchableEntity) entity).onEntityTouch(getEntity(), getEntity().getLastMovedDirection());
-                if(entity instanceof JumpPlayer){
-                    ((JumpPlayer) entity).kill("arrow");
-                }
+                //Entity was never jump player because "entities" doesn't include jump player
+//                if(entity instanceof JumpPlayer){
+//                    ((JumpPlayer) entity).kill("arrow");
+//                }
                 touchedEntity = true;
                 break;
             }

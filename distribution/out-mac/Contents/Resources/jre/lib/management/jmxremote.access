@@ -20,9 +20,9 @@
 # a comment (like this one), or an access control entry.
 #
 # An access control entry consists of a role name, and an
-# associated access levelData.  The role name is any string that does not
+# associated access level.  The role name is any string that does not
 # itself contain spaces or tabs.  It corresponds to an entry in the
-# password file (jmxremote.password).  The access levelData is one of the
+# password file (jmxremote.password).  The access level is one of the
 # following:
 #       "readonly" grants access to read attributes of MBeans.
 #                   For monitoring, this means that a remote client in this
@@ -34,7 +34,7 @@
 #                   only to trusted clients, since they can potentially
 #                   interfere with the smooth operation of a running program.
 #
-# The "readwrite" access levelData can optionally be followed by the "create" and/or
+# The "readwrite" access level can optionally be followed by the "create" and/or
 # "unregister" keywords.  The "unregister" keyword grants access to unregister
 # (delete) MBeans.  The "create" keyword grants access to create MBeans of a
 # particular class or of any class matching a particular pattern.  Access

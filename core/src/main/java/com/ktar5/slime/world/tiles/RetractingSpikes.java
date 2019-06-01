@@ -49,7 +49,7 @@ public class RetractingSpikes extends WholeTile {
 
             Logger.debug("Attempting to start tween");
             tween = Timeline.createSequence()
-                    .pushPause(.5f)
+                    .pushPause(.2f)
                     .push(Tween.to(this, 0, 1).target(100).ease(Linear.INOUT))
                     .pushPause(1.0f)
                     .push(Tween.to(this, 1, 1).target(0).ease(Linear.INOUT))

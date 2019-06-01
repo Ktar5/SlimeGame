@@ -38,18 +38,18 @@ public class Analytics implements Disposable {
 
         platform = Platform.getDefaultPlatform(Gdx.app.getType()).name();
 
-        try{
+        try {
             prefs.getInteger("analytics_version", 0);
-        }catch (NumberFormatException e){
+        } catch (NumberFormatException e) {
             prefs.putInteger("analytics_version", analytics_version);
             prefs.flush();
         }
 
         int previousAnalyticsVersion = prefs.getInteger("analytics_version", 0);
-        if(previousAnalyticsVersion == 0){
+        if (previousAnalyticsVersion == 0) {
             Logger.tag("analytics").debug("Initializing analytics at version: " + analytics_version);
             prefs.putInteger("analytics_version", analytics_version);
-        }else if(previousAnalyticsVersion != analytics_version){
+        } else if (previousAnalyticsVersion != analytics_version) {
             Logger.tag("analytics").debug("Updating from analytics " + previousAnalyticsVersion + " to " + analytics_version);
             prefs.putInteger("analytics_version", analytics_version);
         }
@@ -96,7 +96,7 @@ public class Analytics implements Disposable {
                 .append("platform", platform)
                 .append("build_id", build_id)
                 .append("analytics_ver", analytics_version)
-                .append("system_time", "$currentTime")
+                .append("system_time", System.currentTimeMillis())
                 .append("time_since_start", System.currentTimeMillis() - sessionStartTime)
                 .append("country", locale.getCountry())
                 .append("event_order", currentEventNumber)

@@ -254,7 +254,7 @@
    <property name="Front" value=""/>
   </properties>
  </imagelayer>
- <layer id="13" name="Gameplay" width="45" height="45" visible="0" locked="1" opacity="0.2">
+ <layer id="13" name="Gameplay" width="45" height="45" opacity="0.2">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,

@@ -13,7 +13,10 @@ dependencies {
     compile 'org.mongodb:mongodb-driver-sync:3.10.1'
     
     compile 'com.ktar5:common:1.0-SNAPSHOT'
-    
+
+    compile group: 'commons-net', name: 'commons-net', version: '3.6'
+
+
     //Possibly unneeded?
     compile "com.kotcrab.vis:vis-ui:1.4.2"
     compile 'com.google.code.gson:gson:2.8.2' 

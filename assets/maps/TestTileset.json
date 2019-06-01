@@ -1,14 +1,15 @@
 {
+    "identifier": "b21aaddf-e5cf-485a-aa25-1862ec2d01b6",
     "padding": {
-        "horizontal": 1,
-        "vertical": 1
+        "horizontal": 0,
+        "vertical": 0
     },
     "offset": {
-        "left": 1,
-        "up": 1
+        "left": 0,
+        "up": 0
     },
     "tileWidth": 16,
-    "sourceFile": "..\\tileset\\tilemapimage.png",
+    "sourceFile": "..\\tileset\\GameplayTileset.png",
     "properties": {},
     "tileHeight": 16
 }

@@ -8,11 +8,12 @@ import com.ktar5.slime.world.tiles.base.Rotation;
 import com.ktar5.slime.world.tiles.base.WholeTile;
 
 public class Shooter extends WholeTile {
-    public final Side shootSide;
-    public int canShoot = 1;
-    ArrowEntityData data;
     private static final int ticks = 60;
-    int currentTicks = 0;
+
+    private final Side shootSide;
+    private int canShoot = 1;
+    private ArrowEntityData data;
+    private int currentTicks = 0;
 
     public Shooter(int x, int y, Rotation rotation) {
         super(x, y, rotation);
@@ -23,6 +24,7 @@ public class Shooter extends WholeTile {
     @Override
     public void reset() {
         canShoot = 1;
+        currentTicks = 0;
     }
 
     @Override

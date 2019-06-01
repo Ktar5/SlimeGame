@@ -1,6 +1,7 @@
 package com.ktar5.slime.entities.arrow;
 
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.utils.Pool;
 import com.ktar5.gameengine.core.EngineManager;
 import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.gameengine.entities.components.EntityAnimator;
@@ -10,10 +11,10 @@ import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.entities.TouchableEntity;
 import com.ktar5.slime.entities.player.JumpPlayer;
 
-public class Arrow extends Entity<ArrowState> implements TouchableEntity {
-    public Side currentMovement;
-    int lastX = 0;
-    int lastY = 0;
+public class Arrow extends Entity<ArrowState> implements TouchableEntity , Pool.Poolable {
+    private Side currentMovement;
+    private int lastX = 0;
+    private int lastY = 0;
 
 
     //TODO object pooling of arrows
@@ -22,9 +23,13 @@ public class Arrow extends Entity<ArrowState> implements TouchableEntity {
         SlimeGame.getGame().getLevelHandler().getCurrentLevel().getEntities().add(this);
         this.position.set(data.initialPosition);
         this.currentMovement = data.movement;
-        //TODO
-        this.position.setRotation(90 * data.movement.ordinal());
+        this.position.setRotation(90 * (data.movement.ofCCOrder()));
         getEntityState().changeStateAfterUpdate(ArrowMove.class);
+    }
+
+    @Override
+    public void reset(){
+
     }
 
     @Override
@@ -82,4 +87,7 @@ public class Arrow extends Entity<ArrowState> implements TouchableEntity {
             SlimeGame.getGame().getLevelHandler().getCurrentLevel().getEntities().remove(this);
         });
     }
+
+
+
 }

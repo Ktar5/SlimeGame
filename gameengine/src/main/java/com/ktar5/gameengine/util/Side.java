@@ -14,7 +14,20 @@ public enum Side {
             {LEFT, null, RIGHT},
             {null, UP, null}
     };
+
+    public static final Side[] CCORDER = {DOWN, RIGHT, UP, LEFT};
+
     public final int x, y;
+
+    public int ofCCOrder(){
+        switch (this){
+            case UP: return 2;
+            case RIGHT: return 1;
+            case DOWN: return 0;
+            case LEFT: return 3;
+        }
+        return -1;
+    }
 
     public static Side of(int x, int y) {
         return ORDER[y + 1][x + 1];

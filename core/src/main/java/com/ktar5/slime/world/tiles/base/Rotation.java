@@ -13,10 +13,9 @@ public enum Rotation {
         CustomTmxMapLoader.CustomCell customCell = (CustomTmxMapLoader.CustomCell) cell;
         int rotation = customCell.getRealRotationBecauseFuckYouThatsWhy();
 //        Logger.debug(rotation);
-        Rotation value = Rotation.values()[rotation % 4];
-//        Logger.debug(cell.getTile().getId());
+        //        Logger.debug(cell.getTile().getId());
 //        Logger.debug(value);
-        return value;
+        return Rotation.values()[rotation % 4];
     }
 
 }

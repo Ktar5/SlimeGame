@@ -1,51 +1,35 @@
 {
-    "tilesets": [
-        "..\\RainbowTileset.json",
-        "..\\TestTileset.json"
-    ],
-    "layers": [
-        {
-            "tiles": [
-                "0_36,0_59,0_59,0_36",
-                "0_36,0_52,0_52,0_36",
-                "0_36,0_52,0_52,0_36",
-                "0_36,0_59,0_59,0_36"
-            ],
-            "visible": true,
-            "offset": {
-                "x": 0,
-                "y": 0
-            },
-            "transparency": 100,
-            "name": "layer1",
-            "class": "com.ktar5.tileeditor.tilemap.layers.TileLayer",
-            "properties": {}
+    "identifier": "c46ca472-c23f-47f1-9c8e-a604e6ca2f79",
+    "tilesets": ["..\\TestTileset.json"],
+    "layers": [{
+        "tiles": [
+            "0,0,0,0,0,0,0,0,0,0,0,0",
+            "0,0,0,0_2,0_2,0_2,0_2,0_2,0_2,0_2,0,0",
+            "0,0,0_2,0,0,0,0,0,0,0,0_2,0",
+            "0,0,0_2,0,0,0,0,0_1,0,0,0_2,0",
+            "0,0,0_2,0,0,0,0,0,0,0,0_2,0",
+            "0,0,0_2,0,0,0,0,0,0,0,0_2,0",
+            "0,0,0_2,0,0,0,0,0,0,0_16,0_2,0",
+            "0,0,0_2,0,0_0,0,0,0,0_16,0_16,0_2,0",
+            "0,0,0,0_2,0_2,0_2,0_2,0_2,0_2,0_2,0,0",
+            "0,0,0,0,0,0,0,0,0,0,0,0",
+            "0,0,0,0,0,0,0,0,0,0,0,0",
+            "0,0,0,0,0,0,0,0,0,0,0,0"
+        ],
+        "visible": true,
+        "offset": {
+            "x": 0,
+            "y": 0
         },
-        {
-            "tiles": [
-                "0,0,0,0",
-                "0,0_3,0_3,0",
-                "0,0_3,0_3,0",
-                "0,0,0,0"
-            ],
-            "visible": true,
-            "offset": {
-                "x": 0,
-                "y": 0
-            },
-            "transparency": 62,
-            "name": "layer0",
-            "class": "com.ktar5.tileeditor.tilemap.layers.TileLayer",
-            "properties": {}
-        }
-    ],
-    "properties": {
-        "Test": "YOLO",
-        "Testing2": "None"
-    },
+        "transparency": 100,
+        "name": "Tile Layer",
+        "class": "com.ktar5.tileeditor.tilemap.layers.tile.TileLayer",
+        "properties": {}
+    }],
+    "properties": {},
     "dimensions": {
-        "numTilesHigh": 4,
-        "numTilesWide": 4,
+        "numTilesHigh": 12,
+        "numTilesWide": 12,
         "tileWidth": 16,
         "tileHeight": 16
     }

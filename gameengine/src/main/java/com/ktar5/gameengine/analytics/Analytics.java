@@ -20,16 +20,16 @@ public class Analytics implements Disposable {
     private AsyncExecutor executor = new AsyncExecutor(1);
     private int session_num, currentEventNumber = 0;
     private String platform, user_id, build_id;
-    private int analytics_version;
+    private int analytics_version, build_version;
     private String session_id = UUID.randomUUID().toString();
     private Locale locale = Locale.getDefault();
     private long sessionStartTime = System.currentTimeMillis();
 
     private List<Document> events;
 
-    private Analytics(Preferences prefs, MongoDBInstance mongo, String build_id, int analytics_version) {
-        Logger.tag("analytics").debug("Analytics initialized with build ID: '" + build_id + "' & analytics version: '" + analytics_version + "'");
-
+    private Analytics(Preferences prefs, MongoDBInstance mongo, String build_id, int build_version, int analytics_version) {
+        Logger.tag("analytics").debug("Analytics initialized with build ID: '" + build_id + ":" + build_version + "' & analytics version: '" + analytics_version + "'");
+        this.build_version = build_version;
         this.mongo = mongo;
         this.build_id = build_id;
         this.analytics_version = analytics_version;
@@ -95,6 +95,7 @@ public class Analytics implements Disposable {
                 .append("session_num", session_num)
                 .append("platform", platform)
                 .append("build_id", build_id)
+                .append("build_version", build_version)
                 .append("analytics_ver", analytics_version)
                 .append("system_time", System.currentTimeMillis())
                 .append("time_since_start", System.currentTimeMillis() - sessionStartTime)
@@ -108,9 +109,9 @@ public class Analytics implements Disposable {
         events.add(document);
     }
 
-    public static Analytics create(Preferences preferences, MongoDBInstance mongo, String build_id, int analytics_version) {
+    public static Analytics create(Preferences preferences, MongoDBInstance mongo, String build_id, int build_version, int analytics_version) {
         Logger.tag("analytics").debug("Created analytics");
-        session = new Analytics(preferences, mongo, build_id, analytics_version);
+        session = new Analytics(preferences, mongo, build_id, build_version, analytics_version);
         flush();
         return session;
     }

@@ -1,102 +1,327 @@
-16:30:50:186 Analytics.create() [analytics] [DEBUG]: Created analytics
-16:30:50:187 Analytics.<init>() [analytics] [DEBUG]: Analytics initialized with build ID: 'debug' & analytics version: '1'
-16:30:50:215 LoadingScreen.show() [] [DEBUG]: Starting loading screen
-16:30:50:215 LoadingScreen.show() [] [DEBUG]: Starting load of loading screen resources
-16:30:50:224 LoadingScreen.show() [] [DEBUG]: Finished loading of loading screen resources
-16:30:50:242 LevelHandler.loadMaps() [] [DEBUG]: Loading 0
-16:30:50:288 LevelData.initializeGrid() [] [DEBUG]: Loading level: '_TutorialGoo' with id:0
-16:30:50:299 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 21, 30with ID 1
-16:30:50:300 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 0
-16:30:50:301 LevelHandler.loadMaps() [] [DEBUG]: Loading 1
-16:30:50:319 LevelData.initializeGrid() [] [DEBUG]: Loading level: '_TutorialDrain' with id:1
-16:30:50:321 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 21, 26with ID 1
-16:30:50:322 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 1
-16:30:50:322 LevelHandler.loadMaps() [] [DEBUG]: Null level: 2
-16:30:50:322 LevelHandler.loadMaps() [] [DEBUG]: Null level: 3
-16:30:50:322 LevelHandler.loadMaps() [] [DEBUG]: Loading 4
-16:30:50:338 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Prototype01' with id:4
-16:30:50:339 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 4
-16:30:50:339 LevelHandler.loadMaps() [] [DEBUG]: Loading 5
-16:30:50:349 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Prototype02' with id:5
-16:30:50:351 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 5
-16:30:50:351 LevelHandler.loadMaps() [] [DEBUG]: Loading 6
-16:30:50:360 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Prototype03' with id:6
-16:30:50:360 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 6
-16:30:50:360 LevelHandler.loadMaps() [] [DEBUG]: Loading 7
-16:30:50:371 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Prototype04' with id:7
-16:30:50:372 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 7
-16:30:50:372 LevelHandler.loadMaps() [] [DEBUG]: Loading 8
-16:30:50:383 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Prototype05' with id:8
-16:30:50:383 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 13, 11with ID 1
-16:30:50:383 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 8
-16:30:50:383 LevelHandler.loadMaps() [] [DEBUG]: Loading 9
-16:30:50:392 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Prototype06' with id:9
-16:30:50:392 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 15, 6with ID 1
-16:30:50:392 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 9
-16:30:50:392 LevelHandler.loadMaps() [] [DEBUG]: Loading 10
-16:30:50:403 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Prototype07' with id:10
-16:30:50:403 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 17, 10with ID 1
-16:30:50:404 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 10
-16:30:50:404 LevelHandler.loadMaps() [] [DEBUG]: Loading 11
-16:30:50:410 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Prototype08' with id:11
-16:30:50:410 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 17, 10with ID 1
-16:30:50:410 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 11
-16:30:50:410 LevelHandler.loadMaps() [] [DEBUG]: Loading 12
-16:30:50:418 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Prototype09' with id:12
-16:30:50:418 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 13, 10with ID 1
-16:30:50:419 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 12
-16:30:50:419 LevelHandler.loadMaps() [] [DEBUG]: Loading 13
-16:30:50:434 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Story_PathToKing' with id:13
-16:30:50:435 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 28, 13with ID 1
-16:30:50:436 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 13
-16:30:50:436 LevelHandler.loadMaps() [] [DEBUG]: Loading 14
-16:30:50:448 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Tutorial_Movement' with id:14
-16:30:50:448 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 20, 9with ID 1
-16:30:50:448 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 14
-16:30:50:449 LevelHandler.loadMaps() [] [DEBUG]: Loading 15
-16:30:50:460 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Tutorial_Collectibles' with id:15
-16:30:50:461 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 22, 10with ID 1
-16:30:50:461 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 15
-16:30:50:461 LevelHandler.loadMaps() [] [DEBUG]: Loading 16
-16:30:50:475 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Tutorial_Goo' with id:16
-16:30:50:475 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 13, 12with ID 1
-16:30:50:475 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 16
-16:30:50:475 LevelHandler.loadMaps() [] [DEBUG]: Loading 17
-16:30:50:486 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Tutorial_Gates' with id:17
-16:30:50:486 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 37, 15with ID 1
-16:30:50:489 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 17
-16:30:50:489 LevelHandler.loadMaps() [] [DEBUG]: Loading 18
-16:30:50:493 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Tutorial_Dying' with id:18
-16:30:50:494 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 17, 25with ID 1
-16:30:50:495 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 18
-16:30:50:495 LevelHandler.loadMaps() [] [DEBUG]: Null level: 19
-16:30:50:495 LevelHandler.loadMaps() [] [DEBUG]: Null level: 20
-16:30:50:495 LevelHandler.loadMaps() [] [DEBUG]: Null level: 21
-16:30:50:495 LevelHandler.loadMaps() [] [DEBUG]: Null level: 22
-16:30:50:499 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
-16:30:50:500 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
-16:30:50:500 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
-16:30:50:501 JumpPlayer.<init>() [] [DEBUG]: New player created 1559431850501
-16:30:50:502 LevelStartEvent.<init>() [] [DEBUG]: Started level: ID: e7a2d09b-35e3-406d-8c01-d58f05b59cd4  Number: 0  Name: _TutorialGoo
-16:30:50:504 PixelPerfectViewport.update() [] [DEBUG]: Viewport Scale: 2.0
-16:30:50:506 LoadingScreen.render() [] [DEBUG]: Updating load.. 1.0%
-16:30:50:506 LoadingScreen.render() [] [DEBUG]: Finished loading all assets!
-16:30:50:522 LoadingScreen.hide() [] [DEBUG]: Disposed of the loading resources
-16:30:51:753 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.Running
-16:30:51:753 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.PauseWithBlur2
-16:30:51:753 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.Winning
-16:30:51:753 GameScreen.show() [] [DEBUG]: Display started for GameScreen
-16:30:51:754 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
-16:30:51:754 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
-16:30:51:755 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
-16:30:51:755 JumpPlayer.<init>() [] [DEBUG]: New player created 1559431851755
-16:30:51:755 LevelStartEvent.<init>() [] [DEBUG]: Started level: ID: f0acddfa-7381-41f7-a612-0e2624db25c9  Number: 4  Name: Level_Prototype01
-16:30:52:086 Analytics.lambda$flush$0() [analytics] [DEBUG]: Just flushed
-16:30:52:377 RetractingSpikes.onCross() [] [DEBUG]: Attempting to start tween
-16:30:55:594 RetractingSpikes.lambda$onCross$0() [] [DEBUG]: Tween ended
-16:30:56:310 RetractingSpikes.onCross() [] [DEBUG]: Attempting to start tween
-16:30:59:527 RetractingSpikes.lambda$onCross$0() [] [DEBUG]: Tween ended
-16:30:59:877 RetractingSpikes.onCross() [] [DEBUG]: Attempting to start tween
-16:31:03:094 RetractingSpikes.lambda$onCross$0() [] [DEBUG]: Tween ended
-16:31:05:928 RetractingSpikes.onCross() [] [DEBUG]: Attempting to start tween
-16:31:09:907 Analytics.dispose() [analytics] [DEBUG]: Just flushed
+16:37:40:673 Analytics.create() [analytics] [DEBUG]: Created analytics
+16:37:40:674 Analytics.<init>() [analytics] [DEBUG]: Analytics initialized with build ID: 'debug:2' & analytics version: '3'
+16:37:40:675 Analytics.<init>() [analytics] [DEBUG]: Updating from analytics 2 to 3
+16:37:40:706 LoadingScreen.show() [] [DEBUG]: Starting loading screen
+16:37:40:706 LoadingScreen.show() [] [DEBUG]: Starting load of loading screen resources
+16:37:40:715 LoadingScreen.show() [] [DEBUG]: Finished loading of loading screen resources
+16:37:40:733 LevelHandler.loadMaps() [] [DEBUG]: Loading 0
+16:37:40:783 LevelData.initializeGrid() [] [DEBUG]: Loading level: '_TutorialGoo' with id:0
+16:37:40:795 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 21, 30with ID 1
+16:37:40:796 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 0
+16:37:40:797 LevelHandler.loadMaps() [] [DEBUG]: Loading 1
+16:37:40:816 LevelData.initializeGrid() [] [DEBUG]: Loading level: '_TutorialDrain' with id:1
+16:37:40:818 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 21, 26with ID 1
+16:37:40:819 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 1
+16:37:40:820 LevelHandler.loadMaps() [] [DEBUG]: Null level: 2
+16:37:40:820 LevelHandler.loadMaps() [] [DEBUG]: Null level: 3
+16:37:40:820 LevelHandler.loadMaps() [] [DEBUG]: Loading 4
+16:37:40:880 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Prototype01' with id:4
+16:37:40:881 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 4
+16:37:40:881 LevelHandler.loadMaps() [] [DEBUG]: Loading 5
+16:37:40:909 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Prototype02' with id:5
+16:37:40:912 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 5
+16:37:40:912 LevelHandler.loadMaps() [] [DEBUG]: Loading 6
+16:37:40:943 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Prototype03' with id:6
+16:37:40:944 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 6
+16:37:40:944 LevelHandler.loadMaps() [] [DEBUG]: Loading 7
+16:37:40:963 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Prototype04' with id:7
+16:37:40:964 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 7
+16:37:40:964 LevelHandler.loadMaps() [] [DEBUG]: Loading 8
+16:37:41:001 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Prototype05' with id:8
+16:37:41:001 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 13, 11with ID 1
+16:37:41:001 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 8
+16:37:41:001 LevelHandler.loadMaps() [] [DEBUG]: Loading 9
+16:37:41:018 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Prototype06' with id:9
+16:37:41:018 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 15, 6with ID 1
+16:37:41:019 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 9
+16:37:41:019 LevelHandler.loadMaps() [] [DEBUG]: Loading 10
+16:37:41:041 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Prototype07' with id:10
+16:37:41:041 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 17, 10with ID 1
+16:37:41:042 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 10
+16:37:41:042 LevelHandler.loadMaps() [] [DEBUG]: Loading 11
+16:37:41:050 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Prototype08' with id:11
+16:37:41:050 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 17, 10with ID 1
+16:37:41:051 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 11
+16:37:41:051 LevelHandler.loadMaps() [] [DEBUG]: Loading 12
+16:37:41:060 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Prototype09' with id:12
+16:37:41:060 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 13, 10with ID 1
+16:37:41:061 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 12
+16:37:41:061 LevelHandler.loadMaps() [] [DEBUG]: Loading 13
+16:37:41:092 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Story_PathToKing' with id:13
+16:37:41:092 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 28, 13with ID 1
+16:37:41:093 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 13
+16:37:41:093 LevelHandler.loadMaps() [] [DEBUG]: Loading 14
+16:37:41:124 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Tutorial_Movement' with id:14
+16:37:41:125 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 20, 9with ID 1
+16:37:41:125 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 14
+16:37:41:125 LevelHandler.loadMaps() [] [DEBUG]: Loading 15
+16:37:41:161 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Tutorial_Collectibles' with id:15
+16:37:41:161 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 22, 10with ID 1
+16:37:41:162 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 15
+16:37:41:162 LevelHandler.loadMaps() [] [DEBUG]: Loading 16
+16:37:41:183 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Tutorial_Goo' with id:16
+16:37:41:183 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 13, 12with ID 1
+16:37:41:184 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 16
+16:37:41:184 LevelHandler.loadMaps() [] [DEBUG]: Loading 17
+16:37:41:206 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Tutorial_Gates' with id:17
+16:37:41:206 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 37, 15with ID 1
+16:37:41:208 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 17
+16:37:41:209 LevelHandler.loadMaps() [] [DEBUG]: Loading 18
+16:37:41:213 LevelData.initializeGrid() [] [DEBUG]: Loading level: 'Level_Tutorial_Dying' with id:18
+16:37:41:213 LevelData.initializeGrid() [] [DEBUG]: Unknown type? Tile at 17, 25with ID 1
+16:37:41:214 LevelData.initializeGrid() [] [DEBUG]: Finished loading level: 18
+16:37:41:214 LevelHandler.loadMaps() [] [DEBUG]: Null level: 19
+16:37:41:214 LevelHandler.loadMaps() [] [DEBUG]: Null level: 20
+16:37:41:214 LevelHandler.loadMaps() [] [DEBUG]: Null level: 21
+16:37:41:214 LevelHandler.loadMaps() [] [DEBUG]: Null level: 22
+16:37:41:218 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
+16:37:41:218 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+16:37:41:218 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+16:37:41:220 JumpPlayer.<init>() [] [DEBUG]: New player created 1559432261219
+16:37:41:220 LevelStartEvent.<init>() [] [DEBUG]: Started level: ID: 40659e1e-7193-41c9-88cd-c38412a0d9e0  Number: 0  Name: _TutorialGoo
+16:37:41:222 PixelPerfectViewport.update() [] [DEBUG]: Viewport Scale: 2.0
+16:37:41:223 LoadingScreen.render() [] [DEBUG]: Updating load.. 1.0%
+16:37:41:224 LoadingScreen.render() [] [DEBUG]: Finished loading all assets!
+16:37:41:242 LoadingScreen.hide() [] [DEBUG]: Disposed of the loading resources
+16:37:42:585 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.Running
+16:37:42:585 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.PauseWithBlur2
+16:37:42:585 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.Winning
+16:37:42:585 GameScreen.show() [] [DEBUG]: Display started for GameScreen
+16:37:42:586 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
+16:37:42:586 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+16:37:42:586 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+16:37:42:586 JumpPlayer.<init>() [] [DEBUG]: New player created 1559432262586
+16:37:42:586 LevelStartEvent.<init>() [] [DEBUG]: Started level: ID: aa4fb3df-01ac-4d5c-868e-914c1188d143  Number: 4  Name: Level_Prototype01
+16:37:42:759 Analytics.lambda$flush$0() [analytics] [DEBUG]: Just flushed
+16:37:44:200 RetractingSpikes.onCross() [] [DEBUG]: Attempting to start tween
+16:37:45:766 Analytics.lambda$flush$0() [analytics] [DEBUG]: Just flushed
+16:37:45:967 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
+16:37:45:967 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+16:37:45:967 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+16:37:45:968 JumpPlayer.<init>() [] [DEBUG]: New player created 1559432265967
+16:37:45:968 LevelStartEvent.<init>() [] [DEBUG]: Started level: ID: d93b7338-fa9e-4705-82fe-03c17e8a4f7a  Number: 5  Name: Level_Prototype02
+16:37:46:971 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:37:46:972 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:37:47:972 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:37:47:972 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:37:48:972 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:37:48:973 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:37:49:972 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:37:49:973 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:37:50:972 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:37:50:973 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:37:51:973 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:37:51:973 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:37:52:973 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:37:52:973 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:37:53:973 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:37:53:973 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:37:54:321 Analytics.lambda$flush$0() [analytics] [DEBUG]: Just flushed
+16:37:54:507 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
+16:37:54:508 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+16:37:54:508 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+16:37:54:508 JumpPlayer.<init>() [] [DEBUG]: New player created 1559432274508
+16:37:54:509 LevelStartEvent.<init>() [] [DEBUG]: Started level: ID: 855433eb-bc95-4fbb-bad3-cd9e1d9fb131  Number: 6  Name: Level_Prototype03
+16:38:03:437 Analytics.lambda$flush$0() [analytics] [DEBUG]: Just flushed
+16:38:16:538 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+16:38:16:538 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+16:38:16:539 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+16:38:16:539 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+16:38:16:540 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+16:38:16:540 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+16:38:16:540 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+16:38:16:540 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+16:38:16:541 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
+16:38:16:541 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+16:38:16:541 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+16:38:16:541 JumpPlayer.<init>() [] [DEBUG]: New player created 1559432296541
+16:38:16:542 LevelStartEvent.<init>() [] [DEBUG]: Started level: ID: ddde5d50-fe09-4b3f-a7dd-7d02c4ba6561  Number: 7  Name: Level_Prototype04
+16:38:21:679 Analytics.lambda$flush$0() [analytics] [DEBUG]: Just flushed
+16:38:22:533 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+16:38:22:533 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+16:38:22:534 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+16:38:22:534 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+16:38:22:534 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+16:38:22:534 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+16:38:22:535 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+16:38:22:535 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+16:38:22:535 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
+16:38:22:535 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+16:38:22:535 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+16:38:22:536 JumpPlayer.<init>() [] [DEBUG]: New player created 1559432302535
+16:38:22:536 LevelStartEvent.<init>() [] [DEBUG]: Started level: ID: c5ed9be3-2bf5-46c0-bbf0-c6300fb1399d  Number: 8  Name: Level_Prototype05
+16:38:33:443 Analytics.lambda$flush$0() [analytics] [DEBUG]: Just flushed
+16:38:37:633 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
+16:38:37:633 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+16:38:37:633 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+16:38:37:633 JumpPlayer.<init>() [] [DEBUG]: New player created 1559432317633
+16:38:37:634 LevelStartEvent.<init>() [] [DEBUG]: Started level: ID: 018b528d-9e46-4b14-8b66-3f1af549d6aa  Number: 9  Name: Level_Prototype06
+16:38:38:633 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:38:633 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:38:633 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:38:633 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:38:633 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:38:633 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:38:633 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:38:633 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:38:634 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:38:634 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:38:634 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:38:634 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:38:634 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:38:634 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:39:631 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:39:632 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:39:632 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:39:632 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:39:633 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:39:633 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:39:633 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:39:633 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:39:633 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:39:634 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:39:634 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:39:634 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:39:635 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:39:635 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:40:631 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:40:632 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:40:632 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:40:632 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:40:633 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:40:633 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:40:633 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:40:633 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:40:634 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:40:634 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:40:634 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:40:634 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:40:634 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:40:635 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:41:631 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:41:632 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:41:632 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:41:632 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:41:632 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:41:633 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:41:633 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:41:633 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:41:633 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:41:633 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:41:634 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:41:634 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:41:634 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:41:634 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:43:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:43:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:43:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:43:117 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:43:117 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:43:117 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:43:117 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:43:117 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:43:118 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:43:118 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:43:118 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:43:118 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:43:118 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:43:118 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:44:114 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:44:115 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:44:115 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:44:115 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:44:115 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:44:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:44:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:44:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:44:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:44:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:44:117 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:44:117 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:44:117 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:44:117 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:45:114 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:45:115 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:45:115 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:45:115 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:45:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:45:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:45:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:45:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:45:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:45:117 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:45:117 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:45:117 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:45:117 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:45:118 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:46:114 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:46:115 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:46:115 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:46:115 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:46:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:46:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:46:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:46:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:46:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:46:117 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:46:117 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:46:117 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:46:117 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:46:117 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:47:115 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:47:115 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:47:115 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:47:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:47:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:47:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:47:117 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:47:117 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:47:117 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:47:118 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:47:118 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:47:118 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:47:118 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:47:118 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:48:115 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:48:115 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:48:115 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:48:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:48:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:48:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:48:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:48:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:48:117 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:48:117 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:48:117 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:48:117 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:48:117 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:48:117 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:49:114 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:49:115 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:49:115 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:49:115 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:49:115 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:49:115 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:49:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:49:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:49:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:49:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:49:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:49:117 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:49:117 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:49:117 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:50:115 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:50:115 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:50:115 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:50:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:50:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:50:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:50:116 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:50:117 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:50:117 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:50:117 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:50:118 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:50:118 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:50:118 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.Arrow$1
+16:38:50:119 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.arrow.ArrowMove
+16:38:51:529 Analytics.dispose() [analytics] [DEBUG]: Just flushed

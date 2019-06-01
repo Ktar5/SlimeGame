@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.async.AsyncExecutor;
-import lombok.Setter;
 import org.bson.Document;
 import org.tinylog.Logger;
 
@@ -16,10 +15,6 @@ import java.util.UUID;
 public class Analytics implements Disposable {
     private static Analytics session;
 
-    @Setter
-    //Reset the analytics data if the version is before this
-    private int resetVersionThreshold = -1;
-
     private MongoDBInstance mongo;
 
     private AsyncExecutor executor = new AsyncExecutor(1);
@@ -30,10 +25,9 @@ public class Analytics implements Disposable {
     private Locale locale = Locale.getDefault();
     private long sessionStartTime = System.currentTimeMillis();
 
-
     private List<Document> events;
 
-    private Analytics(Preferences prefs, MongoDBInstance mongo, String build_id, int analytics_version) {
+    private Analytics(Preferences prefs, MongoDBInstance mongo, String build_id, int analytics_version, int resetVersionThreshold) {
         this.mongo = mongo;
         this.build_id = build_id;
         this.analytics_version = analytics_version;
@@ -69,6 +63,10 @@ public class Analytics implements Disposable {
         prefs.flush();
 
         event(new SessionStartEvent());
+    }
+
+    private Analytics(Preferences prefs, MongoDBInstance mongo, String build_id, int analytics_version) {
+        this(prefs, mongo,build_id, analytics_version, Integer.MIN_VALUE);
     }
 
     public static void flush() {

@@ -82,6 +82,12 @@ public class ArrowMove extends ArrowState {
 
         List<Entity> entities = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getEntities();
         boolean touchedEntity = false;
+
+        JumpPlayer player = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getPlayer();
+        if(player.position.equals(newTile.x * 16, newTile.y * 16)){
+            player.kill("arrow");
+            touchedEntity = true;
+        }
         for (Entity entity : entities) {
             if (entity.position.equals(newTile.x * 16, newTile.y * 16)) {
                 if(entity instanceof Arrow){

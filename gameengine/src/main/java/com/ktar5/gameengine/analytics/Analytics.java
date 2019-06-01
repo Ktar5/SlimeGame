@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.utils.Disposable;
 import com.badlogic.gdx.utils.async.AsyncExecutor;
+import lombok.Setter;
 import org.bson.Document;
 import org.tinylog.Logger;
 
@@ -15,11 +16,16 @@ import java.util.UUID;
 public class Analytics implements Disposable {
     private static Analytics session;
 
+    @Setter
+    //Reset the analytics data if the version is before this
+    private int resetVersionThreshold = -1;
+
     private MongoDBInstance mongo;
 
     private AsyncExecutor executor = new AsyncExecutor(1);
     private int session_num, currentEventNumber = 0;
-    private String platform, user_id, build_id, analytics_version;
+    private String platform, user_id, build_id;
+    private int analytics_version;
     private String session_id = UUID.randomUUID().toString();
     private Locale locale = Locale.getDefault();
     private long sessionStartTime = System.currentTimeMillis();
@@ -27,7 +33,7 @@ public class Analytics implements Disposable {
 
     private List<Document> events;
 
-    private Analytics(Preferences prefs, MongoDBInstance mongo, String build_id, String analytics_version) {
+    private Analytics(Preferences prefs, MongoDBInstance mongo, String build_id, int analytics_version) {
         this.mongo = mongo;
         this.build_id = build_id;
         this.analytics_version = analytics_version;
@@ -37,14 +43,16 @@ public class Analytics implements Disposable {
         platform = Platform.getDefaultPlatform(Gdx.app.getType()).name();
 
         //preferences
-        String previousAnalyticsVersion = prefs.getString("analytics_version", null);
-        if(previousAnalyticsVersion == null){
+        int previousAnalyticsVersion = prefs.getInteger("analytics_version", 0);
+        if(previousAnalyticsVersion == 0){
             Logger.tag("analytics").debug("Initializing analytics at version: " + analytics_version);
-            prefs.putString("analytics_version", analytics_version);
-        }else if(!previousAnalyticsVersion.equals(analytics_version)){
-            //TODO if i want to reset the local user preferences
+            prefs.putInteger("analytics_version", analytics_version);
+        }else if(previousAnalyticsVersion != analytics_version){
+            if(previousAnalyticsVersion < resetVersionThreshold){
+                prefs.putInteger("analytics_session_number", 0);
+            }
             Logger.tag("analytics").debug("Updating from analytics " + previousAnalyticsVersion + " to " + analytics_version);
-            prefs.putString("analytics_version", analytics_version);
+            prefs.putInteger("analytics_version", analytics_version);
         }
 
         user_id = prefs.getString("analytics_user_id", null);
@@ -101,7 +109,7 @@ public class Analytics implements Disposable {
         events.add(document);
     }
 
-    public static Analytics create(Preferences preferences, MongoDBInstance mongo, String build_id, String analytics_version) {
+    public static Analytics create(Preferences preferences, MongoDBInstance mongo, String build_id, int analytics_version) {
         Logger.tag("analytics").debug("Created analytics");
         session = new Analytics(preferences, mongo, build_id, analytics_version);
         flush();

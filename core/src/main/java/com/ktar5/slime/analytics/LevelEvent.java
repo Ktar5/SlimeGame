@@ -29,6 +29,7 @@ public abstract class LevelEvent implements AnalyticEvent {
     @Override
     public Document getData() {
         return new Document()
+                .append("level_session", LevelSession.currentLevelSession.toString())
                 .append("level_uuid", level.toString())
                 .append("level_name", levelName)
                 .append("level_num", levelNum)

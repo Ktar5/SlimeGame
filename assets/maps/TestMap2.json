@@ -1,0 +1,36 @@
+{
+    "identifier": "9fdf776e-d7e0-40b1-ab42-7b5096524326",
+    "tilesets": ["..\\TestTileset.json"],
+    "layers": [{
+        "tiles": [
+            "0,0,0,0,0,0,0,0,0,0,0,0",
+            "0,0,0_1,0_1,0_1,0_1,0_1,0_1,0_1,0_1,0_1,0",
+            "0,0,0_1,0,0,0,0,0,0,0,0,0",
+            "0,0,0,0,0,0,0,0,0,0,0,0",
+            "0,0,0,0,0,0,0,0,0,0,0,0",
+            "0,0,0,0,0,0,0,0,0,0,0,0",
+            "0,0,0,0,0,0,0,0,0,0,0,0",
+            "0,0,0,0,0,0,0,0,0,0,0,0",
+            "0,0,0,0,0,0,0,0,0,0,0,0",
+            "0,0,0,0,0,0,0,0,0,0,0,0",
+            "0,0,0,0,0,0,0,0,0,0,0,0",
+            "0,0,0,0,0,0,0,0,0,0,0,0"
+        ],
+        "visible": true,
+        "offset": {
+            "x": 0,
+            "y": 0
+        },
+        "transparency": 100,
+        "name": "TileTexture Layer",
+        "class": "com.ktar5.tileeditor.tilemap.layers.tile.TileLayer",
+        "properties": {}
+    }],
+    "properties": {},
+    "dimensions": {
+        "numTilesHigh": 12,
+        "numTilesWide": 12,
+        "tileWidth": 16,
+        "tileHeight": 16
+    }
+}

@@ -27,7 +27,9 @@ public class Analytics implements Disposable {
 
     private List<Document> events;
 
-    private Analytics(Preferences prefs, MongoDBInstance mongo, String build_id, int analytics_version, int resetVersionThreshold) {
+    private Analytics(Preferences prefs, MongoDBInstance mongo, String build_id, int analytics_version) {
+        Logger.tag("analytics").debug("Analytics initialized with build ID: '" + build_id + "' & analytics version: '" + analytics_version + "'");
+
         this.mongo = mongo;
         this.build_id = build_id;
         this.analytics_version = analytics_version;
@@ -36,15 +38,18 @@ public class Analytics implements Disposable {
 
         platform = Platform.getDefaultPlatform(Gdx.app.getType()).name();
 
-        //preferences
+        try{
+            prefs.getInteger("analytics_version", 0);
+        }catch (NumberFormatException e){
+            prefs.putInteger("analytics_version", analytics_version);
+            prefs.flush();
+        }
+
         int previousAnalyticsVersion = prefs.getInteger("analytics_version", 0);
         if(previousAnalyticsVersion == 0){
             Logger.tag("analytics").debug("Initializing analytics at version: " + analytics_version);
             prefs.putInteger("analytics_version", analytics_version);
         }else if(previousAnalyticsVersion != analytics_version){
-            if(previousAnalyticsVersion < resetVersionThreshold){
-                prefs.putInteger("analytics_session_number", 0);
-            }
             Logger.tag("analytics").debug("Updating from analytics " + previousAnalyticsVersion + " to " + analytics_version);
             prefs.putInteger("analytics_version", analytics_version);
         }
@@ -63,10 +68,6 @@ public class Analytics implements Disposable {
         prefs.flush();
 
         event(new SessionStartEvent());
-    }
-
-    private Analytics(Preferences prefs, MongoDBInstance mongo, String build_id, int analytics_version) {
-        this(prefs, mongo,build_id, analytics_version, Integer.MIN_VALUE);
     }
 
     public static void flush() {

@@ -12,7 +12,7 @@ import com.ktar5.slime.entities.TouchableEntity;
 import com.ktar5.slime.entities.player.JumpPlayer;
 
 public class Arrow extends Entity<ArrowState> implements TouchableEntity , Pool.Poolable {
-    private Side currentMovement;
+    Side currentMovement;
     private int lastX = 0;
     private int lastY = 0;
 

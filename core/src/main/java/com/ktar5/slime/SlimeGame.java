@@ -89,7 +89,7 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
     protected AbstractScreen getStartingScreen() {
         MongoDBInstance mongoDBInstance = new MongoDBInstance("mongodb+srv://analytics:test@cluster0-k5pjp.mongodb.net/test?retryWrites=true", "test");
         Preferences slimegame = Gdx.app.getPreferences("com.ktar5.slimegame");
-        Analytics.create(slimegame, mongoDBInstance,"debug", "1.1");
+        Analytics.create(slimegame, mongoDBInstance,"debug", 1);
         return new LoadingScreen(EngineManager.get().getCameraBase());
     }
 

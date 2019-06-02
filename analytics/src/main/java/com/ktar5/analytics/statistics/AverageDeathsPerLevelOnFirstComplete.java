@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.Consumer;
 
-public class AverageDeathsPerLevelOnFirstTry {
+public class AverageDeathsPerLevelOnFirstComplete {
     /*
     Steps:
     O- Select all level start events with level at certain level
@@ -42,7 +42,7 @@ public class AverageDeathsPerLevelOnFirstTry {
 
     public double value;
 
-    public AverageDeathsPerLevelOnFirstTry(int levelId) {
+    public AverageDeathsPerLevelOnFirstComplete(int levelId) {
         MongoCollection<Document> analytics = Main.instance.getMongo().getCollection("analytics");
         Document queryOne = new Document();
         queryOne.append("event_data.level_num", levelId);
@@ -107,6 +107,9 @@ public class AverageDeathsPerLevelOnFirstTry {
                 continue;
             }
             for (LevelSession levelSession : value.listOfLevelSessions.values()) {
+                if(!levelSession.complete){
+                    continue;
+                }
                 if (earliest == null) {
                     earliest = levelSession;
                 } else if (levelSession.sessionNumber < earliest.sessionNumber) {
@@ -117,8 +120,9 @@ public class AverageDeathsPerLevelOnFirstTry {
                     }
                 }
             }
-//            System.out.println(earliest.numberOfFails);
-            numbersToAverage.add(earliest.numberOfFails);
+            if (earliest != null) {
+                numbersToAverage.add(earliest.numberOfFails);
+            }
         }
 
         int total = 0;

@@ -1,10 +1,13 @@
 package com.ktar5.analytics;
 
-import com.ktar5.analytics.statistics.AverageDeathsPerLevelOnFirstTry;
+import com.ktar5.analytics.displays.AverageDeathsPerLevelDisplay;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
 import lombok.Getter;
+import org.bson.Document;
+
+import java.util.function.Consumer;
 
 @Getter
 public class Main extends Application {
@@ -35,6 +38,14 @@ public class Main extends Application {
         //Initialize primary stage window and set to view scene
         root = new DisplayWindow();
 
-        new AverageDeathsPerLevelOnFirstTry(9);
+        //TODO fix this cancer
+        System.out.println("starting");
+        mongo.getCollection("analytics").find(new Document("session_num", 0)).limit(1).forEach(new Consumer<Document>() {
+            @Override
+            public void accept(Document document) {
+                //do nothing
+            }
+        });
+        new AverageDeathsPerLevelDisplay(0, 10);
     }
 }

@@ -13,7 +13,7 @@ public abstract class LevelEvent implements AnalyticEvent {
     private int levelNum;
 
     public LevelEvent(LevelData data) {
-        this.level = data.getUuid();
+        this.level = data.getUUID();
         this.levelName = data.getName();
         this.levelNum = data.getId();
     }

@@ -6,9 +6,9 @@ import com.ktar5.gameengine.util.Side;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.world.level.LoadedLevel;
 import com.ktar5.slime.world.tiles.base.Rotation;
-import com.ktar5.slime.world.tiles.base.WholeTile;
+import com.ktar5.slime.world.tiles.base.WholeGameTile;
 
-public class Collectible extends WholeTile {
+public class Collectible extends WholeGameTile {
     boolean collected = false;
 
     public Collectible(int x, int y) {
@@ -32,7 +32,7 @@ public class Collectible extends WholeTile {
             collected = true;
             LoadedLevel currentLevel = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
             TiledMapTileLayer mapLayer = currentLevel.getGameplayArtLayer();
-            currentLevel.addEdit(x, y, "Art_Gameplay", 791);
+            currentLevel.addEdit(x, y, currentLevel.getRenderMap().getLayers().getIndex("Art_Gameplay"), 791);
             mapLayer.getCell(x,y).setTile(null);
         }
     }

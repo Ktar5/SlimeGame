@@ -6,9 +6,9 @@ import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.screens.GameScreen;
 import com.ktar5.slime.screens.gamestate.Winning;
 import com.ktar5.slime.world.tiles.base.Rotation;
-import com.ktar5.slime.world.tiles.base.WholeTile;
+import com.ktar5.slime.world.tiles.base.WholeGameTile;
 
-public class Win extends WholeTile {
+public class Win extends WholeGameTile {
     public Win(int x, int y) {
         super(x, y, Rotation.DEG_0);
     }

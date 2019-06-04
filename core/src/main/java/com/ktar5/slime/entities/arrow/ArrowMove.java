@@ -8,8 +8,8 @@ import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.entities.TouchableEntity;
 import com.ktar5.slime.entities.player.JumpPlayer;
 import com.ktar5.slime.variables.Settings;
-import com.ktar5.slime.world.Grid;
-import com.ktar5.slime.world.tiles.base.Tile;
+import com.ktar5.slime.world.level.LevelData;
+import com.ktar5.slime.world.tiles.base.GameTile;
 import org.tinylog.Logger;
 
 import java.util.List;
@@ -46,7 +46,7 @@ public class ArrowMove extends ArrowState {
         if (getEntity().isHaltMovement()) {
             return;
         }
-        final Grid grid = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getGrid();
+        final LevelData levelData = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
 
         //Get the position that we WOULD BE MOVING TO IF EVERYTHING GOES WELL so that we can use it
         //as a reference for where we want to go.
@@ -56,7 +56,7 @@ public class ArrowMove extends ArrowState {
         //For example x/y are current x/y block and newX/newY are future x/y block
         int newX, newY;
 
-        //Because of the nature of the grid having the bottom left corner of each tile represent the
+        //Because of the nature of the gameTiles having the bottom left corner of each tile represent the
         //block integer location (tile 1,2 STARTS at the coordinates 1,2)
         //
         //This matters because when moving in a positive direction (+x = right, +y = up), flooring the
@@ -74,8 +74,8 @@ public class ArrowMove extends ArrowState {
         //THIS COULD BE THE SAME TILE THE PLAYER IS CURRENTLY ON IF THE PLAYER
         //DOESN'T MOVE ENOUGH TO COVER THE DISTANCE INTO A NEW TILE THIS STEP
         //This is one block into the future, basically
-        Tile newTile = grid.tileFromDirection(newX, newY, getMovement());
-        if (newTile == null) {
+        GameTile newGameTile = levelData.tileFromDirection(newX, newY, getMovement());
+        if (newGameTile == null) {
             Logger.debug(newX + " " + newY);
             return;
         }
@@ -84,12 +84,12 @@ public class ArrowMove extends ArrowState {
         boolean touchedEntity = false;
 
         JumpPlayer player = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getPlayer();
-        if(player.position.equals(newTile.x * 16, newTile.y * 16)){
+        if(player.position.equals(newGameTile.x * 16, newGameTile.y * 16)){
             player.kill("arrow");
             touchedEntity = true;
         }
         for (Entity entity : entities) {
-            if (entity.position.equals(newTile.x * 16, newTile.y * 16)) {
+            if (entity.position.equals(newGameTile.x * 16, newGameTile.y * 16)) {
                 if(entity instanceof Arrow){
                     continue;
                 }
@@ -111,16 +111,16 @@ public class ArrowMove extends ArrowState {
         }
 
         //In case we want to do something special instead of handle movement
-        else if (!newTile.preMove(getEntity())) {
+        else if (!newGameTile.preMove(getEntity())) {
 
         }
         //In case we want to modify where the player is moving without setting them to idle
-        else if (grid.grid[newX][newY].changeMovement(getEntity(), getMovement())) {
+        else if (levelData.getGameMap()[newX][newY].changeMovement(getEntity(), getMovement())) {
             getEntity().getPosition().moveTo(newX * 16, newY * 16);
             getEntity().getPosition().translate(SPEED * getMovement().x, SPEED * getMovement().y);
         }
         //Check for if the tile that the player WOULD BE GOING INTO is air or not
-        else if (!newTile.canCrossThrough(getEntity(), getMovement())) {
+        else if (!newGameTile.canCrossThrough(getEntity(), getMovement())) {
             //If it is not air, then that means we have reached a wall
             //This little bit of logic (moving to newX, newY) works because
             //if their next movement would've been to a wall, that means they're
@@ -133,7 +133,7 @@ public class ArrowMove extends ArrowState {
 //            //Change state to idle
 //            changeState(ArrowIdle.class);
 
-            newTile.onHitTile(getEntity(), getMovement().opposite());
+            newGameTile.onHitTile(getEntity(), getMovement().opposite());
             EngineManager.get().getRenderManager().doOnNextFrame(() -> {
                 SlimeGame.getGame().getLevelHandler().getCurrentLevel().getEntities().remove(getEntity());
             });

@@ -7,9 +7,9 @@ import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.entities.box.Box;
 import com.ktar5.slime.entities.player.JumpPlayer;
 import com.ktar5.slime.world.tiles.base.Rotation;
-import com.ktar5.slime.world.tiles.base.WholeTile;
+import com.ktar5.slime.world.tiles.base.WholeGameTile;
 
-public class Hole extends WholeTile {
+public class Hole extends WholeGameTile {
     boolean filled = false;
 
     public Hole(int x, int y) {

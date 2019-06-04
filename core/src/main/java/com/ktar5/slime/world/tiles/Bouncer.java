@@ -3,9 +3,9 @@ package com.ktar5.slime.world.tiles;
 import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.gameengine.util.Side;
 import com.ktar5.slime.world.tiles.base.Rotation;
-import com.ktar5.slime.world.tiles.base.WholeTile;
+import com.ktar5.slime.world.tiles.base.WholeGameTile;
 
-public class Bouncer extends WholeTile {
+public class Bouncer extends WholeGameTile {
     public Bouncer(int x, int y) {
         super(x, y, Rotation.DEG_0);
     }

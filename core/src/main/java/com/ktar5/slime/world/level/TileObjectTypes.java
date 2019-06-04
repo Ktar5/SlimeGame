@@ -1,4 +1,4 @@
-package com.ktar5.slime.world.level.types;
+package com.ktar5.slime.world.level;
 
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.utils.IntMap;
@@ -90,7 +90,7 @@ public enum TileObjectTypes {
     }
 
     public static interface TileObjectGenerator {
-        public Object get(int x, int y, TiledMapTileLayer.Cell cell);
+        public Object get(int x, int y, TiledMapTileLayer.Cell tile);
     }
 
 }

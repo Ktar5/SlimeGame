@@ -3,10 +3,10 @@ package com.ktar5.slime.world.tiles.base;
 import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.gameengine.util.Side;
 
-public abstract class MultisidedTile extends Tile {
+public abstract class MultisidedGameTile extends GameTile {
     private TileSide[] sides;
 
-    public MultisidedTile(int x, int y, TileSide up, TileSide right, TileSide down, TileSide left) {
+    public MultisidedGameTile(int x, int y, TileSide up, TileSide right, TileSide down, TileSide left) {
         super(x, y, Rotation.DEG_0);
         sides = new TileSide[]{up, right, down, left};
     }

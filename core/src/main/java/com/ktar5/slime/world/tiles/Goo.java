@@ -6,9 +6,9 @@ import com.ktar5.slime.entities.box.Box;
 import com.ktar5.slime.entities.box.BoxIdle;
 import com.ktar5.slime.entities.player.states.Idle;
 import com.ktar5.slime.world.tiles.base.Rotation;
-import com.ktar5.slime.world.tiles.base.WholeTile;
+import com.ktar5.slime.world.tiles.base.WholeGameTile;
 
-public class Goo extends WholeTile {
+public class Goo extends WholeGameTile {
     public Goo(int x, int y) {
         super(x, y, Rotation.DEG_0);
     }

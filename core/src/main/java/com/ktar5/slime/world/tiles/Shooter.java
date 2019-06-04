@@ -5,9 +5,9 @@ import com.ktar5.gameengine.util.Side;
 import com.ktar5.slime.entities.arrow.Arrow;
 import com.ktar5.slime.entities.arrow.ArrowEntityData;
 import com.ktar5.slime.world.tiles.base.Rotation;
-import com.ktar5.slime.world.tiles.base.WholeTile;
+import com.ktar5.slime.world.tiles.base.WholeGameTile;
 
-public class Shooter extends WholeTile {
+public class Shooter extends WholeGameTile {
     private static final int ticks = 60;
 
     private final Side shootSide;

@@ -6,8 +6,8 @@ import com.ktar5.gameengine.util.Side;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.entities.TouchableEntity;
 import com.ktar5.slime.variables.Settings;
-import com.ktar5.slime.world.Grid;
-import com.ktar5.slime.world.tiles.base.Tile;
+import com.ktar5.slime.world.level.LevelData;
+import com.ktar5.slime.world.tiles.base.GameTile;
 import org.tinylog.Logger;
 
 import java.util.List;
@@ -43,7 +43,7 @@ public class BoxMove extends BoxState {
         if (getEntity().isHaltMovement()) {
             return;
         }
-        final Grid grid = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getGrid();
+        final LevelData levelData = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
 
         //Get the position that we WOULD BE MOVING TO IF EVERYTHING GOES WELL so that we can use it
         //as a reference for where we want to go.
@@ -53,7 +53,7 @@ public class BoxMove extends BoxState {
         //For example x/y are current x/y block and newX/newY are future x/y block
         int newX, newY;
 
-        //Because of the nature of the grid having the bottom left corner of each tile represent the
+        //Because of the nature of the gameTiles having the bottom left corner of each tile represent the
         //block integer location (tile 1,2 STARTS at the coordinates 1,2)
         //
         //This matters because when moving in a positive direction (+x = right, +y = up), flooring the
@@ -71,8 +71,8 @@ public class BoxMove extends BoxState {
         //THIS COULD BE THE SAME TILE THE PLAYER IS CURRENTLY ON IF THE PLAYER
         //DOESN'T MOVE ENOUGH TO COVER THE DISTANCE INTO A NEW TILE THIS STEP
         //This is one block into the future, basically
-        Tile newTile = grid.tileFromDirection(newX, newY, getMovement());
-        if (newTile == null) {
+        GameTile newGameTile = levelData.tileFromDirection(newX, newY, getMovement());
+        if (newGameTile == null) {
             Logger.debug(newX + " " + newY);
             return;
         }
@@ -80,7 +80,7 @@ public class BoxMove extends BoxState {
         List<Entity> entities = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getEntities();
         boolean touchedEntity = false;
         for (Entity entity : entities) {
-            if (entity.position.equals(newTile.x * 16, newTile.y * 16)) {
+            if (entity.position.equals(newGameTile.x * 16, newGameTile.y * 16)) {
                 ((TouchableEntity) entity).onEntityTouch(getEntity(), getEntity().getLastMovedDirection());
                 touchedEntity = true;
                 break;
@@ -95,16 +95,16 @@ public class BoxMove extends BoxState {
         }
 
         //In case we want to do something special instead of handle movement
-        else if (!newTile.preMove(getEntity())) {
+        else if (!newGameTile.preMove(getEntity())) {
 
         }
         //In case we want to modify where the player is moving without setting them to idle
-        else if (grid.grid[newX][newY].changeMovement(getEntity(), getMovement())) {
+        else if (levelData.getGameMap()[newX][newY].changeMovement(getEntity(), getMovement())) {
             getEntity().getPosition().moveTo(newX * 16, newY * 16);
             getEntity().getPosition().translate(SPEED * getMovement().x, SPEED * getMovement().y);
         }
         //Check for if the tile that the player WOULD BE GOING INTO is air or not
-        else if (!newTile.canCrossThrough(getEntity(), getMovement())) {
+        else if (!newGameTile.canCrossThrough(getEntity(), getMovement())) {
             //If it is not air, then that means we have reached a wall
             //This little bit of logic (moving to newX, newY) works because
             //if their next movement would've been to a wall, that means they're
@@ -117,7 +117,7 @@ public class BoxMove extends BoxState {
             //Change state to idle
             changeState(BoxIdle.class);
 
-            newTile.onHitTile(getEntity(), getMovement().opposite());
+            newGameTile.onHitTile(getEntity(), getMovement().opposite());
         }
         //This is for regular movement
         else {

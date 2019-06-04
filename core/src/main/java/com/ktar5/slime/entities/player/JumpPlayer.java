@@ -35,7 +35,7 @@ public class JumpPlayer extends PlayerEntity<PlayerState> {
 
     public JumpPlayer(LoadedLevel level) {
         super(2, 16, 16);
-        this.position.set(level.getSpawnX(), level.getSpawnY());
+        this.position.set(level.getSpawnTile().x * 16, level.getSpawnTile().y * 16);
         this.level = level;
         Logger.debug("New player created " + System.currentTimeMillis());
     }
@@ -50,8 +50,8 @@ public class JumpPlayer extends PlayerEntity<PlayerState> {
             }
             lastY = (int) position.y / 16;
             lastX = (int) position.x / 16;
-            SlimeGame.getGame().getLevelHandler().getCurrentLevel().getGrid().activateAllTiles(this);
-            boolean[][] slimeCovered = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getSlimeCovered();
+            SlimeGame.getGame().getLevelHandler().getCurrentLevel().activateAllTiles(this);
+//            boolean[][] slimeCovered = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getSlimeCovered();
 
             //TODO implement this code everywhere
 //            if (!slimeCovered[lastX][lastY]) {
@@ -82,8 +82,8 @@ public class JumpPlayer extends PlayerEntity<PlayerState> {
     public void reset() {
         setSmall(false);
         ((Respawn) getEntityState().get(Respawn.class)).cancel();
-        getPosition().set(SlimeGame.getGame().getLevelHandler().getSpawnX(),
-                SlimeGame.getGame().getLevelHandler().getSpawnY());
+        getPosition().set(SlimeGame.getGame().getLevelHandler().getSpawnX() * 16,
+                SlimeGame.getGame().getLevelHandler().getSpawnY() * 16);
         resetAnimation("slime_jump_down");
         setHaltMovement(false);
         getEntityState().changeStateAfterUpdate(Idle.class);

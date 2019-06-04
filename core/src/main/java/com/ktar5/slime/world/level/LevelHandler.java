@@ -19,13 +19,17 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+@Getter
 public class LevelHandler implements Renderable, Updatable {
-    public static boolean LOAD_MAPS_LOCAL = true;
+    public static boolean LOAD_MAPS_LOCAL = false;
+    public static boolean SHOW_LEVEL_DEBUG = false;
 
+    //A level data is the background information for storing the level
+    //A loaded level is a level that is being played
     private LevelData[] levelData;
-    private OrthogonalTiledMapRenderer tileMapRenderer;
-    @Getter
+
     private LoadedLevel currentLevel;
+    private OrthogonalTiledMapRenderer tileMapRenderer;
 
     public LevelHandler() {
         loadMaps();
@@ -53,7 +57,7 @@ public class LevelHandler implements Renderable, Updatable {
             }
         }
         currentLevel = new LoadedLevel(levelData[levelIndex]);
-        tileMapRenderer = new OrthogonalTiledMapRenderer(currentLevel.getTileMap(), 1f,
+        tileMapRenderer = new OrthogonalTiledMapRenderer(currentLevel.getRenderMap(), 1f,
                 EngineManager.get().getRenderManager().getSpriteBatch());
     }
 
@@ -103,7 +107,7 @@ public class LevelHandler implements Renderable, Updatable {
                 CustomTmxMapLoader loader = new CustomTmxMapLoader();
                 TiledMap tiledMap;
 
-                Logger.debug("Loading " + i);
+                Logger.debug("Loading map id: " + i + " name: " + handle.name());
                 tiledMap = loader.load("maps/" + handle.name(), params);
                 levelDataList.add(i, new LevelData(tiledMap, levelName, i));
                 i++;
@@ -122,11 +126,11 @@ public class LevelHandler implements Renderable, Updatable {
 
 
     public int getSpawnX() {
-        return currentLevel.getSpawnX();
+        return currentLevel.getSpawnTile().x;
     }
 
     public int getSpawnY() {
-        return currentLevel.getSpawnY();
+        return currentLevel.getSpawnTile().y;
     }
 
     @Override
@@ -142,6 +146,7 @@ public class LevelHandler implements Renderable, Updatable {
         //Logger.debug(ToStringBuilder.reflectionToString(EngineManager.get().getCameraBase().getCamera(), ToStringStyle.JSON_STYLE));
         //Logger.debug("\n\n\n");
         tileMapRenderer.render(currentLevel.getBackgroundLayers());
+
         batch.begin();
         currentLevel.getPlayer().getEntityAnimator().render(batch, currentLevel.getPlayer().getPosition().x,
                 currentLevel.getPlayer().getPosition().y, currentLevel.getPlayer().getPosition().getAngle());
@@ -149,6 +154,8 @@ public class LevelHandler implements Renderable, Updatable {
             entity.getEntityAnimator().render(batch, entity.getPosition().x, entity.getPosition().y, entity.getPosition().getAngle());
         }
         batch.end();
+
+
         tileMapRenderer.render(currentLevel.getForegroundLayers());
         //tileMapRenderer.render();
         batch.begin();
@@ -159,5 +166,14 @@ public class LevelHandler implements Renderable, Updatable {
         for (Entity entity : currentLevel.getEntities()) {
             entity.debugRender(EngineManager.get().getRenderManager().getShapeRenderer());
         }
+    }
+
+    public void setLevelDebug(boolean debug) {
+        SHOW_LEVEL_DEBUG = debug;
+        currentLevel.getRenderMap().getLayers().get("Gameplay").setVisible(debug);
+    }
+
+    public void toggleDebug() {
+        setLevelDebug(!SHOW_LEVEL_DEBUG);
     }
 }

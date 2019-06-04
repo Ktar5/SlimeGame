@@ -8,11 +8,11 @@ import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapImageLayer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
+import com.ktar5.gameengine.entities.Entity;
+import com.ktar5.gameengine.util.Side;
 import com.ktar5.slime.entities.EntityData;
-import com.ktar5.slime.world.Grid;
-import com.ktar5.slime.world.level.types.TileObjectTypes;
 import com.ktar5.slime.world.tiles.Air;
-import com.ktar5.slime.world.tiles.base.Tile;
+import com.ktar5.slime.world.tiles.base.GameTile;
 import com.ktar5.utilities.common.data.Pair;
 import lombok.Getter;
 import org.apache.commons.lang3.ArrayUtils;
@@ -22,68 +22,127 @@ import java.util.*;
 
 @Getter
 public class LevelData {
-    private static boolean showDebugLevel = false;
-
-    private final HashSet<String> lamePropertyNames = new HashSet<>(Arrays.asList(
+    private static final HashSet<String> lamePropertyNames = new HashSet<>(Arrays.asList(
             "width", "id", "height", "x", "y"
     ));
 
-    private UUID uuid = UUID.randomUUID();
-    private String name;
-    private int id;
-
-    protected Pair spawn;
-    protected TiledMap tileMap;
-
-    protected Grid grid;
+    private int width, height, id;
+    private final String name;
+    private final UUID uuid;
     private List<EntityData> initialEntityData;
 
+    private GameTile[][] gameMap;
+    private TiledMap renderMap;
+
+    private Pair spawnTile;
     private int gameplayArtLayerIndex;
     private int[] foregroundLayers, backgroundLayers;
 
-    protected boolean[][] slimeCovered;
+//    private boolean[][] slimeCovered;
+    private int collectablesFound = 0;
 
+    public LevelData(TiledMap renderMap, String name, int id) {
+//        this.uuid = UUID.fromString(renderMap.getProperties().get("uuid", String.class));
+        this.uuid = UUID.randomUUID();
+        //TODO FIX UUID
 
-    public LevelData(TiledMap tilemap, String name, int id) {
-        this.tileMap = tilemap;
+        this.renderMap = renderMap;
         this.id = id;
         this.name = name;
         initialEntityData = new ArrayList<>();
-        initializeGrid();
-        slimeCovered = new boolean[this.grid.width][this.grid.height];
+        initialize();
     }
 
     public LevelData(LevelData levelData) {
+        this.width = levelData.width;
         this.uuid = levelData.uuid;
         this.name = levelData.name;
-        this.spawn = levelData.spawn;
-        this.tileMap = levelData.tileMap;
+        this.height = levelData.height;
+        this.spawnTile = levelData.spawnTile;
         this.id = levelData.id;
-        this.grid = levelData.grid;
-        this.slimeCovered = levelData.slimeCovered;
         this.initialEntityData = levelData.initialEntityData;
         this.gameplayArtLayerIndex = levelData.gameplayArtLayerIndex;
         this.foregroundLayers = levelData.foregroundLayers;
         this.backgroundLayers = levelData.backgroundLayers;
-    }
 
-    public void setLevelDebug(boolean debug) {
-        showDebugLevel = debug;
-        tileMap.getLayers().get("Gameplay").setVisible(debug);
-    }
-
-    public void toggleDebug() {
-        setLevelDebug(!showDebugLevel);
+        //Or we can initialize??
+        this.gameMap = levelData.gameMap;
+        this.renderMap = levelData.renderMap;
     }
 
     public TiledMapTileLayer getGameplayArtLayer() {
-        return ((TiledMapTileLayer) tileMap.getLayers().get(gameplayArtLayerIndex));
+        return ((TiledMapTileLayer) renderMap.getLayers().get(gameplayArtLayerIndex));
     }
 
-    private void initializeGrid() {
-        Logger.debug("Loading level: '" + name + "' with id:" + id);
+    private void entityTouchedTileSide(int x, int y, Entity entity, Side side) {
+        GameTile gameTile = tileFromDirection(x, y, side);
+        if (gameTile != null) {
+            gameTile.onTouchSide(entity, null, side.opposite());
+        }
+    }
 
-        MapLayers layers = this.getTileMap().getLayers();
+    public GameTile tileFromDirection(int x, int y, Side side) {
+        x += side.x;
+        y += side.y;
+        if (isInMapRange(x, y)) {
+            return gameMap[x][y];
+        }
+        return null;
+    }
+
+    public void activateAllTiles(Entity entity) {
+        int x = (int) entity.position.x / 16;
+        int y = (int) entity.position.y / 16;
+        entityTouchedTileSide(x, y, entity, Side.UP);
+        entityTouchedTileSide(x, y, entity, Side.DOWN);
+        entityTouchedTileSide(x, y, entity, Side.LEFT);
+        entityTouchedTileSide(x, y, entity, Side.RIGHT);
+        if (isInMapRange(x, y)) {
+//            Logger.debug(gameMap[x][y]);
+//            Logger.debug(SlimeGame.getGame().getLevelHandler().getCurrentLevel().getId());
+            gameMap[x][y].onCross(entity);
+        }
+    }
+
+    public GameTile[] getSurrounding(int x, int y) {
+        List<GameTile> gameTiles = new ArrayList<>();
+        if (isInMapRange(x, y + 1)) {
+            gameTiles.add(this.gameMap[x][y + 1]);
+        }
+        if (isInMapRange(x, y - 1)) {
+            gameTiles.add(this.gameMap[x][y - 1]);
+        }
+        if (isInMapRange(x + 1, y)) {
+            gameTiles.add(this.gameMap[x + 1][y]);
+        }
+        if (isInMapRange(x - 1, y)) {
+            gameTiles.add(this.gameMap[x - 1][y]);
+        }
+        return gameTiles.toArray(new GameTile[0]);
+    }
+
+    public boolean isInMapRange(int x, int y) {
+        return x >= 0 && x < width && y >= 0 && y < height;
+    }
+
+    public void updateTiles(float dTime) {
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                if (gameMap[x][y] != null) {
+                    gameMap[x][y].tick();
+                }
+            }
+        }
+    }
+
+    public UUID getUUID(){
+        return uuid;
+    }
+
+    private void initialize() {
+        Logger.debug("Loading level: '" + getName() + "' with id:" + id + " with uuid: " + getUUID());
+
+        MapLayers layers = this.getRenderMap().getLayers();
         MapLayer gameplayLayer = null;
         MapLayer propertiesLayer = null;
         List<Integer> foregrounds = new ArrayList<>();
@@ -113,7 +172,7 @@ public class LevelData {
                 layer.setVisible(false);
                 layer.setOpacity(.3f);
                 foregrounds.add(layers.getIndex(layer));
-                gameplayLayer.setVisible(showDebugLevel);
+                gameplayLayer.setVisible(LevelHandler.SHOW_LEVEL_DEBUG);
             } else if (layer.getName().equalsIgnoreCase("Properties")) {
                 propertiesLayer = layer;
             }
@@ -137,14 +196,16 @@ public class LevelData {
         TiledMapTileLayer gpTileLayer = ((TiledMapTileLayer) gameplayLayer);
 
         //Load gameplay layer
-        Grid newGrid = new Grid(gpTileLayer.getWidth(), gpTileLayer.getHeight());
+        width= gpTileLayer.getWidth();
+        height = gpTileLayer.getHeight();
+        gameMap = new GameTile[gpTileLayer.getWidth()][gpTileLayer.getHeight()];
         TiledMapTileLayer.Cell cell;
         TileObjectTypes tempType;
         for (int h = 0; h < gpTileLayer.getHeight(); h++) {
             for (int w = 0; w < gpTileLayer.getWidth(); w++) {
                 cell = gpTileLayer.getCell(w, h);
                 if (cell == null) {
-                    newGrid.grid[w][h] = new Air(w, h);
+                    gameMap[w][h] = new Air(w, h);
                     continue;
                 }
                 //TODO magic value (2395)
@@ -157,19 +218,17 @@ public class LevelData {
                     Logger.debug("Don't know what to do with tile at " + w + ", " + h + "with ID " + (i));
                 } else if (tempType.isTile()) {
                     //Load a tile
-                    newGrid.grid[w][h] = ((Tile) tempType.generator.get(w, h, cell));
+                    gameMap[w][h] = ((GameTile) tempType.generator.get(w, h, cell));
                 } else if (tempType.isEntity()) {
                     //Load an entity
-                    newGrid.grid[w][h] = new Air(w, h);
+                    gameMap[w][h] = new Air(w, h);
                     initialEntityData.add(((EntityData) tempType.generator.get(w, h, cell)));
                 } else {
-                    newGrid.grid[w][h] = new Air(w, h);
-                    Logger.debug("Unknown type? Tile at " + w + ", " + h + "with ID " + (i));
+                    gameMap[w][h] = new Air(w, h);
+                    Logger.debug("Unknown type? GameTile at " + w + ", " + h + "with ID " + (i));
                 }
             }
         }
-        grid = newGrid;
-
         //Load properties
         for (MapObject o : propertiesLayer.getObjects()) {
             if (!(o instanceof RectangleMapObject)) {
@@ -178,7 +237,7 @@ public class LevelData {
             }
             RectangleMapObject object = ((RectangleMapObject) o);
             if (object.getName() != null && object.getName().equalsIgnoreCase("spawn")) {
-                this.spawn = new Pair((int) object.getRectangle().x / 16, (int) object.getRectangle().y / 16);
+                this.spawnTile = new Pair((int) object.getRectangle().x / 16, (int) object.getRectangle().y / 16);
             } else {
                 //Remove useless properties
                 MapProperties preProcessProperties = object.getProperties();
@@ -191,7 +250,7 @@ public class LevelData {
                     postProcessProperties.put(name, preProcessProperties.get(name));
                 }
 
-                Tile tile = grid.grid[(int) object.getRectangle().x / 16][(int) object.getRectangle().y / 16];
+                GameTile tile = gameMap[(int) object.getRectangle().x / 16][(int) object.getRectangle().y / 16];
                 if (tile instanceof Air) {
                     for (EntityData entityData : this.initialEntityData) {
                         if (entityData.initialPosition.equals(tile.x, tile.y)) {
@@ -207,12 +266,5 @@ public class LevelData {
         Logger.debug("Finished loading level: " + id);
     }
 
-    public int getSpawnX() {
-        return spawn.x * 16;
-    }
-
-    public int getSpawnY() {
-        return spawn.y * 16;
-    }
-
 }
+

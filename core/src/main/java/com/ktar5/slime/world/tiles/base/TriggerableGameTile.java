@@ -8,13 +8,13 @@ import java.util.EnumMap;
 import java.util.Iterator;
 import java.util.List;
 
-public abstract class TriggerableTile extends WholeTile {
+public abstract class TriggerableGameTile extends WholeGameTile {
     //onHit, onPass
     protected EnumMap<Trigger, List<MethodCall>> events;
 
-    public TriggerableTile(int x, int y, Rotation rotation) {
+    public TriggerableGameTile(int x, int y, Rotation rotation) {
         super(x, y, rotation);
-        events = new EnumMap<Trigger, List<MethodCall>>(Trigger.class);
+        events = new EnumMap<>(Trigger.class);
     }
 
     @Override

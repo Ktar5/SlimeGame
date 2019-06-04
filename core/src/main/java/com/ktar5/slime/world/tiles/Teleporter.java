@@ -10,10 +10,10 @@ import com.ktar5.gameengine.tweenengine.equations.Quint;
 import com.ktar5.gameengine.util.Side;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.world.tiles.base.Rotation;
-import com.ktar5.slime.world.tiles.base.WholeTile;
+import com.ktar5.slime.world.tiles.base.WholeGameTile;
 import org.tinylog.Logger;
 
-public class Teleporter extends WholeTile {
+public class Teleporter extends WholeGameTile {
     public static final float TELEPORT_SPEED = .1f;
 
     private int x;
@@ -45,14 +45,14 @@ public class Teleporter extends WholeTile {
     public boolean preMove(Entity entity) {
         entity.setHaltMovement(true);
 
-        Vector2 target = new Vector2(x * 16, 16 * (SlimeGame.getGame().getLevelHandler().getCurrentLevel().getGrid().height - y - 1));
+        Vector2 target = new Vector2(x * 16, 16 * (SlimeGame.getGame().getLevelHandler().getCurrentLevel().getHeight() - y - 1));
         float dst = target.dst(entity.getPosition()) / 16;
 
         tween = Tween.to(entity, 1, dst * TELEPORT_SPEED)
-                .target(x * 16, 16 * (SlimeGame.getGame().getLevelHandler().getCurrentLevel().getGrid().height - y - 1))
+                .target(x * 16, 16 * (SlimeGame.getGame().getLevelHandler().getCurrentLevel().getHeight() - y - 1))
                 .setCallback((type, source) -> {
                     if (type == TweenCallback.COMPLETE) {
-                        entity.position.set(x * 16, 16 * (SlimeGame.getGame().getLevelHandler().getCurrentLevel().getGrid().height - y - 1));
+                        entity.position.set(x * 16, 16 * (SlimeGame.getGame().getLevelHandler().getCurrentLevel().getHeight() - y - 1));
                         entity.setHaltMovement(false);
                     }
                 })

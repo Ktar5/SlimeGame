@@ -139,7 +139,7 @@ public class LoadingScreen extends AbstractScreen {
 //        // Set our screen to always be XXX x 480 in size
 //        width = 480 * width / height;
 //        height = 480;
-//        stage.getViewport().update(width, height, false);
+//        stage.getViewport().updateTiles(width, height, false);
 //
 //        // Make the background fill the screen
 //        screenBg.setSize(width, height);

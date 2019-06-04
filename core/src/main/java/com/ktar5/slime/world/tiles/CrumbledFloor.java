@@ -1,15 +1,12 @@
 package com.ktar5.slime.world.tiles;
 
-import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.gameengine.util.Side;
-import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.entities.player.JumpPlayer;
-import com.ktar5.slime.world.level.LoadedLevel;
 import com.ktar5.slime.world.tiles.base.Rotation;
-import com.ktar5.slime.world.tiles.base.WholeTile;
+import com.ktar5.slime.world.tiles.base.WholeGameTile;
 
-public class CrumbledFloor extends WholeTile {
+public class CrumbledFloor extends WholeGameTile {
     public boolean crumbled = false;
 
     public CrumbledFloor(int x, int y) {
@@ -34,11 +31,12 @@ public class CrumbledFloor extends WholeTile {
             }
         } else {
 
-            LoadedLevel currentLevel = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
-            TiledMapTileLayer mapLayer = currentLevel.getGameplayArtLayer();
-            TiledMapTileLayer.Cell cell = mapLayer.getCell(x, y);
-            currentLevel.addEdit(x, y, currentLevel.getGameplayArtLayer().getName(), cell.getTile().getId());
-            cell.setTile(currentLevel.getTileMap().getTileSets().getTile(cell.getTile().getId() + 1));
+            //TODO FIX
+//            LoadedLevel currentLevel = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
+//            TiledMapTileLayer mapLayer = currentLevel.getGameplayArtLayer();
+//            TiledMapTileLayer.Cell cell = mapLayer.getCell(x, y);
+//            currentLevel.addEdit(x, y, currentLevel.getGameplayArtLayer().getName(), cell.getTile().getId());
+//            cell.setTile(currentLevel.getTileMap().getTileSets().getTile(cell.getTile().getId() + 1));
 
             crumbled = true;
         }

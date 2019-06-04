@@ -7,7 +7,7 @@ public class LevelStartEvent extends LevelEvent {
     public LevelStartEvent(LevelData level) {
         super(level);
         LevelSession.newSession();
-        Logger.debug("Started level: ID: " + level.getUuid().toString() +"  Number: " + level.getId() + "  Name: " + level.getName());
+        Logger.debug("Started level: ID: " + level.getUUID().toString() +"  Number: " + level.getId() + "  Name: " + level.getName());
     }
 
     @Override

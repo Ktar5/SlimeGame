@@ -8,14 +8,9 @@ repositories {
 group 'com.ktar5'
 version '1.0'
 dependencies {
-    //game stuff
-//    compile 'org.mongodb:mongodb-driver-reactivestreams:1.11.0'
     compile 'org.mongodb:mongodb-driver-sync:3.10.1'
     
     compile 'com.ktar5:common:1.0-SNAPSHOT'
-
-    compile group: 'commons-net', name: 'commons-net', version: '3.6'
-
 
     //Possibly unneeded?
     compile "com.kotcrab.vis:vis-ui:1.4.2"

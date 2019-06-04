@@ -14,10 +14,10 @@ import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.entities.player.JumpPlayer;
 import com.ktar5.slime.world.level.LoadedLevel;
 import com.ktar5.slime.world.tiles.base.Rotation;
-import com.ktar5.slime.world.tiles.base.WholeTile;
+import com.ktar5.slime.world.tiles.base.WholeGameTile;
 import org.tinylog.Logger;
 
-public class RetractingSpikes extends WholeTile {
+public class RetractingSpikes extends WholeGameTile {
     public boolean retracted = true;
     public final Side spikeMoveSide;
     private int percentRetracted;
@@ -100,7 +100,7 @@ public class RetractingSpikes extends WholeTile {
         }
         LoadedLevel currentLevel = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
         TiledMapTileLayer mapLayer = currentLevel.getGameplayArtLayer();
-        TiledMapTileSet gameplayImages = currentLevel.getTileMap().getTileSets().getTileSet("GameplayImages");
+        TiledMapTileSet gameplayImages = currentLevel.getRenderMap().getTileSets().getTileSet("GameplayImages");
         if (mapLayer.getCell(x, y) == null) {
             TiledMapTileLayer.Cell newCell = new TiledMapTileLayer.Cell();
             newCell.setTile(gameplayImages.getTile(id));
@@ -108,8 +108,6 @@ public class RetractingSpikes extends WholeTile {
         } else {
             mapLayer.getCell(x, y).setTile(gameplayImages.getTile(id));
         }
-
-
     }
 
     public static class SpikesTweenAccessor implements TweenAccessor<RetractingSpikes> {

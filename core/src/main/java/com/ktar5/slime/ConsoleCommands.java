@@ -34,7 +34,7 @@ public class ConsoleCommands extends CommandExecutor {
     }
 
     public final void debugLevel(boolean value) {
-        SlimeGame.getGame().getLevelHandler().getCurrentLevel().setLevelDebug(value);
+        SlimeGame.getGame().getLevelHandler().setLevelDebug(value);
     }
 
     public final void skipLevel() {

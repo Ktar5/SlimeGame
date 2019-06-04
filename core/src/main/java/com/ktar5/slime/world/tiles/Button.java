@@ -3,9 +3,9 @@ package com.ktar5.slime.world.tiles;
 import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.gameengine.util.Side;
 import com.ktar5.slime.world.tiles.base.Rotation;
-import com.ktar5.slime.world.tiles.base.TriggerableTile;
+import com.ktar5.slime.world.tiles.base.TriggerableGameTile;
 
-public class Button extends TriggerableTile {
+public class Button extends TriggerableGameTile {
     public final Side pressableSide;
     public boolean pressed = false;
 

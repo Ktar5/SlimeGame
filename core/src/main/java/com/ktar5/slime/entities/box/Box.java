@@ -35,7 +35,7 @@ public class Box extends Entity<BoxState> implements TouchableEntity {
             }
             lastY = (int) position.y / 16;
             lastX = (int) position.x / 16;
-            SlimeGame.getGame().getLevelHandler().getCurrentLevel().getGrid().activateAllTiles(this);
+            SlimeGame.getGame().getLevelHandler().getCurrentLevel().activateAllTiles(this);
         }
     }
 

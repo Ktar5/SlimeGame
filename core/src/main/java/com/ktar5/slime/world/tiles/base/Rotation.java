@@ -18,4 +18,7 @@ public enum Rotation {
         return Rotation.values()[rotation % 4];
     }
 
+//    public static Rotation fromTile(Tile tile) {
+//        return Rotation.values()[tile.getDirection()];
+//    }
 }

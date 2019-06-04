@@ -7,11 +7,11 @@ import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.entities.player.JumpPlayer;
 import com.ktar5.slime.world.level.LoadedLevel;
 import com.ktar5.slime.world.tiles.base.Rotation;
-import com.ktar5.slime.world.tiles.base.TriggerableTile;
+import com.ktar5.slime.world.tiles.base.TriggerableGameTile;
 import lombok.Getter;
 
 @Getter
-public class PressurePlate extends TriggerableTile {
+public class PressurePlate extends TriggerableGameTile {
     private boolean pressed = false;
 
     public PressurePlate(int x, int y) {
@@ -37,8 +37,8 @@ public class PressurePlate extends TriggerableTile {
             LoadedLevel currentLevel = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
             TiledMapTileLayer mapLayer = currentLevel.getGameplayArtLayer();
             TiledMapTileLayer.Cell cell = mapLayer.getCell(x, y);
-            currentLevel.addEdit(x, y, currentLevel.getGameplayArtLayer().getName(), cell.getTile().getId());
-            cell.setTile(currentLevel.getTileMap().getTileSets().getTile(cell.getTile().getId() + 1));
+            currentLevel.addEdit(x, y, currentLevel.getGameplayArtLayerIndex(), cell.getTile().getId());
+            cell.setTile(currentLevel.getRenderMap().getTileSets().getTile(cell.getTile().getId() + 1));
             callEvent(Trigger.ON_PASS);
 
             pressed = true;

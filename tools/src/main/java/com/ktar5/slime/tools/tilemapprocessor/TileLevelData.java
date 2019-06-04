@@ -9,9 +9,9 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.ktar5.slime.entities.EntityData;
 import com.ktar5.slime.world.Grid;
-import com.ktar5.slime.world.level.types.TileObjectTypes;
+import com.ktar5.slime.world.level.TileObjectTypes;
 import com.ktar5.slime.world.tiles.Air;
-import com.ktar5.slime.world.tiles.base.Tile;
+import com.ktar5.slime.world.tiles.base.GameTile;
 import com.ktar5.utilities.common.data.Pair;
 import lombok.Getter;
 import org.apache.commons.lang3.ArrayUtils;
@@ -112,7 +112,7 @@ public class TileLevelData {
         if (gameplayLayer == null) err("Gameplay layer is null!!");
         if (propertiesLayer == null) err("Properties layer is null!!");
         if (!(gameplayLayer instanceof TiledMapTileLayer)) {
-            err("Gameplay layer is not a Tile layer!!");
+            err("Gameplay layer is not a GameTile layer!!");
             return;
         }
         done();
@@ -141,14 +141,14 @@ public class TileLevelData {
                     System.out.println("Don't know what to do with tile at " + w + ", " + h + "with ID " + (i));
                 } else if (tempType.isTile()) {
                     //Load a tile
-                    grid.grid[w][h] = ((Tile) tempType.generator.get(w, h, cell));
+                    grid.grid[w][h] = ((GameTile) tempType.generator.get(w, h, cell));
                 } else if (tempType.isEntity()) {
                     //Load an entity
                     grid.grid[w][h] = new Air(w, h);
                     initialEntityData.add(((EntityData) tempType.generator.get(w, h, cell)));
                 } else {
                     grid.grid[w][h] = new Air(w, h);
-                    System.out.println("Unknown type? Tile at " + w + ", " + h + "with ID " + (i));
+                    System.out.println("Unknown type? GameTile at " + w + ", " + h + "with ID " + (i));
                 }
             }
         }
@@ -177,15 +177,15 @@ public class TileLevelData {
                     postProcessProperties.put(name, preProcessProperties.get(name));
                 }
 
-                Tile tile = grid.grid[(int) object.getRectangle().x / 16][(int) object.getRectangle().y / 16];
-                if (tile instanceof Air) {
+                GameTile gameTile = grid.grid[(int) object.getRectangle().x / 16][(int) object.getRectangle().y / 16];
+                if (gameTile instanceof Air) {
                     for (EntityData entityData : this.initialEntityData) {
-                        if (entityData.initialPosition.equals(tile.x, tile.y)) {
+                        if (entityData.initialPosition.equals(gameTile.x, gameTile.y)) {
                             entityData.processProperty(postProcessProperties);
                         }
                     }
                 } else {
-                    tile.processProperty(postProcessProperties);
+                    gameTile.processProperty(postProcessProperties);
                 }
             }
         }

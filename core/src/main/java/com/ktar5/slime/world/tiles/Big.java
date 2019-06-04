@@ -4,9 +4,9 @@ import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.gameengine.util.Side;
 import com.ktar5.slime.entities.player.JumpPlayer;
 import com.ktar5.slime.world.tiles.base.Rotation;
-import com.ktar5.slime.world.tiles.base.WholeTile;
+import com.ktar5.slime.world.tiles.base.WholeGameTile;
 
-public class Big extends WholeTile {
+public class Big extends WholeGameTile {
 
     public Big(int x, int y) {
         super(x, y, Rotation.DEG_0);

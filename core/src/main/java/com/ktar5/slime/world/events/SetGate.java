@@ -18,7 +18,7 @@ public class SetGate implements Runnable {
     @Override
     public void run() {
         LoadedLevel currentLevel = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
-        Gate gate = ((Gate) currentLevel.getGrid().grid[x][y]);
+        Gate gate = ((Gate) currentLevel.getGameMap()[x][y]);
         gate.setOpen(true);
     }
 }

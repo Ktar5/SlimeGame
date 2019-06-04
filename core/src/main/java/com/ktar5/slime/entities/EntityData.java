@@ -2,9 +2,9 @@ package com.ktar5.slime.entities;
 
 import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.gameengine.util.Position;
-import com.ktar5.gameengine.util.TiledPropertyConsumer;
+import com.ktar5.gameengine.util.PropertyConsumer;
 
-public abstract class EntityData implements TiledPropertyConsumer {
+public abstract class EntityData implements PropertyConsumer {
     public final EntityType type;
     public final Position initialPosition;
 

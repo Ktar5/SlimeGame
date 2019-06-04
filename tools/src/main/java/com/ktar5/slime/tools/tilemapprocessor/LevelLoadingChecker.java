@@ -7,7 +7,7 @@ public class LevelLoadingChecker {
     public boolean hasPropertiesLayer = false;
     public boolean allLayersKnown = true;
 
-    //Tile checks
+    //GameTile checks
     public boolean hasStart = false;
     public boolean hasAtLeastOneWin = false;
 }

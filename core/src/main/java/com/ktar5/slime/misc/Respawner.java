@@ -16,7 +16,7 @@ public class Respawner implements Updatable {
             SlimeGame.getGame().getLevelHandler().resetLevel();
         }
         if (Gdx.input.isKeyJustPressed(Input.Keys.TAB)) {
-            SlimeGame.getGame().getLevelHandler().getCurrentLevel().toggleDebug();
+            SlimeGame.getGame().getLevelHandler().toggleDebug();
             EngConst.DEBUG = !EngConst.DEBUG;
         }
     }

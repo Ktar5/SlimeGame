@@ -7,20 +7,20 @@ public abstract class TileSide {
     public void tick() {
     }
 
-    public void onPlayerHitTile(Entity entity, Side hit, MultisidedTile tile) {
+    public void onPlayerHitTile(Entity entity, Side hit, MultisidedGameTile tile) {
     }
 
-    public void onPlayerTouchSide(Entity entity, Side movement, Side touched, MultisidedTile tile) {
+    public void onPlayerTouchSide(Entity entity, Side movement, Side touched, MultisidedGameTile tile) {
     }
 
-    public void onPlayerCross(Entity entity, MultisidedTile tile) {
+    public void onPlayerCross(Entity entity, MultisidedGameTile tile) {
     }
 
-    public abstract boolean canCrossThrough(Entity entity, Side movement, MultisidedTile tile);
+    public abstract boolean canCrossThrough(Entity entity, Side movement, MultisidedGameTile tile);
 
     //public abstract Side nextBlockAfterCross(Entity entity, Side movement);
 
-    public boolean changeMovement(Entity entity, Side movement, MultisidedTile tile) {
+    public boolean changeMovement(Entity entity, Side movement, MultisidedGameTile tile) {
         return false;
     }
 }

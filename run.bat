@@ -1,1 +1,1 @@
-call gradlew run:desktop
+gradlew desktop:run && PAUSE

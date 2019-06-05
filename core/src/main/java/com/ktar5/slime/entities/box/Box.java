@@ -7,6 +7,7 @@ import com.ktar5.gameengine.statemachine.SimpleStateMachine;
 import com.ktar5.gameengine.util.Side;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.entities.TouchableEntity;
+import com.ktar5.slime.entities.arrow.Arrow;
 import com.ktar5.slime.entities.player.JumpPlayer;
 import com.ktar5.slime.entities.player.states.Idle;
 
@@ -50,9 +51,13 @@ public class Box extends Entity<BoxState> implements TouchableEntity {
     public void onEntityTouch(Entity entity, Side movement) {
         if(entity.isPlayer()){
             entity.getEntityState().changeStateAfterUpdate(Idle.class);
+            System.out.println("Idle me");
             if(((JumpPlayer) entity).isSmall()){
                 return;
             }
+        }
+        if(entity instanceof Arrow){
+            return;
         }
         currentMovement = movement;
         this.getEntityState().changeStateAfterUpdate(BoxMove.class);

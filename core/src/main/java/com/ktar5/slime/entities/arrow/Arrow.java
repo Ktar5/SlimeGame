@@ -8,10 +8,12 @@ import com.ktar5.gameengine.entities.components.EntityAnimator;
 import com.ktar5.gameengine.statemachine.SimpleStateMachine;
 import com.ktar5.gameengine.util.Side;
 import com.ktar5.slime.SlimeGame;
+import com.ktar5.slime.entities.GameEntity;
+import com.ktar5.slime.entities.Rectangle;
 import com.ktar5.slime.entities.TouchableEntity;
 import com.ktar5.slime.entities.player.JumpPlayer;
 
-public class Arrow extends Entity<ArrowState> implements TouchableEntity , Pool.Poolable {
+public class Arrow extends GameEntity<ArrowState> implements TouchableEntity, Pool.Poolable {
     Side currentMovement;
     private int lastX = 0;
     private int lastY = 0;
@@ -19,7 +21,9 @@ public class Arrow extends Entity<ArrowState> implements TouchableEntity , Pool.
 
     //TODO object pooling of arrows
     public Arrow(ArrowEntityData data) {
-        super(16, 16);
+        super(16, 16,
+                (data.movement == Side.LEFT || data.movement == Side.RIGHT) ? new Rectangle(16, 5) :
+                        new Rectangle(5, 16));
         SlimeGame.getGame().getLevelHandler().getCurrentLevel().getEntities().add(this);
         this.position.set(data.initialPosition);
         this.currentMovement = data.movement;
@@ -28,7 +32,7 @@ public class Arrow extends Entity<ArrowState> implements TouchableEntity , Pool.
     }
 
     @Override
-    public void reset(){
+    public void reset() {
 
     }
 
@@ -68,8 +72,11 @@ public class Arrow extends Entity<ArrowState> implements TouchableEntity , Pool.
 
     @Override
     public void debugRender(ShapeRenderer renderer) {
-        EngineManager.get().getRenderManager().getShapeRenderer().circle(position.x, position.y, 5);
+        EngineManager.get().getRenderManager().getShapeRenderer().rect(
+                position.x - ((float) getHitbox().width / 2), position.y - ((float) getHitbox().height / 2),
+                getHitbox().width, getHitbox().height);
     }
+
 
     @Override
     protected EntityAnimator initializeRenderer(float height, float width) {
@@ -87,7 +94,6 @@ public class Arrow extends Entity<ArrowState> implements TouchableEntity , Pool.
             SlimeGame.getGame().getLevelHandler().getCurrentLevel().getEntities().remove(this);
         });
     }
-
 
 
 }

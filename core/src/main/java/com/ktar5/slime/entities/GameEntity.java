@@ -16,10 +16,17 @@ public abstract class GameEntity<T extends State<T>> extends Entity<T> {
 //    public abstract void onEntityTouch(Entity entity, Side movement);
 
     public boolean isTouching(GameEntity toucher) {
-        return this.position.x < toucher.position.x + toucher.hitbox.width &&
-                this.position.x + this.hitbox.width > toucher.position.x &&
-                this.position.y < toucher.position.y + toucher.hitbox.height &&
-                this.position.y + this.hitbox.height > toucher.position.y;
+        float adjustedX1 = position.x - ((float) getHitbox().width / 2);
+        float adjustedY1 = position.y - ((float) getHitbox().height / 2);
+
+        float adjustedX2 = toucher.position.x - ((float) toucher.getHitbox().width / 2);
+        float adjustedY2 = toucher.position.y - ((float) toucher.getHitbox().height / 2);
+
+
+        return adjustedX1 < adjustedX2 + toucher.hitbox.width &&
+                adjustedX1 + this.hitbox.width > toucher.position.x &&
+                adjustedY1 < adjustedY2 + toucher.hitbox.height &&
+                adjustedY1 + this.hitbox.height > toucher.position.y;
     }
 
 }

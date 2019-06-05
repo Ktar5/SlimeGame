@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="64" height="64" tilewidth="16" tileheight="16" infinite="0" backgroundcolor="#83573f" nextlayerid="10" nextobjectid="2">
+ <properties>
+  <property name="uuid" value="0e560131-12fb-49be-b641-a9f3498b8d4c"/>
+ </properties>
  <tileset firstgid="1" source="tileset/GameplayTileset.tsx"/>
  <tileset firstgid="33" source="tileset/GameplayImages.tsx"/>
  <tileset firstgid="305" source="tileset/SlimeCave.tsx"/>

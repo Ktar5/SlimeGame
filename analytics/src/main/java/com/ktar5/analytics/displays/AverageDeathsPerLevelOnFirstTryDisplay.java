@@ -4,6 +4,8 @@ import com.ktar5.analytics.statistics.AverageDeathsPerLevelOnFirstComplete;
 import tech.tablesaw.api.DoubleColumn;
 import tech.tablesaw.api.IntColumn;
 import tech.tablesaw.api.Table;
+import tech.tablesaw.plotly.Plot;
+import tech.tablesaw.plotly.api.VerticalBarPlot;
 
 public class AverageDeathsPerLevelOnFirstTryDisplay {
 
@@ -23,12 +25,12 @@ public class AverageDeathsPerLevelOnFirstTryDisplay {
         Table table = Table.create("Test").addColumns(level, avg);
         System.out.println(table.print());
 
-//        Plot.show(
-//                VerticalBarPlot.create(
-//                        "test", // plot title
-//                        table,           // table
-//                        "level",               // grouping column name
-//                        "average"));  // numeric column name
+        Plot.show(
+                VerticalBarPlot.create(
+                        "test", // plot title
+                        table,           // table
+                        "level",               // grouping column name
+                        "average"));  // numeric column name
     }
 
 }

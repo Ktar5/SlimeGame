@@ -6,6 +6,10 @@ import com.ktar5.gameengine.console.LogLevel;
 
 public class ConsoleCommands extends CommandExecutor {
 
+    public final void singleFrame(boolean value) {
+        Feature.SINGLE_FRAME.set(value);
+    }
+
     public final void setFeature(String feature, boolean value) {
         try {
             Feature feat = Feature.valueOf(feature.toUpperCase());

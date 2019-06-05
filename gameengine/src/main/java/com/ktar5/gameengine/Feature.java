@@ -3,6 +3,8 @@ package com.ktar5.gameengine;
 import org.tinylog.Logger;
 
 public enum Feature {
+    SINGLE_FRAME(false),
+
     PLAYER_MOVEMENT(true),
     FIRST_PRESSED_MOVEMENT(true),
     

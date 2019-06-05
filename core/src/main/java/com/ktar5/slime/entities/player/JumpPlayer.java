@@ -1,14 +1,18 @@
 package com.ktar5.slime.entities.player;
 
 
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector2;
 import com.ktar5.gameengine.analytics.Analytics;
 import com.ktar5.gameengine.core.EngineManager;
-import com.ktar5.gameengine.entities.PlayerEntity;
 import com.ktar5.gameengine.entities.components.EntityAnimator;
+import com.ktar5.gameengine.entities.components.movement.Movement;
+import com.ktar5.gameengine.entities.components.movement.SetVelocityMovement;
 import com.ktar5.gameengine.statemachine.SimpleStateMachine;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.analytics.LevelFailEvent;
+import com.ktar5.slime.entities.GameEntity;
+import com.ktar5.slime.entities.Rectangle;
 import com.ktar5.slime.entities.player.states.Idle;
 import com.ktar5.slime.entities.player.states.Move;
 import com.ktar5.slime.entities.player.states.PlayerState;
@@ -20,7 +24,8 @@ import org.tinylog.Logger;
 
 @Getter
 @Setter
-public class JumpPlayer extends PlayerEntity<PlayerState> {
+public class JumpPlayer extends GameEntity<PlayerState> {
+    private Movement movement = new SetVelocityMovement(40f);
     int lastX = 0;
     int lastY = 0;
     //This variable is for doing movement that may
@@ -34,7 +39,7 @@ public class JumpPlayer extends PlayerEntity<PlayerState> {
     private LoadedLevel level;
 
     public JumpPlayer(LoadedLevel level) {
-        super(2, 16, 16);
+        super(16, 16, new Rectangle(8, 8));
         this.position.set(level.getSpawnTile().x * 16, level.getSpawnTile().y * 16);
         this.level = level;
         Logger.debug("New player created " + System.currentTimeMillis());
@@ -93,7 +98,7 @@ public class JumpPlayer extends PlayerEntity<PlayerState> {
         if (!getEntityState().getCurrent().getClass().equals(Respawn.class)) {
             getEntityState().changeStateAfterUpdate(Respawn.class);
             int id = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getId();
-            if(id != level.getId()){
+            if (id != level.getId()) {
                 throw new RuntimeException("LevelData not equal id");
             }
             Analytics.addEvent(new LevelFailEvent(this, cause));
@@ -125,13 +130,24 @@ public class JumpPlayer extends PlayerEntity<PlayerState> {
                 .getTextureAsAnimation(this.getDefaultAnimation()), width, height);
     }
 
+    @Override
+    public void debugRender(ShapeRenderer renderer) {
+        renderer.rect(
+                position.x - ((float) getHitbox().width / 2), position.y - ((float) getHitbox().height / 2),
+                getHitbox().width, getHitbox().height);
+        renderer.rect(position.x, position.y, 2, 2);
+    }
+
     public void resetAnimation(String newAnimation) {
         getEntityAnimator().setAnimation(EngineManager.get().getAnimationLoader().getAnimation(newAnimation));
     }
 
     @Override
+    public boolean isPlayer() {
+        return true;
+    }
+
     protected String getDefaultAnimation() {
         return "slime_jump_down";
     }
-
 }

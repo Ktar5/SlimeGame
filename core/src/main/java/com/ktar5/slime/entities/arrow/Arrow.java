@@ -72,9 +72,10 @@ public class Arrow extends GameEntity<ArrowState> implements TouchableEntity, Po
 
     @Override
     public void debugRender(ShapeRenderer renderer) {
-        EngineManager.get().getRenderManager().getShapeRenderer().rect(
+        renderer.rect(
                 position.x - ((float) getHitbox().width / 2), position.y - ((float) getHitbox().height / 2),
                 getHitbox().width, getHitbox().height);
+        renderer.rect(position.x, position.y, 2, 2);
     }
 
 

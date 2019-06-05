@@ -29,7 +29,9 @@ public class RetractingSpikes extends WholeGameTile {
 
     @Override
     public void reset() {
-        tween.kill();
+        if(tween != null){
+            tween.kill();
+        }
         retracted = true;
         percentRetracted = 0;
         setGraphic(0);

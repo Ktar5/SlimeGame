@@ -1,6 +1,6 @@
 package com.ktar5.analytics;
 
-import com.ktar5.analytics.displays.AverageDeathsPerLevelDisplay;
+import com.ktar5.analytics.displays.AverageDeathsPerLevelOnFirstTryDisplay;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.stage.Stage;
@@ -46,6 +46,6 @@ public class Main extends Application {
                 //do nothing
             }
         });
-        new AverageDeathsPerLevelDisplay(0, 10);
+        new AverageDeathsPerLevelOnFirstTryDisplay(0, 10);
     }
 }

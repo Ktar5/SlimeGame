@@ -2,8 +2,10 @@ package com.ktar5.slime.world.tiles;
 
 import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.gameengine.util.Side;
+import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.entities.arrow.Arrow;
 import com.ktar5.slime.entities.arrow.ArrowEntityData;
+import com.ktar5.slime.entities.box.Box;
 import com.ktar5.slime.world.tiles.base.Rotation;
 import com.ktar5.slime.world.tiles.base.WholeGameTile;
 
@@ -53,6 +55,12 @@ public class Shooter extends WholeGameTile {
 
 
     public void shoot() {
+        for (Entity entity : SlimeGame.getGame().getLevelHandler().getCurrentLevel().getEntities()) {
+            System.out.println(entity.position.x);
+            if(entity.position.x/16 == x+shootSide.x && entity.position.y/16 == y + shootSide.y && entity instanceof Box){
+                return;
+            }
+        }
         new Arrow(data);
     }
 

@@ -19,7 +19,7 @@ public class SimpleStateMachine<T extends State> extends ObjectMap<Class<? exten
         for (Class<? extends T> stateClass : stateClasses) {
             try {
                 this.put(stateClass, stateClass.getDeclaredConstructor().newInstance());
-                Logger.debug("Registered state class: " + stateClass.getName());
+//                Logger.debug("Registered state class: " + stateClass.getName());
                 if (stateClass == initial) {
                     current = this.get(initial);
                 }

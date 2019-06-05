@@ -3,6 +3,7 @@ package com.ktar5.slime.entities.ghost;
 import com.badlogic.gdx.math.Vector2;
 import com.ktar5.gameengine.util.Side;
 import com.ktar5.slime.SlimeGame;
+import com.ktar5.slime.entities.player.JumpPlayer;
 import com.ktar5.slime.variables.Settings;
 import com.ktar5.slime.world.level.LevelData;
 import com.ktar5.slime.world.tiles.base.GameTile;
@@ -59,20 +60,10 @@ public class GhostMove extends GhostState {
             return;
         }
 
-//        List<Entity> entities = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getEntities();
-//        boolean touchedEntity = false;
-//        for (Entity entity : entities) {
-//            if (entity.position.equals(newGameTile.x * 16, newGameTile.y * 16)) {
-//                ((TouchableEntity) entity).onEntityTouch(getEntity(), getEntity().getLastMovedDirection());
-//                touchedEntity = true;
-//                break;
-//            }
-//        }
-
-//        if (touchedEntity) {
-//            getEntity().getPosition().moveTo(newX * 16, newY * 16);
-//            changeState(BoxIdle.class);
-//        }
+        JumpPlayer player = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getPlayer();
+        if(player.isTouching(getEntity())){
+            player.kill("ghost");
+        }
 
         //In case we want to do something special instead of handle movement
         else if (!newGameTile.preMove(getEntity())) {

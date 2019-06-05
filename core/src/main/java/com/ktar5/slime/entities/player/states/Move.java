@@ -7,6 +7,7 @@ import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.gameengine.util.Side;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.entities.TouchableEntity;
+import com.ktar5.slime.entities.box.Box;
 import com.ktar5.slime.entities.player.JumpPlayer;
 import com.ktar5.slime.variables.Settings;
 import com.ktar5.slime.world.level.LevelData;
@@ -119,19 +120,16 @@ public class Move extends PlayerState {
             Logger.debug("Null tile at: " + newX + ", " + newY);
         }
 
+        //NOTE: Other entities such as the Arrow handle the being hit in their own movement class
         List<Entity> entities = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getEntities();
         boolean touchedEntity = false;
         for (Entity entity : entities) {
-            if(entity.position.isWithinRange(newGameTile.x * 16, newGameTile.y * 16, 15)){
+            //Note: if you convert this to use newX it will break boxes
+            if(entity instanceof Box && entity.position.isWithinRange(newGameTile.x * 16, newGameTile.y * 16, 15)){
                 ((TouchableEntity) entity).onEntityTouch(getPlayer(), getPlayer().getLastMovedDirection());
                 touchedEntity = true;
                 break;
             }
-//            if (entity.position.snappedToTile().equals(newGameTile.x * 16, newGameTile.y * 16)) {
-//                ((TouchableEntity) entity).onEntityTouch(getPlayer(), getPlayer().getLastMovedDirection());
-//                touchedEntity = true;
-//                break;
-//            }
         }
 
         if (touchedEntity) {

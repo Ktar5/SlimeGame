@@ -12,10 +12,12 @@ import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.gameengine.rendering.Renderable;
 import com.ktar5.gameengine.tilemap.CustomTmxMapLoader;
 import com.ktar5.gameengine.util.Updatable;
+import com.ktar5.slime.misc.CustomTmxMapWriter;
 import lombok.Getter;
 import org.tinylog.Logger;
 
 import java.io.BufferedReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -109,6 +111,15 @@ public class LevelHandler implements Renderable, Updatable {
 
                 Logger.debug("Loading map id: " + i + " name: " + handle.name());
                 tiledMap = loader.load("maps/" + handle.name(), params);
+
+                //TODO
+                if(i == 0){
+                    FileWriter fileWriter = new FileWriter("../assets/test.tmx");
+                    new CustomTmxMapWriter(fileWriter).tmx(tiledMap, CustomTmxMapWriter.Format.CSV);
+                    fileWriter.flush();
+                    fileWriter.close();
+                }
+
                 levelDataList.add(i, new LevelData(tiledMap, levelName, i));
                 i++;
             }
@@ -166,6 +177,7 @@ public class LevelHandler implements Renderable, Updatable {
         for (Entity entity : currentLevel.getEntities()) {
             entity.debugRender(EngineManager.get().getRenderManager().getShapeRenderer());
         }
+        currentLevel.getPlayer().debugRender(EngineManager.get().getRenderManager().getShapeRenderer());
     }
 
     public void setLevelDebug(boolean debug) {

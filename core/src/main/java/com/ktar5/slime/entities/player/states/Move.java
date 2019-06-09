@@ -11,7 +11,9 @@ import com.ktar5.slime.entities.box.Box;
 import com.ktar5.slime.entities.player.JumpPlayer;
 import com.ktar5.slime.variables.Settings;
 import com.ktar5.slime.world.level.LevelData;
+import com.ktar5.slime.world.tiles.Air;
 import com.ktar5.slime.world.tiles.base.GameTile;
+import com.ktar5.utilities.common.data.Pair;
 import org.tinylog.Logger;
 
 import java.util.List;
@@ -111,25 +113,33 @@ public class Move extends PlayerState {
             Logger.debug("");
             Logger.debug("Old: " + x + ", " + y + " // " + getPlayer().getPosition().x + ", " + getPlayer().getPosition().y);
         }
-        //This is the variable that stores the tile at the location of the next step
-        //THIS COULD BE THE SAME TILE THE PLAYER IS CURRENTLY ON IF THE PLAYER
-        //DOESN'T MOVE ENOUGH TO COVER THE DISTANCE INTO A NEW TILE THIS STEP
-        //This is one block into the future, basically
-        GameTile newGameTile = levelData.tileFromDirection(newX, newY, getMovement());
-        if (newGameTile == null) {
-            Logger.debug("Null tile at: " + newX + ", " + newY);
-        }
+
+        //TODO describe
+        Pair newNextTile = levelData.pairFromDirection(newX, newY, getMovement());
 
         //NOTE: Other entities such as the Arrow handle the being hit in their own movement class
         List<Entity> entities = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getEntities();
         boolean touchedEntity = false;
         for (Entity entity : entities) {
             //Note: if you convert this to use newX it will break boxes
-            if(entity instanceof Box && entity.position.isWithinRange(newGameTile.x * 16, newGameTile.y * 16, 15)){
+            //TODO remove dependency on newNextTile
+            if (entity instanceof Box && entity.position.isWithinRange(newNextTile.x * 16, newNextTile.y * 16, 15)) {
                 ((TouchableEntity) entity).onEntityTouch(getPlayer(), getPlayer().getLastMovedDirection());
                 touchedEntity = true;
                 break;
             }
+        }
+
+        //This is the variable that stores the tile at the location of the next step
+        //THIS COULD BE THE SAME TILE THE PLAYER IS CURRENTLY ON IF THE PLAYER
+        //DOESN'T MOVE ENOUGH TO COVER THE DISTANCE INTO A NEW TILE THIS STEP
+        //This is one block into the future, basically
+        //TODO figure out what the fuck is going on and why it is becoming null in the first place
+        GameTile newGameTile = levelData.getGameMap()[newNextTile.x][newNextTile.y];
+        if(newGameTile == null){
+            System.out.println(newNextTile.x + "x , y: " + newNextTile.y);
+            Logger.error("Null tile at: " + newX + ", " + newY + ". Adjusted Y-value: " + (levelData.getGameMap()[0].length - newY));
+            levelData.getGameMap()[newNextTile.x][newNextTile.y] = newGameTile = new Air(newNextTile.x, newNextTile.y);
         }
 
         if (touchedEntity) {

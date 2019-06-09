@@ -90,6 +90,15 @@ public class LevelData {
         return null;
     }
 
+    public Pair pairFromDirection(int x, int y, Side side) {
+        x += side.x;
+        y += side.y;
+        if (isInMapRange(x, y)) {
+            return new Pair(x, y);
+        }
+        return null;
+    }
+
     public void activateAllTiles(Entity entity) {
         int x = (int) entity.position.x / 16;
         int y = (int) entity.position.y / 16;
@@ -215,7 +224,7 @@ public class LevelData {
                 }
                 tempType = TileObjectTypes.tileFromId(i);
                 if (tempType == null || tempType.generator == null) {
-                    Logger.debug("Don't know what to do with tile at " + w + ", " + h + "with ID " + (i));
+                    Logger.error("Don't know what to do with tile at " + w + ", " + h + "with ID " + (i));
                 } else if (tempType.isTile()) {
                     //Load a tile
                     gameMap[w][h] = ((GameTile) tempType.generator.get(w, h, cell));
@@ -225,7 +234,7 @@ public class LevelData {
                     initialEntityData.add(((EntityData) tempType.generator.get(w, h, cell)));
                 } else {
                     gameMap[w][h] = new Air(w, h);
-                    Logger.debug("Unknown type? GameTile at " + w + ", " + h + "with ID " + (i));
+                    Logger.error("Unknown type? GameTile at " + w + ", " + h + "with ID " + (i));
                 }
             }
         }

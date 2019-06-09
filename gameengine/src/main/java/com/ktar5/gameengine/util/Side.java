@@ -4,10 +4,10 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 public enum Side {
-    UP(0, 1),
-    RIGHT(1, 0),
-    DOWN(0, -1),
-    LEFT(-1, 0);
+    UP(0, 1, "u"),
+    RIGHT(1, 0, "r"),
+    DOWN(0, -1, "d"),
+    LEFT(-1, 0, "l");
 
     public static final Side[][] ORDER = {
             {null, DOWN, null},
@@ -18,6 +18,7 @@ public enum Side {
     public static final Side[] CCORDER = {DOWN, RIGHT, UP, LEFT};
 
     public final int x, y;
+    public final String string;
 
     public int ofCCOrder(){
         switch (this){

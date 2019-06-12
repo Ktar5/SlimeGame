@@ -3,6 +3,7 @@ package com.ktar5.slime;
 import com.ktar5.gameengine.Feature;
 import com.ktar5.gameengine.console.CommandExecutor;
 import com.ktar5.gameengine.console.LogLevel;
+import com.ktar5.gameengine.util.Position;
 
 public class ConsoleCommands extends CommandExecutor {
 
@@ -34,7 +35,8 @@ public class ConsoleCommands extends CommandExecutor {
     }
 
     public final void teleport(int x, int y) {
-        SlimeGame.getGame().getLevelHandler().getCurrentLevel().getPlayer().getPosition().set(x, y);
+        Position position = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getPlayer().getPosition();
+        position.set(position.x+ (x * 16), position.y + (y * 16));
     }
 
     public final void debugLevel(boolean value) {

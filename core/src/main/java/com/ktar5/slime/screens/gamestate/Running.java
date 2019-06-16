@@ -2,7 +2,9 @@ package com.ktar5.slime.screens.gamestate;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.InputMultiplexer;
 import com.ktar5.gameengine.core.EngineManager;
+import com.ktar5.slime.KInput;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.misc.Respawner;
 import com.ktar5.slime.screens.GameScreen;
@@ -26,6 +28,9 @@ public class Running extends GameState {
     public void start() {
         Gdx.input.setInputProcessor(null);
         EngineManager.get().getConsole().resetInputProcessing();
+        InputMultiplexer inputMultiplexer = new InputMultiplexer(EngineManager.get().getConsole().getInputProcessor(), SlimeGame.input);
+        Gdx.input.setInputProcessor(inputMultiplexer);
+
         getGameScreen().getRenderManager().setRenderables(Arrays.asList(
                 SlimeGame.getGame().getLevelHandler(),
                 getGameScreen().getFrameRate(),
@@ -35,7 +40,9 @@ public class Running extends GameState {
 
     @Override
     public void onUpdate(float dTime) {
-        if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
+//        System.out.println("Updating running state");
+        if (KInput.isKeyJustPressed(Input.Keys.ESCAPE)) {
+            System.out.println("ESCAPE");
             changeState(PauseWithBlur2.class);
             return;
         }

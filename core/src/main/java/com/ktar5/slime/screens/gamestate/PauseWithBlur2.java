@@ -2,6 +2,7 @@ package com.ktar5.slime.screens.gamestate;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Pixmap;
@@ -25,6 +26,7 @@ import com.ktar5.gameengine.postprocessing.effects.Vignette;
 import com.ktar5.gameengine.postprocessing.filters.Blur;
 import com.ktar5.gameengine.postprocessing.utils.ShaderLoader;
 import com.ktar5.gameengine.rendering.Renderable;
+import com.ktar5.slime.KInput;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.screens.GameScreen;
 
@@ -127,8 +129,13 @@ public class PauseWithBlur2 extends GameState {
 
     @Override
     public void start() {
-        Gdx.input.setInputProcessor(stage);
         EngineManager.get().getConsole().resetInputProcessing();
+
+        InputMultiplexer inputMultiplexer = new InputMultiplexer(stage,
+                EngineManager.get().getConsole().getInputProcessor(),
+                SlimeGame.input);
+
+        Gdx.input.setInputProcessor(inputMultiplexer);
 
         getGameScreen().getRenderManager().setRenderables(objects);
     }
@@ -150,7 +157,7 @@ public class PauseWithBlur2 extends GameState {
     @Override
     public void onUpdate(float dTime) {
         stage.act();
-        if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
+        if (KInput.isKeyJustPressed(Input.Keys.ESCAPE)) {
             changeState(Running.class);
         }
     }

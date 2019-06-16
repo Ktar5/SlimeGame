@@ -17,6 +17,7 @@ import com.ktar5.gameengine.postprocessing.effects.Vignette;
 import com.ktar5.gameengine.postprocessing.filters.Blur;
 import com.ktar5.gameengine.postprocessing.utils.ShaderLoader;
 import com.ktar5.gameengine.rendering.Renderable;
+import com.ktar5.slime.KInput;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.analytics.LevelCompleteEvent;
 import com.ktar5.slime.screens.GameScreen;
@@ -131,7 +132,8 @@ public class Winning extends GameState {
 
     @Override
     public void onUpdate(float dTime) {
-        if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE) || Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+        System.out.println("Updating winning state");
+        if (KInput.isKeyJustPressed(Input.Keys.ANY_KEY) || Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
             SlimeGame.getGame().getLevelHandler().advanceLevel();
             changeState(Running.class);
         }

@@ -8,6 +8,7 @@ import com.ktar5.gameengine.rendering.Renderable;
 import com.ktar5.gameengine.statemachine.SimpleStateMachine;
 import com.ktar5.gameengine.util.textoverlay.FrameRate;
 import com.ktar5.gameengine.util.textoverlay.TextDisplay;
+import com.ktar5.slime.KInput;
 import com.ktar5.slime.misc.VersionInfo;
 import com.ktar5.slime.screens.gamestate.GameState;
 import com.ktar5.slime.screens.gamestate.PauseWithBlur2;
@@ -51,7 +52,11 @@ public class GameScreen extends AbstractScreen {
 
     @Override
     public void update(float dTime) {
+//        SlimeGame.frames += 1;
+//        System.out.println(SlimeGame.frames);
         gameState.update(EngConst.STEP_TIME);
+        KInput.update();
+
     }
 
     @Override

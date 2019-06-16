@@ -52,7 +52,7 @@ public class SimpleStateMachine<T extends State> extends ObjectMap<Class<? exten
         current.start();
     }
 
-    //TODO this is elegant but retarded
+    //this is elegant but retarded
     boolean updating = false;
 
     @Override

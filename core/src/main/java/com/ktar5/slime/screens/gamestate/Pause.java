@@ -17,6 +17,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.ktar5.gameengine.camera.StaticCamera;
+import com.ktar5.slime.KInput;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.screens.GameScreen;
 
@@ -101,7 +102,7 @@ public class Pause extends GameState {
 
     @Override
     public void onUpdate(float dTime) {
-        if (Gdx.input.isKeyJustPressed(Input.Keys.ESCAPE)) {
+        if (KInput.isKeyJustPressed(Input.Keys.ESCAPE)) {
             changeState(Running.class);
         }
     }

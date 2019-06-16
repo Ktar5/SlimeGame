@@ -25,21 +25,17 @@ import com.ktar5.gameengine.postprocessing.PostProcessor;
 import com.ktar5.gameengine.postprocessing.effects.Vignette;
 import com.ktar5.gameengine.postprocessing.filters.Blur;
 import com.ktar5.gameengine.postprocessing.utils.ShaderLoader;
-import com.ktar5.gameengine.rendering.Renderable;
 import com.ktar5.slime.KInput;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.screens.GameScreen;
 
-import java.util.Collections;
-import java.util.List;
-
-public class PauseWithBlur2 extends GameState {
+public class PauseWithBlur extends GameState {
     Stage stage;
     StaticCamera camera = new StaticCamera(new OrthographicCamera(480, 270));
     PostProcessor postProcessor;
     Blur blur;
 
-    public PauseWithBlur2(GameScreen gameScreen) {
+    public PauseWithBlur(GameScreen gameScreen) {
         super(gameScreen);
 
         TextureAtlas atlas = new TextureAtlas("textures/skins/pixel/skin.atlas");
@@ -105,26 +101,7 @@ public class PauseWithBlur2 extends GameState {
 //        Blur blur = new Blur(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
 
         postProcessor.addEffect(vignette);
-        objects = Collections.singletonList((internalBatch, dTime) -> {
-
-            postProcessor.capture();
-            Gdx.gl.glClearColor(168 / 255f, 118 / 255f, 86 / 255f, 1);
-            Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-            SlimeGame.getGame().getLevelHandler().render(internalBatch, EngConst.STEP_TIME);
-            getGameScreen().getFrameRate().render(internalBatch, EngConst.STEP_TIME);
-            getGameScreen().getVersionInfo().render(internalBatch, EngConst.STEP_TIME);
-
-            blur.setAmount(1f);
-            blur.setType(Blur.BlurType.Gaussian3x3b);
-            blur.setPasses(10);
-            blur.render(postProcessor.getCombinedBuffer());
-            postProcessor.render();
-
-            stage.draw();
-        });
     }
-
-    List<Renderable> objects;
 
 
     @Override
@@ -136,8 +113,6 @@ public class PauseWithBlur2 extends GameState {
                 SlimeGame.input);
 
         Gdx.input.setInputProcessor(inputMultiplexer);
-
-        getGameScreen().getRenderManager().setRenderables(objects);
     }
 
     @Override
@@ -152,11 +127,13 @@ public class PauseWithBlur2 extends GameState {
 
 //        stage.getViewport().updateTiles(width, height, true);
         getGameScreen().getCamera().getViewport().update(width, height);
+        getGameScreen().getCamera().update(0f);
     }
 
     @Override
     public void onUpdate(float dTime) {
         stage.act();
+
         if (KInput.isKeyJustPressed(Input.Keys.ESCAPE)) {
             changeState(Running.class);
         }
@@ -167,4 +144,21 @@ public class PauseWithBlur2 extends GameState {
 
     }
 
+    @Override
+    public void render(SpriteBatch batch, float dTime) {
+        postProcessor.capture();
+        Gdx.gl.glClearColor(168 / 255f, 118 / 255f, 86 / 255f, 1);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        SlimeGame.getGame().getLevelHandler().render(batch, EngConst.STEP_TIME);
+        getGameScreen().getFrameRate().render(batch, EngConst.STEP_TIME);
+        getGameScreen().getVersionInfo().render(batch, EngConst.STEP_TIME);
+
+        blur.setAmount(1f);
+        blur.setType(Blur.BlurType.Gaussian3x3b);
+        blur.setPasses(10);
+        blur.render(postProcessor.getCombinedBuffer());
+        postProcessor.render();
+
+        stage.draw();
+    }
 }

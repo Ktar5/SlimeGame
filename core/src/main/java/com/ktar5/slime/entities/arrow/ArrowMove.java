@@ -1,7 +1,6 @@
 package com.ktar5.slime.entities.arrow;
 
 import com.badlogic.gdx.math.Vector2;
-import com.ktar5.gameengine.core.EngineManager;
 import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.gameengine.util.Side;
 import com.ktar5.slime.SlimeGame;
@@ -101,7 +100,7 @@ public class ArrowMove extends ArrowState {
         }
 
         if (touchedEntity) {
-            EngineManager.get().getRenderManager().doOnNextFrame(() -> {
+            SlimeGame.getGame().doOnNextFrame(() -> {
                 SlimeGame.getGame().getLevelHandler().getCurrentLevel().getEntities().remove(getEntity());
             });
             return;
@@ -131,7 +130,7 @@ public class ArrowMove extends ArrowState {
 //            changeState(ArrowIdle.class);
 
             newGameTile.onHitTile(getEntity(), getMovement().opposite());
-            EngineManager.get().getRenderManager().doOnNextFrame(() -> {
+            SlimeGame.getGame().doOnNextFrame(() -> {
                 SlimeGame.getGame().getLevelHandler().getCurrentLevel().getEntities().remove(getEntity());
             });
         }

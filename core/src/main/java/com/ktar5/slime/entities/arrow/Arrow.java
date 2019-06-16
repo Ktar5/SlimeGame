@@ -91,7 +91,7 @@ public class Arrow extends GameEntity<ArrowState> implements TouchableEntity, Po
         if (entity.isPlayer()) {
             ((JumpPlayer) entity).kill("arrow");
         }
-        EngineManager.get().getRenderManager().doOnNextFrame(() -> {
+        SlimeGame.getGame().doOnNextFrame(() -> {
             SlimeGame.getGame().getLevelHandler().getCurrentLevel().getEntities().remove(this);
         });
     }

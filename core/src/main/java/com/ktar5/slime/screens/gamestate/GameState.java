@@ -1,10 +1,11 @@
 package com.ktar5.slime.screens.gamestate;
 
 import com.ktar5.gameengine.statemachine.State;
+import com.ktar5.gameengine.util.Renderable;
 import com.ktar5.slime.screens.GameScreen;
 import lombok.Getter;
 
-public abstract class GameState extends State<GameState> {
+public abstract class GameState extends State<GameState> implements Renderable {
     @Getter
     private final GameScreen gameScreen;
 

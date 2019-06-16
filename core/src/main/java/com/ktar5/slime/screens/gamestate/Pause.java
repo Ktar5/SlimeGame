@@ -21,8 +21,6 @@ import com.ktar5.slime.KInput;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.screens.GameScreen;
 
-import java.util.Arrays;
-
 public class Pause extends GameState {
     Stage stage;
     StaticCamera camera = new StaticCamera(new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight()));
@@ -88,20 +86,13 @@ public class Pause extends GameState {
 
     @Override
     public void start() {
-        getGameScreen().getRenderManager().setRenderables(Arrays.asList(
-                SlimeGame.getGame().getLevelHandler(),
-                getGameScreen().getFrameRate(),
-                getGameScreen().getVersionInfo(),
-                (batch, dTime) -> {
-                    stage.act();
-                    stage.draw();
-                }
-        ));
+
     }
 
 
     @Override
     public void onUpdate(float dTime) {
+        stage.act();
         if (KInput.isKeyJustPressed(Input.Keys.ESCAPE)) {
             changeState(Running.class);
         }
@@ -111,5 +102,14 @@ public class Pause extends GameState {
     protected void end() {
 
     }
+
+    @Override
+    public void render(SpriteBatch batch, float dTime) {
+        SlimeGame.getGame().getLevelHandler().render(batch, dTime);
+        getGameScreen().getFrameRate().render(batch, dTime);
+        getGameScreen().getVersionInfo().render(batch, dTime);
+        stage.draw();
+    }
+
 
 }

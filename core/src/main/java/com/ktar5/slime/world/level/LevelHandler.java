@@ -9,8 +9,8 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.ktar5.gameengine.core.EngineManager;
 import com.ktar5.gameengine.entities.Entity;
-import com.ktar5.gameengine.rendering.Renderable;
 import com.ktar5.gameengine.tilemap.CustomTmxMapLoader;
+import com.ktar5.gameengine.util.Renderable;
 import com.ktar5.gameengine.util.Updatable;
 import lombok.Getter;
 import org.tinylog.Logger;
@@ -58,7 +58,7 @@ public class LevelHandler implements Renderable, Updatable {
         }
         currentLevel = new LoadedLevel(levelData[levelIndex]);
         tileMapRenderer = new OrthogonalTiledMapRenderer(currentLevel.getRenderMap(), 1f,
-                EngineManager.get().getRenderManager().getSpriteBatch());
+                Renderable.getSpriteBatch());
     }
 
     public void advanceLevel() {
@@ -173,9 +173,9 @@ public class LevelHandler implements Renderable, Updatable {
     @Override
     public void debug(float dTime) {
         for (Entity entity : currentLevel.getEntities()) {
-            entity.debugRender(EngineManager.get().getRenderManager().getShapeRenderer());
+            entity.debugRender(Renderable.getShapeRenderer());
         }
-        currentLevel.getPlayer().debugRender(EngineManager.get().getRenderManager().getShapeRenderer());
+        currentLevel.getPlayer().debugRender(Renderable.getShapeRenderer());
     }
 
     public void setLevelDebug(boolean debug) {

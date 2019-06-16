@@ -13,13 +13,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.ktar5.gameengine.camera.CameraBase;
 import com.ktar5.gameengine.core.AbstractScreen;
 import com.ktar5.gameengine.core.EngineManager;
-import com.ktar5.gameengine.rendering.Renderable;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.world.level.LevelHandler;
 import org.tinylog.Logger;
-
-import java.util.Collections;
-import java.util.List;
 
 public class LoadingScreen extends AbstractScreen {
 
@@ -39,16 +35,6 @@ public class LoadingScreen extends AbstractScreen {
 
     public LoadingScreen(CameraBase camera) {
         super(camera);
-    }
-
-    @Override
-    public List<Renderable> initializeRenderables() {
-        return Collections.emptyList();
-    }
-
-    @Override
-    public void initializeUpdatables() {
-
     }
 
     @Override
@@ -170,7 +156,22 @@ public class LoadingScreen extends AbstractScreen {
     }
 
     @Override
+    public void pause() {
+
+    }
+
+    @Override
+    public void resume() {
+
+    }
+
+    @Override
     public void dispose() {
+
+    }
+
+    @Override
+    public void update(float dTime) {
 
     }
 

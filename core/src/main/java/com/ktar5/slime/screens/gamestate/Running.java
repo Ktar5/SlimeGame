@@ -3,20 +3,19 @@ package com.ktar5.slime.screens.gamestate;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputMultiplexer;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.ktar5.gameengine.EngConst;
+import com.ktar5.gameengine.analytics.Analytics;
 import com.ktar5.gameengine.core.EngineManager;
 import com.ktar5.slime.KInput;
 import com.ktar5.slime.SlimeGame;
-import com.ktar5.slime.misc.Respawner;
+import com.ktar5.slime.analytics.LevelFailEvent;
 import com.ktar5.slime.screens.GameScreen;
 
-import java.util.Arrays;
-
 public class Running extends GameState {
-    private final Respawner respawner;
 
     public Running(GameScreen gameScreen) {
         super(gameScreen);
-        respawner = new Respawner();
     }
 
     @Override
@@ -30,12 +29,6 @@ public class Running extends GameState {
         EngineManager.get().getConsole().resetInputProcessing();
         InputMultiplexer inputMultiplexer = new InputMultiplexer(EngineManager.get().getConsole().getInputProcessor(), SlimeGame.input);
         Gdx.input.setInputProcessor(inputMultiplexer);
-
-        getGameScreen().getRenderManager().setRenderables(Arrays.asList(
-                SlimeGame.getGame().getLevelHandler(),
-                getGameScreen().getFrameRate(),
-                getGameScreen().getVersionInfo()
-        ));
     }
 
     @Override
@@ -43,7 +36,7 @@ public class Running extends GameState {
 //        System.out.println("Updating running state");
         if (KInput.isKeyJustPressed(Input.Keys.ESCAPE)) {
             System.out.println("ESCAPE");
-            changeState(PauseWithBlur2.class);
+            changeState(PauseWithBlur.class);
             return;
         }
         EngineManager.get().getCooldownManager().update(dTime);
@@ -52,7 +45,15 @@ public class Running extends GameState {
         SlimeGame.getGame().getLevelHandler().update(dTime);
         getGameScreen().getFrameRate().update(dTime);
         getGameScreen().getVersionInfo().update(dTime);
-        respawner.update(dTime);
+
+        if (KInput.isKeyJustPressed(Input.Keys.R)) {
+            Analytics.addEvent(new LevelFailEvent(SlimeGame.getGame().getLevelHandler().getCurrentLevel().getPlayer(), "reset"));
+            SlimeGame.getGame().getLevelHandler().resetLevel();
+        }
+        if (KInput.isKeyJustPressed(Input.Keys.TAB)) {
+            SlimeGame.getGame().getLevelHandler().toggleDebug();
+            EngConst.DEBUG = !EngConst.DEBUG;
+        }
     }
 
     @Override
@@ -60,4 +61,10 @@ public class Running extends GameState {
 
     }
 
+    @Override
+    public void render(SpriteBatch batch, float dTime) {
+        SlimeGame.getGame().getLevelHandler().render(batch, dTime);
+        getGameScreen().getFrameRate().render(batch, dTime);
+        getGameScreen().getVersionInfo().render(batch, dTime);
+    }
 }

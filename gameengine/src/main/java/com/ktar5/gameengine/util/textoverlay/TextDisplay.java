@@ -10,7 +10,7 @@ import com.badlogic.gdx.math.Matrix4;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.Disposable;
 import com.ktar5.gameengine.core.EngineManager;
-import com.ktar5.gameengine.rendering.Renderable;
+import com.ktar5.gameengine.util.Renderable;
 import com.ktar5.gameengine.util.Updatable;
 import lombok.Getter;
 import lombok.Setter;

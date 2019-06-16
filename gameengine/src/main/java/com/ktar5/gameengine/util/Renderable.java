@@ -1,4 +1,4 @@
-package com.ktar5.gameengine.rendering;
+package com.ktar5.gameengine.util;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
@@ -17,21 +17,11 @@ public interface Renderable {
     }
 
     static ShapeRenderer getShapeRenderer() {
-        return EngineManager
-                .get()
-                .getGame()
-                .getScreen()
-                .getRenderManager()
-                .getShapeRenderer();
+        return EngineManager.get().getGame().getShapeRenderer();
     }
 
     static SpriteBatch getSpriteBatch() {
-        return EngineManager
-                .get()
-                .getGame()
-                .getScreen()
-                .getRenderManager()
-                .getSpriteBatch();
+        return EngineManager.get().getGame().getSpriteBatch();
     }
 
     public static void renderScale(TextureRegion region, float x, float y, float unitsX, float unitsY, float angle) {

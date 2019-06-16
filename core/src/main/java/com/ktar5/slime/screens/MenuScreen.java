@@ -17,11 +17,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.ktar5.gameengine.camera.StaticCamera;
 import com.ktar5.gameengine.core.AbstractScreen;
 import com.ktar5.gameengine.core.EngineManager;
-import com.ktar5.gameengine.rendering.Renderable;
 import com.ktar5.slime.SlimeGame;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class MenuScreen extends AbstractScreen {
     private SpriteBatch batch;
@@ -156,18 +152,13 @@ public class MenuScreen extends AbstractScreen {
     }
 
     @Override
-    public List<Renderable> initializeRenderables() {
-        return new ArrayList<>();
-    }
-
-    @Override
-    public void initializeUpdatables() {
-
-    }
-
-    @Override
     public void dispose() {
         skin.dispose();
         atlas.dispose();
+    }
+
+    @Override
+    public void update(float dTime) {
+
     }
 }

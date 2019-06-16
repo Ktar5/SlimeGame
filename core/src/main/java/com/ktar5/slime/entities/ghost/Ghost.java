@@ -14,6 +14,8 @@ import com.ktar5.utilities.common.constants.Axis;
 import lombok.Getter;
 import org.tinylog.Logger;
 
+import static com.ktar5.gameengine.util.Renderable.getShapeRenderer;
+
 @Getter
 public class Ghost extends GameEntity<GhostState> implements TouchableEntity {
     private Axis axis;
@@ -51,7 +53,7 @@ public class Ghost extends GameEntity<GhostState> implements TouchableEntity {
 
     @Override
     public void debugRender(ShapeRenderer renderer) {
-        EngineManager.get().getRenderManager().getShapeRenderer().rect(
+        getShapeRenderer().rect(
                 position.x - ((float) getHitbox().width / 2), position.y - ((float) getHitbox().height / 2),
                 getHitbox().width, getHitbox().height);
     }

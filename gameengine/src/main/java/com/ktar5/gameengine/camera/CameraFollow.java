@@ -7,8 +7,8 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.ktar5.gameengine.Feature;
-import com.ktar5.gameengine.rendering.Renderable;
 import com.ktar5.gameengine.util.Position;
+import com.ktar5.gameengine.util.Renderable;
 import lombok.Setter;
 
 @Setter

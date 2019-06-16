@@ -50,27 +50,12 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
     }
 
     @Override
-    public void pause() {
-        super.pause();
-    }
-
-    @Override
-    public void resume() {
-        super.resume();
-    }
-
-    @Override
     public void initialize() {
         VisUI.load();
         input = new KInput();
         this.engineManager.getConsole().setDisplayKeyID(Input.Keys.GRAVE);
         Tween.registerAccessor(Entity.class, new EntityTweenAccessor());
         Tween.registerAccessor(RetractingSpikes.class, new RetractingSpikes.SpikesTweenAccessor());
-    }
-
-    @Override
-    public void render() {
-        super.render();
     }
 
     @Override

@@ -47,7 +47,7 @@ public enum TileObjectTypes {
 
     private static final IntMap<TileObjectTypes> tileIds = new IntMap<>();
     public static final HashSet<TileObjectTypes> TILES = new HashSet<>(Arrays.asList(
-            WIN, WALL, ONE_DIRECTION, DRAIN, GOO, BUTTON, PRESSURE_PLATE, GATE, DRAIN_PIPE_ALL_DIR,
+            WIN, START, WALL, ONE_DIRECTION, DRAIN, GOO, BUTTON, PRESSURE_PLATE, GATE, DRAIN_PIPE_ALL_DIR,
             DRAIN_PIPE_LEFT_UP, DRAIN_PIPE_UP_DOWN, SPIKE, HOLE, CRUMBLING_FLOOR, TELEPORTER, BIG, HIDESPIKE, SHOOTER
     ));
     public static final HashSet<TileObjectTypes> ENTITIES = new HashSet<TileObjectTypes>(Arrays.asList(

@@ -48,7 +48,7 @@ public class LoadedLevel extends LevelData implements Updatable {
     }
 
     public LevelEdit addEdit(int x, int y, int layer, int oldId) {
-        LevelEdit levelEdit = new LevelEdit.IntLevelEdit(x, y, layer, oldId);
+        LevelEdit levelEdit = new LevelEdit(x, y, layer, oldId);
         edits.add(levelEdit);
         return levelEdit;
     }

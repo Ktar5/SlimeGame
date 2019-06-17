@@ -1,142 +1,103 @@
-15:39:40:412 Analytics.create() [analytics] [DEBUG]: Created analytics
-15:39:40:413 Analytics.<init>() [analytics] [DEBUG]: Analytics initialized with build ID: 'debug:2' & analytics version: '3'
-15:39:40:447 LoadingScreen.show() [] [DEBUG]: Starting loading screen
-15:39:40:448 LoadingScreen.show() [] [DEBUG]: Starting load of loading screen resources
-15:39:40:456 LoadingScreen.show() [] [DEBUG]: Finished loading of loading screen resources
-15:39:40:474 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 0 name: _TutorialGoo.tmx
-15:39:40:525 LevelData.initialize() [] [DEBUG]: Loading level: '_TutorialGoo' with id:0 with uuid: 680e03ea-3a0d-4d6a-b56e-26ff42d58ed2
-15:39:40:535 LevelData.initialize() [] [ERROR]: Unknown type? GameTile at 21, 30with ID 1
-15:39:40:536 LevelData.initialize() [] [DEBUG]: Finished loading level: 0
-15:39:40:537 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 1 name: _TutorialDrain.tmx
-15:39:40:558 LevelData.initialize() [] [DEBUG]: Loading level: '_TutorialDrain' with id:1 with uuid: aceaf036-2e27-42af-9ad0-058780dffcf1
-15:39:40:559 LevelData.initialize() [] [ERROR]: Unknown type? GameTile at 21, 26with ID 1
-15:39:40:560 LevelData.initialize() [] [DEBUG]: Finished loading level: 1
-15:39:40:560 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 2 name: Level4.tmx
-15:39:40:568 LevelData.initialize() [] [DEBUG]: Loading level: 'Level4' with id:2 with uuid: e339a9f3-11c2-45d7-9c7e-feb9f617787a
-15:39:40:569 LevelData.initialize() [] [ERROR]: Unknown type? GameTile at 16, 34with ID 1
-15:39:40:569 LevelData.initialize() [] [DEBUG]: Finished loading level: 2
-15:39:40:569 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 3 name: Level8.tmx
-15:39:40:576 LevelData.initialize() [] [DEBUG]: Loading level: 'Level8' with id:3 with uuid: 0872673e-d419-49c4-8965-81b1147c31af
-15:39:40:578 LevelData.initialize() [] [ERROR]: Unknown type? GameTile at 27, 40with ID 1
-15:39:40:582 LevelData.initialize() [] [DEBUG]: Finished loading level: 3
-15:39:40:582 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 4 name: Level_Prototype01.tmx
-15:39:40:602 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype01' with id:4 with uuid: c5938e05-12d9-4883-8c12-0d23c3e5429e
-15:39:40:602 LevelData.initialize() [] [DEBUG]: Finished loading level: 4
-15:39:40:602 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 5 name: Level_Prototype02.tmx
-15:39:40:616 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype02' with id:5 with uuid: 6f7a0356-846c-4ab3-a2c7-96979f56bdb6
-15:39:40:616 LevelData.initialize() [] [DEBUG]: Finished loading level: 5
-15:39:40:616 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 6 name: Level_Prototype03.tmx
-15:39:40:630 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype03' with id:6 with uuid: 24add91e-f5b5-4f44-8a59-9a191351e989
-15:39:40:631 LevelData.initialize() [] [DEBUG]: Finished loading level: 6
-15:39:40:631 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 7 name: Level_Prototype04.tmx
-15:39:40:643 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype04' with id:7 with uuid: 2e6ffa28-98aa-477d-b753-c5ca280d7539
-15:39:40:644 LevelData.initialize() [] [DEBUG]: Finished loading level: 7
-15:39:40:644 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 8 name: Level_Prototype05.tmx
-15:39:40:661 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype05' with id:8 with uuid: 0a2b5537-7141-4d37-b7f9-dfdf046d8033
-15:39:40:661 LevelData.initialize() [] [ERROR]: Unknown type? GameTile at 13, 11with ID 1
-15:39:40:662 LevelData.initialize() [] [DEBUG]: Finished loading level: 8
-15:39:40:662 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 9 name: Level_Prototype06.tmx
-15:39:40:674 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype06' with id:9 with uuid: 5a2c373e-4067-409f-8080-2e3dc4ae5d23
-15:39:40:674 LevelData.initialize() [] [ERROR]: Unknown type? GameTile at 15, 6with ID 1
-15:39:40:674 LevelData.initialize() [] [DEBUG]: Finished loading level: 9
-15:39:40:674 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 10 name: Level_Prototype07.tmx
-15:39:40:686 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype07' with id:10 with uuid: 4bfd74c6-74fc-43bb-882a-af7fa430754c
-15:39:40:686 LevelData.initialize() [] [ERROR]: Unknown type? GameTile at 17, 10with ID 1
-15:39:40:686 LevelData.initialize() [] [DEBUG]: Finished loading level: 10
-15:39:40:686 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 11 name: Level_Prototype08.tmx
-15:39:40:692 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype08' with id:11 with uuid: e118b6a4-b23d-4aa1-9513-dda94ffc82f4
-15:39:40:693 LevelData.initialize() [] [ERROR]: Unknown type? GameTile at 17, 10with ID 1
-15:39:40:693 LevelData.initialize() [] [DEBUG]: Finished loading level: 11
-15:39:40:693 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 12 name: Level_Prototype09.tmx
-15:39:40:699 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype09' with id:12 with uuid: 2d06a308-683c-4509-8589-45e3214addb9
-15:39:40:699 LevelData.initialize() [] [ERROR]: Unknown type? GameTile at 13, 10with ID 1
-15:39:40:700 LevelData.initialize() [] [DEBUG]: Finished loading level: 12
-15:39:40:700 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 13 name: Level_Story_PathToKing.tmx
-15:39:40:715 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Story_PathToKing' with id:13 with uuid: 4b8e3e26-6eb2-479d-89ee-60531736cada
-15:39:40:715 LevelData.initialize() [] [ERROR]: Unknown type? GameTile at 28, 13with ID 1
-15:39:40:715 LevelData.initialize() [] [DEBUG]: Finished loading level: 13
-15:39:40:715 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 14 name: Level_Tutorial_Movement.tmx
-15:39:40:728 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Tutorial_Movement' with id:14 with uuid: b9066256-de1b-4fe7-9cd1-8d1c5f8cc666
-15:39:40:728 LevelData.initialize() [] [ERROR]: Unknown type? GameTile at 20, 9with ID 1
-15:39:40:729 LevelData.initialize() [] [DEBUG]: Finished loading level: 14
-15:39:40:729 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 15 name: Level_Tutorial_Collectibles.tmx
-15:39:40:742 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Tutorial_Collectibles' with id:15 with uuid: 34484285-7778-4b29-a31d-79a6795f621b
-15:39:40:742 LevelData.initialize() [] [ERROR]: Unknown type? GameTile at 22, 10with ID 1
-15:39:40:742 LevelData.initialize() [] [DEBUG]: Finished loading level: 15
-15:39:40:742 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 16 name: Level_Tutorial_Goo.tmx
-15:39:40:754 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Tutorial_Goo' with id:16 with uuid: 2eb3ac6e-5277-4a08-8963-446cd29ecc0a
-15:39:40:755 LevelData.initialize() [] [ERROR]: Unknown type? GameTile at 13, 12with ID 1
-15:39:40:755 LevelData.initialize() [] [DEBUG]: Finished loading level: 16
-15:39:40:755 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 17 name: Level_Tutorial_Gates.tmx
-15:39:40:767 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Tutorial_Gates' with id:17 with uuid: ba5eef23-01d6-47c8-a436-395ff297b21e
-15:39:40:767 LevelData.initialize() [] [ERROR]: Unknown type? GameTile at 37, 15with ID 1
-15:39:40:767 LevelData.initialize() [] [DEBUG]: Finished loading level: 17
-15:39:40:768 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 18 name: Level_Tutorial_Dying.tmx
-15:39:40:774 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Tutorial_Dying' with id:18 with uuid: bea25c8d-20ee-40b2-a388-604200e2fd5a
-15:39:40:774 LevelData.initialize() [] [ERROR]: Unknown type? GameTile at 17, 25with ID 1
-15:39:40:775 LevelData.initialize() [] [DEBUG]: Finished loading level: 18
-15:39:40:775 LevelHandler.loadMaps() [] [DEBUG]: Null level: 19
-15:39:40:775 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 20 name: Level1.tmx
-15:39:40:780 LevelData.initialize() [] [DEBUG]: Loading level: 'Level1' with id:20 with uuid: 38e99449-2621-4bbc-b887-c227f6d9a4cd
-15:39:40:780 LevelData.initialize() [] [ERROR]: Unknown type? GameTile at 21, 30with ID 1
-15:39:40:780 LevelData.initialize() [] [DEBUG]: Finished loading level: 20
-15:39:40:780 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 21 name: Level2.tmx
-15:39:40:789 LevelData.initialize() [] [DEBUG]: Loading level: 'Level2' with id:21 with uuid: 8c1a002b-5cae-433a-a58c-14b7b997beb4
-15:39:40:789 LevelData.initialize() [] [DEBUG]: Finished loading level: 21
-15:39:40:789 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 22 name: Level3.tmx
-15:39:40:800 LevelData.initialize() [] [DEBUG]: Loading level: 'Level3' with id:22 with uuid: 7854bf14-7760-4fc8-9d30-6d3627a9aeab
-15:39:40:800 LevelData.initialize() [] [ERROR]: Unknown type? GameTile at 16, 34with ID 1
-15:39:40:800 LevelData.initialize() [] [ERROR]: Unknown type? GameTile at 26, 54with ID 1
-15:39:40:800 LevelData.initialize() [] [DEBUG]: Finished loading level: 22
-15:39:40:800 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 23 name: Level4.tmx
-15:39:40:805 LevelData.initialize() [] [DEBUG]: Loading level: 'Level4' with id:23 with uuid: a4a07b01-aa85-43f0-8520-a459361cd1c2
-15:39:40:806 LevelData.initialize() [] [ERROR]: Unknown type? GameTile at 16, 34with ID 1
-15:39:40:806 LevelData.initialize() [] [DEBUG]: Finished loading level: 23
-15:39:40:806 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 24 name: Level5.tmx
-15:39:40:811 LevelData.initialize() [] [DEBUG]: Loading level: 'Level5' with id:24 with uuid: 7ee5df76-625e-4694-a074-3265869b2ce4
-15:39:40:812 LevelData.initialize() [] [ERROR]: Unknown type? GameTile at 43, 43with ID 1
-15:39:40:812 LevelData.initialize() [] [DEBUG]: Finished loading level: 24
-15:39:40:812 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 25 name: Level6.1.tmx
-15:39:40:821 LevelData.initialize() [] [DEBUG]: Loading level: 'Level6.1' with id:25 with uuid: 8d09f752-41fd-4404-b5d9-42f1ba01305f
-15:39:40:822 LevelData.initialize() [] [ERROR]: Don't know what to do with tile at 38, 39with ID 310
-15:39:40:822 LevelData.initialize() [] [ERROR]: Unknown type? GameTile at 43, 43with ID 1
-15:39:40:822 LevelData.initialize() [] [DEBUG]: Finished loading level: 25
-15:39:40:822 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 26 name: Level7.tmx
-15:39:40:830 LevelData.initialize() [] [DEBUG]: Loading level: 'Level7' with id:26 with uuid: 930d16b2-5781-474e-b410-a69f88ec7803
-15:39:40:830 LevelData.initialize() [] [DEBUG]: Finished loading level: 26
-15:39:40:830 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 27 name: Level8.tmx
-15:39:40:835 LevelData.initialize() [] [DEBUG]: Loading level: 'Level8' with id:27 with uuid: 7f5ee244-5ec3-4894-866b-0ba66fa26e0d
-15:39:40:836 LevelData.initialize() [] [ERROR]: Unknown type? GameTile at 27, 40with ID 1
-15:39:40:836 LevelData.initialize() [] [DEBUG]: Finished loading level: 27
-15:39:40:836 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 28 name: Level9.tmx
-15:39:40:841 LevelData.initialize() [] [DEBUG]: Loading level: 'Level9' with id:28 with uuid: 50e60917-adf6-40e4-a2ae-40ee14ce4e88
-15:39:40:842 LevelData.initialize() [] [ERROR]: Unknown type? GameTile at 22, 29with ID 1
-15:39:40:842 LevelData.initialize() [] [DEBUG]: Finished loading level: 28
-15:39:40:842 LevelHandler.loadMaps() [] [DEBUG]: Null level: 29
-15:39:40:847 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
-15:39:40:847 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
-15:39:40:847 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
-15:39:40:849 JumpPlayer.<init>() [] [DEBUG]: New player created 1560724780849
-15:39:40:850 LevelStartEvent.<init>() [] [DEBUG]: Started level: ID: 680e03ea-3a0d-4d6a-b56e-26ff42d58ed2  Number: 0  Name: _TutorialGoo
-15:39:40:851 PixelPerfectViewport.update() [] [DEBUG]: Viewport Scale: 2.0
-15:39:40:853 LoadingScreen.render() [] [DEBUG]: Updating load.. 1.0%
-15:39:40:854 LoadingScreen.render() [] [DEBUG]: Finished loading all assets!
-15:39:40:884 LoadingScreen.hide() [] [DEBUG]: Disposed of the loading resources
-15:39:42:319 Analytics.lambda$flush$0() [analytics] [DEBUG]: Just flushed
-15:39:42:750 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.Running
-15:39:42:750 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.PauseWithBlur
-15:39:42:753 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.Winning
-15:39:42:753 GameScreen.show() [] [DEBUG]: Display started for GameScreen
-15:39:56:460 Analytics.lambda$flush$0() [analytics] [DEBUG]: Just flushed
-15:39:57:016 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
-15:39:57:023 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
-15:39:57:023 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
-15:39:57:023 JumpPlayer.<init>() [] [DEBUG]: New player created 1560724797023
-15:39:57:023 LevelStartEvent.<init>() [] [DEBUG]: Started level: ID: aceaf036-2e27-42af-9ad0-058780dffcf1  Number: 1  Name: _TutorialDrain
-15:40:09:976 Analytics.lambda$flush$0() [analytics] [DEBUG]: Just flushed
-15:40:10:333 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
-15:40:10:334 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
-15:40:10:334 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
-15:40:10:334 JumpPlayer.<init>() [] [DEBUG]: New player created 1560724810334
-15:40:10:335 LevelStartEvent.<init>() [] [DEBUG]: Started level: ID: e339a9f3-11c2-45d7-9c7e-feb9f617787a  Number: 2  Name: Level4
-15:40:22:470 Analytics.dispose() [analytics] [DEBUG]: Just flushed
+17:18:04:983 Analytics.create() [analytics] [DEBUG]: Created analytics
+17:18:04:984 Analytics.<init>() [analytics] [DEBUG]: Analytics initialized with build ID: 'developer:2' & analytics version: '3'
+17:18:05:017 LoadingScreen.show() [] [DEBUG]: Starting loading screen
+17:18:05:017 LoadingScreen.show() [] [DEBUG]: Starting load of loading screen resources
+17:18:05:078 LoadingScreen.show() [] [DEBUG]: Finished loading of loading screen resources
+17:18:05:106 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 0 name: _TutorialGoo.tmx
+17:18:05:172 LevelData.initialize() [] [DEBUG]: Loading level: '_TutorialGoo' with id:0 with uuid: efd6f318-65be-4bbf-9412-91be26660cc3
+17:18:05:191 LevelData.initialize() [] [DEBUG]: Finished loading level: 0
+17:18:05:191 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 1 name: _TutorialDrain.tmx
+17:18:05:238 LevelData.initialize() [] [DEBUG]: Loading level: '_TutorialDrain' with id:1 with uuid: 4c4e6eca-67d5-4f45-aa45-42937584e613
+17:18:05:240 LevelData.initialize() [] [DEBUG]: Finished loading level: 1
+17:18:05:240 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 2 name: Level4.tmx
+17:18:05:251 LevelData.initialize() [] [DEBUG]: Loading level: 'Level4' with id:2 with uuid: 699fa79a-8301-4894-996e-0771307d7325
+17:18:05:252 LevelData.initialize() [] [DEBUG]: Finished loading level: 2
+17:18:05:252 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 3 name: Level8.tmx
+17:18:05:265 LevelData.initialize() [] [DEBUG]: Loading level: 'Level8' with id:3 with uuid: 07a73aaf-bc9b-4311-82ab-0d24f21276d4
+17:18:05:270 LevelData.initialize() [] [DEBUG]: Finished loading level: 3
+17:18:05:270 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 4 name: Level_Prototype01.tmx
+17:18:05:362 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype01' with id:4 with uuid: 601b5565-cc10-4f32-8406-5d24e6a556ec
+17:18:05:362 LevelData.initialize() [] [DEBUG]: Finished loading level: 4
+17:18:05:363 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 5 name: Level_Prototype02.tmx
+17:18:05:392 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype02' with id:5 with uuid: 8dcb772a-f292-4114-892b-ed5cd786b60b
+17:18:05:392 LevelData.initialize() [] [DEBUG]: Finished loading level: 5
+17:18:05:392 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 6 name: Level_Prototype03.tmx
+17:18:05:425 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype03' with id:6 with uuid: 85b47fb9-5ab6-42f0-8c32-747f1a3ed331
+17:18:05:426 LevelData.initialize() [] [DEBUG]: Finished loading level: 6
+17:18:05:426 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 7 name: Level_Prototype04.tmx
+17:18:05:466 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype04' with id:7 with uuid: 12f9e727-aec2-469a-a959-07ad252bd4f3
+17:18:05:466 LevelData.initialize() [] [DEBUG]: Finished loading level: 7
+17:18:05:466 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 8 name: Level_Prototype05.tmx
+17:18:05:495 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype05' with id:8 with uuid: b43f5842-3675-449b-bc09-79f87fc96d3d
+17:18:05:495 LevelData.initialize() [] [DEBUG]: Finished loading level: 8
+17:18:05:498 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 9 name: Level_Prototype06.tmx
+17:18:05:524 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype06' with id:9 with uuid: 1fdd32b1-9748-4cbb-b05e-c5c0c5b554ed
+17:18:05:524 LevelData.initialize() [] [DEBUG]: Finished loading level: 9
+17:18:05:524 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 10 name: Level_Prototype07.tmx
+17:18:05:542 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype07' with id:10 with uuid: 87177780-3e0d-4f18-a099-0d1db4fd664d
+17:18:05:542 LevelData.initialize() [] [DEBUG]: Finished loading level: 10
+17:18:05:542 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 11 name: Level_Prototype08.tmx
+17:18:05:550 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype08' with id:11 with uuid: 260328c3-2b68-4dd5-803b-926fe317ea82
+17:18:05:551 LevelData.initialize() [] [DEBUG]: Finished loading level: 11
+17:18:05:551 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 12 name: Level_Prototype09.tmx
+17:18:05:559 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype09' with id:12 with uuid: 113c0dde-c57f-4006-82a8-35c9f1ff7fbc
+17:18:05:560 LevelData.initialize() [] [DEBUG]: Finished loading level: 12
+17:18:05:560 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 13 name: Level_Story_PathToKing.tmx
+17:18:05:582 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Story_PathToKing' with id:13 with uuid: ac6eb9e9-1e11-4d1e-b3d8-6d8243107ce5
+17:18:05:583 LevelData.initialize() [] [DEBUG]: Finished loading level: 13
+17:18:05:583 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 14 name: Level_Tutorial_Movement.tmx
+17:18:05:611 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Tutorial_Movement' with id:14 with uuid: 3235ece8-759e-4e09-93f6-56c5b636f13f
+17:18:05:612 LevelData.initialize() [] [DEBUG]: Finished loading level: 14
+17:18:05:612 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 15 name: Level_Tutorial_Collectibles.tmx
+17:18:05:633 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Tutorial_Collectibles' with id:15 with uuid: 35bfdd4b-b40d-4cea-ad5f-7ae7fb80a48e
+17:18:05:633 LevelData.initialize() [] [DEBUG]: Finished loading level: 15
+17:18:05:634 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 16 name: Level_Tutorial_Goo.tmx
+17:18:05:655 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Tutorial_Goo' with id:16 with uuid: 3c66add3-62f4-4e1a-8616-a6cb08f2d229
+17:18:05:655 LevelData.initialize() [] [DEBUG]: Finished loading level: 16
+17:18:05:655 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 17 name: Level_Tutorial_Gates.tmx
+17:18:05:676 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Tutorial_Gates' with id:17 with uuid: 5926af21-3fd8-42fc-96c9-9c73456536df
+17:18:05:677 LevelData.initialize() [] [DEBUG]: Finished loading level: 17
+17:18:05:677 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 18 name: Level_Tutorial_Dying.tmx
+17:18:05:680 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Tutorial_Dying' with id:18 with uuid: 9ec84a81-addc-4955-bc19-ed24c676af7a
+17:18:05:680 LevelData.initialize() [] [DEBUG]: Finished loading level: 18
+17:18:05:681 LevelHandler.loadMaps() [] [DEBUG]: Null level: 19
+17:18:05:681 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 20 name: Level1.tmx
+17:18:05:688 LevelData.initialize() [] [DEBUG]: Loading level: 'Level1' with id:20 with uuid: 22747804-7972-4662-8c28-1df2a17de8cb
+17:18:05:688 LevelData.initialize() [] [DEBUG]: Finished loading level: 20
+17:18:05:688 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 21 name: Level2.tmx
+17:18:05:713 LevelData.initialize() [] [DEBUG]: Loading level: 'Level2' with id:21 with uuid: ff35e55b-a985-48ba-b103-6ce6f4c16906
+17:18:05:713 LevelData.initialize() [] [DEBUG]: Finished loading level: 21
+17:18:05:713 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 22 name: Level3.tmx
+17:18:05:728 LevelData.initialize() [] [DEBUG]: Loading level: 'Level3' with id:22 with uuid: 2dea4973-d644-4473-ae28-3ef2daec9820
+17:18:05:728 LevelData.initialize() [] [DEBUG]: Finished loading level: 22
+17:18:05:728 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 23 name: Level4.tmx
+17:18:05:740 LevelData.initialize() [] [DEBUG]: Loading level: 'Level4' with id:23 with uuid: 3d30b4df-5ecf-4f18-bac5-de37c467c3bf
+17:18:05:740 LevelData.initialize() [] [DEBUG]: Finished loading level: 23
+17:18:05:741 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 24 name: Level5.tmx
+17:18:05:750 LevelData.initialize() [] [DEBUG]: Loading level: 'Level5' with id:24 with uuid: 2b7f6c69-af42-472d-aa0e-dde7c1784498
+17:18:05:750 LevelData.initialize() [] [DEBUG]: Finished loading level: 24
+17:18:05:750 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 25 name: Level6.1.tmx
+17:18:05:771 LevelData.initialize() [] [DEBUG]: Loading level: 'Level6.1' with id:25 with uuid: 42d754d1-efe5-4986-925a-0e90adedf040
+17:18:05:772 LevelData.initialize() [] [ERROR]: Don't know what to do with tile at 38, 39with ID 310
+17:18:05:772 LevelData.initialize() [] [DEBUG]: Finished loading level: 25
+17:18:05:772 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 26 name: Level7.tmx
+17:18:05:781 LevelData.initialize() [] [DEBUG]: Loading level: 'Level7' with id:26 with uuid: 56a60124-5518-451e-9ffe-0614262ceb67
+17:18:05:781 LevelData.initialize() [] [DEBUG]: Finished loading level: 26
+17:18:05:781 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 27 name: Level8.tmx
+17:18:05:790 LevelData.initialize() [] [DEBUG]: Loading level: 'Level8' with id:27 with uuid: 58637832-bcee-4bf1-b8ce-5c212ab9f15d
+17:18:05:790 LevelData.initialize() [] [DEBUG]: Finished loading level: 27
+17:18:05:790 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 28 name: Level9.tmx
+17:18:05:808 LevelData.initialize() [] [DEBUG]: Loading level: 'Level9' with id:28 with uuid: 429c2d9c-c74c-4867-95ba-9698889d5685
+17:18:05:809 LevelData.initialize() [] [DEBUG]: Finished loading level: 28
+17:18:05:809 LevelHandler.loadMaps() [] [DEBUG]: Null level: 29
+17:18:05:813 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
+17:18:05:813 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Move
+17:18:05:813 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+17:18:05:814 JumpPlayer.<init>() [] [DEBUG]: New player created 1560730685814
+17:18:05:815 LevelStartEvent.<init>() [] [DEBUG]: Started level: ID: efd6f318-65be-4bbf-9412-91be26660cc3  Number: 0  Name: _TutorialGoo
+17:18:05:816 PixelPerfectViewport.update() [] [DEBUG]: Viewport Scale: 2.0
+17:18:05:817 LoadingScreen.render() [] [DEBUG]: Updating load.. 1.0%
+17:18:05:817 LoadingScreen.render() [] [DEBUG]: Finished loading all assets!
+17:18:05:836 LoadingScreen.hide() [] [DEBUG]: Disposed of the loading resources
+17:18:06:842 Analytics.lambda$flush$0() [analytics] [DEBUG]: Just flushed
+17:18:10:964 Analytics.dispose() [analytics] [DEBUG]: Just flushed

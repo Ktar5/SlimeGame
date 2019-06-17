@@ -28,6 +28,8 @@ import com.ktar5.gameengine.postprocessing.utils.ShaderLoader;
 import com.ktar5.slime.KInput;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.screens.GameScreen;
+import com.ktar5.slime.screens.mainmenu.LevelSelectionScreen;
+import com.ktar5.slime.screens.mainmenu.OptionsMenuScreen;
 
 public class PauseWithBlur extends GameState {
     Stage stage;
@@ -48,31 +50,43 @@ public class PauseWithBlur extends GameState {
 
         stage = new Stage(camera.getViewport(), batch);
 
-        Table levels = new Table();
-        levels.top().right();
-        levels.pad(15, 0, 0, 15);
-        levels.setFillParent(true);
-        int levelCount = SlimeGame.getGame().getLevelHandler().getLevelCount();
-        for (int i = 0; i < levelCount; i++) {
-            TextButton button = new TextButton(String.valueOf(i), skin);
-            if (SlimeGame.getGame().getLevelHandler().isLevelNull(i)) {
-                button.setDisabled(true);
-            } else {
-                int finalI = i;
-                button.addListener(new ClickListener() {
-                    @Override
-                    public void clicked(InputEvent event, float x, float y) {
-                        changeState(Running.class);
-                        SlimeGame.getGame().getLevelHandler().setLevel(finalI);
-                    }
-                });
-            }
-            if (i % 3 == 0) {
-                levels.row();
-            }
-            levels.add(button).pad(0, 0, 5, 5).width(25f);
-        }
 
+        TextButton levelsButton = new TextButton("Levels", skin);
+        TextButton optionsButton = new TextButton("Options", skin);
+        TextButton exitButton = new TextButton("Exit", skin);
+
+        //Add listeners to buttons
+        levelsButton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                SlimeGame.getGame().setScreen(new LevelSelectionScreen());
+            }
+        });
+        optionsButton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                SlimeGame.getGame().setScreen(new OptionsMenuScreen());
+            }
+        });
+        exitButton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                Gdx.app.exit();
+            }
+        });
+        //Create Table
+        Table mainTable = new Table();
+        //Set table to fill stage
+        mainTable.setFillParent(true);
+        //Set alignment of contents in the table.
+        mainTable.center();
+        mainTable.add(levelsButton).pad(10, 0, 0, 0);
+        mainTable.row();
+        mainTable.add(optionsButton).pad(10, 0, 0, 0);
+        mainTable.row();
+        mainTable.add(exitButton).pad(10, 0, 0, 0);
+
+        stage.addActor(mainTable);
 
         FrameBuffer fbo = new FrameBuffer(Pixmap.Format.RGB888, Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), false);
         TextureRegion fboRegion = new TextureRegion(fbo.getColorBufferTexture(), 0, 0,
@@ -89,7 +103,6 @@ public class PauseWithBlur extends GameState {
                 //batch.setColor(1, 1, 1, 1);
             }
         });
-        stage.addActor(levels);
 
 
         ShaderLoader.BasePath = "shaders/";

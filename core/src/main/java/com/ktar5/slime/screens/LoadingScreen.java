@@ -14,6 +14,7 @@ import com.ktar5.gameengine.camera.CameraBase;
 import com.ktar5.gameengine.core.AbstractScreen;
 import com.ktar5.gameengine.core.EngineManager;
 import com.ktar5.slime.SlimeGame;
+import com.ktar5.slime.screens.mainmenu.MainMenuScreen;
 import com.ktar5.slime.world.level.LevelHandler;
 import org.tinylog.Logger;
 
@@ -95,7 +96,7 @@ public class LoadingScreen extends AbstractScreen {
         Logger.debug("Updating load.. " + EngineManager.get().getAssetManager().getProgress() + "%");
         if (EngineManager.get().getAssetManager().update()) { // Load some, will return true if done loading
             Logger.debug("Finished loading all assets!");
-            EngineManager.get().getGame().setScreen(new MenuScreen());
+            EngineManager.get().getGame().setScreen(new MainMenuScreen());
         }
 
         // Interpolate the percentage to make it more smooth

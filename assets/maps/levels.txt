@@ -28,3 +28,7 @@
 27:Level8
 28:Level9
 29:
+30:Level_Goo01
+31:Level_Goo02
+32:Level_Goo03
+33:

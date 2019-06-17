@@ -25,6 +25,8 @@ import lombok.Setter;
 
 @Getter
 public class SlimeGame extends AbstractGame<SlimeGame> {
+    public static final boolean DEVELOPER_MODE = true;
+
     public static long frames = 0;
     public static KInput input;
 
@@ -83,7 +85,11 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
     protected AbstractScreen getStartingScreen() {
         MongoDBInstance mongoDBInstance = new MongoDBInstance("mongodb+srv://analytics:test@cluster0-k5pjp.mongodb.net/test?retryWrites=true", "test");
         Preferences slimegame = Gdx.app.getPreferences("com.ktar5.slimegame");
-        Analytics.create(slimegame, mongoDBInstance,"debug", 2, 3);
+        String build_id = "0.1.0";
+        if (DEVELOPER_MODE) {
+            build_id = "developer";
+        }
+        Analytics.create(slimegame, mongoDBInstance, build_id, 2, 3);
         return new LoadingScreen(EngineManager.get().getCameraBase());
     }
 

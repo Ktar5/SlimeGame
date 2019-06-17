@@ -59,6 +59,7 @@ public class LevelHandler implements Renderable, Updatable {
         currentLevel = new LoadedLevel(levelData[levelIndex]);
         tileMapRenderer = new OrthogonalTiledMapRenderer(currentLevel.getRenderMap(), 1f,
                 Renderable.getSpriteBatch());
+        currentLevel.getRenderMap().getLayers().get("Gameplay").setVisible(SHOW_LEVEL_DEBUG);
     }
 
     public void advanceLevel() {

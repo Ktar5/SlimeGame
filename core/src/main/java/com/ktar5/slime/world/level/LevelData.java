@@ -181,7 +181,7 @@ public class LevelData {
                 layer.setVisible(false);
                 layer.setOpacity(.3f);
                 foregrounds.add(layers.getIndex(layer));
-                gameplayLayer.setVisible(LevelHandler.SHOW_LEVEL_DEBUG);
+                gameplayLayer.setVisible(false);
             } else if (layer.getName().equalsIgnoreCase("Properties")) {
                 propertiesLayer = layer;
             }

@@ -80,12 +80,12 @@ public class PauseWithBlur extends GameState {
         mainTable.setFillParent(true);
         //Set alignment of contents in the table.
         mainTable.center();
+        mainTable.pad(0, 25, 25, 0);
         mainTable.add(levelsButton).pad(10, 0, 0, 0);
         mainTable.row();
         mainTable.add(optionsButton).pad(10, 0, 0, 0);
         mainTable.row();
         mainTable.add(exitButton).pad(10, 0, 0, 0);
-
         stage.addActor(mainTable);
 
         FrameBuffer fbo = new FrameBuffer(Pixmap.Format.RGB888, Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), false);

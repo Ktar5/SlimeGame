@@ -32,6 +32,10 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
 
     private static SlimeGame instance;
 
+
+//    StaticCamera uiCamera = new StaticCamera(new OrthographicCamera(480, 270));
+
+
     private float zoomLevel = 4f;
     private PixelPerfectViewport viewport;
     @Setter

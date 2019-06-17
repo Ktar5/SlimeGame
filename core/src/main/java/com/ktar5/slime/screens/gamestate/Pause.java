@@ -25,19 +25,16 @@ public class Pause extends GameState {
     Stage stage;
     StaticCamera camera = new StaticCamera(new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight()));
 
-
     public Pause(GameScreen gameScreen) {
         super(gameScreen);
 
         TextureAtlas atlas = new TextureAtlas("default_skin/uiskin.atlas");
         Skin skin = new Skin(Gdx.files.internal("default_skin/uiskin.json"), atlas);
 
-        SpriteBatch batch = new SpriteBatch();
-
         camera.getCamera().position.set(camera.getCamera().viewportWidth / 2, camera.getCamera().viewportHeight / 2, 0);
         camera.getCamera().update();
 
-        stage = new Stage(camera.getViewport(), batch);
+        stage = new Stage(camera.getViewport(), SlimeGame.getGame().getSpriteBatch());
 
         Table levels = new Table();
         levels.top().right();

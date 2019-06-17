@@ -5,7 +5,6 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
@@ -22,7 +21,6 @@ import com.ktar5.slime.SlimeGame;
 public class OptionsMenuScreen extends AbstractScreen {
     boolean dirty = false; //TODO make apply button grey if clean
 
-    private SpriteBatch batch;
     protected Stage stage;
     private TextureAtlas atlas;
     protected Skin skin;
@@ -33,12 +31,10 @@ public class OptionsMenuScreen extends AbstractScreen {
         atlas = new TextureAtlas("textures/skins/pixel/skin.atlas");
         skin = new Skin(Gdx.files.internal("textures/skins/pixel/skin.json"), atlas);
 
-        batch = new SpriteBatch();
-
         camera.getCamera().position.set(camera.getCamera().viewportWidth / 2, camera.getCamera().viewportHeight / 2, 0);
         camera.getCamera().update();
 
-        stage = new Stage(getCamera().getViewport(), batch);
+        stage = new Stage(getCamera().getViewport(), SlimeGame.getGame().getSpriteBatch());
     }
 
 
@@ -88,9 +84,6 @@ public class OptionsMenuScreen extends AbstractScreen {
         });
         stage.addActor(mainTable);
 
-
-
-
     }
 
     @Override
@@ -99,7 +92,9 @@ public class OptionsMenuScreen extends AbstractScreen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         stage.act();
+        SlimeGame.getGame().getSpriteBatch().end();
         stage.draw();
+        SlimeGame.getGame().getSpriteBatch().begin();
     }
 
     @Override

@@ -30,12 +30,11 @@ public class Winning extends GameState {
 
     public Winning(GameScreen gameScreen) {
         super(gameScreen);
-        SpriteBatch batch = new SpriteBatch();
 
         camera.getCamera().position.set(camera.getCamera().viewportWidth / 2, camera.getCamera().viewportHeight / 2, 0);
         camera.getCamera().update();
 
-        stage = new Stage(camera.getViewport(), batch);
+        stage = new Stage(camera.getViewport(), SlimeGame.getGame().getSpriteBatch());
         Gdx.input.setInputProcessor(stage);
         EngineManager.get().getConsole().resetInputProcessing();
 
@@ -135,6 +134,9 @@ public class Winning extends GameState {
         blur.render(postProcessor.getCombinedBuffer());
         postProcessor.render();
 
+
+        SlimeGame.getGame().getSpriteBatch().end();
         stage.draw();
+        SlimeGame.getGame().getSpriteBatch().begin();
     }
 }

@@ -21,7 +21,6 @@ public class GameScreen extends AbstractScreen {
     private SimpleStateMachine<GameState> gameState;
     private TextDisplay frameRate, versionInfo;
 
-
     public GameScreen() {
         super(EngineManager.get().getCameraBase());
         EngineManager.get().getConsole().resetInputProcessing();

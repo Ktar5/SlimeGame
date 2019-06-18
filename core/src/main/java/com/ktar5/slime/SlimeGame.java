@@ -16,6 +16,7 @@ import com.ktar5.gameengine.core.EngineManager;
 import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.gameengine.entities.EntityTweenAccessor;
 import com.ktar5.gameengine.tweenengine.Tween;
+import com.ktar5.slime.data.GameData;
 import com.ktar5.slime.misc.PixelPerfectViewport;
 import com.ktar5.slime.screens.LoadingScreen;
 import com.ktar5.slime.world.level.LevelHandler;
@@ -57,6 +58,7 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
 
     @Override
     public void initialize() {
+        new GameData();
         VisUI.load();
         input = new KInput();
         this.engineManager.getConsole().setDisplayKeyID(Input.Keys.GRAVE);

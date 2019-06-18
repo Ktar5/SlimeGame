@@ -24,7 +24,9 @@ public class GameScreen extends AbstractScreen {
     public GameScreen() {
         super(EngineManager.get().getCameraBase());
         EngineManager.get().getConsole().resetInputProcessing();
-        gameState = new SimpleStateMachine<>(new Running(this), new PauseWithBlur(this),
+        gameState = new SimpleStateMachine<>(
+                new Running(this),
+                new PauseWithBlur(this),
                 new Winning(this));
     }
 

@@ -20,6 +20,11 @@ public class CameraFollow extends CameraBase implements Renderable {
         this.position = position;
     }
 
+    public CameraFollow(OrthographicCamera camera, Viewport viewport) {
+        super(camera, viewport);
+        this.position = null;
+    }
+
     Vector3 camPos = this.getCamera().position;
     float lerp = 0.1f;
     @Override

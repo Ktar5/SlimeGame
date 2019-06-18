@@ -9,8 +9,6 @@ import lombok.Getter;
 public abstract class AbstractScreen implements Screen, Updatable {
     protected final CameraBase camera;
 
-    public boolean clearUpdatables = false;
-
     public AbstractScreen(CameraBase camera) {
         this.camera = camera;
         preInit();

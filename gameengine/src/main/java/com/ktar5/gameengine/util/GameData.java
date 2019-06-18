@@ -1,50 +1,52 @@
-package com.ktar5.slime.data;
+package com.ktar5.gameengine.util;
 
-import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.utils.Base64Coder;
 import org.json.JSONObject;
 import org.tinylog.Logger;
 
 import java.io.*;
 
 
-public class GameData {
-    private final File file;
+public abstract class GameData {
+    protected final File file;
 
-    public GameData() {
-        File savedirectory = new File(System.getProperty("user.home")
-                + File.separator + "documents"
-                + File.separator + "Wildmagic Studios"
-                + File.separator + "A Story of Slime");
-        if (!savedirectory.exists()) {
-            savedirectory.mkdirs();
+    public GameData(File saveDirectory) {
+        if (!saveDirectory.exists()) {
+            saveDirectory.mkdirs();
         }
-        file = new File(savedirectory, "save.data");
 
+        file = new File(saveDirectory, "save.data");
 
         if (!this.file.exists()) {
             try {
                 file.createNewFile();
 
-                InputStream read = Gdx.files.internal("data/save.data").read();
-
-                byte[] buffer = new byte[read.available()];
-                read.read(buffer);
-
-                OutputStream outStream = new FileOutputStream(file);
-                outStream.write(buffer);
+//                InputStream read = Gdx.files.internal("data/save.data").read();
+//
+//                byte[] buffer = new byte[read.available()];
+//                read.read(buffer);
+//
+//                OutputStream outStream = new FileOutputStream(file);
+//                outStream.write(buffer);
+                saveGame();
             } catch (IOException e) {
                 Logger.error(e);
             }
-
-
+        } else {
+            String s = readFileAsString(file);
+            if (s == null) {
+                Logger.error(new RuntimeException("Failed to load file, contents are null."));
+                return;
+            }
+            s = Base64Coder.decodeString(s);
+            deserialize(new JSONObject(s));
         }
 
-//        new JSONObject(readFileAsString(file));
     }
 
-    private JSONObject serialize() {
-        return null;
-    }
+    protected abstract JSONObject serialize();
+
+    protected abstract void deserialize(JSONObject json);
 
     //String[] lines = StringUtils.split(FileUtils.readFileToString(new File("...")), '\n');
     private String readFileAsString(File file) {
@@ -75,11 +77,11 @@ public class GameData {
 
             FileWriter writer = new FileWriter(this.file);
             String s = serialize().toString(4);
-//            Base64Coder.encodeString(Base64Coder.encodeString(s=));
-//            writer.write();
+            s = Base64Coder.encodeString(s);
+            writer.write(s);
             writer.close();
         } catch (IOException e) {
-            System.out.println("Unable to save file :(");
+            Logger.error("Unable to save file");
             Logger.error(e);
         }
     }

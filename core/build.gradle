@@ -6,6 +6,5 @@ repositories {
 
 dependencies {
     compile project(':gameengine')
-    compile group: 'org.json', name: 'json', version: '20180130'
 }
         

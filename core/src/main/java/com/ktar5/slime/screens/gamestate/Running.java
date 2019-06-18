@@ -4,12 +4,10 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.ktar5.gameengine.EngConst;
-import com.ktar5.gameengine.analytics.Analytics;
 import com.ktar5.gameengine.core.EngineManager;
 import com.ktar5.slime.KInput;
 import com.ktar5.slime.SlimeGame;
-import com.ktar5.slime.analytics.LevelFailEvent;
+import com.ktar5.slime.hotkeys.RunningHotkeys;
 import com.ktar5.slime.screens.GameScreen;
 
 public class Running extends GameState {
@@ -27,7 +25,7 @@ public class Running extends GameState {
     public void start() {
         Gdx.input.setInputProcessor(null);
         EngineManager.get().getConsole().resetInputProcessing();
-        InputMultiplexer inputMultiplexer = new InputMultiplexer(EngineManager.get().getConsole().getInputProcessor(), SlimeGame.input);
+        InputMultiplexer inputMultiplexer = new InputMultiplexer(EngineManager.get().getConsole().getInputProcessor(), SlimeGame.getGame().getInput());
         Gdx.input.setInputProcessor(inputMultiplexer);
     }
 
@@ -39,21 +37,13 @@ public class Running extends GameState {
             changeState(PauseWithBlur.class);
             return;
         }
+        RunningHotkeys.update();
         EngineManager.get().getCooldownManager().update(dTime);
         EngineManager.get().getTweenManager().update(dTime);
         EngineManager.get().getCameraBase().update(dTime);
         SlimeGame.getGame().getLevelHandler().update(dTime);
         getGameScreen().getFrameRate().update(dTime);
         getGameScreen().getVersionInfo().update(dTime);
-
-        if (KInput.isKeyJustPressed(Input.Keys.R)) {
-            Analytics.addEvent(new LevelFailEvent(SlimeGame.getGame().getLevelHandler().getCurrentLevel().getPlayer(), "reset"));
-            SlimeGame.getGame().getLevelHandler().resetLevel();
-        }
-        if (KInput.isKeyJustPressed(Input.Keys.TAB)) {
-            SlimeGame.getGame().getLevelHandler().toggleDebug();
-            EngConst.DEBUG = !EngConst.DEBUG;
-        }
     }
 
     @Override

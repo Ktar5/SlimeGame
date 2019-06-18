@@ -3,14 +3,12 @@ package com.ktar5.slime.screens.gamestate;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.kotcrab.vis.ui.widget.VisLabel;
 import com.ktar5.gameengine.EngConst;
 import com.ktar5.gameengine.analytics.Analytics;
-import com.ktar5.gameengine.camera.StaticCamera;
 import com.ktar5.gameengine.core.EngineManager;
 import com.ktar5.gameengine.postprocessing.PostProcessor;
 import com.ktar5.gameengine.postprocessing.effects.Vignette;
@@ -23,7 +21,6 @@ import com.ktar5.slime.screens.GameScreen;
 
 public class Winning extends GameState {
     private Stage stage;
-    private StaticCamera camera = new StaticCamera(new OrthographicCamera(480, 270));
     private PostProcessor postProcessor;
     private Blur blur;
     private VisLabel collectiblesScore = new VisLabel(), slimeCoveredScore = new VisLabel(), winText = new VisLabel();
@@ -31,10 +28,10 @@ public class Winning extends GameState {
     public Winning(GameScreen gameScreen) {
         super(gameScreen);
 
-        camera.getCamera().position.set(camera.getCamera().viewportWidth / 2, camera.getCamera().viewportHeight / 2, 0);
-        camera.getCamera().update();
-
-        stage = new Stage(camera.getViewport(), SlimeGame.getGame().getSpriteBatch());
+//        camera.getCamera().position.set(camera.getCamera().viewportWidth / 2, camera.getCamera().viewportHeight / 2, 0);
+//        camera.getCamera().update();
+//
+        stage = new Stage(SlimeGame.getGame().getUiCamera().getViewport(), SlimeGame.getGame().getSpriteBatch());
         Gdx.input.setInputProcessor(stage);
         EngineManager.get().getConsole().resetInputProcessing();
 
@@ -90,9 +87,9 @@ public class Winning extends GameState {
 
     @Override
     public void resize(int width, int height) {
-        camera.getCamera().viewportHeight = height;
-        camera.getCamera().viewportWidth = width;
-        camera.getCamera().update();
+        SlimeGame.getGame().getUiCamera().getCamera().viewportHeight = height;
+        SlimeGame.getGame().getUiCamera().getCamera().viewportWidth = width;
+        SlimeGame.getGame().getUiCamera().getCamera().update();
 
 //        camera.getViewport().setScreenWidth(Gdx.graphics.getWidth());
 //        camera.getViewport().setScreenWidth(Gdx.graphics.getHeight());

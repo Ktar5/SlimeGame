@@ -2,7 +2,6 @@ package com.ktar5.gameengine.util.textoverlay;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShaderProgram;
@@ -18,7 +17,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public abstract class TextDisplay implements Disposable, Updatable, Renderable {
-    protected OrthographicCamera camera = new OrthographicCamera();
     private BitmapFont font;
     protected Vector3 location;
     ShaderProgram fontShader;

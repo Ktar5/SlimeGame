@@ -2,7 +2,6 @@ package com.ktar5.slime.screens.gamestate;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -16,14 +15,12 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.ktar5.gameengine.camera.StaticCamera;
 import com.ktar5.slime.KInput;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.screens.GameScreen;
 
 public class Pause extends GameState {
     Stage stage;
-    StaticCamera camera = new StaticCamera(new OrthographicCamera(Gdx.graphics.getWidth(), Gdx.graphics.getHeight()));
 
     public Pause(GameScreen gameScreen) {
         super(gameScreen);
@@ -31,10 +28,10 @@ public class Pause extends GameState {
         TextureAtlas atlas = new TextureAtlas("default_skin/uiskin.atlas");
         Skin skin = new Skin(Gdx.files.internal("default_skin/uiskin.json"), atlas);
 
-        camera.getCamera().position.set(camera.getCamera().viewportWidth / 2, camera.getCamera().viewportHeight / 2, 0);
-        camera.getCamera().update();
+//        camera.getCamera().position.set(camera.getCamera().viewportWidth / 2, camera.getCamera().viewportHeight / 2, 0);
+//        camera.getCamera().update();
 
-        stage = new Stage(camera.getViewport(), SlimeGame.getGame().getSpriteBatch());
+        stage = new Stage(SlimeGame.getGame().getUiCamera().getViewport(), SlimeGame.getGame().getSpriteBatch());
 
         Table levels = new Table();
         levels.top().right();

@@ -1,5 +1,7 @@
 package com.ktar5.slime.screens;
 
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.InputMultiplexer;
 import com.ktar5.gameengine.EngConst;
 import com.ktar5.gameengine.core.AbstractScreen;
 import com.ktar5.gameengine.core.EngineManager;
@@ -8,6 +10,7 @@ import com.ktar5.gameengine.util.textoverlay.FrameRate;
 import com.ktar5.gameengine.util.textoverlay.TextDisplay;
 import com.ktar5.slime.KInput;
 import com.ktar5.slime.SlimeGame;
+import com.ktar5.slime.hotkeys.GeneralHotkeys;
 import com.ktar5.slime.misc.VersionInfo;
 import com.ktar5.slime.screens.gamestate.GameState;
 import com.ktar5.slime.screens.gamestate.PauseWithBlur;
@@ -22,8 +25,9 @@ public class GameScreen extends AbstractScreen {
     private TextDisplay frameRate, versionInfo;
 
     public GameScreen() {
-        super(EngineManager.get().getCameraBase());
-        EngineManager.get().getConsole().resetInputProcessing();
+        super(SlimeGame.getGame().getGameCamera());
+        Gdx.input.setInputProcessor(new InputMultiplexer(EngineManager.get().getConsole().getInputProcessor(),
+                SlimeGame.getGame().getInput()));
         gameState = new SimpleStateMachine<>(
                 new Running(this),
                 new PauseWithBlur(this),
@@ -41,6 +45,7 @@ public class GameScreen extends AbstractScreen {
 //        SlimeGame.frames += 1;
 //        System.out.println(SlimeGame.frames);
         gameState.update(EngConst.STEP_TIME);
+        GeneralHotkeys.update();
     }
 
     @Override
@@ -56,7 +61,7 @@ public class GameScreen extends AbstractScreen {
 
     @Override
     public void pause() {
-        if(gameState.getCurrent().getClass().equals(Winning.class)){
+        if (gameState.getCurrent().getClass().equals(Winning.class)) {
             return;
         }
         gameState.changeStateAfterUpdate(PauseWithBlur.class);

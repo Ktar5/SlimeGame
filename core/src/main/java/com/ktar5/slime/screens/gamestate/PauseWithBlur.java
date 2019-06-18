@@ -4,7 +4,6 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -19,7 +18,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.ktar5.gameengine.EngConst;
-import com.ktar5.gameengine.camera.StaticCamera;
 import com.ktar5.gameengine.core.EngineManager;
 import com.ktar5.gameengine.postprocessing.PostProcessor;
 import com.ktar5.gameengine.postprocessing.effects.Vignette;
@@ -33,7 +31,7 @@ import com.ktar5.slime.screens.mainmenu.OptionsMenuScreen;
 
 public class PauseWithBlur extends GameState {
     Stage stage;
-    StaticCamera camera = new StaticCamera(new OrthographicCamera(480, 270));
+//    StaticCamera camera = new StaticCamera(new OrthographicCamera(480, 270));
     PostProcessor postProcessor;
     Blur blur;
 
@@ -45,10 +43,10 @@ public class PauseWithBlur extends GameState {
 
         SpriteBatch batch = new SpriteBatch();
 
-        camera.getCamera().position.set(camera.getCamera().viewportWidth / 2, camera.getCamera().viewportHeight / 2, 0);
-        camera.getCamera().update();
+//        camera.getCamera().position.set(camera.getCamera().viewportWidth / 2, camera.getCamera().viewportHeight / 2, 0);
+//        camera.getCamera().update();
 
-        stage = new Stage(camera.getViewport(), batch);
+        stage = new Stage(SlimeGame.getGame().getUiCamera().getViewport(), batch);
 
 
         TextButton levelsButton = new TextButton("Levels", skin);
@@ -123,7 +121,7 @@ public class PauseWithBlur extends GameState {
 
         InputMultiplexer inputMultiplexer = new InputMultiplexer(stage,
                 EngineManager.get().getConsole().getInputProcessor(),
-                SlimeGame.input);
+                SlimeGame.getGame().getInput());
 
         Gdx.input.setInputProcessor(inputMultiplexer);
     }

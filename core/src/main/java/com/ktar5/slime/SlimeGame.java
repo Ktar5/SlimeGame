@@ -9,6 +9,7 @@ import com.ktar5.gameengine.analytics.Analytics;
 import com.ktar5.gameengine.analytics.MongoDBInstance;
 import com.ktar5.gameengine.camera.CameraBase;
 import com.ktar5.gameengine.camera.CameraFollow;
+import com.ktar5.gameengine.camera.StaticCamera;
 import com.ktar5.gameengine.console.CommandExecutor;
 import com.ktar5.gameengine.core.AbstractGame;
 import com.ktar5.gameengine.core.AbstractScreen;
@@ -16,7 +17,7 @@ import com.ktar5.gameengine.core.EngineManager;
 import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.gameengine.entities.EntityTweenAccessor;
 import com.ktar5.gameengine.tweenengine.Tween;
-import com.ktar5.slime.data.GameData;
+import com.ktar5.slime.data.SlimeGameData;
 import com.ktar5.slime.misc.PixelPerfectViewport;
 import com.ktar5.slime.screens.LoadingScreen;
 import com.ktar5.slime.world.level.LevelHandler;
@@ -28,19 +29,18 @@ import lombok.Setter;
 public class SlimeGame extends AbstractGame<SlimeGame> {
     public static final boolean DEVELOPER_MODE = true;
 
-    public static long frames = 0;
-    public static KInput input;
-
     private static SlimeGame instance;
 
-
-//    StaticCamera uiCamera = new StaticCamera(new OrthographicCamera(480, 270));
-
-
-    private float zoomLevel = 4f;
+//    public static long frames = 0;
     private PixelPerfectViewport viewport;
-    @Setter
-    private LevelHandler levelHandler;
+
+    private KInput input;
+    private SlimeGameData data;
+    @Setter private LevelHandler levelHandler;
+
+    public StaticCamera uiCamera;
+    public CameraFollow gameCamera;
+
 
     public SlimeGame() {
         instance = this;
@@ -58,20 +58,27 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
 
     @Override
     public void initialize() {
-        new GameData();
+        data = new SlimeGameData();
         VisUI.load();
         input = new KInput();
         this.engineManager.getConsole().setDisplayKeyID(Input.Keys.GRAVE);
         Tween.registerAccessor(Entity.class, new EntityTweenAccessor());
         Tween.registerAccessor(RetractingSpikes.class, new RetractingSpikes.SpikesTweenAccessor());
+
+        if(data.fullscreen){
+            Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
+        }
     }
 
     @Override
     protected CameraBase initializeCameraBase() {
+        uiCamera = new StaticCamera(new OrthographicCamera(480, 270));
+
         OrthographicCamera orthographicCamera = new OrthographicCamera(480, 270);
         viewport = new PixelPerfectViewport(480, 270, orthographicCamera);
         orthographicCamera.update();
-        return new CameraFollow(orthographicCamera, viewport, null);
+        gameCamera = new CameraFollow(orthographicCamera, viewport, null);
+        return gameCamera;
     }
 
     @Override
@@ -96,7 +103,7 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
             build_id = "developer";
         }
         Analytics.create(slimegame, mongoDBInstance, build_id, 2, 3);
-        return new LoadingScreen(EngineManager.get().getCameraBase());
+        return new LoadingScreen(SlimeGame.getGame().getUiCamera());
     }
 
     @Override

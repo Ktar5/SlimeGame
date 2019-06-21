@@ -46,7 +46,7 @@ public class RetractingSpikes extends WholeGameTile {
 
     Timeline tween;
     @Override
-    public void onCross(Entity entity) {
+    public boolean onCross(Entity entity) {
         if (retracted) {
 
             Logger.debug("Attempting to start tween");
@@ -62,6 +62,7 @@ public class RetractingSpikes extends WholeGameTile {
                     .setCallbackTriggers(TweenCallback.END)
                     .start(EngineManager.get().getTweenManager());
         }
+        return false;
     }
 
     @Override

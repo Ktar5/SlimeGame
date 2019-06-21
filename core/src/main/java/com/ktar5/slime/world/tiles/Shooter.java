@@ -44,11 +44,6 @@ public class Shooter extends WholeGameTile {
     }
 
     @Override
-    public void onCross(Entity entity) {
-
-    }
-
-    @Override
     public boolean canCrossThrough(Entity entity, Side movement) {
         return false;
     }
@@ -56,8 +51,7 @@ public class Shooter extends WholeGameTile {
 
     public void shoot() {
         for (Entity entity : SlimeGame.getGame().getLevelHandler().getCurrentLevel().getEntities()) {
-            System.out.println(entity.position.x);
-            if(entity.position.x/16 == x+shootSide.x && entity.position.y/16 == y + shootSide.y && entity instanceof Box){
+            if (entity.position.x / 16 == x + shootSide.x && entity.position.y / 16 == y + shootSide.y && entity instanceof Box) {
                 return;
             }
         }

@@ -24,11 +24,13 @@ public class CrumbledFloor extends WholeGameTile {
     }
 
     @Override
-    public void onCross(Entity entity) {
+    public boolean onCross(Entity entity) {
         if (crumbled) {
             if (entity.isPlayer()) {
                 ((JumpPlayer) entity).kill("crumbled_floor");
+                return true;
             }
+            return true;
         } else {
 
             //TODO FIX
@@ -39,6 +41,7 @@ public class CrumbledFloor extends WholeGameTile {
 //            cell.setTile(currentLevel.getTileMap().getTileSets().getTile(cell.getTile().getId() + 1));
 
             crumbled = true;
+            return false;
         }
     }
 }

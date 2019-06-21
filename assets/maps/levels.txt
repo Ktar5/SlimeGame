@@ -18,8 +18,8 @@
 17:Level_Tutorial_Gates:
 18:Level_Tutorial_Dying:
 19:
-20:Level1
-21:Level2
+20:Level_TestChamber
+21:Level1
 22:Level3
 23:Level4
 24:Level5

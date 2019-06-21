@@ -10,7 +10,7 @@ public abstract class EntityData implements PropertyConsumer {
 
     public EntityData(EntityType type, int x, int y) {
         this.type = type;
-        this.initialPosition = new Position(x * 16, y * 16);
+        this.initialPosition = new Position(8 + (x * 16), 8 + (y * 16));
     }
 
     public abstract Entity create();

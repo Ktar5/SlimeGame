@@ -61,10 +61,10 @@ public class GameScreen extends AbstractScreen {
 
     @Override
     public void pause() {
-        if (gameState.getCurrent().getClass().equals(Winning.class)) {
-            return;
-        }
-        gameState.changeStateAfterUpdate(PauseWithBlur.class);
+//        if (gameState.getCurrent().getClass().equals(Winning.class)) {
+//            return;
+//        }
+//        gameState.changeStateAfterUpdate(PauseWithBlur.class);
     }
 
     @Override

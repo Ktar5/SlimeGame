@@ -18,14 +18,14 @@ public class Big extends WholeGameTile {
     }
 
     @Override
-    public void onCross(Entity entity) {
+    public boolean onCross(Entity entity) {
         if (entity.isPlayer()) {
             JumpPlayer player = (JumpPlayer) entity;
             if (player.isSmall()) {
                 player.setSmall(false);
             }
-
         }
+        return false;
     }
 
     @Override

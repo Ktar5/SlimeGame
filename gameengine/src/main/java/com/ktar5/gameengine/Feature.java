@@ -13,7 +13,7 @@ public enum Feature {
     DEBUG(true),
     CONTROLLER(true),
 
-    LOG_MOVEMENT(false),
+    LOG_MOVEMENT(true),
     LOG_STATE_MACHINE(true),
     
     

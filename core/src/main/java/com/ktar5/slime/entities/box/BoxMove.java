@@ -4,9 +4,11 @@ import com.badlogic.gdx.math.Vector2;
 import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.gameengine.util.Side;
 import com.ktar5.slime.SlimeGame;
+import com.ktar5.slime.entities.GameEntity;
 import com.ktar5.slime.entities.TouchableEntity;
 import com.ktar5.slime.variables.Settings;
 import com.ktar5.slime.world.level.LevelData;
+import com.ktar5.slime.world.tiles.Air;
 import com.ktar5.slime.world.tiles.base.GameTile;
 import org.tinylog.Logger;
 
@@ -14,6 +16,7 @@ import java.util.List;
 
 public class BoxMove extends BoxState {
     private static final float SPEED = Settings.BOX_MOVE_SPEED;
+    private boolean isBeginning = false;
 
     protected BoxMove(Box entity) {
         super(entity);
@@ -21,6 +24,7 @@ public class BoxMove extends BoxState {
 
     @Override
     public void start() {
+        isBeginning = true;
         if (getEntity().currentMovement == null) {
             end();
             changeState(BoxIdle.class);
@@ -43,85 +47,85 @@ public class BoxMove extends BoxState {
         if (getEntity().isHaltMovement()) {
             return;
         }
+
         final LevelData levelData = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
 
-        //Get the position that we WOULD BE MOVING TO IF EVERYTHING GOES WELL so that we can use it
-        //as a reference for where we want to go.
+        int currentTileX = (int) Math.floor(getEntity().getPosition().x / 16);
+        int currentTileY = (int) Math.floor(getEntity().getPosition().y / 16);
+
         Vector2 newPosition = getEntity().getPosition().cpy().add((SPEED * getMovement().x), (SPEED * getMovement().y));
 
-        //Initialize some integer variables to represent block locations of these variables
-        //For example x/y are current x/y block and newX/newY are future x/y block
-        int newX, newY;
-
-        //Because of the nature of the gameTiles having the bottom left corner of each tile represent the
-        //block integer location (tile 1,2 STARTS at the coordinates 1,2)
-        //
-        //This matters because when moving in a positive direction (+x = right, +y = up), flooring the
-        //player coordinate gives us the correct tile coordinate, whereas the negative directions
-        //(-x = left, -y = down) make use of ceiling the player coordinate
-        if (getMovement() == Side.DOWN || getMovement() == Side.LEFT) {
-            newX = (int) Math.ceil(newPosition.x / 16);
-            newY = (int) Math.ceil(newPosition.y / 16);
+        int pixelsThroughTile, futurePixelsThroughTile;
+        if (getMovement().equals(Side.UP)) {
+            pixelsThroughTile = (int) (getEntity().getPosition().y - (currentTileY * 16));
+            futurePixelsThroughTile = (int) (newPosition.y - (currentTileY * 16));
+        } else if (getMovement().equals(Side.DOWN)) {
+            pixelsThroughTile = (int) (16 + (currentTileY * 16) - getEntity().getPosition().y);
+            futurePixelsThroughTile = (int) (16 + (currentTileY * 16) - newPosition.y);
+        } else if (getMovement().equals(Side.LEFT)) {
+            pixelsThroughTile = (int) (16 + (currentTileX * 16) - getEntity().getPosition().x);
+            futurePixelsThroughTile = (int) (16 + (currentTileX * 16) - newPosition.x);
+        } else if (getMovement().equals(Side.RIGHT)) {
+            pixelsThroughTile = (int) (getEntity().getPosition().x - (currentTileX * 16));
+            futurePixelsThroughTile = (int) (newPosition.x - (currentTileX * 16));
         } else {
-            newX = (int) Math.floor(newPosition.x / 16);
-            newY = (int) Math.floor(newPosition.y / 16);
-        }
-
-        //This is the variable that stores the tile at the location of the next step
-        //THIS COULD BE THE SAME TILE THE PLAYER IS CURRENTLY ON IF THE PLAYER
-        //DOESN'T MOVE ENOUGH TO COVER THE DISTANCE INTO A NEW TILE THIS STEP
-        //This is one block into the future, basically
-        GameTile newGameTile = levelData.tileFromDirection(newX, newY, getMovement());
-        if (newGameTile == null) {
-            Logger.debug(newX + " " + newY);
+            Logger.error(new RuntimeException("Movement is not of up, down, left, or right."));
             return;
         }
 
-        List<Entity> entities = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getEntities();
-        boolean touchedEntity = false;
-        for (Entity entity : entities) {
-            if (entity.position.equals(newGameTile.x * 16, newGameTile.y * 16)) {
-                ((TouchableEntity) entity).onEntityTouch(getEntity(), getEntity().getLastMovedDirection());
-                touchedEntity = true;
-                break;
+        if (getEntity().isTeleporting() || isBeginning || (pixelsThroughTile < 8 && futurePixelsThroughTile >= 8)) {
+            boolean wasBeginning = isBeginning;
+            isBeginning = false;
+            boolean wasTeleport = getEntity().isTeleporting();
+            getEntity().setTeleporting(false);
+            GameTile nextTile = levelData.tileFromDirection(currentTileX, currentTileY, getMovement());
+            GameTile currentTile = levelData.getGameMap()[currentTileX][currentTileY];
+            if (nextTile == null) {
+                int x = ((int) newPosition.x / 16);
+                int y = ((int) newPosition.y / 16);
+                Logger.error("Null tile at: " + x + ", " + y + ". Adjusted Y-value: " + (levelData.getGameMap()[0].length - y));
+                levelData.getGameMap()[x][y] = nextTile = new Air(x, y);
             }
-        }
 
-        if (touchedEntity) {
-            getEntity().getPosition().moveTo(newX * 16, newY * 16);
+            if (!wasBeginning && SlimeGame.getGame().getLevelHandler().getCurrentLevel().activateAllTiles(getEntity())) {
+                getEntity().getPosition().moveTo((currentTileX * 16) + 8, (currentTileY * 16) + 8);
+                return;
+            }
 
-            //TODO test this part may need to remove it
-            changeState(BoxIdle.class);
-        }
+            List<Entity> entities = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getEntities();
+            Vector2 futureAheadHitboxPosition = newPosition.cpy().add(getMovement().x * 10, getMovement().y * 10);
+            boolean touchedEntity = false;
+            for (Entity entity : entities) {
+                if (entity.equals(getEntity())) {
+                    continue;
+                }
+                if (entity instanceof GameEntity && ((GameEntity) entity).isTouching(getEntity().getHitbox(), futureAheadHitboxPosition)) {
+                    ((TouchableEntity) entity).onEntityTouch(getEntity(), getEntity().getLastMovedDirection());
+                    touchedEntity = true;
+                    break;
+                }
+            }
+            if (touchedEntity) {
+                getEntity().getPosition().moveTo((currentTileX * 16) + 8, (currentTileY * 16) + 8);
+                changeState(BoxIdle.class);
 
-        //In case we want to do something special instead of handle movement
-        else if (!newGameTile.preMove(getEntity())) {
+            } else if (!wasBeginning && !wasTeleport && !currentTile.preMove(getEntity())) {
+                //This is only for the teleporter
+            } else if (currentTile.changeMovement(getEntity(), getMovement())) {
+                //TODO Fix how this makes the player kind of skip corners and move a lot faster than they should.
+                getEntity().getPosition().moveTo((currentTileX * 16) + 8, (currentTileY * 16) + 8);
+                getEntity().getPosition().translate(SPEED * getMovement().x, SPEED * getMovement().y);
+            } else if (!nextTile.canCrossThrough(getEntity(), getMovement())) {
+                getEntity().getPosition().moveTo((currentTileX * 16) + 8, (currentTileY * 16) + 8);
+                //TODO start animation
+                System.out.println("Box hit the side and is going idle");
+                changeState(BoxIdle.class);
+                nextTile.onHitTile(getEntity(), getMovement().opposite());
+            } else {
+                getEntity().getPosition().translate(SPEED * getMovement().x, SPEED * getMovement().y);
+            }
 
-        }
-        //In case we want to modify where the player is moving without setting them to idle
-        else if (levelData.getGameMap()[newX][newY].changeMovement(getEntity(), getMovement())) {
-            getEntity().getPosition().moveTo(newX * 16, newY * 16);
-            getEntity().getPosition().translate(SPEED * getMovement().x, SPEED * getMovement().y);
-        }
-        //Check for if the tile that the player WOULD BE GOING INTO is air or not
-        else if (!newGameTile.canCrossThrough(getEntity(), getMovement())) {
-            //If it is not air, then that means we have reached a wall
-            //This little bit of logic (moving to newX, newY) works because
-            //if their next movement would've been to a wall, that means they're
-            //right next to a wall, so we just snap them to THE BLOCK
-            // AND NOT THE *POSITION* of the new movement
-            //
-            //Ex: going to hit a wall, so snap them to block before wall
-            getEntity().getPosition().moveTo(newX * 16, newY * 16);
-
-            //Change state to idle
-            changeState(BoxIdle.class);
-
-            newGameTile.onHitTile(getEntity(), getMovement().opposite());
-        }
-        //This is for regular movement
-        else {
-            //Translate the player's location by SPEED multiplied by the movement direction
+        } else {
             getEntity().getPosition().translate(SPEED * getMovement().x, SPEED * getMovement().y);
         }
     }

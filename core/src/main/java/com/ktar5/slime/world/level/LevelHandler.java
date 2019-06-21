@@ -12,6 +12,7 @@ import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.gameengine.tilemap.CustomTmxMapLoader;
 import com.ktar5.gameengine.util.Renderable;
 import com.ktar5.gameengine.util.Updatable;
+import com.ktar5.slime.SlimeGame;
 import lombok.Getter;
 import org.tinylog.Logger;
 
@@ -168,6 +169,23 @@ public class LevelHandler implements Renderable, Updatable {
 
         tileMapRenderer.render(currentLevel.getForegroundLayers());
         //tileMapRenderer.render();
+
+        SlimeGame.getGame().getShapeRenderer().setAutoShapeType(true);
+        SlimeGame.getGame().getShapeRenderer().setProjectionMatrix(EngineManager.get().getCameraBase().getCamera().combined);
+        SlimeGame.getGame().getShapeRenderer().begin();
+        for (int x = 0; x < currentLevel.getGameMap().length; x++) {
+            for (int y = 0; y < currentLevel.getGameMap()[x].length; y++) {
+                SlimeGame.getGame().getShapeRenderer().rect(x * 16f, y * 16f, 2, 2);
+            }
+        }
+        SlimeGame.getGame().getShapeRenderer().end();
+
+        SlimeGame.getGame().getShapeRenderer().begin();
+        if(SHOW_LEVEL_DEBUG){
+            debug(dTime);
+        }
+        SlimeGame.getGame().getShapeRenderer().end();
+
         batch.begin();
     }
 

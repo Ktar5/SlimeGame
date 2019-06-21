@@ -18,15 +18,24 @@ public class Drain extends WholeGameTile {
     }
 
     @Override
-    public void onCross(Entity entity) {
+    public boolean onCross(Entity entity) {
+        System.out.println("Drain cross");
         if (entity.isPlayer()) {
+            System.out.println("Is player");
             JumpPlayer player = (JumpPlayer) entity;
             if (player.isSmall()) {
+                System.out.println("Is small");
                 player.kill("drain");
+                return true;
             } else {
+                System.out.println("Not small");
                 player.setSmall(true);
             }
+        }else{
+            System.out.println("Not player");
+
         }
+        return false;
     }
 
     @Override

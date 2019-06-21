@@ -27,7 +27,7 @@ public class Collectible extends WholeGameTile {
     }
 
     @Override
-    public void onCross(Entity entity) {
+    public boolean onCross(Entity entity) {
         if(!collected){
             collected = true;
             LoadedLevel currentLevel = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
@@ -35,6 +35,7 @@ public class Collectible extends WholeGameTile {
             currentLevel.addEdit(x, y, currentLevel.getRenderMap().getLayers().getIndex("Art_Gameplay"), 791);
             mapLayer.getCell(x,y).setTile(null);
         }
+        return false;
     }
 
 

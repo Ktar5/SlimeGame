@@ -32,6 +32,11 @@ public class Position extends Vector2 implements Pool.Poolable {
         return Math.abs(((int) this.x) - x) <= range && Math.abs(((int) this.y) - y) <= range;
     }
 
+    public boolean isWithinRange(Vector2 position, int range){
+        System.out.println("Range: " + Math.abs(((int) this.x) - position.x) + " " + Math.abs(((int) this.y) - position.y));
+        return Math.abs(((int) this.x) - position.x) <= range && Math.abs(((int) this.y) - position.y) <= range;
+    }
+
     public Direction getDirection() {
         this.direction = Direction.fromAngleCardinal(this.angle);
         return this.direction;

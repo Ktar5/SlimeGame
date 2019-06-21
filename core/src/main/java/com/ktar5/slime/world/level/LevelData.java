@@ -6,7 +6,6 @@ import com.badlogic.gdx.maps.MapObject;
 import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.objects.RectangleMapObject;
 import com.badlogic.gdx.maps.tiled.TiledMap;
-import com.badlogic.gdx.maps.tiled.TiledMapImageLayer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.gameengine.util.Side;
@@ -99,7 +98,7 @@ public class LevelData {
         return null;
     }
 
-    public void activateAllTiles(Entity entity) {
+    public boolean activateAllTiles(Entity entity) {
         int x = (int) entity.position.x / 16;
         int y = (int) entity.position.y / 16;
         entityTouchedTileSide(x, y, entity, Side.UP);
@@ -109,8 +108,9 @@ public class LevelData {
         if (isInMapRange(x, y)) {
 //            Logger.debug(gameMap[x][y]);
 //            Logger.debug(SlimeGame.getGame().getLevelHandler().getCurrentLevel().getId());
-            gameMap[x][y].onCross(entity);
+            return gameMap[x][y].onCross(entity);
         }
+        return false;
     }
 
     public GameTile[] getSurrounding(int x, int y) {
@@ -157,21 +157,13 @@ public class LevelData {
         List<Integer> foregrounds = new ArrayList<>();
         List<Integer> backgrounds = new ArrayList<>();
         for (MapLayer layer : layers) {
-            if (layer.getName().equals("Art_Image")) {
-                TiledMapImageLayer layer1 = (TiledMapImageLayer) layer;
-                layer1.setX(-8);
-                layer1.setY(-8);
-            } else {
-                layer.setOffsetX(-8);
-                layer.setOffsetY(8);
-            }
-            if (layer.getName().startsWith("Art")) {
-                if (layer.getProperties().containsKey("Front")) {
+            if (layer.getName().startsWith("Art") || layer.getName().startsWith("art")) {
+                if (layer.getProperties().containsKey("Front") || layer.getProperties().containsKey("front")) {
                     foregrounds.add(layers.getIndex(layer));
                 } else {
                     backgrounds.add(layers.getIndex(layer));
                 }
-                if (layer.getName().equals("Art_Gameplay")) {
+                if (layer.getName().equalsIgnoreCase("Art_Gameplay")) {
                     gameplayArtLayerIndex = layers.getIndex(layer);
                 }
             } else if (layer.getName().equalsIgnoreCase("SlimeCover")) {

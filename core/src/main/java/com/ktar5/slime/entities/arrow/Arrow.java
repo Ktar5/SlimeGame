@@ -15,9 +15,6 @@ import com.ktar5.slime.entities.player.JumpPlayer;
 
 public class Arrow extends GameEntity<ArrowState> implements TouchableEntity, Pool.Poolable {
     Side currentMovement;
-    private int lastX = 0;
-    private int lastY = 0;
-
 
     //TODO object pooling of arrows
     public Arrow(ArrowEntityData data) {
@@ -60,14 +57,6 @@ public class Arrow extends GameEntity<ArrowState> implements TouchableEntity, Po
     public void update(float dTime) {
         super.update(dTime);
         position.set(position.x, position.y);
-        if (!isHaltMovement()) {
-            if (lastX == (int) position.x / 16 && lastY == (int) position.y / 16) {
-                return;
-            }
-            lastY = (int) position.y / 16;
-            lastX = (int) position.x / 16;
-//            SlimeGame.getGame().getLevelHandler().getCurrentLevel().getGrid().activateAllTiles(this);
-        }
     }
 
     @Override

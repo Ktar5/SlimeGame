@@ -20,7 +20,7 @@ public abstract class GameTile implements PropertyConsumer {
     }
 
     /**
-     * @return false if should NOT continue with movement
+     * @return true if should continue with movement
      */
     public boolean preMove(Entity entity) {
         return true;
@@ -37,7 +37,12 @@ public abstract class GameTile implements PropertyConsumer {
     public void onTouchSide(Entity entity, Side movement, Side touched) {
     }
 
-    public void onCross(Entity entity) {
+    /**
+     * @return true if should stop movement and snap to center of current tile
+     * false if otherwise
+     */
+    public boolean onCross(Entity entity) {
+        return false;
     }
 
     @Override

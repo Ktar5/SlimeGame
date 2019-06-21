@@ -29,10 +29,10 @@ public class PressurePlate extends TriggerableGameTile {
     }
 
     @Override
-    public void onCross(Entity entity) {
+    public boolean onCross(Entity entity) {
         if (!pressed) {
             if(entity.isPlayer() && ((JumpPlayer) entity).isSmall()){
-                return;
+                return false;
             }
             LoadedLevel currentLevel = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
             TiledMapTileLayer mapLayer = currentLevel.getGameplayArtLayer();
@@ -43,6 +43,7 @@ public class PressurePlate extends TriggerableGameTile {
 
             pressed = true;
         }
+        return false;
     }
 
 }

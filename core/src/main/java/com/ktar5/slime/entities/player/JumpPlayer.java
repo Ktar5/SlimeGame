@@ -13,8 +13,9 @@ import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.analytics.LevelFailEvent;
 import com.ktar5.slime.entities.GameEntity;
 import com.ktar5.slime.entities.Rectangle;
+import com.ktar5.slime.entities.Teleportable;
 import com.ktar5.slime.entities.player.states.Idle;
-import com.ktar5.slime.entities.player.states.Move;
+import com.ktar5.slime.entities.player.states.NewMove;
 import com.ktar5.slime.entities.player.states.PlayerState;
 import com.ktar5.slime.entities.player.states.Respawn;
 import com.ktar5.slime.world.level.LoadedLevel;
@@ -24,23 +25,22 @@ import org.tinylog.Logger;
 
 @Getter
 @Setter
-public class JumpPlayer extends GameEntity<PlayerState> {
+public class JumpPlayer extends GameEntity<PlayerState> implements Teleportable {
     private Movement movement = new SetVelocityMovement(40f);
-    int lastX = 0;
-    int lastY = 0;
     //This variable is for doing movement that may
     //have been pressed a few frames before it actually
     //should have been pressed
     private Vector2 previousNonZeroMovement;
     //This boolean tells whether the slime should be small
     //right now or not (for drains/holes)
+    private boolean endTeleport = false;
     private boolean small = false;
     //The current level that this platyer is attached to
     private LoadedLevel level;
 
     public JumpPlayer(LoadedLevel level) {
         super(16, 16, new Rectangle(8, 8));
-        this.position.set(level.getSpawnTile().x * 16, level.getSpawnTile().y * 16);
+        this.position.set(8 + (level.getSpawnTile().x * 16), 8 + (level.getSpawnTile().y * 16));
         this.level = level;
         Logger.debug("New player created " + System.currentTimeMillis());
     }
@@ -49,13 +49,7 @@ public class JumpPlayer extends GameEntity<PlayerState> {
     public void update(float dTime) {
         super.update(dTime);
         position.set(position.x, position.y);
-        if (!isHaltMovement()) {
-            if (lastX == (int) position.x / 16 && lastY == (int) position.y / 16) {
-                return;
-            }
-            lastY = (int) position.y / 16;
-            lastX = (int) position.x / 16;
-            SlimeGame.getGame().getLevelHandler().getCurrentLevel().activateAllTiles(this);
+//            SlimeGame.getGame().getLevelHandler().getCurrentLevel().activateAllTiles(this);
 //            boolean[][] slimeCovered = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getSlimeCovered();
 
             //TODO implement this code everywhere
@@ -80,15 +74,14 @@ public class JumpPlayer extends GameEntity<PlayerState> {
 //                    mapLayer.getCell(lastX, lastY).setTile(tileSets.getTile(i + 207));
 //                }
 //            }
-        }
     }
 
     @Override
     public void reset() {
         setSmall(false);
         ((Respawn) getEntityState().get(Respawn.class)).cancel();
-        getPosition().set(SlimeGame.getGame().getLevelHandler().getSpawnX() * 16,
-                SlimeGame.getGame().getLevelHandler().getSpawnY() * 16);
+        getPosition().set( 8 + (SlimeGame.getGame().getLevelHandler().getSpawnX() * 16),
+                8 + (SlimeGame.getGame().getLevelHandler().getSpawnY() * 16));
         resetAnimation("slime_jump_down");
         setHaltMovement(false);
         getEntityState().changeStateAfterUpdate(Idle.class);
@@ -121,7 +114,7 @@ public class JumpPlayer extends GameEntity<PlayerState> {
     @Override
     protected SimpleStateMachine<PlayerState> initializeStateMachine() {
         return new SimpleStateMachine<>(new Idle(this),
-                new Move(this), new Respawn(this));
+                new NewMove(this), new Respawn(this));
     }
 
     @Override
@@ -149,5 +142,15 @@ public class JumpPlayer extends GameEntity<PlayerState> {
 
     protected String getDefaultAnimation() {
         return "slime_jump_down";
+    }
+
+    @Override
+    public void setTeleporting(boolean teleporting) {
+        endTeleport = teleporting;
+    }
+
+    @Override
+    public boolean isTeleporting() {
+        return endTeleport;
     }
 }

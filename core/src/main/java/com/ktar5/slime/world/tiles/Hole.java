@@ -27,9 +27,9 @@ public class Hole extends WholeGameTile {
     }
 
     @Override
-    public void onCross(Entity entity) {
+    public boolean onCross(Entity entity) {
         if (filled) {
-            return;
+            return false;
         }
 
         if (entity.isPlayer()) {
@@ -41,6 +41,6 @@ public class Hole extends WholeGameTile {
             });
         }
 
-
+        return true;
     }
 }

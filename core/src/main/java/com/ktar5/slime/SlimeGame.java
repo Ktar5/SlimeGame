@@ -31,7 +31,7 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
 
     private static SlimeGame instance;
 
-//    public static long frames = 0;
+    public static long frames = 0;
     private PixelPerfectViewport viewport;
 
     private KInput input;

@@ -37,14 +37,14 @@ public class Idle extends PlayerState {
         //Basically this allows us to go straight into a move if input was detected
         //During the last few frames of movement
         if (getPlayer().getPreviousNonZeroMovement() != null) {
-            changeState(Move.class);
+            changeState(NewMove.class);
             return;
         }
 
         //Regular idle updating
         getPlayer().getMovement().update(dTime);
         if (!getPlayer().getMovement().getInput().equals(Vector2.Zero)) {
-            this.changeState(Move.class);
+            this.changeState(NewMove.class);
         }
     }
 

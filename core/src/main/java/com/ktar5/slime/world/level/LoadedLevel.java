@@ -1,5 +1,7 @@
 package com.ktar5.slime.world.level;
 
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
+import com.badlogic.gdx.maps.tiled.TiledMapTileSets;
 import com.ktar5.gameengine.analytics.Analytics;
 import com.ktar5.gameengine.camera.CameraFollow;
 import com.ktar5.gameengine.core.EngineManager;
@@ -82,5 +84,36 @@ public class LoadedLevel extends LevelData implements Updatable {
 
     public void incrementSlimeCovered() {
         numberTilesSlimed += 1;
+    }
+
+    /**Note that you must add the edit yourself
+     * @returns the previous ID */
+    public int setGraphic(int x, int y, String tileset, String layer, int id) {
+        return setGraphic(x, y, tileset, (TiledMapTileLayer) this.getRenderMap().getLayers().get(layer), id);
+    }
+
+    /**Note that you must add the edit yourself
+     * @returns the previous ID */
+    public int setGraphic(int x, int y, String tileset, TiledMapTileLayer mapLayer, int id) {
+        TiledMapTileSets tileSets = this.getRenderMap().getTileSets();
+        int i = tileSets.getTileSet(tileset).getProperties().get("firstgid", Integer.class);
+        if (mapLayer.getCell(x, y) == null) {
+            TiledMapTileLayer.Cell newCell = new TiledMapTileLayer.Cell();
+            newCell.setTile(tileSets.getTile(i + id));
+            mapLayer.setCell(x, y, newCell);
+            return 0;
+        } else {
+            int firstID = mapLayer.getCell(x, y).getTile().getId();
+            mapLayer.getCell(x, y).setTile(tileSets.getTile(i + id));
+            return firstID;
+        }
+    }
+
+    public int getCurrentID(int x, int y, TiledMapTileLayer mapLayer) {
+        if (mapLayer.getCell(x, y) == null) {
+            return -1;
+        } else {
+            return mapLayer.getCell(x, y).getTile().getId();
+        }
     }
 }

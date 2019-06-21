@@ -5,6 +5,7 @@ import com.ktar5.gameengine.util.Side;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.entities.box.Box;
 import com.ktar5.slime.entities.player.JumpPlayer;
+import com.ktar5.slime.world.level.LoadedLevel;
 import com.ktar5.slime.world.tiles.base.Rotation;
 import com.ktar5.slime.world.tiles.base.WholeGameTile;
 
@@ -18,6 +19,9 @@ public class Hole extends WholeGameTile {
     @Override
     public void reset() {
         filled = false;
+
+//        LoadedLevel currentLevel = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
+//        currentLevel.setGraphic(x, y, "GameplayImages", currentLevel.getGameplayArtLayer(), 221);
     }
 
 
@@ -39,6 +43,10 @@ public class Hole extends WholeGameTile {
             SlimeGame.getGame().doOnNextFrame(() -> {
                 SlimeGame.getGame().getLevelHandler().getCurrentLevel().getEntities().remove(entity);
             });
+            LoadedLevel currentLevel = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
+            currentLevel.addEdit(x, y, currentLevel.getGameplayArtLayerIndex(),
+                    currentLevel.getCurrentID(x, y, currentLevel.getGameplayArtLayer()));
+            currentLevel.setGraphic(x, y, "GameplayImages", currentLevel.getGameplayArtLayer(), 221);
         }
 
         return true;

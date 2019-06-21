@@ -97,21 +97,26 @@ public class NewMove extends PlayerState {
         //Retrieve the number of pixels through the current that the player is, and the number of pixels
         // through the current tile that the player will be if movement continues
         int pixelsThroughTile, futurePixelsThroughTile;
-        if (getMovement().equals(Side.UP)) {
-            pixelsThroughTile = (int) (getPlayer().getPosition().y - (currentTileY * 16));
-            futurePixelsThroughTile = (int) (newPosition.y - (currentTileY * 16));
-        } else if (getMovement().equals(Side.DOWN)) {
-            pixelsThroughTile = (int) (16 + (currentTileY * 16) - getPlayer().getPosition().y);
-            futurePixelsThroughTile = (int) (16 + (currentTileY * 16) - newPosition.y);
-        } else if (getMovement().equals(Side.LEFT)) {
-            pixelsThroughTile = (int) (16 + (currentTileX * 16) - getPlayer().getPosition().x);
-            futurePixelsThroughTile = (int) (16 + (currentTileX * 16) - newPosition.x);
-        } else if (getMovement().equals(Side.RIGHT)) {
-            pixelsThroughTile = (int) (getPlayer().getPosition().x - (currentTileX * 16));
-            futurePixelsThroughTile = (int) (newPosition.x - (currentTileX * 16));
-        } else {
-            Logger.error(new RuntimeException("Movement is not of up, down, left, or right."));
-            return;
+        switch (getMovement()) {
+            case UP:
+                pixelsThroughTile = (int) (getPlayer().getPosition().y - (currentTileY * 16));
+                futurePixelsThroughTile = (int) (newPosition.y - (currentTileY * 16));
+                break;
+            case DOWN:
+                pixelsThroughTile = (int) (16 + (currentTileY * 16) - getPlayer().getPosition().y);
+                futurePixelsThroughTile = (int) (16 + (currentTileY * 16) - newPosition.y);
+                break;
+            case LEFT:
+                pixelsThroughTile = (int) (16 + (currentTileX * 16) - getPlayer().getPosition().x);
+                futurePixelsThroughTile = (int) (16 + (currentTileX * 16) - newPosition.x);
+                break;
+            case RIGHT:
+                pixelsThroughTile = (int) (getPlayer().getPosition().x - (currentTileX * 16));
+                futurePixelsThroughTile = (int) (newPosition.x - (currentTileX * 16));
+                break;
+            default:
+                Logger.error(new RuntimeException("Movement is not of up, down, left, or right."));
+                return;
         }
 
 

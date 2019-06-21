@@ -148,6 +148,7 @@ public class LevelData {
         return uuid;
     }
 
+    //TODO rewrite
     private void initialize() {
         Logger.debug("Loading level: '" + getName() + "' with id:" + id + " with uuid: " + getUUID());
 
@@ -163,18 +164,18 @@ public class LevelData {
                 } else {
                     backgrounds.add(layers.getIndex(layer));
                 }
-                if (layer.getName().equalsIgnoreCase("Art_Gameplay")) {
+                if (layer.getName().equals("Art_Gameplay")) {
                     gameplayArtLayerIndex = layers.getIndex(layer);
                 }
             } else if (layer.getName().equalsIgnoreCase("SlimeCover")) {
                 backgrounds.add(layers.getIndex(layer));
-            } else if (layer.getName().equalsIgnoreCase("Gameplay")) {
+            } else if (layer.getName().equals("Gameplay")) {
                 gameplayLayer = layer;
                 layer.setVisible(false);
                 layer.setOpacity(.3f);
                 foregrounds.add(layers.getIndex(layer));
                 gameplayLayer.setVisible(false);
-            } else if (layer.getName().equalsIgnoreCase("Properties")) {
+            } else if (layer.getName().equals("Properties")) {
                 propertiesLayer = layer;
             }
         }

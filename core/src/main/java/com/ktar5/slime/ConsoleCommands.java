@@ -21,6 +21,11 @@ public class ConsoleCommands extends CommandExecutor {
         }
     }
 
+    public final void zoom(float level) {
+        SlimeGame.getGame().gameCamera.getCamera().zoom = level;
+        console.log("Set zoom to: " + level);
+    }
+
     public final void getFeature(String feature) {
         try {
             Feature feat = Feature.valueOf(feature.toUpperCase());

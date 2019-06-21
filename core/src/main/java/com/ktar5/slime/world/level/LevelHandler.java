@@ -170,21 +170,18 @@ public class LevelHandler implements Renderable, Updatable {
         tileMapRenderer.render(currentLevel.getForegroundLayers());
         //tileMapRenderer.render();
 
-        SlimeGame.getGame().getShapeRenderer().setAutoShapeType(true);
-        SlimeGame.getGame().getShapeRenderer().setProjectionMatrix(EngineManager.get().getCameraBase().getCamera().combined);
-        SlimeGame.getGame().getShapeRenderer().begin();
-        for (int x = 0; x < currentLevel.getGameMap().length; x++) {
-            for (int y = 0; y < currentLevel.getGameMap()[x].length; y++) {
-                SlimeGame.getGame().getShapeRenderer().rect(x * 16f, y * 16f, 2, 2);
-            }
-        }
-        SlimeGame.getGame().getShapeRenderer().end();
-
-        SlimeGame.getGame().getShapeRenderer().begin();
         if(SHOW_LEVEL_DEBUG){
+            SlimeGame.getGame().getShapeRenderer().setAutoShapeType(true);
+            SlimeGame.getGame().getShapeRenderer().setProjectionMatrix(EngineManager.get().getCameraBase().getCamera().combined);
+            SlimeGame.getGame().getShapeRenderer().begin();
+            for (int x = 0; x < currentLevel.getGameMap().length; x++) {
+                for (int y = 0; y < currentLevel.getGameMap()[x].length; y++) {
+                    SlimeGame.getGame().getShapeRenderer().rect(x * 16f, y * 16f, 2, 2);
+                }
+            }
             debug(dTime);
+            SlimeGame.getGame().getShapeRenderer().end();
         }
-        SlimeGame.getGame().getShapeRenderer().end();
 
         batch.begin();
     }

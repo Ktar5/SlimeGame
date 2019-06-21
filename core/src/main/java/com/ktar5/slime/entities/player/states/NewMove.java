@@ -73,9 +73,15 @@ public class NewMove extends PlayerState {
             return;
         }
 
-
-        //TODO rewrite the 5 frames before hitting code
-        //what it will do it when it ends movement, it will check if there exists and instantly execute that movement
+        getPlayer().getMovement().update(dTime);
+        if (!getPlayer().getMovement().getInput().equals(Vector2.Zero)) { //if a non-zero input detected
+            preMovementFrameCount = preMovementFrames;
+            getPlayer().setPreviousNonZeroMovement(getPlayer().getMovement().getInput().cpy());
+        } else if (preMovementFrameCount == 0) {
+            getPlayer().setPreviousNonZeroMovement(null);
+        } else {
+            preMovementFrameCount--;
+        }
 
         final LevelData levelData = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
 

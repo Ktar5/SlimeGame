@@ -1,174 +1,361 @@
-13:29:36:860 Analytics.create() [analytics] [DEBUG]: Created analytics
-13:29:36:862 Analytics.<init>() [analytics] [DEBUG]: Analytics initialized with build ID: 'developer:2' & analytics version: '3'
-13:29:36:905 LoadingScreen.show() [] [DEBUG]: Starting loading screen
-13:29:36:905 LoadingScreen.show() [] [DEBUG]: Starting load of loading screen resources
-13:29:36:917 LoadingScreen.show() [] [DEBUG]: Finished loading of loading screen resources
-13:29:36:943 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 0 name: _TutorialGoo.tmx
-13:29:37:009 LevelData.initialize() [] [DEBUG]: Loading level: '_TutorialGoo' with id:0 with uuid: a50a441b-13f1-488e-97ba-9db21fb030da
-13:29:37:025 LevelData.initialize() [] [DEBUG]: Finished loading level: 0
-13:29:37:025 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 1 name: _TutorialDrain.tmx
-13:29:37:052 LevelData.initialize() [] [DEBUG]: Loading level: '_TutorialDrain' with id:1 with uuid: 6446bc32-f2af-451d-8f88-ee297520d18b
-13:29:37:054 LevelData.initialize() [] [DEBUG]: Finished loading level: 1
-13:29:37:054 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 2 name: Level4.tmx
-13:29:37:066 LevelData.initialize() [] [DEBUG]: Loading level: 'Level4' with id:2 with uuid: d54dc7d2-57b3-4f05-ae64-cb4390cd3a6c
-13:29:37:067 LevelData.initialize() [] [DEBUG]: Finished loading level: 2
-13:29:37:068 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 3 name: Level8.tmx
-13:29:37:078 LevelData.initialize() [] [DEBUG]: Loading level: 'Level8' with id:3 with uuid: 4fe10394-496f-4193-a45f-48e1375a54de
-13:29:37:086 LevelData.initialize() [] [DEBUG]: Finished loading level: 3
-13:29:37:086 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 4 name: Level_Prototype01.tmx
-13:29:37:111 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype01' with id:4 with uuid: 12d51230-d648-4335-bd11-5d12ca9b1902
-13:29:37:111 LevelData.initialize() [] [DEBUG]: Finished loading level: 4
-13:29:37:111 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 5 name: Level_Prototype02.tmx
-13:29:37:129 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype02' with id:5 with uuid: 8859b0c2-8d63-456f-8fd9-00ebedc3307a
-13:29:37:130 LevelData.initialize() [] [DEBUG]: Finished loading level: 5
-13:29:37:130 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 6 name: Level_Prototype03.tmx
-13:29:37:149 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype03' with id:6 with uuid: bb9fd7e8-bcfc-47ba-8a7e-053249111ace
-13:29:37:149 LevelData.initialize() [] [DEBUG]: Finished loading level: 6
-13:29:37:149 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 7 name: Level_Prototype04.tmx
-13:29:37:167 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype04' with id:7 with uuid: dbfb5fa4-f85e-4062-97ba-3447cf0f78e5
-13:29:37:167 LevelData.initialize() [] [DEBUG]: Finished loading level: 7
-13:29:37:167 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 8 name: Level_Prototype05.tmx
-13:29:37:182 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype05' with id:8 with uuid: 63b8291a-fd88-4660-a6f8-e215240d67e2
-13:29:37:182 LevelData.initialize() [] [DEBUG]: Finished loading level: 8
-13:29:37:182 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 9 name: Level_Prototype06.tmx
-13:29:37:197 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype06' with id:9 with uuid: 0b387ff7-d01f-49c9-bcfb-ff8d2679c8cc
-13:29:37:198 LevelData.initialize() [] [DEBUG]: Finished loading level: 9
-13:29:37:198 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 10 name: Level_Prototype07.tmx
-13:29:37:213 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype07' with id:10 with uuid: 61bcc5c1-66dd-41d3-978c-a44a76bb5799
-13:29:37:214 LevelData.initialize() [] [DEBUG]: Finished loading level: 10
-13:29:37:214 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 11 name: Level_Prototype08.tmx
-13:29:37:224 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype08' with id:11 with uuid: 7ed1cf0a-c1eb-4f83-a344-088bb695e6e9
-13:29:37:225 LevelData.initialize() [] [DEBUG]: Finished loading level: 11
-13:29:37:225 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 12 name: Level_Prototype09.tmx
-13:29:37:232 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype09' with id:12 with uuid: 7c3cc3b5-ecae-4798-8444-ad02eadd6067
-13:29:37:233 LevelData.initialize() [] [DEBUG]: Finished loading level: 12
-13:29:37:234 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 13 name: Level_Story_PathToKing.tmx
-13:29:37:248 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Story_PathToKing' with id:13 with uuid: ccab8d7b-31ad-42a2-8c48-955035355d0c
-13:29:37:249 LevelData.initialize() [] [DEBUG]: Finished loading level: 13
-13:29:37:249 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 14 name: Level_Tutorial_Movement.tmx
-13:29:37:264 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Tutorial_Movement' with id:14 with uuid: 44f555c6-6b2b-463b-ab08-2a6c8ac2a579
-13:29:37:264 LevelData.initialize() [] [DEBUG]: Finished loading level: 14
-13:29:37:264 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 15 name: Level_Tutorial_Collectibles.tmx
-13:29:37:282 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Tutorial_Collectibles' with id:15 with uuid: 0db35a67-87e7-4710-8f3f-d9fa8a90ba0b
-13:29:37:282 LevelData.initialize() [] [DEBUG]: Finished loading level: 15
-13:29:37:282 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 16 name: Level_Tutorial_Goo.tmx
-13:29:37:301 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Tutorial_Goo' with id:16 with uuid: 5e401066-a7be-4836-b923-d9f5bc2070da
-13:29:37:301 LevelData.initialize() [] [DEBUG]: Finished loading level: 16
-13:29:37:302 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 17 name: Level_Tutorial_Gates.tmx
-13:29:37:316 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Tutorial_Gates' with id:17 with uuid: b96dad4d-7775-4e7b-af91-0619c4cbbd93
-13:29:37:317 LevelData.initialize() [] [DEBUG]: Finished loading level: 17
-13:29:37:318 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 18 name: Level_Tutorial_Dying.tmx
-13:29:37:324 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Tutorial_Dying' with id:18 with uuid: cbb86d7e-a14e-4365-b301-be5104760cb8
-13:29:37:325 LevelData.initialize() [] [DEBUG]: Finished loading level: 18
-13:29:37:325 LevelHandler.loadMaps() [] [DEBUG]: Null level: 19
-13:29:37:325 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 20 name: Level_TestChamber.tmx
-13:29:37:339 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_TestChamber' with id:20 with uuid: d7260650-d623-4ace-a7a8-95b7671375d7
-13:29:37:339 LevelData.initialize() [] [ERROR]: Don't know what to do with tile at 33, 40with ID 26
-13:29:37:339 LevelData.initialize() [] [ERROR]: Don't know what to do with tile at 33, 41with ID 26
-13:29:37:340 LevelData.initialize() [] [ERROR]: Don't know what to do with tile at 33, 42with ID 26
-13:29:37:340 LevelData.initialize() [] [ERROR]: Don't know what to do with tile at 31, 46with ID 25
-13:29:37:340 LevelData.initialize() [] [ERROR]: Don't know what to do with tile at 20, 58with ID 26
-13:29:37:340 LevelData.initialize() [] [DEBUG]: Finished loading level: 20
-13:29:37:340 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 21 name: Level1.tmx
-13:29:37:350 LevelData.initialize() [] [DEBUG]: Loading level: 'Level1' with id:21 with uuid: edffbae2-dc39-40af-8d43-83ed1f08623f
-13:29:37:351 LevelData.initialize() [] [DEBUG]: Finished loading level: 21
-13:29:37:351 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 22 name: Level3.tmx
-13:29:37:367 LevelData.initialize() [] [DEBUG]: Loading level: 'Level3' with id:22 with uuid: 9cd55026-e736-440b-9656-b3b4af9bddab
-13:29:37:367 LevelData.initialize() [] [DEBUG]: Finished loading level: 22
-13:29:37:367 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 23 name: Level4.tmx
-13:29:37:375 LevelData.initialize() [] [DEBUG]: Loading level: 'Level4' with id:23 with uuid: 116c4a7d-be04-4dd6-a822-b26449b77d59
-13:29:37:375 LevelData.initialize() [] [DEBUG]: Finished loading level: 23
-13:29:37:375 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 24 name: Level5.tmx
-13:29:37:383 LevelData.initialize() [] [DEBUG]: Loading level: 'Level5' with id:24 with uuid: 4e504bc3-5445-451e-a5e4-9af393a87dc1
-13:29:37:384 LevelData.initialize() [] [DEBUG]: Finished loading level: 24
-13:29:37:384 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 25 name: Level6.1.tmx
-13:29:37:400 LevelData.initialize() [] [DEBUG]: Loading level: 'Level6.1' with id:25 with uuid: 3c57b229-b05d-4c33-a72f-676f1dcba922
-13:29:37:401 LevelData.initialize() [] [ERROR]: Don't know what to do with tile at 38, 39with ID 310
-13:29:37:401 LevelData.initialize() [] [DEBUG]: Finished loading level: 25
-13:29:37:401 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 26 name: Level7.tmx
-13:29:37:410 LevelData.initialize() [] [DEBUG]: Loading level: 'Level7' with id:26 with uuid: bc270ba0-86c7-4b57-9043-8833afdf8ade
-13:29:37:411 LevelData.initialize() [] [DEBUG]: Finished loading level: 26
-13:29:37:411 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 27 name: Level8.tmx
-13:29:37:421 LevelData.initialize() [] [DEBUG]: Loading level: 'Level8' with id:27 with uuid: 9b6f8843-02c0-487f-9a22-85593307efd5
-13:29:37:423 LevelData.initialize() [] [DEBUG]: Finished loading level: 27
-13:29:37:423 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 28 name: Level9.tmx
-13:29:37:441 LevelData.initialize() [] [DEBUG]: Loading level: 'Level9' with id:28 with uuid: 1a9bea22-7e73-4e13-9afe-a78fb04e7e51
-13:29:37:442 LevelData.initialize() [] [DEBUG]: Finished loading level: 28
-13:29:37:442 LevelHandler.loadMaps() [] [DEBUG]: Null level: 29
-13:29:37:442 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 30 name: Level_Goo01.tmx
-13:29:37:448 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Goo01' with id:30 with uuid: 4765c84b-16fd-4edb-9586-d91c021ed59e
-13:29:37:448 LevelData.initialize() [] [DEBUG]: Finished loading level: 30
-13:29:37:448 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 31 name: Level_Goo02.tmx
-13:29:37:453 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Goo02' with id:31 with uuid: 270ddb3d-9656-41a0-bcce-44b55fbe8b6b
-13:29:37:454 LevelData.initialize() [] [DEBUG]: Finished loading level: 31
-13:29:37:454 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 32 name: Level_Goo03.tmx
-13:29:37:459 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Goo03' with id:32 with uuid: 29798bb8-5262-4d76-ab19-b6f75b585203
-13:29:37:460 LevelData.initialize() [] [DEBUG]: Finished loading level: 32
-13:29:37:460 LevelHandler.loadMaps() [] [DEBUG]: Null level: 33
-13:29:37:464 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
-13:29:37:464 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.NewMove
-13:29:37:464 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
-13:29:37:466 JumpPlayer.<init>() [] [DEBUG]: New player created 1561148977466
-13:29:37:466 LevelStartEvent.<init>() [] [DEBUG]: Started level: ID: a50a441b-13f1-488e-97ba-9db21fb030da  Number: 0  Name: _TutorialGoo
-13:29:37:469 PixelPerfectViewport.update() [] [DEBUG]: Viewport Scale: 2.0
-13:29:37:469 LoadingScreen.render() [] [DEBUG]: Updating load.. 1.0%
-13:29:37:469 LoadingScreen.render() [] [DEBUG]: Finished loading all assets!
-13:29:37:481 LoadingScreen.hide() [] [DEBUG]: Disposed of the loading resources
-13:29:38:913 Analytics.lambda$flush$0() [analytics] [DEBUG]: Just flushed
-13:29:39:480 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.Running
-13:29:39:480 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.PauseWithBlur
-13:29:39:481 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.Winning
-13:29:39:481 GameScreen.show() [] [DEBUG]: Display started for GameScreen
-13:29:39:481 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to Idle @ 1561148979481
-13:29:39:483 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-13:29:39:483 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-13:29:39:483 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-13:29:39:483 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-13:29:39:483 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-13:29:39:483 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-13:29:39:483 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-13:29:39:483 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-13:29:39:484 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-13:29:39:484 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-13:29:39:484 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-13:29:39:484 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-13:29:39:484 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-13:29:39:484 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-13:29:39:485 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.ghost.GhostMove
-13:29:39:485 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.ghost.GhostMove
-13:29:39:485 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-13:29:39:485 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-13:29:39:485 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.ghost.GhostMove
-13:29:39:485 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-13:29:39:485 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-13:29:39:485 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-13:29:39:485 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-13:29:39:485 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-13:29:39:486 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-13:29:39:486 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-13:29:39:486 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-13:29:39:486 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
-13:29:39:486 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
-13:29:39:486 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
-13:29:39:486 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.NewMove
-13:29:39:486 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
-13:29:39:486 JumpPlayer.<init>() [] [DEBUG]: New player created 1561148979486
-13:29:39:486 LevelStartEvent.<init>() [] [DEBUG]: Started level: ID: d7260650-d623-4ace-a7a8-95b7671375d7  Number: 20  Name: Level_TestChamber
-13:29:40:921 PixelPerfectViewport.update() [] [DEBUG]: Viewport Scale: 5.0
-13:29:41:598 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561148981598
-13:29:41:744 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561148981743
-13:29:42:044 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561148982043
-13:29:42:193 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561148982193
-13:29:42:343 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561148982343
-13:29:42:893 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561148982893
-13:29:42:994 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561148982994
-13:29:44:493 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561148984493
-13:29:44:544 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561148984544
-13:29:44:943 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561148984943
-13:29:44:993 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561148984993
-13:29:45:693 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561148985693
-13:29:45:843 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561148985843
-13:29:46:543 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561148986543
-13:29:46:593 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561148986593
-13:29:47:293 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561148987293
-13:29:54:804 Analytics.dispose() [analytics] [DEBUG]: Just flushed
+13:40:16:276 Analytics.create() [analytics] [DEBUG]: Created analytics
+13:40:16:279 Analytics.<init>() [analytics] [DEBUG]: Analytics initialized with build ID: 'developer:2' & analytics version: '3'
+13:40:16:331 LoadingScreen.show() [] [DEBUG]: Starting loading screen
+13:40:16:331 LoadingScreen.show() [] [DEBUG]: Starting load of loading screen resources
+13:40:16:343 LoadingScreen.show() [] [DEBUG]: Finished loading of loading screen resources
+13:40:16:367 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 0 name: _TutorialGoo.tmx
+13:40:16:434 LevelData.initialize() [] [DEBUG]: Loading level: '_TutorialGoo' with id:0 with uuid: bde6613c-9a6d-4aa5-a912-6cf2fcef13fd
+13:40:16:453 LevelData.initialize() [] [DEBUG]: Finished loading level: 0
+13:40:16:454 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 1 name: _TutorialDrain.tmx
+13:40:16:483 LevelData.initialize() [] [DEBUG]: Loading level: '_TutorialDrain' with id:1 with uuid: b727186f-263d-457f-8e90-3cd8c450f63e
+13:40:16:486 LevelData.initialize() [] [DEBUG]: Finished loading level: 1
+13:40:16:487 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 2 name: Level4.tmx
+13:40:16:502 LevelData.initialize() [] [DEBUG]: Loading level: 'Level4' with id:2 with uuid: 6fed7c2d-7bb8-4205-a8a2-77627b15c0e2
+13:40:16:504 LevelData.initialize() [] [DEBUG]: Finished loading level: 2
+13:40:16:505 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 3 name: Level8.tmx
+13:40:16:525 LevelData.initialize() [] [DEBUG]: Loading level: 'Level8' with id:3 with uuid: 050d709b-b822-493f-bbf4-2b655157c0ce
+13:40:16:533 LevelData.initialize() [] [DEBUG]: Finished loading level: 3
+13:40:16:533 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 4 name: Level_Prototype01.tmx
+13:40:16:564 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype01' with id:4 with uuid: cd848768-ad19-4f4a-ba9e-fa3540158dd2
+13:40:16:565 LevelData.initialize() [] [DEBUG]: Finished loading level: 4
+13:40:16:566 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 5 name: Level_Prototype02.tmx
+13:40:16:585 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype02' with id:5 with uuid: 1b607358-3037-4662-8ee3-05cac7185dbf
+13:40:16:585 LevelData.initialize() [] [DEBUG]: Finished loading level: 5
+13:40:16:585 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 6 name: Level_Prototype03.tmx
+13:40:16:599 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype03' with id:6 with uuid: 12545fda-0b4f-416f-b0b2-75e174a8f9a1
+13:40:16:600 LevelData.initialize() [] [DEBUG]: Finished loading level: 6
+13:40:16:600 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 7 name: Level_Prototype04.tmx
+13:40:16:621 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype04' with id:7 with uuid: bf3beb21-e6ea-4024-a07c-4ade5d2a1cd1
+13:40:16:621 LevelData.initialize() [] [DEBUG]: Finished loading level: 7
+13:40:16:621 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 8 name: Level_Prototype05.tmx
+13:40:16:637 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype05' with id:8 with uuid: fd641c71-b377-4192-a19d-ed75973c0972
+13:40:16:638 LevelData.initialize() [] [DEBUG]: Finished loading level: 8
+13:40:16:638 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 9 name: Level_Prototype06.tmx
+13:40:16:654 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype06' with id:9 with uuid: 387cc815-7233-476f-aca7-aac45140d498
+13:40:16:654 LevelData.initialize() [] [DEBUG]: Finished loading level: 9
+13:40:16:655 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 10 name: Level_Prototype07.tmx
+13:40:16:673 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype07' with id:10 with uuid: 4865dfb3-a90d-46c4-856d-28aa2b34e283
+13:40:16:673 LevelData.initialize() [] [DEBUG]: Finished loading level: 10
+13:40:16:673 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 11 name: Level_Prototype08.tmx
+13:40:16:680 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype08' with id:11 with uuid: 87c237ac-cc4b-4096-a9c0-07dd0b35c5d9
+13:40:16:680 LevelData.initialize() [] [DEBUG]: Finished loading level: 11
+13:40:16:680 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 12 name: Level_Prototype09.tmx
+13:40:16:688 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Prototype09' with id:12 with uuid: d7eb593a-d129-49a0-85d8-b2a331cecb63
+13:40:16:689 LevelData.initialize() [] [DEBUG]: Finished loading level: 12
+13:40:16:690 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 13 name: Level_Story_PathToKing.tmx
+13:40:16:706 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Story_PathToKing' with id:13 with uuid: 89abe822-3070-44e7-a325-0dd960717210
+13:40:16:707 LevelData.initialize() [] [DEBUG]: Finished loading level: 13
+13:40:16:707 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 14 name: Level_Tutorial_Movement.tmx
+13:40:16:724 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Tutorial_Movement' with id:14 with uuid: f681e4ff-a747-4c40-8025-efe1ee0cb79d
+13:40:16:725 LevelData.initialize() [] [DEBUG]: Finished loading level: 14
+13:40:16:725 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 15 name: Level_Tutorial_Collectibles.tmx
+13:40:16:738 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Tutorial_Collectibles' with id:15 with uuid: dfff5d2b-a916-4509-92ca-6ffe3cc5405d
+13:40:16:739 LevelData.initialize() [] [DEBUG]: Finished loading level: 15
+13:40:16:739 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 16 name: Level_Tutorial_Goo.tmx
+13:40:16:756 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Tutorial_Goo' with id:16 with uuid: db7d18a0-1bbe-4cc9-8753-8ffc5ee9c814
+13:40:16:756 LevelData.initialize() [] [DEBUG]: Finished loading level: 16
+13:40:16:757 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 17 name: Level_Tutorial_Gates.tmx
+13:40:16:773 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Tutorial_Gates' with id:17 with uuid: 08061d5a-f108-491f-bf8e-8638d97da9fd
+13:40:16:775 LevelData.initialize() [] [DEBUG]: Finished loading level: 17
+13:40:16:775 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 18 name: Level_Tutorial_Dying.tmx
+13:40:16:780 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Tutorial_Dying' with id:18 with uuid: 87ef9841-d85e-48ae-9797-e23f3d094d52
+13:40:16:780 LevelData.initialize() [] [DEBUG]: Finished loading level: 18
+13:40:16:780 LevelHandler.loadMaps() [] [DEBUG]: Null level: 19
+13:40:16:780 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 20 name: Level_TestChamber.tmx
+13:40:16:795 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_TestChamber' with id:20 with uuid: 894c4402-b86e-400b-9538-9b8acf081534
+13:40:16:796 LevelData.initialize() [] [ERROR]: Don't know what to do with tile at 33, 40with ID 26
+13:40:16:797 LevelData.initialize() [] [ERROR]: Don't know what to do with tile at 33, 41with ID 26
+13:40:16:797 LevelData.initialize() [] [ERROR]: Don't know what to do with tile at 33, 42with ID 26
+13:40:16:797 LevelData.initialize() [] [ERROR]: Don't know what to do with tile at 31, 46with ID 25
+13:40:16:797 LevelData.initialize() [] [ERROR]: Don't know what to do with tile at 20, 58with ID 26
+13:40:16:798 LevelData.initialize() [] [DEBUG]: Finished loading level: 20
+13:40:16:798 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 21 name: Level1.tmx
+13:40:16:806 LevelData.initialize() [] [DEBUG]: Loading level: 'Level1' with id:21 with uuid: e72113a7-531f-4469-be0f-8ea1f021580e
+13:40:16:806 LevelData.initialize() [] [DEBUG]: Finished loading level: 21
+13:40:16:806 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 22 name: Level3.tmx
+13:40:16:824 LevelData.initialize() [] [DEBUG]: Loading level: 'Level3' with id:22 with uuid: 79a111cf-6bc7-4c55-8ee8-554c1da56839
+13:40:16:825 LevelData.initialize() [] [DEBUG]: Finished loading level: 22
+13:40:16:825 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 23 name: Level4.tmx
+13:40:16:832 LevelData.initialize() [] [DEBUG]: Loading level: 'Level4' with id:23 with uuid: 39bf9ff4-6028-4658-963c-9473cfd8bacc
+13:40:16:832 LevelData.initialize() [] [DEBUG]: Finished loading level: 23
+13:40:16:833 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 24 name: Level5.tmx
+13:40:16:839 LevelData.initialize() [] [DEBUG]: Loading level: 'Level5' with id:24 with uuid: 0157a099-0846-496f-9696-628e767f673c
+13:40:16:840 LevelData.initialize() [] [DEBUG]: Finished loading level: 24
+13:40:16:840 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 25 name: Level6.1.tmx
+13:40:16:852 LevelData.initialize() [] [DEBUG]: Loading level: 'Level6.1' with id:25 with uuid: 48e60146-c6fe-4fda-aab4-92527fae3ad4
+13:40:16:853 LevelData.initialize() [] [ERROR]: Don't know what to do with tile at 38, 39with ID 310
+13:40:16:854 LevelData.initialize() [] [DEBUG]: Finished loading level: 25
+13:40:16:854 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 26 name: Level7.tmx
+13:40:16:860 LevelData.initialize() [] [DEBUG]: Loading level: 'Level7' with id:26 with uuid: 4dbaa438-69cd-4e8e-b823-d8037bd484fb
+13:40:16:861 LevelData.initialize() [] [DEBUG]: Finished loading level: 26
+13:40:16:862 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 27 name: Level8.tmx
+13:40:16:869 LevelData.initialize() [] [DEBUG]: Loading level: 'Level8' with id:27 with uuid: 765a562e-dbf0-4237-b38d-e818a4bc2e5a
+13:40:16:870 LevelData.initialize() [] [DEBUG]: Finished loading level: 27
+13:40:16:870 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 28 name: Level9.tmx
+13:40:16:876 LevelData.initialize() [] [DEBUG]: Loading level: 'Level9' with id:28 with uuid: d8a10164-ed99-44b3-b929-fffc6d6bdb91
+13:40:16:877 LevelData.initialize() [] [DEBUG]: Finished loading level: 28
+13:40:16:877 LevelHandler.loadMaps() [] [DEBUG]: Null level: 29
+13:40:16:877 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 30 name: Level_Goo01.tmx
+13:40:16:882 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Goo01' with id:30 with uuid: 8c4f5f22-f3a7-4788-8b50-eba90f28bf62
+13:40:16:882 LevelData.initialize() [] [DEBUG]: Finished loading level: 30
+13:40:16:893 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 31 name: Level_Goo02.tmx
+13:40:16:899 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Goo02' with id:31 with uuid: f3a7a93a-8eb9-417b-ac9b-127764704a93
+13:40:16:899 LevelData.initialize() [] [DEBUG]: Finished loading level: 31
+13:40:16:899 LevelHandler.loadMaps() [] [DEBUG]: Loading map id: 32 name: Level_Goo03.tmx
+13:40:16:908 LevelData.initialize() [] [DEBUG]: Loading level: 'Level_Goo03' with id:32 with uuid: a55ceb17-4c02-4459-8511-eee545a9e18f
+13:40:16:908 LevelData.initialize() [] [DEBUG]: Finished loading level: 32
+13:40:16:908 LevelHandler.loadMaps() [] [DEBUG]: Null level: 33
+13:40:16:913 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
+13:40:16:913 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.NewMove
+13:40:16:913 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+13:40:16:914 JumpPlayer.<init>() [] [DEBUG]: New player created 1561149616914
+13:40:16:915 LevelStartEvent.<init>() [] [DEBUG]: Started level: ID: bde6613c-9a6d-4aa5-a912-6cf2fcef13fd  Number: 0  Name: _TutorialGoo
+13:40:16:916 PixelPerfectViewport.update() [] [DEBUG]: Viewport Scale: 2.0
+13:40:16:917 LoadingScreen.render() [] [DEBUG]: Updating load.. 1.0%
+13:40:16:917 LoadingScreen.render() [] [DEBUG]: Finished loading all assets!
+13:40:16:929 LoadingScreen.hide() [] [DEBUG]: Disposed of the loading resources
+13:40:18:382 Analytics.lambda$flush$0() [analytics] [DEBUG]: Just flushed
+13:40:18:946 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.Running
+13:40:18:946 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.PauseWithBlur
+13:40:18:946 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.screens.gamestate.Winning
+13:40:18:946 GameScreen.show() [] [DEBUG]: Display started for GameScreen
+13:40:18:947 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to Idle @ 1561149618947
+13:40:18:949 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+13:40:18:949 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+13:40:18:949 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+13:40:18:949 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+13:40:18:949 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+13:40:18:949 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+13:40:18:949 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+13:40:18:949 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+13:40:18:949 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+13:40:18:949 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+13:40:18:949 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+13:40:18:949 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+13:40:18:949 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+13:40:18:949 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+13:40:18:951 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.ghost.GhostMove
+13:40:18:951 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.ghost.GhostMove
+13:40:18:951 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+13:40:18:951 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+13:40:18:952 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.ghost.GhostMove
+13:40:18:952 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+13:40:18:952 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+13:40:18:952 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+13:40:18:952 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+13:40:18:952 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+13:40:18:952 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+13:40:18:952 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+13:40:18:952 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+13:40:18:952 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxIdle
+13:40:18:952 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.box.BoxMove
+13:40:18:952 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Idle
+13:40:18:952 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.NewMove
+13:40:18:952 SimpleStateMachine.<init>() [] [DEBUG]: Registered state class: com.ktar5.slime.entities.player.states.Respawn
+13:40:18:952 JumpPlayer.<init>() [] [DEBUG]: New player created 1561149618952
+13:40:18:952 LevelStartEvent.<init>() [] [DEBUG]: Started level: ID: 894c4402-b86e-400b-9538-9b8acf081534  Number: 20  Name: Level_TestChamber
+13:40:19:531 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149619531
+13:40:19:576 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149619576
+13:40:19:744 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149619744
+13:40:20:060 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149620060
+13:40:20:143 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149620143
+13:40:20:510 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149620510
+13:40:20:550 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149620550
+13:40:20:643 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149620643
+13:40:20:759 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149620759
+13:40:20:860 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149620860
+13:40:20:993 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149620993
+13:40:21:261 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149621260
+13:40:21:277 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149621277
+13:40:21:292 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149621292
+13:40:21:586 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149621586
+13:40:21:600 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149621600
+13:40:21:868 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149621868
+13:40:21:967 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149621967
+13:40:22:170 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149622170
+13:40:22:185 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149622185
+13:40:22:400 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149622400
+13:40:22:534 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149622534
+13:40:22:668 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149622668
+13:40:23:334 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149623334
+13:40:23:451 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149623451
+13:40:23:550 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149623550
+13:40:23:701 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149623701
+13:40:24:301 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149624301
+13:40:24:453 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149624453
+13:40:25:118 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149625118
+13:40:25:202 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149625202
+13:40:25:218 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149625218
+13:40:25:335 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149625335
+13:40:25:351 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149625351
+13:40:25:586 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149625586
+13:40:25:684 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149625684
+13:40:25:868 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149625868
+13:40:26:135 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149626135
+13:40:26:535 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149626535
+13:40:26:768 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149626768
+13:40:26:851 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149626851
+13:40:27:301 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149627301
+13:40:27:385 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149627385
+13:40:27:485 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149627485
+13:40:27:501 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149627501
+13:40:27:600 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149627600
+13:40:27:701 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149627701
+13:40:27:856 MethodCall.run() [] [DEBUG]: {8,25,open}
+13:40:27:857 MethodCall.run() [] [DEBUG]: {8,26,open}
+13:40:27:857 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149627857
+13:40:27:863 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149627863
+13:40:27:871 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149627871
+13:40:27:951 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149627951
+13:40:28:084 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149628084
+13:40:28:250 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149628250
+13:40:28:351 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149628351
+13:40:28:413 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149628413
+13:40:28:500 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149628500
+13:40:28:519 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149628519
+13:40:28:750 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149628750
+13:40:28:770 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149628770
+13:40:29:000 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149629000
+13:40:29:185 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149629185
+13:40:29:285 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149629285
+13:40:29:300 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149629300
+13:40:29:400 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149629400
+13:40:29:485 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149629485
+13:40:29:618 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149629618
+13:40:29:718 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149629718
+13:40:29:851 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149629851
+13:40:30:035 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149630035
+13:40:30:135 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149630135
+13:40:30:220 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149630220
+13:40:30:318 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149630318
+13:40:30:468 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149630468
+13:40:30:568 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149630568
+13:40:30:651 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149630651
+13:40:30:751 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149630751
+13:40:30:868 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149630868
+13:40:30:967 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149630967
+13:40:31:051 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149631051
+13:40:31:152 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149631152
+13:40:31:167 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149631167
+13:40:31:268 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149631268
+13:40:31:284 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149631284
+13:40:31:384 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149631384
+13:40:31:401 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149631401
+13:40:31:501 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149631501
+13:40:31:518 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149631518
+13:40:31:618 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149631618
+13:40:31:635 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149631634
+13:40:31:651 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149631651
+13:40:31:718 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149631718
+13:40:31:819 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149631819
+13:40:31:834 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149631834
+13:40:31:934 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149631934
+13:40:31:950 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149631950
+13:40:32:051 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149632051
+13:40:32:068 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149632068
+13:40:32:168 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149632168
+13:40:32:184 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149632184
+13:40:32:284 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149632284
+13:40:32:300 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149632300
+13:40:32:318 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149632318
+13:40:32:370 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149632370
+13:40:32:468 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149632468
+13:40:32:484 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149632484
+13:40:32:585 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149632585
+13:40:32:600 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149632600
+13:40:32:701 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149632701
+13:40:32:753 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149632753
+13:40:32:851 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149632851
+13:40:32:885 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149632885
+13:40:32:985 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149632985
+13:40:33:085 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149633085
+13:40:33:185 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149633185
+13:40:33:318 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149633317
+13:40:33:418 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149633418
+13:40:33:503 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149633502
+13:40:33:601 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149633601
+13:40:33:718 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149633718
+13:40:33:735 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149633735
+13:40:33:785 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149633785
+13:40:33:884 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149633884
+13:40:34:018 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149634018
+13:40:34:034 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149634034
+13:40:34:285 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149634285
+13:40:34:384 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149634384
+13:40:34:501 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149634501
+13:40:34:601 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149634601
+13:40:34:718 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149634718
+13:40:34:818 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149634818
+13:40:34:968 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149634968
+13:40:35:067 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149635067
+13:40:35:153 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149635153
+13:40:35:250 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149635250
+13:40:35:318 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149635318
+13:40:35:417 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149635417
+13:40:35:536 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149635536
+13:40:35:550 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149635550
+13:40:35:585 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149635585
+13:40:35:684 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149635684
+13:40:35:737 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149635737
+13:40:35:834 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149635834
+13:40:35:850 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149635850
+13:40:35:951 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149635950
+13:40:36:035 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149636035
+13:40:36:135 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149636135
+13:40:36:285 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149636285
+13:40:36:301 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149636301
+13:40:36:520 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149636520
+13:40:36:618 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149636618
+13:40:36:718 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149636718
+13:40:36:818 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149636818
+13:40:36:903 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149636903
+13:40:37:035 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149637035
+13:40:37:151 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149637151
+13:40:37:285 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149637285
+13:40:37:335 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149637335
+13:40:37:435 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149637435
+13:40:37:519 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149637519
+13:40:37:617 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149637617
+13:40:37:686 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149637685
+13:40:37:917 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149637917
+13:40:37:969 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149637969
+13:40:38:200 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149638200
+13:40:38:317 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149638317
+13:40:38:418 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149638418
+13:40:38:451 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149638451
+13:40:38:551 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149638551
+13:40:38:618 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149638618
+13:40:38:750 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149638750
+13:40:38:835 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149638835
+13:40:38:968 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149638968
+13:40:39:035 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149639035
+13:40:39:134 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149639134
+13:40:39:219 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149639219
+13:40:39:317 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149639317
+13:40:39:401 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149639401
+13:40:39:634 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149639634
+13:40:39:701 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149639701
+13:40:40:018 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149640018
+13:40:40:134 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149640134
+13:40:40:234 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149640234
+13:40:40:336 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149640336
+13:40:40:435 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149640435
+13:40:40:468 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149640468
+13:40:40:484 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149640484
+13:40:40:651 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149640651
+13:40:42:550 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149642550
+13:40:42:685 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149642685
+13:40:42:734 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149642734
+13:40:42:901 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149642901
+13:40:42:951 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149642951
+13:40:42:971 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149642971
+13:40:42:985 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149642985
+13:40:43:318 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149643318
+13:40:43:367 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149643367
+13:40:43:468 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149643468
+13:40:43:601 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149643601
+13:40:43:667 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149643667
+13:40:43:684 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149643684
+13:40:43:770 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from Idle to NewMove @ 1561149643770
+13:40:45:764 SimpleStateMachine.changeState() [] [DEBUG]: Changing state from NewMove to Idle @ 1561149645764
+13:40:45:918 Analytics.dispose() [analytics] [DEBUG]: Just flushed

@@ -88,39 +88,44 @@ public class LevelHandler implements Renderable, Updatable {
         try {
             int i = 0;
             while ((line = bufferedReader.readLine()) != null) {
-                String[] split = line.split(":");
-                if (split.length == 1 || split[1].isEmpty() || split[1].equals(" ")) {
-                    Logger.debug("Null level: " + i);
-                    levelDataList.add(i, null);
-                    i++;
-                    continue;
-                }
-                String levelName = split[1].replace(" ", "");
-                if (LOAD_MAPS_LOCAL) {
-                    handle = (Gdx.files.local("maps/" + levelName + ".tmx"));
-                } else {
-                    handle = (Gdx.files.internal("maps/" + levelName + ".tmx"));
-                }
-                TmxMapLoader.Parameters params = new TmxMapLoader.Parameters();
-                params.textureMinFilter = Texture.TextureFilter.Linear;
-                params.textureMagFilter = Texture.TextureFilter.Nearest;
-                params.generateMipMaps = true;
+                try {
+                    String[] split = line.split(":");
+                    if (split.length == 1 || split[1].isEmpty() || split[1].equals(" ")) {
+                        Logger.debug("Null level: " + i);
+                        levelDataList.add(i, null);
+                        i++;
+                        continue;
+                    }
+                    String levelName = split[1].replace(" ", "");
+                    if (LOAD_MAPS_LOCAL) {
+                        handle = (Gdx.files.local("maps/" + levelName + ".tmx"));
+                    } else {
+                        handle = (Gdx.files.internal("maps/" + levelName + ".tmx"));
+                    }
+                    TmxMapLoader.Parameters params = new TmxMapLoader.Parameters();
+                    params.textureMinFilter = Texture.TextureFilter.Linear;
+                    params.textureMagFilter = Texture.TextureFilter.Nearest;
+                    params.generateMipMaps = true;
 
-                CustomTmxMapLoader loader = new CustomTmxMapLoader();
-                TiledMap tiledMap;
+                    CustomTmxMapLoader loader = new CustomTmxMapLoader();
+                    TiledMap tiledMap;
 
-                Logger.debug("Loading map id: " + i + " name: " + handle.name());
-                tiledMap = loader.load("maps/" + handle.name(), params);
+                    Logger.debug("Loading map id: " + i + " name: " + handle.name());
+                    tiledMap = loader.load("maps/" + handle.name(), params);
 
-                //TODO
-                if(i == 0){
+                    //TODO
+                    if (i == 0) {
 //                    FileWriter fileWriter = new FileWriter("../assets/test.tmx");
 //                    new CustomTmxMapWriter(fileWriter).tmx(tiledMap, CustomTmxMapWriter.Format.CSV);
 //                    fileWriter.flush();
 //                    fileWriter.close();
-                }
+                    }
 
-                levelDataList.add(i, new LevelData(tiledMap, levelName, i));
+                    levelDataList.add(i, new LevelData(tiledMap, levelName, i));
+                }catch (Exception e){
+                    Logger.debug("Could not load level data for level: " + i);
+                    Logger.error(e);
+                }
                 i++;
             }
         } catch (IOException e) {

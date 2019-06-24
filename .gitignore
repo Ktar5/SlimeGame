@@ -18,7 +18,9 @@ local.properties
 com_crashlytics_export_strings.xml
 
 
+*/log.txt
 log.txt
+desktop/log.txt
 
 ## GWT:
 war/

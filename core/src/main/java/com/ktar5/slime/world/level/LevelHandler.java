@@ -90,7 +90,8 @@ public class LevelHandler implements Renderable, Updatable {
         try {
             int i = 0;
             while ((line = bufferedReader.readLine()) != null) {
-                try {
+
+
                     String[] split = line.split(":");
                     if (split.length == 1 || split[1].isEmpty() || split[1].equals(" ")) {
                         Logger.debug("Null level: " + i);
@@ -123,12 +124,14 @@ public class LevelHandler implements Renderable, Updatable {
 //                    fileWriter.close();
                     }
 
-                    levelDataList.add(i, new LevelData(tiledMap, levelName, i));
-                } catch (Exception e) {
-                    Logger.debug("Could not load level data for level: " + i);
-                    Logger.error(e);
-                }
-                i++;
+                    try {
+                        levelDataList.add(i, new LevelData(tiledMap, levelName, i));
+                    }catch (Exception e){
+                        levelDataList.add(i, null);
+                        Logger.debug("Could not load level data for level: " + i);
+                        Logger.error(e);
+                    }
+                    i++;
             }
         } catch (IOException e) {
             Logger.debug("ERROR >> Couldn't load levelData!");

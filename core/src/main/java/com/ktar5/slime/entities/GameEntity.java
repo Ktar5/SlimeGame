@@ -32,10 +32,14 @@ public abstract class GameEntity<T extends State<T>> extends Entity<T> {
     }
 
     public boolean isTouching(Rectangle hitbox2, Vector2 position2) {
-        return this.position.x < position2.x + hitbox2.width &&
-                this.position.x + this.hitbox.width > position2.x &&
-                this.position.y < position2.y + hitbox2.height &&
-                this.position.y + this.hitbox.height > position2.y;
+        return isTouching(hitbox2, (int) position2.x, (int) position2.y);
+    }
+
+    public boolean isTouching(Rectangle hitbox2, int x2, int y2) {
+        return this.position.x < x2 + hitbox2.width &&
+                this.position.x + this.hitbox.width > x2 &&
+                this.position.y < y2 + hitbox2.height &&
+                this.position.y + this.hitbox.height > y2;
     }
 
 }

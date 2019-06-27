@@ -20,6 +20,7 @@ public enum TileObjectTypes {
     GOO((x, y, cell) -> new Goo(x, y), 5),
     BUTTON((x, y, cell) -> new Button(x, y, Rotation.fromCell(cell)), 8),
     PRESSURE_PLATE((x, y, cell) -> new PressurePlate(x, y), 9),
+    HEAVY_PLATE((x, y, cell) -> new HeavyPressurePlate(x, y), 25),
 
     GATE((x, y, cell) -> new Gate(x, y, Rotation.fromCell(cell)), 11),
     DRAIN_PIPE_LEFT_UP((x, y, cell) -> new HoleInWall(x, y, Rotation.fromCell(cell), Side.LEFT, Side.UP), 12),
@@ -31,27 +32,25 @@ public enum TileObjectTypes {
     CRUMBLING_FLOOR((x, y, cell) -> new CrumbledFloor(x, y), 18),
     TELEPORTER((x, y, cell) -> new Teleporter(x, y), 19),
 
-    HIDESPIKE((x, y, cell) -> new RetractingSpikes(x, y, Rotation.fromCell(cell)), 13, 21),
+    HIDESPIKE((x, y, cell) -> new RetractingSpikes(x, y, Rotation.fromCell(cell)), 13),
     SHOOTER((x, y, cell) -> new Shooter(x, y, Rotation.fromCell(cell)), 6),
 
     BIG((x, y, cell) -> new Big(x, y), 27),
 
     //Entities / Special Cases
     BOX((x, y, cell) -> new BoxEntityData(x, y), 10),
-    GHOST((x, y, cell) -> new GhostEntityData(x, y, Rotation.fromCell(cell)), 24),
+    GHOST((x, y, cell) -> new GhostEntityData(x, y, Rotation.fromCell(cell)), 24)
 
-    //TODO
-    MONSTER(null, 99),
-    STOMPER(null, 25),
-    FLAMETHROWER(null, 26);
+    ;
 
     private static final IntMap<TileObjectTypes> tileIds = new IntMap<>();
     public static final HashSet<TileObjectTypes> TILES = new HashSet<>(Arrays.asList(
             WIN, START, WALL, ONE_DIRECTION, DRAIN, GOO, BUTTON, PRESSURE_PLATE, GATE, DRAIN_PIPE_ALL_DIR,
-            DRAIN_PIPE_LEFT_UP, DRAIN_PIPE_UP_DOWN, SPIKE, HOLE, CRUMBLING_FLOOR, TELEPORTER, BIG, HIDESPIKE, SHOOTER
+            DRAIN_PIPE_LEFT_UP, DRAIN_PIPE_UP_DOWN, SPIKE, HOLE, CRUMBLING_FLOOR, TELEPORTER, BIG, HIDESPIKE, SHOOTER,
+            HEAVY_PLATE
     ));
     public static final HashSet<TileObjectTypes> ENTITIES = new HashSet<TileObjectTypes>(Arrays.asList(
-            BOX, GHOST, MONSTER
+            BOX, GHOST
     ));
 
     static {
@@ -89,8 +88,8 @@ public enum TileObjectTypes {
         return false;
     }
 
-    public static interface TileObjectGenerator {
-        public Object get(int x, int y, TiledMapTileLayer.Cell tile);
+    public interface TileObjectGenerator {
+        Object get(int x, int y, TiledMapTileLayer.Cell tile);
     }
 
 }

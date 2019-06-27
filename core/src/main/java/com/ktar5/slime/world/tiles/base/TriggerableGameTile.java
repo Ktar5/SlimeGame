@@ -30,6 +30,9 @@ public abstract class TriggerableGameTile extends WholeGameTile {
         if (events == null) {
             events = new EnumMap<>(Trigger.class);
         }
+        if(key.equals("type")){
+            return;
+        }
         Trigger trigger = Trigger.fromString(key);
         if (trigger == null) {
             throw new IllegalArgumentException("The trigger: " + key + " is not valid at tile: " + x + ", " + y + ".");
@@ -57,7 +60,9 @@ public abstract class TriggerableGameTile extends WholeGameTile {
 
     public enum Trigger {
         ON_HIT,
-        ON_PASS;
+        ON_PASS,
+        ON_ENABLE,
+        ON_DISABLE;
 
         public static Trigger fromString(String value) {
             switch (value) {
@@ -65,6 +70,10 @@ public abstract class TriggerableGameTile extends WholeGameTile {
                     return ON_HIT;
                 case "onPass":
                     return ON_PASS;
+                case "onEnable":
+                    return ON_ENABLE;
+                case "onDisable":
+                    return ON_DISABLE;
             }
             return null;
         }

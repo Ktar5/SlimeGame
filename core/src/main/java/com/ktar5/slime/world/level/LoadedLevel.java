@@ -98,13 +98,21 @@ public class LoadedLevel extends LevelData implements Updatable {
         TiledMapTileSets tileSets = this.getRenderMap().getTileSets();
         int i = tileSets.getTileSet(tileset).getProperties().get("firstgid", Integer.class);
         if (mapLayer.getCell(x, y) == null) {
+            if(id == -1){
+               return -1;
+            }
             TiledMapTileLayer.Cell newCell = new TiledMapTileLayer.Cell();
             newCell.setTile(tileSets.getTile(i + id));
             mapLayer.setCell(x, y, newCell);
-            return 0;
+            return -1;
         } else {
             int firstID = mapLayer.getCell(x, y).getTile().getId();
-            mapLayer.getCell(x, y).setTile(tileSets.getTile(i + id));
+            if(id == -1){
+                //TODO test
+                mapLayer.getCell(x, y).setTile(null);
+            }else{
+                mapLayer.getCell(x, y).setTile(tileSets.getTile(i + id));
+            }
             return firstID;
         }
     }

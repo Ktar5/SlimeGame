@@ -1,6 +1,5 @@
 package com.ktar5.slime.world.tiles;
 
-import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.gameengine.util.Side;
 import com.ktar5.slime.SlimeGame;
@@ -14,24 +13,24 @@ public class Gate extends WholeGameTile {
     private boolean open = false;
     private LevelEdit edit;
 
+    private static final int closedID = 2;
+
     public Gate(int x, int y, Rotation rotation) {
         super(x, y, rotation);
         opening = Side.DOWN.rotateClockwise(rotation.ordinal());
     }
 
+
     public void setOpen(boolean value) {
-        if(value == open){
+        if (value == open) {
             return;
         }
         open = value;
         LoadedLevel currentLevel = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
-        TiledMapTileLayer mapLayer = currentLevel.getGameplayArtLayer();
-        TiledMapTileLayer.Cell cell = mapLayer.getCell(x, y);
         if (open) {
-            edit = currentLevel.addEdit(x, y, currentLevel.getGameplayArtLayerIndex(), cell.getTile().getId());
-            cell.setTile(currentLevel.getRenderMap().getTileSets().getTile(0));
-        } else if (edit != null) {
-            edit.undo(currentLevel.getRenderMap());
+            currentLevel.setGraphic(x, y, "GameplayImages", currentLevel.getGameplayArtLayer(), -1);
+        } else {
+            currentLevel.setGraphic(x, y, "GameplayImages", currentLevel.getGameplayArtLayer(), closedID);
         }
     }
 

@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.ktar5.gameengine.EngConst;
+import com.ktar5.gameengine.Feature;
 import com.ktar5.gameengine.camera.CameraBase;
 import com.ktar5.gameengine.console.CommandExecutor;
 import com.ktar5.utilities.annotation.callsuper.CallSuper;
@@ -69,18 +70,24 @@ public abstract class AbstractGame<G extends AbstractGame<G>> implements Applica
     public void render() {
         //Get time since last frame
         float dTime = Gdx.graphics.getDeltaTime();
-        //If game too laggy, prevent massive bugs by using a small constant number
-        time += Math.min(dTime, EngConst.MAX_FRAME_TIME);
-        //While our time is greater than our fixed step size...
 
-        //
-//        while (time >= EngConst.STEP_TIME) {
-//            time -= EngConst.STEP_TIME;
-            //Update the camera
+        if (Feature.SINGLE_FRAME.isDisabled()) {
+            //If game too laggy, prevent massive bugs by using a small constant number
+            time += Math.min(dTime, EngConst.MAX_FRAME_TIME);
+            //While our time is greater than our fixed step size...
+            while (time >= EngConst.STEP_TIME) {
+                time -= EngConst.STEP_TIME;
+                //Update the camera
+                screen.getCamera().getCamera().update();
+
+                screen.update(dTime);
+            }
+        } else {
             screen.getCamera().getCamera().update();
 
             screen.update(dTime);
-//        }
+        }
+
 
         Gdx.gl.glClearColor(168 / 255f, 118 / 255f, 86 / 255f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);

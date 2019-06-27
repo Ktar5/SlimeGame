@@ -30,6 +30,7 @@ public class LevelHandler implements Renderable, Updatable {
     private LevelData[] levelData;
 
     private LoadedLevel currentLevel;
+    //    private OrthoCachedTiledMapRenderer tileMapRenderer;
     private OrthogonalTiledMapRenderer tileMapRenderer;
 
     public LevelHandler() {
@@ -58,8 +59,9 @@ public class LevelHandler implements Renderable, Updatable {
             }
         }
         currentLevel = new LoadedLevel(levelData[levelIndex]);
+//        tileMapRenderer = new OrthoCachedTiledMapRenderer(currentLevel.getRenderMap());
         tileMapRenderer = new OrthogonalTiledMapRenderer(currentLevel.getRenderMap(), 1f,
-                Renderable.getSpriteBatch());
+                SlimeGame.getGame().getSpriteBatch());
         currentLevel.getRenderMap().getLayers().get("Gameplay").setVisible(SHOW_LEVEL_DEBUG);
     }
 
@@ -122,7 +124,7 @@ public class LevelHandler implements Renderable, Updatable {
                     }
 
                     levelDataList.add(i, new LevelData(tiledMap, levelName, i));
-                }catch (Exception e){
+                } catch (Exception e) {
                     Logger.debug("Could not load level data for level: " + i);
                     Logger.error(e);
                 }
@@ -158,7 +160,7 @@ public class LevelHandler implements Renderable, Updatable {
     @Override
     public void render(SpriteBatch batch, float dTime) {
         batch.end();
-        tileMapRenderer.setView(EngineManager.get().getCameraBase().getCamera());
+        tileMapRenderer.setView(SlimeGame.getGame().getGameCamera().getCamera());
         //Logger.debug(ToStringBuilder.reflectionToString(EngineManager.get().getCameraBase().getCamera(), ToStringStyle.JSON_STYLE));
         //Logger.debug("\n\n\n");
         tileMapRenderer.render(currentLevel.getBackgroundLayers());
@@ -175,7 +177,7 @@ public class LevelHandler implements Renderable, Updatable {
         tileMapRenderer.render(currentLevel.getForegroundLayers());
         //tileMapRenderer.render();
 
-        if(SHOW_LEVEL_DEBUG){
+        if (SHOW_LEVEL_DEBUG) {
             SlimeGame.getGame().getShapeRenderer().setAutoShapeType(true);
             SlimeGame.getGame().getShapeRenderer().setProjectionMatrix(EngineManager.get().getCameraBase().getCamera().combined);
             SlimeGame.getGame().getShapeRenderer().begin();

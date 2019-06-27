@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objecttypes>
+ <objecttype name="button" color="#a0a0a4">
+  <property name="onHit" type="string"/>
+ </objecttype>
+ <objecttype name="ghost" color="#a0a0a4">
+  <property name="direction" type="string"/>
+ </objecttype>
+ <objecttype name="heavyplate" color="#a0a0a4">
+  <property name="onDisable" type="string"/>
+  <property name="onEnable" type="string"/>
+ </objecttype>
+ <objecttype name="plate" color="#a0a0a4">
+  <property name="onPass" type="string"/>
+ </objecttype>
+ <objecttype name="teleporter" color="#a0a0a4">
+  <property name="location" type="string"/>
+ </objecttype>
+</objecttypes>

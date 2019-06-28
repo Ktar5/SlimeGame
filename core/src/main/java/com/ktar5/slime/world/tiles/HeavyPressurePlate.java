@@ -36,7 +36,7 @@ public class HeavyPressurePlate extends TriggerableGameTile {
     @Override
     public void tick() {
         JumpPlayer player = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getPlayer();
-        if (player.isTouching(hitbox, x * 16, y * 16)) {
+        if (player.isTouching(hitbox, (x * 16) + 8, (y * 16) + 8)) {
             if (!pressed) {
                 enable();
                 pressed = true;
@@ -45,7 +45,7 @@ public class HeavyPressurePlate extends TriggerableGameTile {
         } else {
             List<Entity> entities = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getEntities();
             for (Entity entity : entities) {
-                if (entity instanceof GameEntity && ((GameEntity) entity).isTouching(hitbox, x * 16, y * 16)) {
+                if (entity instanceof GameEntity && ((GameEntity) entity).isTouching(hitbox, (x * 16) + 8, (y * 16) + 8)) {
                     if (!pressed) {
                         enable();
                         pressed = true;

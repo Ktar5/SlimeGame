@@ -3,6 +3,10 @@
  <objecttype name="button" color="#a0a0a4">
   <property name="onHit" type="string"/>
  </objecttype>
+ <objecttype name="camera" color="#a0a0a4">
+  <property name="height" type="string"/>
+  <property name="width" type="string"/>
+ </objecttype>
  <objecttype name="ghost" color="#a0a0a4">
   <property name="direction" type="string"/>
  </objecttype>

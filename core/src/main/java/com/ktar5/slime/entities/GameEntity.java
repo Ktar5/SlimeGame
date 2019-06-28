@@ -8,38 +8,36 @@ import lombok.Getter;
 @Getter
 public abstract class GameEntity<T extends State<T>> extends Entity<T> {
     private Rectangle hitbox;
+    private boolean collisionsEnabled = true;
 
     public GameEntity(float height, float width, Rectangle hitbox) {
         super(height, width);
         this.hitbox = hitbox;
     }
 
-//    public abstract void onEntityTouch(Entity entity, Side movement);
-
     public boolean isTouching(GameEntity toucher) {
-//        float adjustedX1 = position.x - ((float) getHitbox().width / 2);
-//        float adjustedY1 = position.y - ((float) getHitbox().height / 2);
-//
-//        float adjustedX2 = toucher.position.x - ((float) toucher.getHitbox().width / 2);
-//        float adjustedY2 = toucher.position.y - ((float) toucher.getHitbox().height / 2);
-//
-//
-//        return adjustedX1 < adjustedX2 + toucher.hitbox.width &&
-//                adjustedX1 + this.hitbox.width > toucher.position.x &&
-//                adjustedY1 < adjustedY2 + toucher.hitbox.height &&
-//                adjustedY1 + this.hitbox.height > toucher.position.y;
-        return isTouching(toucher.hitbox, toucher.position);
+        return toucher.isCollisionsEnabled() && isTouching(toucher.hitbox, toucher.position);
     }
 
     public boolean isTouching(Rectangle hitbox2, Vector2 position2) {
         return isTouching(hitbox2, (int) position2.x, (int) position2.y);
     }
 
+    //We have to do the adjustments because these calculations assume that the
+    // x and y coordinate are at the bottom left of the hitbox
     public boolean isTouching(Rectangle hitbox2, int x2, int y2) {
-        return this.position.x < x2 + hitbox2.width &&
-                this.position.x + this.hitbox.width > x2 &&
-                this.position.y < y2 + hitbox2.height &&
-                this.position.y + this.hitbox.height > y2;
+        float adjustedX1 = position.x - ((float) getHitbox().width / 2f);
+        float adjustedY1 = position.y - ((float) getHitbox().height / 2f);
+
+        x2 = (int) (x2 - ((float) hitbox2.width / 2f));
+        y2 = (int) (y2 - ((float) hitbox2.height / 2f));
+
+
+        return collisionsEnabled &&
+                adjustedX1 < x2 + hitbox2.width &&
+                adjustedX1 + this.hitbox.width > x2 &&
+                adjustedY1 < y2 + hitbox2.height &&
+                adjustedY1 + this.hitbox.height > y2;
     }
 
 }

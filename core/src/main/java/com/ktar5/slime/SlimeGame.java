@@ -8,7 +8,6 @@ import com.kotcrab.vis.ui.VisUI;
 import com.ktar5.gameengine.analytics.Analytics;
 import com.ktar5.gameengine.analytics.MongoDBInstance;
 import com.ktar5.gameengine.camera.CameraBase;
-import com.ktar5.gameengine.camera.CameraFollow;
 import com.ktar5.gameengine.camera.StaticCamera;
 import com.ktar5.gameengine.console.CommandExecutor;
 import com.ktar5.gameengine.core.AbstractGame;
@@ -18,12 +17,14 @@ import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.gameengine.entities.EntityTweenAccessor;
 import com.ktar5.gameengine.tweenengine.Tween;
 import com.ktar5.slime.data.SlimeGameData;
+import com.ktar5.slime.misc.CameraLookAt;
 import com.ktar5.slime.misc.PixelPerfectViewport;
 import com.ktar5.slime.screens.LoadingScreen;
 import com.ktar5.slime.world.level.LevelHandler;
 import com.ktar5.slime.world.tiles.RetractingSpikes;
 import lombok.Getter;
 import lombok.Setter;
+import org.tinylog.Logger;
 
 @Getter
 public class SlimeGame extends AbstractGame<SlimeGame> {
@@ -39,7 +40,7 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
     @Setter private LevelHandler levelHandler;
 
     public StaticCamera uiCamera;
-    public CameraFollow gameCamera;
+    public CameraLookAt gameCamera;
 
 
     public SlimeGame() {
@@ -77,8 +78,10 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
         OrthographicCamera orthographicCamera = new OrthographicCamera(480, 270);
         viewport = new PixelPerfectViewport(480, 270, orthographicCamera);
         orthographicCamera.update();
-        gameCamera = new CameraFollow(orthographicCamera, viewport, null);
+//        gameCamera = new CameraFollow(orthographicCamera, viewport, null);
+        gameCamera = new CameraLookAt(orthographicCamera, viewport);
         return gameCamera;
+
     }
 
     @Override
@@ -96,6 +99,7 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
 
     @Override
     protected AbstractScreen getStartingScreen() {
+        Logger.debug("Starting primary screen");
         MongoDBInstance mongoDBInstance = new MongoDBInstance("mongodb+srv://analytics:test@cluster0-k5pjp.mongodb.net/test?retryWrites=true", "test");
         Preferences slimegame = Gdx.app.getPreferences("com.ktar5.slimegame");
         String build_id = "0.1.0";

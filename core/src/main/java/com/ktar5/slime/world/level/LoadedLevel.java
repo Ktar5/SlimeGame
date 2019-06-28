@@ -3,10 +3,9 @@ package com.ktar5.slime.world.level;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileSets;
 import com.ktar5.gameengine.analytics.Analytics;
-import com.ktar5.gameengine.camera.CameraFollow;
-import com.ktar5.gameengine.core.EngineManager;
 import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.gameengine.util.Updatable;
+import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.analytics.LevelStartEvent;
 import com.ktar5.slime.entities.EntityData;
 import com.ktar5.slime.entities.player.JumpPlayer;
@@ -35,7 +34,9 @@ public class LoadedLevel extends LevelData implements Updatable {
         }
 
         this.player = new JumpPlayer(this);
-        ((CameraFollow) EngineManager.get().getCameraBase()).setPosition(player.position);
+        SlimeGame.getGame().getGameCamera().setPlayerPosition(player.position);
+        SlimeGame.getGame().getGameCamera().setCameraLocations(getCameras());
+
 
         Analytics.addEvent(new LevelStartEvent(this));
     }

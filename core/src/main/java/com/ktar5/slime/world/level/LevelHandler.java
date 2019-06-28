@@ -198,6 +198,7 @@ public class LevelHandler implements Renderable, Updatable {
 
     @Override
     public void debug(float dTime) {
+        SlimeGame.getGame().getGameCamera().debug(dTime);
         for (Entity entity : currentLevel.getEntities()) {
             entity.debugRender(Renderable.getShapeRenderer());
         }

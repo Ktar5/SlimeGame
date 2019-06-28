@@ -10,6 +10,7 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.gameengine.util.Side;
 import com.ktar5.slime.entities.EntityData;
+import com.ktar5.slime.misc.CameraLookAt;
 import com.ktar5.slime.world.tiles.Air;
 import com.ktar5.slime.world.tiles.base.GameTile;
 import com.ktar5.utilities.common.data.Pair;
@@ -29,6 +30,7 @@ public class LevelData {
     private final String name;
     private final UUID uuid;
     private List<EntityData> initialEntityData;
+    private List<CameraLookAt.CameraPosition> cameras;
 
     private GameTile[][] gameMap;
     private TiledMap renderMap;
@@ -37,7 +39,7 @@ public class LevelData {
     private int gameplayArtLayerIndex;
     private int[] foregroundLayers, backgroundLayers;
 
-//    private boolean[][] slimeCovered;
+    //    private boolean[][] slimeCovered;
     private int collectablesFound = 0;
 
     public LevelData(TiledMap renderMap, String name, int id) {
@@ -49,6 +51,7 @@ public class LevelData {
         this.id = id;
         this.name = name;
         initialEntityData = new ArrayList<>();
+        cameras = new ArrayList<>();
         initialize();
     }
 
@@ -60,6 +63,7 @@ public class LevelData {
         this.spawnTile = levelData.spawnTile;
         this.id = levelData.id;
         this.initialEntityData = levelData.initialEntityData;
+        this.cameras = levelData.cameras;
         this.gameplayArtLayerIndex = levelData.gameplayArtLayerIndex;
         this.foregroundLayers = levelData.foregroundLayers;
         this.backgroundLayers = levelData.backgroundLayers;
@@ -144,7 +148,7 @@ public class LevelData {
         }
     }
 
-    public UUID getUUID(){
+    public UUID getUUID() {
         return uuid;
     }
 
@@ -198,7 +202,7 @@ public class LevelData {
         TiledMapTileLayer gpTileLayer = ((TiledMapTileLayer) gameplayLayer);
 
         //Load gameplay layer
-        width= gpTileLayer.getWidth();
+        width = gpTileLayer.getWidth();
         height = gpTileLayer.getHeight();
         gameMap = new GameTile[gpTileLayer.getWidth()][gpTileLayer.getHeight()];
         TiledMapTileLayer.Cell cell;
@@ -238,8 +242,17 @@ public class LevelData {
                 continue;
             }
             RectangleMapObject object = ((RectangleMapObject) o);
-            if (object.getName() != null && object.getName().equalsIgnoreCase("spawn")) {
-                this.spawnTile = new Pair((int) object.getRectangle().x / 16, (int) object.getRectangle().y / 16);
+            if (object.getName() != null) {
+                if (object.getName().equalsIgnoreCase("spawn")) {
+                    this.spawnTile = new Pair((int) object.getRectangle().x / 16, (int) object.getRectangle().y / 16);
+                } else if (object.getName().equalsIgnoreCase("camera")) {
+                    System.out.println(object.getRectangle().x);
+                    System.out.println(((int) object.getRectangle().x));
+                    this.cameras.add(new CameraLookAt.CameraPosition(
+                            (int) object.getRectangle().x, (int) object.getRectangle().y,
+                            Integer.valueOf(object.getProperties().get("width", String.class)), Integer.valueOf(object.getProperties().get("height", String.class))
+                    ));
+                }
             } else {
                 //Remove useless properties
                 MapProperties preProcessProperties = object.getProperties();

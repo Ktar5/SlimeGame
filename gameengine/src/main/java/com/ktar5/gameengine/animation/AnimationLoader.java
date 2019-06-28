@@ -49,6 +49,7 @@ public class AnimationLoader {
         TextureAtlas atlas = new TextureAtlas(Gdx.files.internal(atlasPath));
         Array<TextureAtlas.AtlasRegion> regions = atlas.getRegions();
         HashMap<String, List<TextureAtlas.AtlasRegion>> atlasAnimations = new HashMap<>();
+
         for (TextureAtlas.AtlasRegion region : regions) {
             if (atlasAnimations.containsKey(region.name)) {
                 atlasAnimations.get(region.name).add(region);
@@ -59,6 +60,7 @@ public class AnimationLoader {
                 atlasAnimations.put(region.name, newList);
             }
         }
+
         for (Map.Entry<String, List<TextureAtlas.AtlasRegion>> stringListEntry : atlasAnimations.entrySet()) {
             List<TextureAtlas.AtlasRegion> value = stringListEntry.getValue();
             int largestIndex = value.size() - 1;
@@ -73,6 +75,7 @@ public class AnimationLoader {
             }
             animations.put(stringListEntry.getKey(), new Animation<>(1 / 15f, value.toArray(new TextureAtlas.AtlasRegion[value.size()])));
         }
+
     }
     
     public Animation<TextureRegion> getTextureAsAnimation(String filename) {

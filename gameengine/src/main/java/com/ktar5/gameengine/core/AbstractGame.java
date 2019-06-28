@@ -24,10 +24,7 @@ public abstract class AbstractGame<G extends AbstractGame<G>> implements Applica
     private ShapeRenderer shapeRenderer;
     private DelayedAddList<Runnable> actionsAfterNextFrame;
 
-    protected abstract CameraBase initializeCameraBase();
-
-    protected abstract AbstractScreen getStartingScreen();
-
+    @Override
     public final void create() {
         this.actionsAfterNextFrame = new DelayedAddList<>();
         this.spriteBatch = new SpriteBatch();
@@ -36,6 +33,10 @@ public abstract class AbstractGame<G extends AbstractGame<G>> implements Applica
         initialize();
         setScreen(getStartingScreen());
     }
+
+    protected abstract CameraBase initializeCameraBase();
+
+    protected abstract AbstractScreen getStartingScreen();
 
     public abstract void initialize();
 

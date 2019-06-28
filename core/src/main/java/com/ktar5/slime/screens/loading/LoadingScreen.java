@@ -1,4 +1,4 @@
-package com.ktar5.slime.screens;
+package com.ktar5.slime.screens.loading;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
@@ -18,6 +18,8 @@ import com.ktar5.slime.screens.mainmenu.MainMenuScreen;
 import com.ktar5.slime.world.level.LevelHandler;
 import org.tinylog.Logger;
 
+import java.util.concurrent.atomic.AtomicBoolean;
+
 public class LoadingScreen extends AbstractScreen {
 
     private Stage stage;
@@ -33,6 +35,7 @@ public class LoadingScreen extends AbstractScreen {
 
     private Actor loadingBar;
 
+    AtomicBoolean isDone = new AtomicBoolean(false);
 
     public LoadingScreen(CameraBase camera) {
         super(camera);
@@ -80,24 +83,13 @@ public class LoadingScreen extends AbstractScreen {
 
         EngineManager.get().getAnimationLoader().loadAtlas("textures/player/Slime.atlas");
         SlimeGame.getGame().setLevelHandler(new LevelHandler());
-//        EngineManager.get().getAssetManager();
 
-        // Add everything to be loaded, for instance:
-        // game.manager.load("data/assets1.pack", TextureAtlas.class);
-        // game.manager.load("data/assets2.pack", TextureAtlas.class);
-        // game.manager.load("data/assets3.pack", TextureAtlas.class);
-        //DreamGame.getGame().getManager().load("texture/hud/crosshair.png", Texture.class);
     }
 
     @Override
     public void render(float delta) {
         // Clear the screen
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        Logger.debug("Updating load.. " + EngineManager.get().getAssetManager().getProgress() + "%");
-        if (EngineManager.get().getAssetManager().update()) { // Load some, will return true if done loading
-            Logger.debug("Finished loading all assets!");
-            EngineManager.get().getGame().setScreen(new MainMenuScreen());
-        }
 
         // Interpolate the percentage to make it more smooth
         percent = Interpolation.linear.apply(percent, EngineManager.get().getAssetManager().getProgress(), 0.1f);
@@ -111,6 +103,13 @@ public class LoadingScreen extends AbstractScreen {
         // Show the loading screen
         stage.act();
         stage.draw();
+
+
+//        Logger.debug("Updating load.. " + EngineManager.get().getAssetManager().getProgress() + "%");
+        if (EngineManager.get().getAssetManager().update() && isDone.get()) { // Load some, will return true if done loading
+            Logger.debug("Finished loading all assets!");
+            EngineManager.get().getGame().setScreen(new MainMenuScreen());
+        }
     }
 
     @Override
@@ -122,38 +121,36 @@ public class LoadingScreen extends AbstractScreen {
 
     @Override
     public void resize(int width, int height) {
-//        super.resize(width, height);
-//        // Set our screen to always be XXX x 480 in size
-//        width = 480 * width / height;
-//        height = 480;
-//        stage.getViewport().updateTiles(width, height, false);
-//
-//        // Make the background fill the screen
-//        screenBg.setSize(width, height);
-//
-//        // Place the logo in the middle of the screen and 100 px up
-//        logo.setX((width - logo.getWidth()) / 2);
-//        logo.setY((height - logo.getHeight()) / 2 + 100);
-//
-//        // Place the loading frame in the middle of the screen
-//        loadingFrame.setX((stage.getWidth() - loadingFrame.getWidth()) / 2);
-//        loadingFrame.setY((stage.getHeight() - loadingFrame.getHeight()) / 2);
-//
-//        // Place the loading bar at the same spot as the frame, adjusted a few px
-//        loadingBar.setX(loadingFrame.getX() + 15);
-//        loadingBar.setY(loadingFrame.getY() + 5);
-//
-//        // Place the image that will hide the bar on top of the bar, adjusted a few px
-//        loadingBarHidden.setX(loadingBar.getX() + 35);
-//        loadingBarHidden.setY(loadingBar.getY() - 3);
-//        // The start position and how far to move the hidden loading bar
-//        startX = loadingBarHidden.getX();
-//        endX = 440;
-//
-//        // The rest of the hidden bar
-//        loadingBg.setSize(450, 50);
-//        loadingBg.setX(loadingBarHidden.getX() + 30);
-//        loadingBg.setY(loadingBarHidden.getY() + 3);
+        // Set our screen to always be XXX x 480 in size
+        width = 480 * width / height;
+        height = 480;
+
+        // Make the background fill the screen
+        screenBg.setSize(width, height);
+
+        // Place the logo in the middle of the screen and 100 px up
+        logo.setX((width - logo.getWidth()) / 2);
+        logo.setY((height - logo.getHeight()) / 2 + 100);
+
+        // Place the loading frame in the middle of the screen
+        loadingFrame.setX((stage.getWidth() - loadingFrame.getWidth()) / 2);
+        loadingFrame.setY((stage.getHeight() - loadingFrame.getHeight()) / 2);
+
+        // Place the loading bar at the same spot as the frame, adjusted a few px
+        loadingBar.setX(loadingFrame.getX() + 15);
+        loadingBar.setY(loadingFrame.getY() + 5);
+
+        // Place the image that will hide the bar on top of the bar, adjusted a few px
+        loadingBarHidden.setX(loadingBar.getX() + 35);
+        loadingBarHidden.setY(loadingBar.getY() - 3);
+        // The start position and how far to move the hidden loading bar
+        startX = loadingBarHidden.getX();
+        endX = 440;
+
+        // The rest of the hidden bar
+        loadingBg.setSize(450, 50);
+        loadingBg.setX(loadingBarHidden.getX() + 30);
+        loadingBg.setY(loadingBarHidden.getY() + 3);
     }
 
     @Override

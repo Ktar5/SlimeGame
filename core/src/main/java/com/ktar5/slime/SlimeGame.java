@@ -1,27 +1,19 @@
 package com.ktar5.slime;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
-import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.graphics.OrthographicCamera;
-import com.kotcrab.vis.ui.VisUI;
 import com.ktar5.gameengine.analytics.Analytics;
-import com.ktar5.gameengine.analytics.MongoDBInstance;
 import com.ktar5.gameengine.camera.CameraBase;
 import com.ktar5.gameengine.camera.StaticCamera;
 import com.ktar5.gameengine.console.CommandExecutor;
 import com.ktar5.gameengine.core.AbstractGame;
 import com.ktar5.gameengine.core.AbstractScreen;
 import com.ktar5.gameengine.core.EngineManager;
-import com.ktar5.gameengine.entities.Entity;
-import com.ktar5.gameengine.entities.EntityTweenAccessor;
-import com.ktar5.gameengine.tweenengine.Tween;
 import com.ktar5.slime.data.SlimeGameData;
 import com.ktar5.slime.misc.CameraLookAt;
 import com.ktar5.slime.misc.PixelPerfectViewport;
-import com.ktar5.slime.screens.LoadingScreen;
+import com.ktar5.slime.screens.loading.NewLoadingScreen;
 import com.ktar5.slime.world.level.LevelHandler;
-import com.ktar5.slime.world.tiles.RetractingSpikes;
 import lombok.Getter;
 import lombok.Setter;
 import org.tinylog.Logger;
@@ -60,12 +52,7 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
     @Override
     public void initialize() {
         data = new SlimeGameData();
-        VisUI.load();
         input = new KInput();
-        this.engineManager.getConsole().setDisplayKeyID(Input.Keys.GRAVE);
-        Tween.registerAccessor(Entity.class, new EntityTweenAccessor());
-        Tween.registerAccessor(RetractingSpikes.class, new RetractingSpikes.SpikesTweenAccessor());
-
         if(data.fullscreen){
             Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
         }
@@ -100,14 +87,7 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
     @Override
     protected AbstractScreen getStartingScreen() {
         Logger.debug("Starting primary screen");
-        MongoDBInstance mongoDBInstance = new MongoDBInstance("mongodb+srv://analytics:test@cluster0-k5pjp.mongodb.net/test?retryWrites=true", "test");
-        Preferences slimegame = Gdx.app.getPreferences("com.ktar5.slimegame");
-        String build_id = "0.1.0";
-        if (DEVELOPER_MODE) {
-            build_id = "developer";
-        }
-        Analytics.create(slimegame, mongoDBInstance, build_id, 2, 3);
-        return new LoadingScreen(SlimeGame.getGame().getUiCamera());
+        return new NewLoadingScreen(SlimeGame.getGame().getUiCamera());
     }
 
     @Override

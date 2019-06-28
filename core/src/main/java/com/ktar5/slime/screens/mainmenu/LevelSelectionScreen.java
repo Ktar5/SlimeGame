@@ -19,6 +19,7 @@ import com.ktar5.slime.KInput;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.hotkeys.GeneralHotkeys;
 import com.ktar5.slime.screens.GameScreen;
+import com.ktar5.slime.world.level.LevelHandler;
 
 public class LevelSelectionScreen extends AbstractScreen {
     protected Stage stage;
@@ -56,10 +57,12 @@ public class LevelSelectionScreen extends AbstractScreen {
         levels.center();
         levels.pad(15, 0, 0, 15);
 //        levels.defaults().center().uniformX().fillX();
-        int levelCount = SlimeGame.getGame().getLevelHandler().getLevelCount();
+        final LevelHandler levelHandler = SlimeGame.getGame().getLevelHandler();
+
+        int levelCount = levelHandler.getLevelCount();
         for (int i = 0; i < levelCount; i++) {
             TextButton button = new TextButton(String.valueOf(i), skin);
-            if (SlimeGame.getGame().getLevelHandler().isLevelNull(i)) {
+            if (levelHandler.isLevelNull(i)) {
                 button.setDisabled(true);
             } else {
                 int finalI = i;
@@ -67,7 +70,7 @@ public class LevelSelectionScreen extends AbstractScreen {
                     @Override
                     public void clicked(InputEvent event, float x, float y) {
                         SlimeGame.getGame().setScreen(new GameScreen());
-                        SlimeGame.getGame().getLevelHandler().setLevel(finalI);
+                        levelHandler.setLevel(finalI);
                     }
                 });
             }

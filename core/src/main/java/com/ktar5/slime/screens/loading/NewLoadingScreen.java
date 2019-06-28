@@ -50,7 +50,7 @@ public class NewLoadingScreen extends AbstractScreen {
     @Override
     public void show() {
         stage.addActor(new Actor() {
-            Texture texture = EngineManager.get().getAnimationLoader().getTexture("textures/MenuBG_Loading.png");
+            Texture texture = EngineManager.get().getAnimationLoader().getTexture("textures/MenuBG.png");
 
             @Override
             public void draw(Batch batch, float parentAlpha) {

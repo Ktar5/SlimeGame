@@ -21,6 +21,12 @@ public class ConsoleCommands extends CommandExecutor {
         }
     }
 
+    public final void reloadMaps(){
+        for (int i = 0; i < SlimeGame.getGame().getLevelHandler().getLevelData().length; i++) {
+            SlimeGame.getGame().getLevelHandler().getLevelData()[i] = null;
+        }
+    }
+
     public final void zoom(float level) {
         SlimeGame.getGame().gameCamera.getCamera().zoom = level;
         console.log("Set zoom to: " + level);

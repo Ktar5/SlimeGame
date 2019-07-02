@@ -19,6 +19,8 @@ import org.tinylog.Logger;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 @Getter
 public class LevelHandler implements Renderable, Updatable {
@@ -31,6 +33,9 @@ public class LevelHandler implements Renderable, Updatable {
 
     private LoadedLevel currentLevel;
     private OrthogonalTiledMapRenderer tileMapRenderer;
+
+    private List<Chapter> chapters;
+    private int currentChapter = 0;
     private IntMap<FileHandle> mapFileMap;
 
     private final TmxMapLoader.Parameters params;
@@ -38,6 +43,8 @@ public class LevelHandler implements Renderable, Updatable {
 
 
     public LevelHandler() {
+        chapters = new ArrayList<>();
+
         params = new TmxMapLoader.Parameters();
         params.textureMinFilter = Texture.TextureFilter.Linear;
         params.textureMagFilter = Texture.TextureFilter.Nearest;
@@ -104,18 +111,26 @@ public class LevelHandler implements Renderable, Updatable {
     }
 
     private void loadLevel(int id, boolean reload) {
+        Chapter chapter = null;
+        for (Chapter chapter1 : chapters) {
+            if (chapter1.lastLevelID > id) {
+                chapter = chapter1;
+                break;
+            }
+        }
+
         if (levelData[id] != null && !reload) {
             return;
         }
         if (mapFileMap.get(id) == null) {
-            Logger.error("Tried to load map with id: " + id + " but file handle wasn't registered on initialize");
+            Logger.error("Tried to load map @ chapter: " + chapter.name + " id: " + id + " but file handle wasn't registered on initialize");
             return;
         }
 
         FileHandle handle = mapFileMap.get(id);
 
-        Logger.debug("Loading map id: " + id + " name: " + handle.name());
-        TiledMap tiledMap = loader.load("maps/" + handle.name(), params);
+        Logger.debug("Loading map @ chapter: " + chapter.name + " id: " + id + " name: " + handle.name());
+        TiledMap tiledMap = loader.load("maps/chapters/" + chapter.name.toLowerCase() + "/" + handle.name(), params);
 
         //TODO
 //        if (i == 0) {
@@ -136,44 +151,67 @@ public class LevelHandler implements Renderable, Updatable {
     public void initialize() {
         mapFileMap = new IntMap<>();
 
-        FileHandle levelAtlas = Gdx.files.internal("maps/levels.txt");
+        FileHandle levelAtlas = Gdx.files.internal("maps/chapters/chapters.txt");
+
+
         LevelHandler.LOAD_MAPS_LOCAL = false;
-        if (Gdx.files.local("maps/levels.txt").exists()) {
+        if (Gdx.files.local("maps/chapters/chapters.txt").exists()) {
             Logger.debug("Using local maps instead of internal.");
-            levelAtlas = Gdx.files.local("maps/levels.txt");
+            levelAtlas = Gdx.files.local("maps/chapters/chapters.txt");
             LevelHandler.LOAD_MAPS_LOCAL = true;
         }
 
-        FileHandle handle;
-        BufferedReader bufferedReader = new BufferedReader(levelAtlas.reader());
+        BufferedReader bufferedReader;
         String line;
 
+        int levelID = 0;
+        List<String> chapterNames = new ArrayList<>();
         try {
-            int i = 0;
+            //Load chapters
+            bufferedReader = new BufferedReader(levelAtlas.reader());
             while ((line = bufferedReader.readLine()) != null) {
-                String[] split = line.split(":");
-                if (split.length == 1 || split[1].isEmpty() || split[1].equals(" ")) {
-                    Logger.debug("Null level: " + i);
-                    mapFileMap.put(i, null);
-                    i++;
-                    continue;
+                chapterNames.add(line.split(":")[1].replace(" ", ""));
+            }
+            bufferedReader.close();
+
+            //Load levels in each chapter
+            for (String chapterName : chapterNames) {
+                int firstID = levelID;
+                int lastID = 0;
+
+                bufferedReader = new BufferedReader(getFileHandle("maps/chapters/" + chapterName.toLowerCase() + ".txt").reader());
+                while ((line = bufferedReader.readLine()) != null) {
+                    String[] split = line.split(":");
+                    if (split.length == 1 || split[1].isEmpty() || split[1].equals(" ")) {
+                        Logger.debug("Null level: chapter: " + chapterName + " ID: " + (levelID - firstID));
+                        mapFileMap.put(levelID, null);
+                    } else {
+                        String levelName = split[1].replace(" ", "");
+                        mapFileMap.put(levelID, getFileHandle("maps/chapters/" + chapterName.toLowerCase() + "/" + levelName + ".tmx"));
+                    }
+                    lastID = levelID;
+
+                    levelID++;
                 }
-                String levelName = split[1].replace(" ", "");
-                if (LevelHandler.LOAD_MAPS_LOCAL) {
-                    handle = (Gdx.files.local("maps/" + levelName + ".tmx"));
-                } else {
-                    handle = (Gdx.files.internal("maps/" + levelName + ".tmx"));
-                }
-                mapFileMap.put(i, handle);
-                i++;
+
+                chapters.add(new Chapter(chapterName, firstID, lastID));
+
+                bufferedReader.close();
             }
         } catch (IOException e) {
-            Logger.debug("ERROR >> Couldn't load level file list!");
+            Logger.error("Could not load map file list.");
             Logger.error(e);
         }
         levelData = new LevelData[mapFileMap.size];
     }
 
+    public FileHandle getFileHandle(String path) {
+        if (LevelHandler.LOAD_MAPS_LOCAL) {
+            return Gdx.files.local(path);
+        } else {
+            return Gdx.files.internal(path);
+        }
+    }
 
     public int getSpawnX() {
         return currentLevel.getSpawnTile().x;

@@ -17,7 +17,7 @@ import org.tinylog.Logger;
 import java.util.List;
 
 public class NewMove extends PlayerState {
-    private static final int preMovementFrames = 4;
+    private static final int preMovementFrames = 7;
     private static final float SPEED = Settings.PLAYER_MOVE_SPEED;//3.2f;
     //Pixels per frame-- 16 pixels in a tile
 

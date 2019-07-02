@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -19,12 +20,17 @@ import com.ktar5.slime.KInput;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.hotkeys.GeneralHotkeys;
 import com.ktar5.slime.screens.GameScreen;
+import com.ktar5.slime.world.level.Chapter;
 import com.ktar5.slime.world.level.LevelHandler;
 
 public class LevelSelectionScreen extends AbstractScreen {
     protected Stage stage;
     private TextureAtlas atlas;
     protected Skin skin;
+
+    private int currentChapter = 0;
+
+    private Table chapterTable;
 
     public LevelSelectionScreen() {
         super(SlimeGame.getGame().getUiCamera());
@@ -44,6 +50,9 @@ public class LevelSelectionScreen extends AbstractScreen {
         //Stage should control input:
         Gdx.input.setInputProcessor(new InputMultiplexer(stage, SlimeGame.getGame().getInput()));
 
+        stage.getActors().clear();
+        stage.clear();
+
         //Create Table
         Table mainTable = new Table();
         //Set table to fill stage
@@ -52,35 +61,8 @@ public class LevelSelectionScreen extends AbstractScreen {
         mainTable.bottom().center();
         mainTable.pad(0, 25, 25, 0);
 
-
-        Table levels = new Table();
-        levels.center();
-        levels.pad(15, 0, 0, 15);
-//        levels.defaults().center().uniformX().fillX();
-        final LevelHandler levelHandler = SlimeGame.getGame().getLevelHandler();
-
-        int levelCount = levelHandler.getLevelCount();
-        for (int i = 0; i < levelCount; i++) {
-            TextButton button = new TextButton(String.valueOf(i), skin);
-            if (levelHandler.isLevelNull(i)) {
-                button.setDisabled(true);
-            } else {
-                int finalI = i;
-                button.addListener(new ClickListener() {
-                    @Override
-                    public void clicked(InputEvent event, float x, float y) {
-                        SlimeGame.getGame().setScreen(new GameScreen());
-                        levelHandler.setLevel(finalI);
-                    }
-                });
-            }
-            if (i % 10 == 0) {
-                levels.row();
-            }
-            levels.add(button).pad(0, 0, 20, 10).width(25);
-        }
-
-        mainTable.add(levels).row();
+        loadChapter(currentChapter);
+        mainTable.add(chapterTable).row();
 
 
         //Create buttons
@@ -109,6 +91,57 @@ public class LevelSelectionScreen extends AbstractScreen {
         stage.addActor(mainTable);
 
 
+    }
+
+    public void loadChapter(int chapterID) {
+        final LevelHandler levelHandler = SlimeGame.getGame().getLevelHandler();
+        Chapter chapter = levelHandler.getChapters().get(chapterID % levelHandler.getChapters().size());
+
+        Table topBarTable = new Table();
+
+        TextButton leftButton = new TextButton("<", skin);
+        TextButton rightButton = new TextButton(">", skin);
+        Label textLabel = new Label(chapter.name, skin);
+
+        topBarTable.add(leftButton).padRight(25);
+        topBarTable.add(textLabel).padRight(25);
+        topBarTable.add(rightButton);
+        topBarTable.center();
+
+
+        chapterTable = new Table().center();
+        chapterTable.debugAll();
+        chapterTable.padTop(25);
+
+        chapterTable.add(topBarTable).center();
+        chapterTable.row();
+
+
+        Table levels = new Table();
+        levels.center();
+        levels.pad(15, 0, 0, 0);
+
+        for (int i = chapter.firstLevelID; i <= chapter.lastLevelID; i++) {
+            TextButton button = new TextButton(String.valueOf(i), skin);
+            if (levelHandler.isLevelNull(i)) {
+                button.setDisabled(true);
+            } else {
+                int finalI = i;
+                button.addListener(new ClickListener() {
+                    @Override
+                    public void clicked(InputEvent event, float x, float y) {
+                        SlimeGame.getGame().setScreen(new GameScreen());
+                        levelHandler.setLevel(finalI);
+                    }
+                });
+            }
+            if (i % 10 == 0) {
+                levels.row();
+            }
+            levels.add(button).pad(0, 0, 20, 10).width(25);
+        }
+
+        chapterTable.add(levels);
     }
 
     @Override

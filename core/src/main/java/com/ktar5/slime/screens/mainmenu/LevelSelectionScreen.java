@@ -100,7 +100,27 @@ public class LevelSelectionScreen extends AbstractScreen {
         Table topBarTable = new Table();
 
         TextButton leftButton = new TextButton("<", skin);
+        leftButton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                currentChapter -= 1;
+                if (currentChapter == -1) {
+                    currentChapter = levelHandler.getChapters().size();
+                }
+                loadChapter(currentChapter);
+            }
+        });
         TextButton rightButton = new TextButton(">", skin);
+        rightButton.addListener(new ClickListener() {
+            @Override
+            public void clicked(InputEvent event, float x, float y) {
+                currentChapter += 1;
+                if(currentChapter == levelHandler.getChapters().size()){
+                    currentChapter = 0;
+                }
+                loadChapter(currentChapter + 1);
+            }
+        });
         Label textLabel = new Label(chapter.name, skin);
 
         topBarTable.add(leftButton).padRight(25);
@@ -108,8 +128,11 @@ public class LevelSelectionScreen extends AbstractScreen {
         topBarTable.add(rightButton);
         topBarTable.center();
 
-
-        chapterTable = new Table().center();
+        if (chapterTable == null) {
+            chapterTable = new Table().center();
+        } else {
+            chapterTable.clear();
+        }
         chapterTable.debugAll();
         chapterTable.padTop(25);
 

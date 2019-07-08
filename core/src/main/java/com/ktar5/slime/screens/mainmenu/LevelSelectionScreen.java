@@ -118,7 +118,7 @@ public class LevelSelectionScreen extends AbstractScreen {
                 if(currentChapter == levelHandler.getChapters().size()){
                     currentChapter = 0;
                 }
-                loadChapter(currentChapter + 1);
+                loadChapter(currentChapter);
             }
         });
         Label textLabel = new Label(chapter.name, skin);
@@ -144,12 +144,13 @@ public class LevelSelectionScreen extends AbstractScreen {
         levels.center();
         levels.pad(15, 0, 0, 0);
 
-        for (int i = chapter.firstLevelID; i <= chapter.lastLevelID; i++) {
-            TextButton button = new TextButton(String.valueOf(i), skin);
-            if (levelHandler.isLevelNull(i)) {
+        for (int levelIndex = chapter.firstLevelID; levelIndex <= chapter.lastLevelID; levelIndex++) {
+            int levelInChapter = levelIndex - chapter.firstLevelID;
+            TextButton button = new TextButton(String.valueOf(levelInChapter), skin);
+            if (levelHandler.isLevelNull(levelIndex)) {
                 button.setDisabled(true);
             } else {
-                int finalI = i;
+                int finalI = levelIndex;
                 button.addListener(new ClickListener() {
                     @Override
                     public void clicked(InputEvent event, float x, float y) {
@@ -158,7 +159,7 @@ public class LevelSelectionScreen extends AbstractScreen {
                     }
                 });
             }
-            if (i % 10 == 0) {
+            if (levelInChapter % 10 == 0) {
                 levels.row();
             }
             levels.add(button).pad(0, 0, 20, 10).width(25);

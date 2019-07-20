@@ -249,7 +249,7 @@
 </data>
  </layer>
  <imagelayer id="20" name="Art_Image">
-  <image source="tileset/lightmap.png"/>
+  <image source="../../tileset/lightmap.png" width="720" height="720"/>
   <properties>
    <property name="Front" value=""/>
   </properties>

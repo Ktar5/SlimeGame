@@ -1,6 +1,7 @@
 package com.ktar5.slime.tools.levelselectioneditor.points;
 
 import lombok.Getter;
+import lombok.Setter;
 import org.json.JSONObject;
 
 import java.util.UUID;
@@ -8,11 +9,12 @@ import java.util.UUID;
 @Getter
 public class ControlPoint extends Point {
     private final UUID controlID;
+    @Setter
     private UUID pathUp, pathDown, pathLeft, pathRight;
     private String data;
 
-    public ControlPoint(String data, int id, int x, int y) {
-        super(id, x, y);
+    public ControlPoint(String data, int x, int y) {
+        super(x, y);
         this.controlID = UUID.randomUUID();
         this.data = data;
     }

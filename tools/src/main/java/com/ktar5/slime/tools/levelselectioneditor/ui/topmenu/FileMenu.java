@@ -20,17 +20,31 @@ public class FileMenu extends Menu {
         }));
 
         final MenuItem save = new MenuItem("Save Current", new KChangeListener((changeEvent, actor) -> {
-            Main.getInstance().mainScene.getSceneRenderer().getScene().save();
+            Main.getInstance().mainStage.getSceneRenderer().getScene().save();
         }));
 
         final MenuItem saveAs = new MenuItem("Save As..", new KChangeListener((changeEvent, actor) -> {
 
         }));
 
+        final MenuItem setTexture = new MenuItem("Set Texture", new KChangeListener((changeEvent, actor) -> {
 
-        addItem(open);
+        }));
+
+        final MenuItem setStartingControl = new MenuItem("Set Starting Control", new KChangeListener((changeEvent, actor) -> {
+
+        }));
+
         addItem(newScene);
+        addItem(open);
+
+        addSeparator();
         addItem(save);
         addItem(saveAs);
+
+        addSeparator();
+        addItem(setTexture);
+        addItem(setStartingControl);
+
     }
 }

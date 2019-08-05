@@ -44,3 +44,264 @@ out/
 ## OS Specific
 .DS_Store
 desktop/log.txt
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/data/libgdx.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/data/loading.pack
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/data/loading.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/default_skin/default.fnt
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/default_skin/default.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/default_skin/slimebgart.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/default_skin/uiskin.atlas
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/default_skin/uiskin.json
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/default_skin/uiskin.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/fonts/arial.ttf
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/fonts/BitPotion.ttf
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/fonts/BitPotion Bitmaps.zip
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/fonts/BitPotion Bitmaps Extended.zip
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/fonts/BitPotion Full.zip
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/fonts/BitPotion Full Extended.zip
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/fonts/BitPotionExt.ttf
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/fonts/magofonts.zip
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/fonts/SomepxFonts.zip
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/fonts/SomepxNew.zip
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/fonts/text.fnt
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/fonts/text.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/fonts/VCR_OSD_MONO_1.001.ttf
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/demo/Level1.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/demo/Level2.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/demo/Level3.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/demo/Level4.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/demo/Level5.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/demo/Level6.2.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/demo/Level7.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/demo/Level8.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/demo/Level9.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/testing/drain_hard.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/testing/EveryTile.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/testing/Level6.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/testing/Level_Advanced01.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/testing/Level_AmbientTest.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/testing/Level_Box01.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/testing/Level_Box02.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/testing/Level_Box03.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/testing/Level_Box04.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/testing/Level_CamTest01.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/testing/Level_CamTest02.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/testing/Level_Goo01.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/testing/Level_Goo02.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/testing/Level_Goo03.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/testing/Level_Goo04.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/testing/Level_Prototype01.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/testing/Level_Prototype02.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/testing/Level_Prototype03.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/testing/Level_Prototype04.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/testing/Level_Prototype05.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/testing/Level_Prototype06.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/testing/Level_Prototype07.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/testing/Level_Prototype08.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/testing/Level_Prototype09.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/testing/Level_RandomName.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/testing/Level_RandomName2.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/testing/Level_Story_PathToKing.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/testing/Level_TestChamber.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/testing/Level_Tutorial_Collectibles.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/testing/Level_Tutorial_Dying.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/testing/Level_Tutorial_Gates.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/testing/Level_Tutorial_Goo.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/testing/Level_Tutorial_Movement.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/tutorial/tutorial_1dir.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/tutorial/tutorial_arrows.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/tutorial/tutorial_box.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/tutorial/tutorial_crumble.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/tutorial/tutorial_drain.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/tutorial/tutorial_gate.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/tutorial/tutorial_goo.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/tutorial/tutorial_heavyplat.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/tutorial/tutorial_hidenspike.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/tutorial/tutorial_holebox.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/tutorial/tutorial_tele.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/_template.txt
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/chapters.txt
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/demo.txt
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/testing.txt
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/chapters/tutorial.txt
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/tileset/DesertTemple.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/tileset/DesertTemple.tsx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/tileset/Dungeon.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/tileset/Dungeon.tsx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/tileset/FireCave.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/tileset/FireCave.tsx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/tileset/GameplayImages.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/tileset/GameplayImages.tsx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/tileset/GameplayTileset.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/tileset/GameplayTileset.tsx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/tileset/Graveyard.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/tileset/Graveyard.tsx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/tileset/lightmap.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/tileset/Outskirts.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/tileset/Outskirts.tsx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/tileset/SlimeCave.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/tileset/SlimeCave.tsx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/tileset/TestSpriteSplitter.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/tileset/tilemapimage.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/tileset/tileset.zip
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/1direction_tile_slime.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/11.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/grey1.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/grey2.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/image.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/levels.txt
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/objecttypes.xml
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/TiledSetupScene.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps/unknown-12.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/META-INF/maven/com.badlogicgames.gdx/gdx-backend-lwjgl/pom.properties
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/META-INF/maven/com.badlogicgames.gdx/gdx-backend-lwjgl/pom.xml
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/META-INF/maven/com.badlogicgames.gdx/gdx-controllers-desktop/pom.properties
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/META-INF/maven/com.badlogicgames.gdx/gdx-controllers-desktop/pom.xml
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/META-INF/MANIFEST.MF
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/shaders/bias.fragment
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/shaders/blur.frag
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/shaders/blur.fragment
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/shaders/blur.vert
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/shaders/blur.vertex
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/shaders/camerablur.fragment
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/shaders/combine.fragment
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/shaders/convolve-1d.fragment
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/shaders/copy.fragment
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/shaders/crt-screen.fragment
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/shaders/font.frag
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/shaders/font.vert
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/shaders/fxaa.fragment
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/shaders/lenscolor.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/shaders/lensflare.fragment
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/shaders/lensflare2.fragment
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/shaders/motionblur.fragment
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/shaders/nfaa.fragment
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/shaders/radial-blur.fragment
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/shaders/radial-blur.vertex
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/shaders/radial-distortion.fragment
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/shaders/screenspace.vertex
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/shaders/threshold.fragment
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/shaders/vignetting.fragment
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/shaders/zoom.fragment
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/shaders/zoom.vertex
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/sounds/Balloon Pop 1.wav
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/sounds/Balloon ride 1.wav
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/sounds/Balloon start riding 1.wav
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/sounds/Balloon start riding 2.wav
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/sounds/Balloon start riding 2 (1).wav
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/sounds/Big Egg collect 1.wav
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/sounds/Block Break 1.wav
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/sounds/Block Break 2.wav
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/sounds/Blow 1.wav
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/sounds/Blow 1V2.mp3
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/sounds/Blow 1V2.wav
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/sounds/Blow 2.wav
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/sounds/Boss hit 1.wav
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/sounds/Bubble heavy 1.wav
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/sounds/Bubble heavy 2.wav
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/sounds/Bubble 1.wav
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/sounds/Cancel 1.wav
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/sounds/Confirm 1.wav
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/sounds/Fruit collect 1.wav
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/sounds/Hit damage 1.wav
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/sounds/Jump 1.wav
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/sounds/Select 1.wav
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/sounds/Suck 1.wav
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/sounds/Suck 1V2.wav
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/sounds/Suck 2.wav
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/sounds/Text 1.wav
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/entity/arrow/arrow.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/entity/box/box1.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/entity/box/box2.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/entity/box/discord.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/entity/ghost/ghost_hor.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/entity/ghost/ghost_vert.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/player/Slime.atlas
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/player/Slime.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/player/SlimeGreyscale.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/skins/pixel/skin.atlas
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/skins/pixel/skin.json
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/skins/pixel/skin.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/skins/pixthulu/font-export.fnt
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/skins/pixthulu/font-subtitle-export.fnt
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/skins/pixthulu/font-title-export.fnt
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/skins/pixthulu/pixthulhu-ui.atlas
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/skins/pixthulu/pixthulhu-ui.json
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/skins/pixthulu/pixthulhu-ui.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/skins/plain/font-export.fnt
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/skins/plain/font-title-export.fnt
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/skins/plain/plain-james-ui.atlas
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/skins/plain/plain-james-ui.json
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/skins/plain/plain-james-ui.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/skins/testskin/font-export.fnt
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/skins/testskin/font-title-export.fnt
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/skins/testskin/test.atlas
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/skins/testskin/test.json
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/skins/testskin/test.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/unatlased/slime_death_down_01.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/unatlased/slime_death_left_01.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/unatlased/slime_death_right_01.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/unatlased/slime_death_up_01.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/unatlased/slime_idle_down_01.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/unatlased/slime_idle_left_01.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/unatlased/slime_idle_right_01.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/unatlased/slime_idle_up_01.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/unatlased/slime_jump_down_01.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/unatlased/slime_jump_down_02.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/unatlased/slime_jump_down_03.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/unatlased/slime_jump_down_04.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/unatlased/slime_jump_left_01.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/unatlased/slime_jump_left_02.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/unatlased/slime_jump_left_03.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/unatlased/slime_jump_left_04.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/unatlased/slime_jump_right_01.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/unatlased/slime_jump_right_02.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/unatlased/slime_jump_right_03.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/unatlased/slime_jump_right_04.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/unatlased/slime_jump_up_01.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/unatlased/slime_jump_up_02.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/unatlased/slime_jump_up_03.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/unatlased/slime_jump_up_04.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/defaulttexture.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/MenuBG.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/MenuBG_Large.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/MenuBG_Loading.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/textures/selection-highlight.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/brush_24px_black.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/brush_24px_white.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/eraser_24px_white.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/gdx.dll
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/gdx64.dll
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/gdx-controllers-desktop.dll
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/gdx-controllers-desktop64.dll
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/gdx-freetype.dll
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/gdx-freetype64.dll
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/libgdx.dylib
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/libgdx.so
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/libgdx16.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/libgdx32.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/libgdx64.dylib
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/libgdx64.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/libgdx64.so
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/libgdx128.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/libgdx-controllers-desktop.dylib
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/libgdx-controllers-desktop.so
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/libgdx-controllers-desktop64.dylib
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/libgdx-controllers-desktop64.so
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/libgdx-freetype.dylib
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/libgdx-freetype.so
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/libgdx-freetype64.dylib
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/libgdx-freetype64.so
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/LinksToArt.txt
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/maps.zip
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/redo_24px_white.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/selection_all_24px_white.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/selection_box2_24px_black.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/selection_box2_24px_white.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/selection_box_24px_black.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/selection_box_24px_white.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/selection_magic_24px_black.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/selection_magic_24px_white.png
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/test.tmx
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/tinylog.properties
+/distribution/out-mac/Contents/Resources/slime-0.0.1-SNAPSHOT.jar.tmp/undo_24px_white.png

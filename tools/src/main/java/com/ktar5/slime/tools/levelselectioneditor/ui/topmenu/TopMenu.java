@@ -7,9 +7,6 @@ public class TopMenu extends MenuBar {
     public TopMenu() {
         super();
         this.addMenu(new FileMenu());
-        this.addMenu(new EditSceneMenu());
-        this.addMenu(new EditPathMenu());
-        this.addMenu(new EditNodeMenu());
     }
 
 }

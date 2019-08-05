@@ -53,7 +53,7 @@ public class Input implements InputProcessor {
 
     @Override
     public boolean scrolled(int amount) {
-        Actor hit = Main.getInstance().mainScene.hit(Gdx.input.getX(), Gdx.graphics.getHeight() - Gdx.input.getY(), false);
+        Actor hit = Main.getInstance().mainStage.hit(Gdx.input.getX(), Gdx.graphics.getHeight() - Gdx.input.getY(), false);
         if (hit instanceof ZoomablePannableWidget) {
             ((ZoomablePannableWidget) hit).scale(amount);
         }

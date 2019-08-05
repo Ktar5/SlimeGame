@@ -1,6 +1,7 @@
 package com.ktar5.slime.tools.levelselectioneditor;
 
-import com.ktar5.slime.tools.levelselectioneditor.points.*;
+import com.ktar5.slime.tools.levelselectioneditor.points.ControlPoint;
+import com.ktar5.slime.tools.levelselectioneditor.points.PathPoint;
 import com.ktar5.slime.tools.levelselectioneditor.scene.Scene;
 import com.ktar5.slime.tools.levelselectioneditor.ui.util.KSerializeable;
 import lombok.Getter;
@@ -15,8 +16,9 @@ public class Path implements KSerializeable {
     private Scene scene;
 
     private UUID pathID;
-    private PathPoint firstPoint, lastPoint;
     private String name;
+    @Setter
+    private PathPoint firstPoint, lastPoint;
     @Setter
     private UUID controlStart, controlEnd;
 
@@ -35,10 +37,10 @@ public class Path implements KSerializeable {
         PathPoint current = null;
         for (int i = 0; i < points.length(); i++) {
             if (firstPoint == null) {
-                current = new PathPoint(points.getJSONObject(i));
+                current = new PathPoint(this, points.getJSONObject(i));
                 firstPoint = current;
             } else {
-                current.setNext(new PathPoint(points.getJSONObject(i)));
+                current.setNext(new PathPoint(this, points.getJSONObject(i)));
                 lastPoint = current.getNext();
             }
         }
@@ -46,19 +48,7 @@ public class Path implements KSerializeable {
         controlEnd = json.getString("end").equals("null") ? null : UUID.fromString(json.getString("end"));
     }
 
-    private Point loadPoint(JSONObject json) {
-        if (json.has("subPoints")) {
-            return new SmoothPoint(json);
-        } else if (json.has("name")) {
-            return new DataPoint(json);
-        } else if (json.has("paths")) {
-            return new ControlPoint(json);
-        } else {
-            return new PathPoint(json);
-        }
-    }
-
-    public void addPoint(PathPoint point){
+    public void addPoint(PathPoint point) {
         if (firstPoint == null) {
             firstPoint = point;
             lastPoint = point;
@@ -80,6 +70,14 @@ public class Path implements KSerializeable {
             return null;
         }
         return scene.getControlPoints().get(controlEnd);
+    }
+
+    public FrontBack getFrontBack(UUID controlPoint){
+        if(controlPoint.equals(controlStart)){
+            return FrontBack.FRONT;
+        }else{
+            return FrontBack.BACK;
+        }
     }
 
     @Override

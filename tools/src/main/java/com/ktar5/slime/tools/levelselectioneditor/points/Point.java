@@ -10,24 +10,22 @@ import org.json.JSONObject;
 @Setter
 @Getter
 public abstract class Point implements KSerializeable {
+    public boolean updated = false;
     private int x, y;
-    private int id;
 
-    public Point(int id, int x, int y) {
-        this.id = id;
+    public Point(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
     public Point(JSONObject json) {
-        this.id = json.getInt("id");
         this.x = json.getInt("x");
         this.y = json.getInt("y");
     }
 
     @Override
     public JSONObject serialize() {
-        return new JSONObject().put("x", x).put("y", y).put("id", id);
+        return new JSONObject().put("x", x).put("y", y);
     }
 
     public void render(ShapeRenderer renderer) {

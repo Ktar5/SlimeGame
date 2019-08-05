@@ -10,13 +10,14 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ScissorStack;
+import com.ktar5.slime.tools.levelselectioneditor.Main;
 import com.ktar5.slime.tools.levelselectioneditor.Path;
+import com.ktar5.slime.tools.levelselectioneditor.input.InsertPoint;
 import com.ktar5.slime.tools.levelselectioneditor.points.PathPoint;
 import com.ktar5.slime.tools.levelselectioneditor.points.Point;
 import com.ktar5.slime.tools.levelselectioneditor.ui.util.ZoomablePannableWidget;
 import lombok.Getter;
 
-import java.util.ArrayList;
 import java.util.Collection;
 
 public class SceneRenderer extends ZoomablePannableWidget {
@@ -41,20 +42,22 @@ public class SceneRenderer extends ZoomablePannableWidget {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                ArrayList<Path> arrayList = new ArrayList<>(scene.getPaths().values());
-                Path path = arrayList.get(0);
-                if (path != null) {
-                    System.out.println();
-                    System.out.println("Unfixed: " + (x - getRenderX()) + " , " + (y - getRenderY()));
-                    System.out.println(scale);
-
-                    int xFixed = (int) ((x - getRenderX()) / scale);
-                    int yFixed = (int) ((y - getRenderY()) / scale);
-
-                    System.out.println("Fixed: " + xFixed + " , " + yFixed);
-
-                    PathPoint point = new PathPoint(5, xFixed, yFixed);
-                    path.addPoint(point);
+                switch (Main.getInstance().mainStage.inputMode) {
+                    case NONE:
+                        break;
+                    case SELECT_PATH:
+                        //TODO
+                        break;
+                    case SELECT_POINT:
+                        //TODO
+                        break;
+                    case CREATE_POINT:
+                        //TODO path?
+                        InsertPoint.act(scene, null, (int) x, (int) y, SceneRenderer.this);
+                        break;
+                    case MOVE_POINT:
+                        //TODO
+                        break;
                 }
             }
         });
@@ -101,18 +104,18 @@ public class SceneRenderer extends ZoomablePannableWidget {
                     int y = (int) (getRenderY() + (current.getY() * scale));
                     shapeRenderer.circle(x, y, 3 * scale);
 
-                    if(current.equals(value.getFirstPoint()) && value.getStart() != null){
+                    if (current.equals(value.getFirstPoint()) && value.getStart() != null) {
                         Point start = value.getStart();
                         shapeRenderer.line(x, y, (int) (getRenderX() + (start.getX() * scale)), (int) (getRenderY() + (start.getY() * scale)));
                     }
-                    if(current.equals(value.getLastPoint()) && value.getEnd() != null){
+                    if (current.equals(value.getLastPoint()) && value.getEnd() != null) {
                         Point end = value.getEnd();
                         shapeRenderer.line(x, y, (int) (getRenderX() + (end.getX() * scale)), (int) (getRenderY() + (end.getY() * scale)));
                     }
 
                     //Move on to next point and draw the line to the next point at the same time
                     current = current.getNext();
-                    if(current != null){
+                    if (current != null) {
                         shapeRenderer.line(x, y, (int) (getRenderX() + (current.getX() * scale)), (int) (getRenderY() + (current.getY() * scale)));
                     }
 

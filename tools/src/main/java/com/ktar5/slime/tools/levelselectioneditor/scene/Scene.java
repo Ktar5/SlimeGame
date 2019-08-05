@@ -8,6 +8,7 @@ import com.ktar5.slime.tools.levelselectioneditor.points.ControlPoint;
 import com.ktar5.slime.tools.levelselectioneditor.points.DataPoint;
 import com.ktar5.slime.tools.levelselectioneditor.ui.util.KSerializeable;
 import lombok.Getter;
+import lombok.Setter;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.tinylog.Logger;
@@ -30,6 +31,9 @@ public class Scene implements KSerializeable {
     private File saveFile, textureFile;
 
     private Texture texture;
+
+    @Setter
+    private boolean dirty = false;
 
     public Scene(String name, File saveFile, File textureFile) {
         paths = new HashMap<>();
@@ -98,8 +102,8 @@ public class Scene implements KSerializeable {
         return json;
     }
 
-    public void save(){
-        Logger.info("Starting save for sceene (" + name + ")");
+    public void save() {
+        Logger.info("Starting save for scene (" + name + ") in " + "\"" + getSaveFile() + "\"");
 
         if (getSaveFile().exists()) {
             getSaveFile().delete();
@@ -109,8 +113,7 @@ public class Scene implements KSerializeable {
             getSaveFile().createNewFile();
             FileWriter writer = new FileWriter(getSaveFile());
             writer.write(serialize().toString(4));
-            //TODO
-            //Main.getInstance().getRoot().getTabHoldingPane().getTab(id).setDirty(false);
+            this.dirty = false;
             writer.close();
         } catch (IOException e) {
             e.printStackTrace();

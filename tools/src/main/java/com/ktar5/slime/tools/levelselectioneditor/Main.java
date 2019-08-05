@@ -5,22 +5,22 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.graphics.GL20;
 import com.ktar5.slime.tools.levelselectioneditor.input.Input;
-import com.ktar5.slime.tools.levelselectioneditor.ui.MainScene;
+import com.ktar5.slime.tools.levelselectioneditor.ui.MainStage;
 
 public class Main implements ApplicationListener {
     private static Main instance;
     public SceneManager manager;
-    public MainScene mainScene;
+    public MainStage mainStage;
 
     @Override
     public void create() {
         instance = this;
         manager = new SceneManager();
-        mainScene = new MainScene();
+        mainStage = new MainStage();
 
         InputMultiplexer inputMultiplexer = new InputMultiplexer();
         inputMultiplexer.addProcessor(new Input());
-        inputMultiplexer.addProcessor(mainScene);
+        inputMultiplexer.addProcessor(mainStage);
         Gdx.input.setInputProcessor(inputMultiplexer);
     }
 
@@ -30,8 +30,8 @@ public class Main implements ApplicationListener {
         Gdx.gl.glClearColor(i / 255f, i / 255f, i / 255f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        mainScene.act();
-        mainScene.draw();
+        mainStage.act();
+        mainStage.draw();
     }
 
     public static Main getInstance() {
@@ -56,7 +56,7 @@ public class Main implements ApplicationListener {
 
     @Override
     public void resize(int width, int height) {
-        mainScene.getViewport().update(width, height, true);
+        mainStage.getViewport().update(width, height, true);
     }
 //endregion
 

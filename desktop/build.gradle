@@ -11,6 +11,7 @@ repositories {
 
 dependencies {
     compile project(':core')
+    compile project(':tools')
     compile "com.ktar5:tileeditor:1.0-SNAPSHOT"
     compile "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"
     compile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"

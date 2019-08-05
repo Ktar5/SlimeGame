@@ -148,6 +148,7 @@ public class LevelHandler implements Renderable, Updatable {
         }
     }
 
+    //TODO add "local_chapters"
     public void initialize() {
         mapFileMap = new IntMap<>();
 

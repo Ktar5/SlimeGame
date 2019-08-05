@@ -10,8 +10,8 @@ public class DataPoint extends Point {
     private String data;
     private String name;
 
-    public DataPoint(String data, String name, int id, int x, int y) {
-        super(id, x, y);
+    public DataPoint(String data, String name, int x, int y) {
+        super(x, y);
         this.data = data;
         this.name = name;
     }

@@ -13,6 +13,8 @@ import java.util.UUID;
 
 @Getter
 public class Path implements KSerializeable {
+    public boolean updated = false;
+
     private Scene scene;
 
     private UUID pathID;
@@ -72,10 +74,10 @@ public class Path implements KSerializeable {
         return scene.getControlPoints().get(controlEnd);
     }
 
-    public FrontBack getFrontBack(UUID controlPoint){
-        if(controlPoint.equals(controlStart)){
+    public FrontBack getFrontBack(UUID controlPoint) {
+        if (controlPoint.equals(controlStart)) {
             return FrontBack.FRONT;
-        }else{
+        } else {
             return FrontBack.BACK;
         }
     }
@@ -95,6 +97,11 @@ public class Path implements KSerializeable {
         json.put("start", controlStart == null ? "null" : controlStart.toString());
         json.put("end", controlEnd == null ? "null" : controlEnd.toString());
         return json;
+    }
+
+    public void setName(String name){
+        this.name = name;
+        Main.getInstance().mainStage.getSidebar().getPathSidebar().getPathSelection().itemsChanged();
     }
 
 }

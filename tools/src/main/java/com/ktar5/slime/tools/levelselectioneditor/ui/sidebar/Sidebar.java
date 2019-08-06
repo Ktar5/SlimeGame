@@ -2,12 +2,14 @@ package com.ktar5.slime.tools.levelselectioneditor.ui.sidebar;
 
 import com.badlogic.gdx.scenes.scene2d.ui.Container;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.ktar5.slime.tools.levelselectioneditor.Path;
 import com.ktar5.slime.tools.levelselectioneditor.points.Point;
+import com.ktar5.slime.tools.levelselectioneditor.ui.sidebar.path.PathSidebar;
+import lombok.Getter;
 
 public class Sidebar extends Table {
     private EditMode editMode = EditMode.POINT;
 
+    @Getter
     private PathSidebar pathSidebar;
     private PointSidebar pointSidebar;
 
@@ -28,21 +30,20 @@ public class Sidebar extends Table {
         this.add(dataContainer).growY().growX();
     }
 
-    public void setEditMode(EditMode editMode){
+    public void setEditMode(EditMode editMode) {
         this.editMode = editMode;
     }
 
-    public void setPointSidebar(Point point){
+    public void setPointSidebar(Point point) {
         dataContainer.clear();
         dataContainer.setActor(pointSidebar);
         pointSidebar.setPoint(point);
     }
 
-    public void setPathSidebar(Path path){
+    public void setPathData() {
         dataContainer.clear();
         dataContainer.setActor(pathSidebar);
-//        pathSidebar.setPath(path);
-
+        pathSidebar.setToSelection();
     }
 
 }

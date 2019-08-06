@@ -43,7 +43,7 @@ public class PointSidebar extends Table {
 
         selectPathButton.addListener(new KChangeListener((changeEvent, actor) -> {
             Main.getInstance().mainStage.getSidebar().setEditMode(EditMode.PATH);
-            Main.getInstance().mainStage.getSidebar().setPathSidebar(((PathPoint) point).getPath());
+            Main.getInstance().mainStage.getSidebar().setPathData(((PathPoint) point).getPath());
         }));
 
         addPointBeforeButton.addListener(new KChangeListener((changeEvent, actor) -> {

@@ -12,7 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ScissorStack;
 import com.ktar5.slime.tools.levelselectioneditor.Main;
 import com.ktar5.slime.tools.levelselectioneditor.Path;
-import com.ktar5.slime.tools.levelselectioneditor.input.InsertPoint;
+import com.ktar5.slime.tools.levelselectioneditor.points.ControlPoint;
 import com.ktar5.slime.tools.levelselectioneditor.points.PathPoint;
 import com.ktar5.slime.tools.levelselectioneditor.points.Point;
 import com.ktar5.slime.tools.levelselectioneditor.ui.util.ZoomablePannableWidget;
@@ -44,9 +44,6 @@ public class SceneRenderer extends ZoomablePannableWidget {
                 super.clicked(event, x, y);
                 switch (Main.getInstance().mainStage.inputMode) {
                     case NONE:
-                        break;
-                    case SELECT_PATH:
-                        //TODO
                         break;
                     case SELECT_POINT:
                         //TODO
@@ -102,7 +99,7 @@ public class SceneRenderer extends ZoomablePannableWidget {
                 while (current != null) {
                     int x = (int) (getRenderX() + (current.getX() * scale));
                     int y = (int) (getRenderY() + (current.getY() * scale));
-                    shapeRenderer.circle(x, y, 3 * scale);
+                    shapeRenderer.circle(x, y, 6 * scale);
 
                     if (current.equals(value.getFirstPoint()) && value.getStart() != null) {
                         Point start = value.getStart();
@@ -122,16 +119,31 @@ public class SceneRenderer extends ZoomablePannableWidget {
                 }
             }
 
-            //Draw the start and the end points of the path
-            shapeRenderer.setColor(Color.GREEN);
-            if (value.getStart() != null) {
-                shapeRenderer.circle((value.getStart().getX() * scale) + getRenderX(), (value.getStart().getY() * scale) + getRenderY(), 5 * scale);
-            }
-            shapeRenderer.setColor(Color.RED);
-            if (value.getEnd() != null) {
-                shapeRenderer.circle((value.getEnd().getX() * scale) + getRenderX(), (value.getEnd().getY() * scale) + getRenderY(), 5 * scale);
-            }
+        }
+        for (ControlPoint value : scene.getControlPoints().values()) {
+            shapeRenderer.setColor(Color.MAGENTA);
+            shapeRenderer.circle((value.getX() * scale) + getRenderX(), (value.getY() * scale) + getRenderY(), 5 * scale);
+            shapeRenderer.circle((value.getX() * scale) + getRenderX(), (value.getY() * scale) + getRenderY(), 1.5f * scale);
 
+            if (value.getPathUp() != null) shapeRenderer.setColor(Color.GREEN);
+            else shapeRenderer.setColor(Color.RED);
+            shapeRenderer.rect(((value.getX() - 3f) * scale) + getRenderX(), ((value.getY() + 4f) * scale) + getRenderY(),
+                    6 * scale, 4 * scale);
+
+            if (value.getPathRight() != null) shapeRenderer.setColor(Color.GREEN);
+            else shapeRenderer.setColor(Color.RED);
+            shapeRenderer.rect(((value.getX() + 4f) * scale) + getRenderX(), ((value.getY() - 3f) * scale) + getRenderY(),
+                    4 * scale, 6 * scale);
+
+            if (value.getPathDown() != null) shapeRenderer.setColor(Color.GREEN);
+            else shapeRenderer.setColor(Color.RED);
+            shapeRenderer.rect(((value.getX() - 3f) * scale) + getRenderX(), ((value.getY() - 8f) * scale) + getRenderY(),
+                    6 * scale, 4 * scale);
+
+            if (value.getPathLeft() != null) shapeRenderer.setColor(Color.GREEN);
+            else shapeRenderer.setColor(Color.RED);
+            shapeRenderer.rect(((value.getX() - 8f) * scale) + getRenderX(), ((value.getY() - 3f) * scale) + getRenderY(),
+                    4 * scale, 6 * scale);
         }
         shapeRenderer.end();
 

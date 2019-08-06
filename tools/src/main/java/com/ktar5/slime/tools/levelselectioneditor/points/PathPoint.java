@@ -21,14 +21,14 @@ public class PathPoint extends Point {
 
     public void setNext(PathPoint nextPoint) {
         this.next = nextPoint;
-        if(nextPoint != null){
+        if (nextPoint != null) {
             nextPoint.prev = this;
         }
     }
 
     public void setPrev(PathPoint prevPoint) {
         this.prev = prevPoint;
-        if(prevPoint != null){
+        if (prevPoint != null) {
             prevPoint.next = this;
         }
     }

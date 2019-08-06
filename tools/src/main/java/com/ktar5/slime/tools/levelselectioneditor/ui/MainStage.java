@@ -8,6 +8,7 @@ import com.badlogic.gdx.utils.viewport.ScreenViewport;
 import com.kotcrab.vis.ui.VisUI;
 import com.kotcrab.vis.ui.widget.file.FileChooser;
 import com.ktar5.slime.tools.levelselectioneditor.Path;
+import com.ktar5.slime.tools.levelselectioneditor.input.InputMode;
 import com.ktar5.slime.tools.levelselectioneditor.points.ControlPoint;
 import com.ktar5.slime.tools.levelselectioneditor.scene.Scene;
 import com.ktar5.slime.tools.levelselectioneditor.scene.SceneRenderer;
@@ -19,7 +20,7 @@ import java.io.File;
 
 @Getter
 public class MainStage extends Stage {
-    public InputMode inputMode = InputMode.NONE;
+    public com.ktar5.slime.tools.levelselectioneditor.input.InputMode inputMode = InputMode.NONE;
 
     private FileChooser fileChooser;
 

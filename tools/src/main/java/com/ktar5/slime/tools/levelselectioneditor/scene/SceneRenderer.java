@@ -12,6 +12,7 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.scenes.scene2d.utils.ScissorStack;
 import com.ktar5.slime.tools.levelselectioneditor.Main;
 import com.ktar5.slime.tools.levelselectioneditor.Path;
+import com.ktar5.slime.tools.levelselectioneditor.input.Input;
 import com.ktar5.slime.tools.levelselectioneditor.points.ControlPoint;
 import com.ktar5.slime.tools.levelselectioneditor.points.PathPoint;
 import com.ktar5.slime.tools.levelselectioneditor.points.Point;
@@ -42,22 +43,12 @@ public class SceneRenderer extends ZoomablePannableWidget {
             @Override
             public void clicked(InputEvent event, float x, float y) {
                 super.clicked(event, x, y);
-                switch (Main.getInstance().mainStage.inputMode) {
-                    case NONE:
-                        break;
-                    case SELECT_POINT:
-                        //TODO
-                        break;
-                    case CREATE_POINT:
-                        //TODO path?
-                        InsertPoint.act(scene, null, (int) x, (int) y, SceneRenderer.this);
-                        break;
-                    case MOVE_POINT:
-                        //TODO
-                        break;
-                }
+                int xFixed = (int) ((x - getRenderX()) / scale);
+                int yFixed = (int) ((y - getRenderY()) / scale);
+                Input.handleClick(xFixed, yFixed);
             }
         });
+
     }
 
     public void setScene(Scene scene) {
@@ -90,6 +81,8 @@ public class SceneRenderer extends ZoomablePannableWidget {
         //Draw the paths
         shapeRenderer.begin();
         Collection<Path> values = scene.getPaths().values();
+        Point selectedPoint = Main.getInstance().mainStage.getSidebar().getSelectedPoint();
+
         for (Path value : values) {
             if (value.getFirstPoint() != null) {
                 shapeRenderer.setColor(Color.BLUE);
@@ -114,6 +107,12 @@ public class SceneRenderer extends ZoomablePannableWidget {
                     current = current.getNext();
                     if (current != null) {
                         shapeRenderer.line(x, y, (int) (getRenderX() + (current.getX() * scale)), (int) (getRenderY() + (current.getY() * scale)));
+                    }
+
+                    if(selectedPoint != null && selectedPoint.equals(current)){
+                        shapeRenderer.setColor(Color.GOLD);
+                        shapeRenderer.circle(x, y, 6 * scale);
+                        shapeRenderer.setColor(Color.BLUE);
                     }
 
                 }
@@ -144,6 +143,12 @@ public class SceneRenderer extends ZoomablePannableWidget {
             else shapeRenderer.setColor(Color.RED);
             shapeRenderer.rect(((value.getX() - 8f) * scale) + getRenderX(), ((value.getY() - 3f) * scale) + getRenderY(),
                     4 * scale, 6 * scale);
+
+            if(selectedPoint != null && selectedPoint.equals(value)){
+                shapeRenderer.setColor(Color.GOLD);
+                shapeRenderer.circle((value.getX() * scale) + getRenderX(), (value.getY() * scale) + getRenderY(), 5 * scale);
+                shapeRenderer.setColor(Color.MAGENTA);
+            }
         }
         shapeRenderer.end();
 

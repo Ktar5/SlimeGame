@@ -14,6 +14,7 @@ import com.ktar5.slime.tools.levelselectioneditor.scene.Scene;
 import com.ktar5.slime.tools.levelselectioneditor.scene.SceneRenderer;
 import com.ktar5.slime.tools.levelselectioneditor.ui.sidebar.Sidebar;
 import com.ktar5.slime.tools.levelselectioneditor.ui.topmenu.TopMenu;
+import com.ktar5.utilities.common.constants.Direction;
 import lombok.Getter;
 
 import java.io.File;
@@ -57,10 +58,6 @@ public class MainStage extends Stage {
         sceneRenderer = new SceneRenderer();
         editorTable.add(sceneRenderer).grow();
 
-        //todo TESTING
-        this.setScene(createScene());
-        //todo TESTING
-
         belowMenuTable.add(editorTable).grow();
 
         mainTable.add(belowMenuTable).grow();
@@ -76,15 +73,15 @@ public class MainStage extends Stage {
         Path path = new Path(scene, "path1");
 
         ControlPoint start1 = new ControlPoint("start_one", 0, 0);
-        start1.setPathUp(path.getPathID());
+        start1.setPath(path.getPathID(), Direction.N);
         ControlPoint end1 = new ControlPoint("end_one", 150, 150);
-        end1.setPathDown(path.getPathID());
+        end1.setPath(path.getPathID(), Direction.S);
 
         scene.getControlPoints().put(start1.getControlID(), start1);
         scene.getControlPoints().put(end1.getControlID(), end1);
 
-        path.setControlStart(start1.getControlID());
-        path.setControlEnd(end1.getControlID());
+        path.setControlStart(start1.getControlID(), Direction.N, true);
+        path.setControlEnd(end1.getControlID(), Direction.S, true);
 
         scene.getPaths().put(path.getPathID(), path);
         return scene;

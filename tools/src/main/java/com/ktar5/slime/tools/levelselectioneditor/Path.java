@@ -4,6 +4,7 @@ import com.ktar5.slime.tools.levelselectioneditor.points.ControlPoint;
 import com.ktar5.slime.tools.levelselectioneditor.points.PathPoint;
 import com.ktar5.slime.tools.levelselectioneditor.scene.Scene;
 import com.ktar5.slime.tools.levelselectioneditor.ui.util.KSerializeable;
+import com.ktar5.utilities.common.constants.Direction;
 import lombok.Getter;
 import lombok.Setter;
 import org.json.JSONArray;
@@ -21,7 +22,7 @@ public class Path implements KSerializeable {
     private String name;
     @Setter
     private PathPoint firstPoint, lastPoint;
-    @Setter
+
     private UUID controlStart, controlEnd;
 
     public Path(Scene scene, String name) {
@@ -99,9 +100,55 @@ public class Path implements KSerializeable {
         return json;
     }
 
-    public void setName(String name){
+    public void setName(String name) {
         this.name = name;
         Main.getInstance().mainStage.getSidebar().getPathSidebar().getPathSelection().itemsChanged();
+    }
+
+    public void hardSetControlStart(UUID controlStart) {
+        this.controlStart = controlStart;
+    }
+
+    public void hardSetControlEnd(UUID controlEnd) {
+        this.controlEnd = controlEnd;
+    }
+
+    public void setControlStart(UUID controlStart, Direction direction, boolean selfSetControlpoints) {
+        if (selfSetControlpoints) {
+            this.controlStart = controlStart;
+            return;
+        }
+        if (this.controlStart != null) {
+            ControlPoint controlPoint = Main.getInstance().mainStage.getSceneRenderer().getScene().getControlPoints().get(this.controlStart);
+            controlPoint.removePath(this.controlStart);
+        }
+        this.controlStart = controlStart;
+        if(controlStart != null){
+            ControlPoint controlPoint = Main
+                    .getInstance()
+                    .mainStage
+                    .getSceneRenderer()
+                    .getScene().getControlPoints().get(this.controlStart);
+            controlPoint.removePath(this.controlStart);
+            controlPoint.setPath(controlStart, direction);
+        }
+    }
+
+    public void setControlEnd(UUID controlEnd, Direction direction, boolean selfSetControlpoints) {
+        if (selfSetControlpoints) {
+            this.controlEnd = controlEnd;
+            return;
+        }
+        if (this.controlEnd != null) {
+            ControlPoint controlPoint = Main.getInstance().mainStage.getSceneRenderer().getScene().getControlPoints().get(this.controlEnd);
+            controlPoint.removePath(this.controlEnd);
+        }
+        this.controlEnd = controlEnd;
+        if (controlEnd != null) {
+            ControlPoint controlPoint = Main.getInstance().mainStage.getSceneRenderer().getScene().getControlPoints().get(this.controlEnd);
+            controlPoint.removePath(controlEnd);
+            controlPoint.setPath(controlEnd, direction);
+        }
     }
 
 }

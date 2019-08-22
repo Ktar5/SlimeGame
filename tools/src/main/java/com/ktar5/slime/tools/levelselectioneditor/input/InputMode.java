@@ -4,6 +4,7 @@ public enum InputMode {
     NONE,
     SELECT_POINT,
     CREATE_POINT,
+    CREATE_CONTROL_POINT,
     MOVE_POINT,
     SELECT_START,
     SELECT_END

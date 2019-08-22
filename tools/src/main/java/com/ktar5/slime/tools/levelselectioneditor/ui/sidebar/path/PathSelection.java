@@ -11,6 +11,7 @@ public class PathSelection extends ListView<Path> {
 
     public PathSelection() {
         super(new Adapter(new ArrayList<>(Main.getInstance().mainStage.getSceneRenderer().getScene().getPaths().values())));
+        //new Adapter(new ArrayList<>(Main.getInstance().mainStage.getSceneRenderer().getScene().getPaths().values()))
         this.setItemClickListener(item -> {
             //TODO set path to item
             //And unset selection

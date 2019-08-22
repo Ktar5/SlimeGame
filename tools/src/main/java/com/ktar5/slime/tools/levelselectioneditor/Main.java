@@ -18,6 +18,9 @@ public class Main implements ApplicationListener {
         manager = new SceneManager();
         mainStage = new MainStage();
 
+        //TODO testing
+        mainStage.setScene(mainStage.createScene());
+
         InputMultiplexer inputMultiplexer = new InputMultiplexer();
         inputMultiplexer.addProcessor(new Input());
         inputMultiplexer.addProcessor(mainStage);

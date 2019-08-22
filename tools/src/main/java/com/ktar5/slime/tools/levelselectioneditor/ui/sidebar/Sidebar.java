@@ -2,11 +2,13 @@ package com.ktar5.slime.tools.levelselectioneditor.ui.sidebar;
 
 import com.badlogic.gdx.scenes.scene2d.ui.Container;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.ktar5.slime.tools.levelselectioneditor.Path;
 import com.ktar5.slime.tools.levelselectioneditor.points.Point;
 import com.ktar5.slime.tools.levelselectioneditor.ui.sidebar.path.PathSidebar;
 import lombok.Getter;
 
 public class Sidebar extends Table {
+    @Getter
     private EditMode editMode = EditMode.POINT;
 
     @Getter
@@ -16,7 +18,6 @@ public class Sidebar extends Table {
     private Container<Table> dataContainer;
 
     public Sidebar() {
-        pathSidebar = new PathSidebar();
         pointSidebar = new PointSidebar();
         dataContainer = new Container<>();
 
@@ -35,15 +36,26 @@ public class Sidebar extends Table {
     }
 
     public void setPointSidebar(Point point) {
-        dataContainer.clear();
+//        dataContainer.setActor(null);
         dataContainer.setActor(pointSidebar);
         pointSidebar.setPoint(point);
     }
 
-    public void setPathData() {
-        dataContainer.clear();
+    public void setPathSidebar() {
+//        dataContainer.clear();
+        if(pathSidebar == null){
+            pathSidebar = new PathSidebar();
+        }
         dataContainer.setActor(pathSidebar);
         pathSidebar.setToSelection();
+    }
+
+    public Point getSelectedPoint() {
+        return editMode == EditMode.POINT ? pointSidebar.getPoint() : null;
+    }
+
+    public Path getSelectedPath() {
+        return editMode == EditMode.PATH ? pathSidebar.getPathData().getPath() : null;
     }
 
 }

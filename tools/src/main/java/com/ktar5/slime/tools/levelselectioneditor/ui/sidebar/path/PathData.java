@@ -5,8 +5,11 @@ import com.kotcrab.vis.ui.widget.VisLabel;
 import com.kotcrab.vis.ui.widget.VisTextButton;
 import com.ktar5.slime.tools.levelselectioneditor.Main;
 import com.ktar5.slime.tools.levelselectioneditor.Path;
+import com.ktar5.slime.tools.levelselectioneditor.input.Input;
+import com.ktar5.slime.tools.levelselectioneditor.input.InputMode;
 import com.ktar5.slime.tools.levelselectioneditor.points.ControlPoint;
 import com.ktar5.slime.tools.levelselectioneditor.ui.util.KChangeListener;
+import com.ktar5.utilities.common.constants.Direction;
 import lombok.Getter;
 
 import java.util.Collection;
@@ -56,15 +59,25 @@ public class PathData extends Table {
             Main.getInstance().mainStage.getSceneRenderer().getScene().getPaths().remove(path.getPathID());
             Collection<ControlPoint> values = Main.getInstance().mainStage.getSceneRenderer().getScene().getControlPoints().values();
             for (ControlPoint value : values) {
-                if (path.getPathID().equals(value.getPathUp())) value.setPathUp(null);
-                if (path.getPathID().equals(value.getPathRight())) value.setPathRight(null);
-                if (path.getPathID().equals(value.getPathLeft())) value.setPathLeft(null);
-                if (path.getPathID().equals(value.getPathDown())) value.setPathDown(null);
+                if (path.getPathID().equals(value.getPathUp())) value.setPath(null, Direction.N);
+                if (path.getPathID().equals(value.getPathRight())) value.setPath(null, Direction.E);
+                if (path.getPathID().equals(value.getPathLeft())) value.setPath(null, Direction.W);
+                if (path.getPathID().equals(value.getPathDown())) value.setPath(null, Direction.S);
             }
         }));
 
         insertPointToggleButton.addListener(new KChangeListener((changeEvent, actor) -> {
-            //TODO create input mode
+            if(setStartButton.isChecked()){
+                insertPointToggleButton.setChecked(false);
+                setStartButton.setChecked(false);
+                setEndButton.setChecked(false);
+                Input.inputMode = InputMode.NONE;
+            }else{
+                insertPointToggleButton.setChecked(true);
+                setEndButton.setChecked(false);
+                setStartButton.setChecked(false);
+                Input.inputMode = InputMode.CREATE_POINT;
+            }
         }));
 
         changeNameButton.addListener(new KChangeListener((changeEvent, actor) -> {
@@ -77,11 +90,31 @@ public class PathData extends Table {
         }));
 
         setStartButton.addListener(new KChangeListener((changeEvent, actor) -> {
-            //TODO create input mode
+            if(setStartButton.isChecked()){
+                setStartButton.setChecked(false);
+                setEndButton.setChecked(false);
+                insertPointToggleButton.setChecked(false);
+                Input.inputMode = InputMode.NONE;
+            }else{
+                setStartButton.setChecked(true);
+                setEndButton.setChecked(false);
+                insertPointToggleButton.setChecked(false);
+                Input.inputMode = InputMode.SELECT_START;
+            }
         }));
 
         setEndButton.addListener(new KChangeListener((changeEvent, actor) -> {
-            //TODO set input mode
+            if(setEndButton.isChecked()){
+                setEndButton.setChecked(false);
+                setStartButton.setChecked(false);
+                insertPointToggleButton.setChecked(false);
+                Input.inputMode = InputMode.NONE;
+            }else{
+                setEndButton.setChecked(true);
+                setStartButton.setChecked(false);
+                insertPointToggleButton.setChecked(false);
+                Input.inputMode = InputMode.SELECT_END;
+            }
         }));
 
         backButton.addListener(new KChangeListener((changeEvent, actor) -> {

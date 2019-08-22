@@ -11,11 +11,12 @@ import com.ktar5.slime.tools.levelselectioneditor.points.PathPoint;
 import com.ktar5.slime.tools.levelselectioneditor.points.Point;
 import com.ktar5.slime.tools.levelselectioneditor.scene.Scene;
 import com.ktar5.slime.tools.levelselectioneditor.ui.util.KChangeListener;
+import lombok.Getter;
 
 import java.util.UUID;
 
 public class PointSidebar extends Table {
-    private Point point;
+    @Getter private Point point;
 
     private VisLabel x, y, data;
 
@@ -43,7 +44,7 @@ public class PointSidebar extends Table {
 
         selectPathButton.addListener(new KChangeListener((changeEvent, actor) -> {
             Main.getInstance().mainStage.getSidebar().setEditMode(EditMode.PATH);
-            Main.getInstance().mainStage.getSidebar().setPathData(((PathPoint) point).getPath());
+//            Main.getInstance().mainStage.getSidebar().setPathData(((PathPoint) point).getPath());
         }));
 
         addPointBeforeButton.addListener(new KChangeListener((changeEvent, actor) -> {
@@ -128,6 +129,7 @@ public class PointSidebar extends Table {
                 deleteControlPoint(scene, cpoint.getControlID(), cpoint.getPathLeft());
                 deleteControlPoint(scene, cpoint.getControlID(), cpoint.getPathRight());
                 deleteControlPoint(scene, cpoint.getControlID(), cpoint.getPathUp());
+                Main.getInstance().mainStage.getSceneRenderer().getScene().getControlPoints().remove(((ControlPoint) point).getControlID());
             } else if (point instanceof DataPoint) {
                 scene.getDataPoints().remove(((DataPoint) point));
             }
@@ -166,11 +168,11 @@ public class PointSidebar extends Table {
 
         Path path = scene.getPaths().get(pathID);
 
-        if (path.getControlStart().equals(cpoint)) {
-            path.setControlStart(null);
+        if (path.getControlStart() != null && path.getControlStart().equals(cpoint)) {
+            path.setControlStart(null, null, false);
         }
-        if (path.getControlEnd().equals(cpoint)) {
-            path.setControlStart(null);
+        if (path.getControlEnd() != null && path.getControlEnd().equals(cpoint)) {
+            path.setControlStart(null, null, false);
         }
     }
 
@@ -193,7 +195,13 @@ public class PointSidebar extends Table {
     }
 
     public void setPoint(Point point) {
+        if(this.point != null && this.point.equals(point)){
+            return;
+        }
         this.point = point;
+        if(this.point != null){
+            this.point.setUpdated(true);
+        }
         update();
         if (!(point instanceof PathPoint)) {
             selectPathButton.setDisabled(true);

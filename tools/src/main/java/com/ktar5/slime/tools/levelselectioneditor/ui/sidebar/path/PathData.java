@@ -1,8 +1,8 @@
 package com.ktar5.slime.tools.levelselectioneditor.ui.sidebar.path;
 
+import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.kotcrab.vis.ui.widget.VisLabel;
-import com.kotcrab.vis.ui.widget.VisTextButton;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.ktar5.slime.tools.levelselectioneditor.Main;
 import com.ktar5.slime.tools.levelselectioneditor.Path;
 import com.ktar5.slime.tools.levelselectioneditor.input.Input;
@@ -16,47 +16,47 @@ import java.util.Collection;
 
 public class PathData extends Table {
 
-    private VisLabel startX, startY, startDirection, startUUID, startData;
-    private VisLabel endX, endY, endDirection, endUUID, endData;
+    private Label startX, startY, startDirection, startUUID, startData;
+    private Label endX, endY, endDirection, endUUID, endData;
 
-    private VisLabel name;
+    private Label name;
 
-    private VisTextButton deletePathButton;
-    private VisTextButton insertPointToggleButton;
-    private VisTextButton changeNameButton;
-    private VisTextButton clearPointsButton;
-    private VisTextButton setStartButton;
-    private VisTextButton setEndButton;
-    private VisTextButton backButton;
+    private TextButton deletePathButton;
+    private TextButton insertPointToggleButton;
+    private TextButton changeNameButton;
+    private TextButton clearPointsButton;
+    private TextButton setStartButton;
+    private TextButton setEndButton;
+    private TextButton backButton;
 
     @Getter
     private Path path;
 
     public PathData() {
-        startX = new VisLabel("Null");
-        startY = new VisLabel("Null");
-        startDirection = new VisLabel("Null");
-        startUUID = new VisLabel("Null");
-        startData = new VisLabel("Null");
-        endX = new VisLabel("Null");
-        endY = new VisLabel("Null");
-        endData = new VisLabel("Null");
-        endDirection = new VisLabel("Null");
-        endUUID = new VisLabel("Null");
-        name = new VisLabel("Null");
+        startX = new Label("Null", Main.skin);
+        startY = new Label("Null", Main.skin);
+        startDirection = new Label("Null", Main.skin);
+        startUUID = new Label("Null", Main.skin);
+        startData = new Label("Null", Main.skin);
+        endX = new Label("Null", Main.skin);
+        endY = new Label("Null", Main.skin);
+        endData = new Label("Null", Main.skin);
+        endDirection = new Label("Null", Main.skin);
+        endUUID = new Label("Null", Main.skin);
+        name = new Label("Null", Main.skin);
 
-        deletePathButton = new VisTextButton("Delete Path");
-        insertPointToggleButton = new VisTextButton("Insert Point Mode");
-        changeNameButton = new VisTextButton("Change Name");
-        clearPointsButton = new VisTextButton("Clear All Points");
-        setStartButton = new VisTextButton("Set Start Control");
-        setEndButton = new VisTextButton("Set End Control");
-        backButton = new VisTextButton("<-- Back");
+        deletePathButton = new TextButton("Delete Path", Main.skin);
+        insertPointToggleButton = new TextButton("Insert Point Mode", Main.skin, "toggle");
+        changeNameButton = new TextButton("Change Name", Main.skin);
+        clearPointsButton = new TextButton("Clear All Points", Main.skin);
+        setStartButton = new TextButton("Set Start Control", Main.skin, "toggle");
+
+        setEndButton = new TextButton("Set End Control", Main.skin, "toggle");
+        backButton = new TextButton("<-- Back", Main.skin);
 
         deletePathButton.addListener(new KChangeListener((changeEvent, actor) -> {
             Main.getInstance().mainStage.getSidebar().getPathSidebar().setToSelection();
             Main.getInstance().mainStage.getSidebar().getPathSidebar().getPathSelection().itemsChanged();
-            Main.getInstance().mainStage.getSceneRenderer().getScene().getPaths().remove(path.getPathID());
             Collection<ControlPoint> values = Main.getInstance().mainStage.getSceneRenderer().getScene().getControlPoints().values();
             for (ControlPoint value : values) {
                 if (path.getPathID().equals(value.getPathUp())) value.setPath(null, Direction.N);
@@ -64,18 +64,13 @@ public class PathData extends Table {
                 if (path.getPathID().equals(value.getPathLeft())) value.setPath(null, Direction.W);
                 if (path.getPathID().equals(value.getPathDown())) value.setPath(null, Direction.S);
             }
+            Main.getInstance().mainStage.getSceneRenderer().getScene().getPaths().remove(path.getPathID());
         }));
 
         insertPointToggleButton.addListener(new KChangeListener((changeEvent, actor) -> {
-            if(setStartButton.isChecked()){
-                insertPointToggleButton.setChecked(false);
-                setStartButton.setChecked(false);
-                setEndButton.setChecked(false);
+            if (setStartButton.isChecked()) {
                 Input.inputMode = InputMode.NONE;
-            }else{
-                insertPointToggleButton.setChecked(true);
-                setEndButton.setChecked(false);
-                setStartButton.setChecked(false);
+            } else {
                 Input.inputMode = InputMode.CREATE_POINT;
             }
         }));
@@ -90,29 +85,18 @@ public class PathData extends Table {
         }));
 
         setStartButton.addListener(new KChangeListener((changeEvent, actor) -> {
-            if(setStartButton.isChecked()){
-                setStartButton.setChecked(false);
-                setEndButton.setChecked(false);
-                insertPointToggleButton.setChecked(false);
+            if (setStartButton.isChecked()) {
                 Input.inputMode = InputMode.NONE;
-            }else{
-                setStartButton.setChecked(true);
-                setEndButton.setChecked(false);
-                insertPointToggleButton.setChecked(false);
+            } else {
                 Input.inputMode = InputMode.SELECT_START;
             }
         }));
 
+
         setEndButton.addListener(new KChangeListener((changeEvent, actor) -> {
-            if(setEndButton.isChecked()){
-                setEndButton.setChecked(false);
-                setStartButton.setChecked(false);
-                insertPointToggleButton.setChecked(false);
+            if (setEndButton.isChecked()) {
                 Input.inputMode = InputMode.NONE;
-            }else{
-                setEndButton.setChecked(true);
-                setStartButton.setChecked(false);
-                insertPointToggleButton.setChecked(false);
+            } else {
                 Input.inputMode = InputMode.SELECT_END;
             }
         }));
@@ -121,67 +105,71 @@ public class PathData extends Table {
             Main.getInstance().mainStage.getSidebar().getPathSidebar().setToSelection();
         }));
 
-        this.add(backButton);
-        this.row();
-        this.add(new VisLabel("Path Name:"));
-        this.add(name);
-        this.row();
+        Table dataTable = new Table();
+        this.debugAll();
 
-        this.add(new VisLabel("Start X:"));
-        this.add(startX);
-        this.row();
+        this.add(backButton).fillX().row();
 
-        this.add(new VisLabel("Start Y:"));
-        this.add(startY);
-        this.row();
+        dataTable.row();
+        dataTable.add(new Label("Path Name:", Main.skin));
+        dataTable.add(name);
+        dataTable.row();
 
-        this.add(new VisLabel("Start Dir:"));
-        this.add(startDirection);
-        this.row();
+        dataTable.add(new Label("Start X:", Main.skin));
+        dataTable.add(startX);
+        dataTable.row();
 
-        this.add(new VisLabel("Start ID:"));
-        this.add(startUUID);
-        this.row();
+        dataTable.add(new Label("Start Y:", Main.skin));
+        dataTable.add(startY);
+        dataTable.row();
 
-        this.add(new VisLabel("Start Data"));
-        this.add(startData);
-        this.row();
+        dataTable.add(new Label("Start Dir:", Main.skin));
+        dataTable.add(startDirection);
+        dataTable.row();
+
+        dataTable.add(new Label("Start ID:", Main.skin));
+        dataTable.add(startUUID);
+        dataTable.row();
+
+        dataTable.add(new Label("Start Data", Main.skin));
+        dataTable.add(startData);
+        dataTable.row();
 
 
-        this.add(new VisLabel("End X:"));
-        this.add(endX);
-        this.row();
+        dataTable.add(new Label("End X:", Main.skin));
+        dataTable.add(endX);
+        dataTable.row();
 
-        this.add(new VisLabel("End Y:"));
-        this.add(endY);
-        this.row();
+        dataTable.add(new Label("End Y:", Main.skin));
+        dataTable.add(endY);
+        dataTable.row();
 
-        this.add(new VisLabel("End Dir:"));
-        this.add(endDirection);
-        this.row();
+        dataTable.add(new Label("End Dir:", Main.skin));
+        dataTable.add(endDirection);
+        dataTable.row();
 
-        this.add(new VisLabel("End ID:"));
-        this.add(endUUID);
-        this.row();
+        dataTable.add(new Label("End ID:", Main.skin));
+        dataTable.add(endUUID);
+        dataTable.row();
 
-        this.add(new VisLabel("End Data"));
-        this.add(endData);
-        this.row();
+        dataTable.add(new Label("End Data", Main.skin));
+        dataTable.add(endData);
+        dataTable.row();
+        this.add(dataTable).grow().row();
 
-        this.add(insertPointToggleButton);
+        this.add(insertPointToggleButton).fillX();
         this.row();
-        this.add(changeNameButton);
+        this.add(changeNameButton).fillX();
         this.row();
-        this.add(setStartButton);
+        this.add(setStartButton).fillX();
         this.row();
-        this.add(setEndButton);
+        this.add(setEndButton).fillX();
 
         this.row();
         this.row();
-        this.add(deletePathButton);
+        this.add(deletePathButton).fillX();
         this.row();
-        this.add(clearPointsButton);
-
+        this.add(clearPointsButton).fillX();
     }
 
 
@@ -208,7 +196,7 @@ public class PathData extends Table {
                 else if (path.getPathID().equals(start.getPathRight())) startDirection.setText("Right");
                 else if (path.getPathID().equals(start.getPathUp())) startDirection.setText("Up");
 
-                startUUID.setText(start.getControlID().toString());
+//                startUUID.setText(start.getControlID().toString());
                 startData.setText(start.getData());
             }
             if (path.getControlEnd() == null) {
@@ -226,7 +214,7 @@ public class PathData extends Table {
                 else if (path.getPathID().equals(end.getPathRight())) endDirection.setText("Right");
                 else if (path.getPathID().equals(end.getPathUp())) endDirection.setText("Up");
 
-                endUUID.setText(end.getControlID().toString());
+//                endUUID.setText(end.getControlID().toString());
                 endData.setText(end.getData());
             }
 
@@ -236,6 +224,7 @@ public class PathData extends Table {
 
     public void setPath(Path path) {
         this.path = path;
+        path.updated = true;
         update();
         insertPointToggleButton.setChecked(false);
     }

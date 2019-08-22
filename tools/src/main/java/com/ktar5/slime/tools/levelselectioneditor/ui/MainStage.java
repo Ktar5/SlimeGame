@@ -39,7 +39,7 @@ public class MainStage extends Stage {
         fileChooser = new FileChooser(FileChooser.Mode.OPEN);
 
         Table mainTable = new Table();
-        mainTable.debugAll();
+//        mainTable.debugAll();
 
         mainTable.setFillParent(true);
         TopMenu topMenu = new TopMenu();

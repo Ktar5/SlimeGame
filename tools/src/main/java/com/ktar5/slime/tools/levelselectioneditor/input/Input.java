@@ -28,6 +28,7 @@ public class Input implements InputProcessor {
 
     //TODO TEST CONTROL START AND CONTROL END REMOVAL AND ADDING AND SELECTING
     public static void handleClick(int x, int y) {
+        System.out.println(inputMode);
         switch (inputMode) {
             case SELECT_POINT:
                 Input.selectClosestPoint(x, y);
@@ -45,9 +46,12 @@ public class Input implements InputProcessor {
                 Main.getInstance().mainStage.getSidebar().getSelectedPath().setControlStart(controlPoint.getControlID(), direction, false);
                 break;
             case SELECT_END:
+                System.out.println("ABC 123");
                 controlPoint = selectClosestControlPoint(x, y);
                 angle = new Vector2(x - controlPoint.getX(), y - controlPoint.getY()).angle();
                 direction = Direction.fromAngleCardinal(angle);
+                System.out.println(angle);
+                System.out.println(direction);
                 Main.getInstance().mainStage.getSidebar().getSelectedPath().setControlEnd(controlPoint.getControlID(), direction, false);
                 break;
         }

@@ -5,6 +5,8 @@ import com.kotcrab.vis.ui.widget.VisLabel;
 import com.kotcrab.vis.ui.widget.VisTextButton;
 import com.ktar5.slime.tools.levelselectioneditor.Main;
 import com.ktar5.slime.tools.levelselectioneditor.Path;
+import com.ktar5.slime.tools.levelselectioneditor.input.Input;
+import com.ktar5.slime.tools.levelselectioneditor.input.InputMode;
 import com.ktar5.slime.tools.levelselectioneditor.points.ControlPoint;
 import com.ktar5.slime.tools.levelselectioneditor.points.DataPoint;
 import com.ktar5.slime.tools.levelselectioneditor.points.PathPoint;
@@ -33,18 +35,25 @@ public class PointSidebar extends Table {
 
         selectPathButton = new VisTextButton("Select Point's Path");
         moveCurrentPointButton = new VisTextButton("Move Point");
-
+        moveCurrentPointButton.setProgrammaticChangeEvents(false);
         addPointBeforeButton = new VisTextButton("Add Point Before");
         addPointAfterButton = new VisTextButton("Add Point After");
         deleteCurrentButton = new VisTextButton("Delete Selected");
 
         moveCurrentPointButton.addListener(new KChangeListener((changeEvent, actor) -> {
-            //TODO enable move mode (left click confirm) (something to cancel? escape)
+            if(moveCurrentPointButton.isChecked()){
+                moveCurrentPointButton.setChecked(false);
+                Input.inputMode = InputMode.NONE;
+            }else{
+                moveCurrentPointButton.setChecked(true);
+                Input.inputMode = InputMode.MOVE_POINT;
+            }
         }));
 
         selectPathButton.addListener(new KChangeListener((changeEvent, actor) -> {
             Main.getInstance().mainStage.getSidebar().setEditMode(EditMode.PATH);
-//            Main.getInstance().mainStage.getSidebar().setPathData(((PathPoint) point).getPath());
+            Main.getInstance().mainStage.getSidebar().setPathSidebar();
+            Main.getInstance().mainStage.getSidebar().getPathSidebar().setToPathData(((PathPoint) point).getPath());
         }));
 
         addPointBeforeButton.addListener(new KChangeListener((changeEvent, actor) -> {
@@ -150,6 +159,10 @@ public class PointSidebar extends Table {
 
         this.row();
 
+        this.add(selectPathButton);
+        this.row();
+        this.add(moveCurrentPointButton);
+        this.row();
         this.add(addPointBeforeButton);
         this.row();
         this.add(addPointAfterButton);

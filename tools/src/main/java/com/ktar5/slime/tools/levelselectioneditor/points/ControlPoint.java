@@ -62,6 +62,7 @@ public class ControlPoint extends Point {
                     removeEnds(pathUp);
                 }
                 this.pathUp = newPath;
+                break;
             case E:
                 if(pathRight != null) {
                     removeEnds(pathRight);

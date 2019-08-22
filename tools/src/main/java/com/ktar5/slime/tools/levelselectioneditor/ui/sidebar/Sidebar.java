@@ -21,14 +21,13 @@ public class Sidebar extends Table {
         pointSidebar = new PointSidebar();
         dataContainer = new Container<>();
 
-        this.debugAll();
         //Add the edit mode selector
         this.add(new EditModeSelector()).top().growX().padTop(10).padBottom(10);
 
         this.row();
 
         //Add dataContainer
-        this.add(dataContainer).growY().growX();
+        this.add(dataContainer).grow();
     }
 
     public void setEditMode(EditMode editMode) {
@@ -36,17 +35,16 @@ public class Sidebar extends Table {
     }
 
     public void setPointSidebar(Point point) {
-//        dataContainer.setActor(null);
         dataContainer.setActor(pointSidebar);
         pointSidebar.setPoint(point);
     }
 
     public void setPathSidebar() {
-//        dataContainer.clear();
         if(pathSidebar == null){
             pathSidebar = new PathSidebar();
         }
         dataContainer.setActor(pathSidebar);
+        dataContainer.debugAll();
         pathSidebar.setToSelection();
     }
 

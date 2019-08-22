@@ -16,13 +16,13 @@ public class PathSidebar extends Table {
         internalTable = new Table();
         pathData = new PathData();
         pathSelection = new PathSelection();
-        this.add(internalTable);
+        this.add(internalTable).grow();
     }
 
     public void setToPathData(Path path) {
         internalTable.clear();
         pathData.setPath(path);
-        internalTable.add(pathData);
+        internalTable.add(pathData).grow();
     }
 
     public void setToSelection() {

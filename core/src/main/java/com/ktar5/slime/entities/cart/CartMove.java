@@ -109,7 +109,7 @@ public class CartMove extends CartState {
             JumpPlayer player = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getPlayer();
             if(player.isTouching(getEntity().getHitbox(), futureAheadHitboxPosition)){
                 //TODO TEST
-                getEntity().onEntityTouch(player, player.getLastMovedDirection());
+                getEntity().onTouchedByEntity(player, player.getLastMovedDirection());
             }
             for (Entity entity : entities) {
                 if (entity.equals(getEntity())) {
@@ -120,7 +120,7 @@ public class CartMove extends CartState {
                         shouldStop = true;
                     }
                     //refer to the non-moving entity
-                    ((TouchableEntity) entity).onEntityTouch(getEntity(), getEntity().getLastMovedDirection());
+                    ((TouchableEntity) entity).onTouchedByEntity(getEntity(), getEntity().getLastMovedDirection());
                     //there was a break here but i removed it because maybe multiple things touch on the same frame
                 }
 

@@ -4,6 +4,8 @@ import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.gameengine.util.Side;
 import com.ktar5.slime.entities.box.Box;
 import com.ktar5.slime.entities.box.BoxIdle;
+import com.ktar5.slime.entities.hero.HeroEntity;
+import com.ktar5.slime.entities.hero.HeroIdle;
 import com.ktar5.slime.entities.player.states.Idle;
 import com.ktar5.slime.world.tiles.base.Rotation;
 import com.ktar5.slime.world.tiles.base.WholeGameTile;
@@ -29,12 +31,11 @@ public class Goo extends WholeGameTile {
             entity.getEntityState().changeStateAfterUpdate(Idle.class);
         } else if (entity instanceof Box) {
             entity.getEntityState().changeStateAfterUpdate(BoxIdle.class);
+        } else if(entity instanceof HeroEntity){
+            entity.getEntityState().changeStateAfterUpdate(HeroIdle.class);
         } else {
             return true;
         }
-        int x = (int) entity.position.x / 16;
-        int y = (int) entity.position.y / 16;
-//        entity.position.set((x * 16) + 8, (y * 16) + 8);
         return true;
     }
 }

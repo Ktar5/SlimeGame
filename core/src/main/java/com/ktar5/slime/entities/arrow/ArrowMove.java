@@ -65,7 +65,7 @@ public class ArrowMove extends ArrowState {
                 continue;
             }
             if (entity instanceof GameEntity && ((GameEntity) entity).isTouching(getEntity())) {
-                ((TouchableEntity) entity).onEntityTouch(getEntity(), getEntity().getLastMovedDirection());
+                ((TouchableEntity) entity).onTouchedByEntity(getEntity(), getEntity().getLastMovedDirection());
                 touchedEntity = true;
                 break;
             }

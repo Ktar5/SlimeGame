@@ -155,13 +155,13 @@ public class NewMove extends PlayerState {
             Vector2 futureAheadHitboxPosition = getPlayer().getPosition().cpy().add(16 * getMovement().x, 16 * getMovement().y);
             for (Entity entity : entities) {
                 if (entity instanceof Box && ((Box) entity).isTouching(getPlayer().getHitbox(), futureAheadHitboxPosition)) {
-                    ((TouchableEntity) entity).onEntityTouch(getPlayer(), getPlayer().getLastMovedDirection());
+                    ((TouchableEntity) entity).onTouchedByEntity(getPlayer(), getPlayer().getLastMovedDirection());
                     System.out.println("Touching box");
                     //TODO start the animation
                     touchedEntity = true;
                     break;
                 }else if(entity instanceof Cart && ((Cart) entity).isTouching(getPlayer().getHitbox(), futureAheadHitboxPosition)){
-                    ((TouchableEntity) entity).onEntityTouch(getPlayer(), getPlayer().getLastMovedDirection());
+                    ((TouchableEntity) entity).onTouchedByEntity(getPlayer(), getPlayer().getLastMovedDirection());
                     System.out.println("Touching cart");
                     touchedEntity = true;
                     break;

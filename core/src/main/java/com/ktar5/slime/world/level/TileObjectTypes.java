@@ -5,7 +5,7 @@ import com.badlogic.gdx.utils.IntMap;
 import com.ktar5.gameengine.util.Side;
 import com.ktar5.slime.entities.box.BoxEntityData;
 import com.ktar5.slime.entities.cart.CartEntityData;
-import com.ktar5.slime.entities.ghost.GhostEntityData;
+import com.ktar5.slime.entities.hero.HeroEntityData;
 import com.ktar5.slime.world.tiles.*;
 import com.ktar5.slime.world.tiles.base.Rotation;
 
@@ -44,7 +44,7 @@ public enum TileObjectTypes {
 
     //Entities / Special Cases
     BOX((x, y, cell) -> new BoxEntityData(x, y), 10),
-    HERO((x, y, cell) -> new GhostEntityData(x, y, Rotation.fromCell(cell)), 24),
+    HERO((x, y, cell) -> new HeroEntityData(x, y, Rotation.fromCell(cell)), 24),
     CART((x, y, cell) -> new CartEntityData(x, y, Rotation.fromCell(cell), false), 32),
     CART_MOVE((x, y, cell) -> new CartEntityData(x, y, Rotation.fromCell(cell), true), 33),
     ;

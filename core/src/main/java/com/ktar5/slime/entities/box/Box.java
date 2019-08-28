@@ -52,7 +52,7 @@ public class Box extends GameEntity<BoxState> implements TouchableEntity, Telepo
     }
 
     @Override
-    public void onEntityTouch(Entity entity, Side movement) {
+    public void onTouchedByEntity(Entity entity, Side movement) {
         if (entity.isPlayer()) {
             entity.getEntityState().changeStateAfterUpdate(Idle.class);
             if (((JumpPlayer) entity).isSmall()) {

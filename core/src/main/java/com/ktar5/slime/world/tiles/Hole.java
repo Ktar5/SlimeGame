@@ -4,6 +4,7 @@ import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.gameengine.util.Side;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.entities.box.Box;
+import com.ktar5.slime.entities.hero.HeroEntity;
 import com.ktar5.slime.entities.player.JumpPlayer;
 import com.ktar5.slime.world.level.LoadedLevel;
 import com.ktar5.slime.world.tiles.base.Rotation;
@@ -47,6 +48,8 @@ public class Hole extends WholeGameTile {
             currentLevel.addEdit(x, y, currentLevel.getGameplayArtLayerIndex(),
                     currentLevel.getCurrentID(x, y, currentLevel.getGameplayArtLayer()));
             currentLevel.setGraphic(x, y, "GameplayImages", currentLevel.getGameplayArtLayer(), 221);
+        } else if (entity instanceof HeroEntity){
+            ((HeroEntity) entity).kill();
         }
 
         return true;

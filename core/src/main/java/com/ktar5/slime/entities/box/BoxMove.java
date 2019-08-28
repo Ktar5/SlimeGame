@@ -100,7 +100,7 @@ public class BoxMove extends BoxState {
                     continue;
                 }
                 if (entity instanceof GameEntity && ((GameEntity) entity).isTouching(getEntity().getHitbox(), futureAheadHitboxPosition)) {
-                    ((TouchableEntity) entity).onEntityTouch(getEntity(), getEntity().getLastMovedDirection());
+                    ((TouchableEntity) entity).onTouchedByEntity(getEntity(), getEntity().getLastMovedDirection());
                     touchedEntity = true;
                     break;
                 }

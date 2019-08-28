@@ -4,6 +4,7 @@ import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.gameengine.util.Side;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.entities.box.Box;
+import com.ktar5.slime.entities.hero.HeroEntity;
 import com.ktar5.slime.entities.player.JumpPlayer;
 import com.ktar5.slime.world.level.LoadedLevel;
 import com.ktar5.slime.world.tiles.base.Rotation;
@@ -44,6 +45,9 @@ public class CrumbledFloor extends WholeGameTile {
                 currentLevel.setGraphic(x, y, "GameplayImages", currentLevel.getGameplayArtLayer(), 221);
             } else if (entity.isPlayer()) {
                 ((JumpPlayer) entity).kill("crumbled_floor");
+                return true;
+            } else if(entity instanceof HeroEntity){
+                ((HeroEntity) entity).kill();
                 return true;
             }
             return true;

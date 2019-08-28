@@ -8,7 +8,7 @@ public class BoxIdle extends BoxState {
 
     @Override
     public void start() {
-
+        getEntity().currentMovement = null;
     }
 
     @Override

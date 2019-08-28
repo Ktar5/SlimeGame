@@ -76,7 +76,7 @@ public class Arrow extends GameEntity<ArrowState> implements TouchableEntity, Po
     }
 
     @Override
-    public void onEntityTouch(Entity entity, Side movement) {
+    public void onTouchedByEntity(Entity entity, Side movement) {
         if (entity.isPlayer()) {
             ((JumpPlayer) entity).kill("arrow");
         }

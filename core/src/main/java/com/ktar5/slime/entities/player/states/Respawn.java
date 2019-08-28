@@ -34,10 +34,6 @@ public class Respawn extends PlayerState {
         //none
     }
 
-    private Respawn getThis() {
-        return this;
-    }
-
     public void cancel() {
         if (schedule != null) {
             schedule.cancel();

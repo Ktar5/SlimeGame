@@ -6,9 +6,6 @@ import lombok.Getter;
 
 public abstract class PlayerState extends State<PlayerState> {
 
-//    @Getter(lazy = true)
-//    private final JumpPlayer player = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getPlayer();
-
     @Getter
     private final JumpPlayer player;
 

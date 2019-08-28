@@ -12,7 +12,7 @@ public class GhostEntityData extends EntityData {
     public boolean positiveDirection = false;
 
     public GhostEntityData(int x, int y, Rotation rotation) {
-        super(EntityType.GHOST, x, y);
+        super(EntityType.HERO, x, y);
         if(rotation.equals(Rotation.DEG_0) || rotation.equals(Rotation.DEG_180)){
             axis = Axis.HORIZONTAL;
         }else{

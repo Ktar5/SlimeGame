@@ -7,6 +7,7 @@ import com.ktar5.gameengine.util.Side;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.entities.TouchableEntity;
 import com.ktar5.slime.entities.box.Box;
+import com.ktar5.slime.entities.cart.Cart;
 import com.ktar5.slime.entities.player.JumpPlayer;
 import com.ktar5.slime.variables.Settings;
 import com.ktar5.slime.world.level.LevelData;
@@ -157,6 +158,11 @@ public class NewMove extends PlayerState {
                     ((TouchableEntity) entity).onEntityTouch(getPlayer(), getPlayer().getLastMovedDirection());
                     System.out.println("Touching box");
                     //TODO start the animation
+                    touchedEntity = true;
+                    break;
+                }else if(entity instanceof Cart && ((Cart) entity).isTouching(getPlayer().getHitbox(), futureAheadHitboxPosition)){
+                    ((TouchableEntity) entity).onEntityTouch(getPlayer(), getPlayer().getLastMovedDirection());
+                    System.out.println("Touching cart");
                     touchedEntity = true;
                     break;
                 }

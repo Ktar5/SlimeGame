@@ -175,6 +175,7 @@ public class PathData extends Table {
 
     @Override
     public void act(float delta) {
+        super.act(delta);
         update();
     }
 

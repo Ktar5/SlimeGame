@@ -4,6 +4,7 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.utils.IntMap;
 import com.ktar5.gameengine.util.Side;
 import com.ktar5.slime.entities.box.BoxEntityData;
+import com.ktar5.slime.entities.cart.CartEntityData;
 import com.ktar5.slime.entities.ghost.GhostEntityData;
 import com.ktar5.slime.world.tiles.*;
 import com.ktar5.slime.world.tiles.base.Rotation;
@@ -27,6 +28,10 @@ public enum TileObjectTypes {
     DRAIN_PIPE_UP_DOWN((x, y, cell) -> new HoleInWall(x, y, Rotation.fromCell(cell), Side.UP, Side.DOWN), 20),
     DRAIN_PIPE_ALL_DIR((x, y, cell) -> new HoleInWall(x, y), 28),
 
+    RAIL_LEFT_UP((x, y, cell) -> new Rail(x, y, Rotation.fromCell(cell), Side.LEFT, Side.UP), 40),
+    RAIL_UP_DOWN((x, y, cell) -> new Rail(x, y, Rotation.fromCell(cell), Side.UP, Side.DOWN), 48),
+    RAIL_ALL_DIR((x, y, cell) -> new Rail(x, y), 56),
+
     SPIKE((x, y, cell) -> new Spikes(x, y), 16),
     HOLE((x, y, cell) -> new Hole(x, y), 17),
     CRUMBLING_FLOOR((x, y, cell) -> new CrumbledFloor(x, y), 18),
@@ -39,18 +44,19 @@ public enum TileObjectTypes {
 
     //Entities / Special Cases
     BOX((x, y, cell) -> new BoxEntityData(x, y), 10),
-    GHOST((x, y, cell) -> new GhostEntityData(x, y, Rotation.fromCell(cell)), 24)
-
+    HERO((x, y, cell) -> new GhostEntityData(x, y, Rotation.fromCell(cell)), 24),
+    CART((x, y, cell) -> new CartEntityData(x, y, Rotation.fromCell(cell), false), 32),
+    CART_MOVE((x, y, cell) -> new CartEntityData(x, y, Rotation.fromCell(cell), true), 33),
     ;
 
     private static final IntMap<TileObjectTypes> tileIds = new IntMap<>();
     public static final HashSet<TileObjectTypes> TILES = new HashSet<>(Arrays.asList(
             WIN, START, WALL, ONE_DIRECTION, DRAIN, GOO, BUTTON, PRESSURE_PLATE, GATE, DRAIN_PIPE_ALL_DIR,
             DRAIN_PIPE_LEFT_UP, DRAIN_PIPE_UP_DOWN, SPIKE, HOLE, CRUMBLING_FLOOR, TELEPORTER, BIG, HIDESPIKE, SHOOTER,
-            HEAVY_PLATE
+            HEAVY_PLATE, RAIL_ALL_DIR, RAIL_LEFT_UP, RAIL_UP_DOWN
     ));
     public static final HashSet<TileObjectTypes> ENTITIES = new HashSet<TileObjectTypes>(Arrays.asList(
-            BOX, GHOST
+            BOX, HERO, CART, CART_MOVE
     ));
 
     static {

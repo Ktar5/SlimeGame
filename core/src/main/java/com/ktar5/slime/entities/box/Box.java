@@ -11,6 +11,8 @@ import com.ktar5.slime.entities.Rectangle;
 import com.ktar5.slime.entities.Teleportable;
 import com.ktar5.slime.entities.TouchableEntity;
 import com.ktar5.slime.entities.arrow.Arrow;
+import com.ktar5.slime.entities.cart.Cart;
+import com.ktar5.slime.entities.cart.CartIdle;
 import com.ktar5.slime.entities.player.JumpPlayer;
 import com.ktar5.slime.entities.player.states.Idle;
 
@@ -56,6 +58,9 @@ public class Box extends GameEntity<BoxState> implements TouchableEntity, Telepo
             if (((JumpPlayer) entity).isSmall()) {
                 return;
             }
+        }
+        if(entity instanceof Cart){
+            entity.getEntityState().changeStateAfterUpdate(CartIdle.class);
         }
         if (entity instanceof Arrow) {
             return;

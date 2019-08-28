@@ -2,7 +2,7 @@ package com.ktar5.slime.entities;
 
 public enum EntityType {
     BOX,
-    GHOST,
+    HERO,
+    CART,
     ARROW;
-    //MONSTER((x, y, cell) -> new MonsterEntityData(EntityType.MONSTER, x, y));
 }

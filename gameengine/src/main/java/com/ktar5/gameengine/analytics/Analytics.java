@@ -7,6 +7,10 @@ import com.badlogic.gdx.utils.async.AsyncExecutor;
 import org.bson.Document;
 import org.tinylog.Logger;
 
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -30,6 +34,9 @@ public class Analytics implements Disposable {
     public static boolean enabled = true;
 
     private Analytics(Preferences prefs, MongoDBInstance mongo, String build_id, int build_version, int analytics_version) {
+        if(!enabled){
+            return;
+        }
         Logger.tag("analytics").debug("Analytics initialized with build ID: '" + build_id + ":" + build_version + "' & analytics version: '" + analytics_version + "'");
         this.build_version = build_version;
         this.mongo = mongo;
@@ -89,11 +96,17 @@ public class Analytics implements Disposable {
     }
 
     public static void addEvent(AnalyticEvent event) {
+        if(!enabled){
+            return;
+        }
         Analytics analytics = get();
         analytics.event(event);
     }
 
     private void event(AnalyticEvent event) {
+        if(!enabled){
+            return;
+        }
         Document document = new Document()
                 .append("session_id", session_id)
                 .append("user_id", user_id)
@@ -115,6 +128,9 @@ public class Analytics implements Disposable {
     }
 
     public static Analytics create(Preferences preferences, MongoDBInstance mongo, String build_id, int build_version, int analytics_version) {
+        if(!enabled){
+            return null;
+        }
         Logger.tag("analytics").debug("Created analytics");
         session = new Analytics(preferences, mongo, build_id, build_version, analytics_version);
         flush();
@@ -122,6 +138,9 @@ public class Analytics implements Disposable {
     }
 
     public static Analytics get() {
+        if(!enabled){
+            return null;
+        }
         if (session == null) {
             throw new RuntimeException("Must call Analytics.create() before getting Analytics");
         }
@@ -135,5 +154,21 @@ public class Analytics implements Disposable {
         Logger.tag("analytics").debug("Just flushed");
         mongo.dispose();
         executor.dispose();
+    }
+
+    public static boolean hasInternet(){
+        try {
+            final URL url = new URL("http://www.google.com");
+            final URLConnection conn = url.openConnection();
+            conn.connect();
+            conn.getInputStream().close();
+            Logger.debug("We have internet access");
+            return true;
+        } catch (MalformedURLException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            Logger.debug("We do not have internet access");
+            return false;
+        }
     }
 }

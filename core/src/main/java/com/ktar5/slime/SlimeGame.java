@@ -108,7 +108,8 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
             if (DEVELOPER_MODE) {
                 build_id = "developer";
             }
-            Analytics.create(slimegame, mongoDBInstance, build_id, 3, 4);
+            //Increment resets every time you want to reset all the analytics
+            Analytics.create(slimegame, mongoDBInstance, build_id, 3, 1);
         }
 
         //Load everything needed for pre-game

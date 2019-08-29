@@ -24,7 +24,7 @@ public class Analytics implements Disposable {
     private AsyncExecutor executor = new AsyncExecutor(1);
     private int session_num, currentEventNumber = 0;
     private String platform, user_id, build_id;
-    private int analytics_version, build_version;
+    private int build_version;
     private String session_id = UUID.randomUUID().toString();
     private Locale locale = Locale.getDefault();
     private long sessionStartTime = System.currentTimeMillis();
@@ -33,34 +33,24 @@ public class Analytics implements Disposable {
 
     public static boolean enabled = true;
 
-    private Analytics(Preferences prefs, MongoDBInstance mongo, String build_id, int build_version, int analytics_version) {
+    private Analytics(Preferences prefs, MongoDBInstance mongo, String build_id, int build_version, int resets) {
         if(!enabled){
             return;
         }
-        Logger.tag("analytics").debug("Analytics initialized with build ID: '" + build_id + ":" + build_version + "' & analytics version: '" + analytics_version + "'");
+        Logger.tag("analytics").debug("Analytics initialized with build ID: '" + build_id + ":" + build_version);
         this.build_version = build_version;
         this.mongo = mongo;
         this.build_id = build_id;
-        this.analytics_version = analytics_version;
-
         events = new ArrayList<>();
-
         platform = Platform.getDefaultPlatform(Gdx.app.getType()).name();
 
-        try {
-            prefs.getInteger("analytics_version", 0);
-        } catch (NumberFormatException e) {
-            prefs.putInteger("analytics_version", analytics_version);
-            prefs.flush();
-        }
 
-        int previousAnalyticsVersion = prefs.getInteger("analytics_version", 0);
-        if (previousAnalyticsVersion == 0) {
-            Logger.tag("analytics").debug("Initializing analytics at version: " + analytics_version);
-            prefs.putInteger("analytics_version", analytics_version);
-        } else if (previousAnalyticsVersion != analytics_version) {
-            Logger.tag("analytics").debug("Updating from analytics " + previousAnalyticsVersion + " to " + analytics_version);
-            prefs.putInteger("analytics_version", analytics_version);
+        int tempResets = prefs.getInteger("resets", 0);
+        if(tempResets < resets){
+            prefs.clear();
+            prefs.putInteger("resets", resets);
+            prefs.flush();
+            Logger.tag("analytics").debug("Analytics reset, preferences reset");
         }
 
         user_id = prefs.getString("analytics_user_id", null);
@@ -114,7 +104,6 @@ public class Analytics implements Disposable {
                 .append("platform", platform)
                 .append("build_id", build_id)
                 .append("build_version", build_version)
-                .append("analytics_ver", analytics_version)
                 .append("system_time", System.currentTimeMillis())
                 .append("time_since_start", System.currentTimeMillis() - sessionStartTime)
                 .append("country", locale.getCountry())
@@ -127,12 +116,12 @@ public class Analytics implements Disposable {
         events.add(document);
     }
 
-    public static Analytics create(Preferences preferences, MongoDBInstance mongo, String build_id, int build_version, int analytics_version) {
+    public static Analytics create(Preferences preferences, MongoDBInstance mongo, String build_id, int build_version, int resets) {
         if(!enabled){
             return null;
         }
         Logger.tag("analytics").debug("Created analytics");
-        session = new Analytics(preferences, mongo, build_id, build_version, analytics_version);
+        session = new Analytics(preferences, mongo, build_id, build_version, resets);
         flush();
         return session;
     }

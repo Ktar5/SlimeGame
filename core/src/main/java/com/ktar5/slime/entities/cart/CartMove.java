@@ -126,15 +126,10 @@ public class CartMove extends CartState {
 
             }
 
-            System.out.println("123 123 123");
-            System.out.println(currentTile.getClass());
             if (shouldStop) {
-                System.out.println("Should stop");
                 getEntity().getPosition().moveTo((currentTileX * 16) + 8, (currentTileY * 16) + 8);
                 changeState(CartIdle.class);
-                //TODO
             } else if (currentTile.changeMovement(getEntity(), getMovement())) {
-                System.out.println("ABC");
                 //TODO Fix how this makes the cart kind of skip corners and move a lot faster than they should.
                 getEntity().getPosition().moveTo((currentTileX * 16) + 8, (currentTileY * 16) + 8);
                 getEntity().getPosition().translate(SPEED * getMovement().x, SPEED * getMovement().y);

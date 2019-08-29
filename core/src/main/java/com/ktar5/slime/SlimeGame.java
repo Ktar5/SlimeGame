@@ -94,7 +94,8 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
 
     @Override
     protected AbstractScreen getStartingScreen() {
-
+        //disable analytics
+        Analytics.enabled = false;
 
         //Load everything needed for pre-game
         VisUI.load();
@@ -102,12 +103,12 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
         Tween.registerAccessor(Entity.class, new EntityTweenAccessor());
         Tween.registerAccessor(RetractingSpikes.class, new RetractingSpikes.SpikesTweenAccessor());
         MongoDBInstance mongoDBInstance = new MongoDBInstance("mongodb+srv://analytics:test@cluster0-k5pjp.mongodb.net/test?retryWrites=true", "test");
-        Preferences slimegame = Gdx.app.getPreferences("com.ktar5.slimegame");
-        String build_id = "0.1.0";
+        Preferences slimegame = Gdx.app.getPreferences("com.ktar5.slipnslime");
+        String build_id = "0.2.0";
         if (DEVELOPER_MODE) {
             build_id = "developer";
         }
-        Analytics.create(slimegame, mongoDBInstance, build_id, 2, 3);
+        Analytics.create(slimegame, mongoDBInstance, build_id, 3, 4);
         EngineManager.get().getAnimationLoader().loadAtlas("textures/player/Slime.atlas");
         SlimeGame.getGame().setLevelHandler(new LevelHandler());
 

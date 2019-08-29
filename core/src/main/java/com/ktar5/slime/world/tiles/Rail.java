@@ -44,9 +44,7 @@ public class Rail extends WholeGameTile {
 
     @Override
     public boolean changeMovement(Entity entity, Side movement) {
-        System.out.println("444 444 444");
         if (!(entity instanceof Cart)) {
-            System.out.println(5);
             return false;
         }
         if (allSides || sideOne.opposite().equals(sideTwo)) {
@@ -55,13 +53,11 @@ public class Rail extends WholeGameTile {
         //Logger.debug("Values: " + sideOne.name() + ", " + sideTwo.name());
         if (movement.opposite().equals(sideOne)) {
             //Logger.debug("Entered: " + sideOne.name() + " exited: " + sideTwo.name());
-            System.out.println(1);
             entity.setLastMovedDirection(sideTwo);
             return true;
         } else if (movement.opposite().equals(sideTwo)) {
             //Logger.debug("Entered: " + sideTwo.name()  + " exited: " + sideOne.name());
             entity.setLastMovedDirection(sideOne);
-            System.out.println(2);
             return true;
         }
         return false;

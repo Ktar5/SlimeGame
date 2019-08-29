@@ -27,6 +27,8 @@ public class Analytics implements Disposable {
 
     private List<Document> events;
 
+    public static boolean enabled = true;
+
     private Analytics(Preferences prefs, MongoDBInstance mongo, String build_id, int build_version, int analytics_version) {
         Logger.tag("analytics").debug("Analytics initialized with build ID: '" + build_id + ":" + build_version + "' & analytics version: '" + analytics_version + "'");
         this.build_version = build_version;
@@ -71,6 +73,9 @@ public class Analytics implements Disposable {
     }
 
     public static void flush() {
+        if(!enabled){
+            return;
+        }
         Analytics analytics = get();
 
         ArrayList<Document> documents = new ArrayList<>(analytics.events);

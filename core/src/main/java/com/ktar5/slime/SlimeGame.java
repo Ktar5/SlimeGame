@@ -19,6 +19,7 @@ import com.ktar5.gameengine.tweenengine.Tween;
 import com.ktar5.slime.data.SlimeGameData;
 import com.ktar5.slime.misc.CameraLookAt;
 import com.ktar5.slime.misc.PixelPerfectViewport;
+import com.ktar5.slime.platform.AStoreSDK;
 import com.ktar5.slime.screens.loading.NewLoadingScreen;
 import com.ktar5.slime.world.level.LevelHandler;
 import com.ktar5.slime.world.tiles.RetractingSpikes;
@@ -41,10 +42,12 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
 
     public StaticCamera uiCamera;
     public CameraLookAt gameCamera;
+    @Getter private AStoreSDK storeSDK;
 
 
-    public SlimeGame() {
+    public SlimeGame(AStoreSDK storeSDK) {
         instance = this;
+        this.storeSDK = storeSDK;
     }
 
     @Override

@@ -13,7 +13,7 @@ public class SlimeGameData extends GameData {
         super(new File(System.getProperty("user.home")
                 + File.separator + "documents"
                 + File.separator + "Wildmagic Studios"
-                + File.separator + "A Story of Slime"));
+                + File.separator + "Slip n Slime"));
     }
 
     @Override

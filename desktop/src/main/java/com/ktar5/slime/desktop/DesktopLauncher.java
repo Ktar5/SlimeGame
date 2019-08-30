@@ -4,6 +4,7 @@ import com.badlogic.gdx.Files.FileType;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
 import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.ktar5.slime.SlimeGame;
+import com.ktar5.slime.desktop.steamworks.SteamSDK;
 import com.ktar5.tileeditor.Main;
 
 /**
@@ -23,7 +24,7 @@ public class DesktopLauncher {
     
     private static LwjglApplication createApplication() {
         if(env == Environment.GAME){
-            return new LwjglApplication(new SlimeGame(), getGameConfiguration());
+            return new LwjglApplication(new SlimeGame(new SteamSDK()), getGameConfiguration());
         }else if(env == Environment.EDITOR){
             return new LwjglApplication(new Main(), getEditorConfiguration());
 //            return new LwjglApplication(new SlimeGame(), getEditorConfiguration());
@@ -33,7 +34,7 @@ public class DesktopLauncher {
     
     private static LwjglApplicationConfiguration getGameConfiguration() {
         LwjglApplicationConfiguration configuration = new LwjglApplicationConfiguration();
-        configuration.title = "slimeGame";
+        configuration.title = "Slip 'n Slime";
         configuration.width = 960;
         configuration.height = 540;
         configuration.vSyncEnabled = true;
@@ -47,7 +48,7 @@ public class DesktopLauncher {
 
     private static LwjglApplicationConfiguration getEditorConfiguration() {
         LwjglApplicationConfiguration configuration = new LwjglApplicationConfiguration();
-        configuration.title = "slimeGame";
+        configuration.title = "Slip 'n Slime";
         configuration.width = 960;
         configuration.height = 540;
         configuration.vSyncEnabled = true;

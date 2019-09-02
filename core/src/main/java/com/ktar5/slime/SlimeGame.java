@@ -19,6 +19,7 @@ import com.ktar5.gameengine.tweenengine.Tween;
 import com.ktar5.slime.data.SlimeGameData;
 import com.ktar5.slime.misc.CameraLookAt;
 import com.ktar5.slime.misc.PixelPerfectViewport;
+import com.ktar5.slime.misc.PostProcess;
 import com.ktar5.slime.platform.AStoreSDK;
 import com.ktar5.slime.screens.loading.NewLoadingScreen;
 import com.ktar5.slime.world.level.LevelHandler;
@@ -39,10 +40,11 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
     private KInput input;
     private SlimeGameData data;
     @Setter private LevelHandler levelHandler;
+    private PostProcess postProcess;
 
     public StaticCamera uiCamera;
     public CameraLookAt gameCamera;
-    @Getter private AStoreSDK storeSDK;
+    private AStoreSDK storeSDK;
 
 
     public SlimeGame(AStoreSDK storeSDK) {
@@ -117,6 +119,7 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
 
         //Load everything needed for pre-game
         VisUI.load();
+        postProcess = new PostProcess();
         EngineManager.get().getConsole().setDisplayKeyID(Input.Keys.GRAVE);
         Tween.registerAccessor(Entity.class, new EntityTweenAccessor());
         Tween.registerAccessor(RetractingSpikes.class, new RetractingSpikes.SpikesTweenAccessor());

@@ -14,6 +14,7 @@ import com.ktar5.gameengine.tilemap.CustomTmxMapLoader;
 import com.ktar5.gameengine.util.Renderable;
 import com.ktar5.gameengine.util.Updatable;
 import com.ktar5.slime.SlimeGame;
+import com.ktar5.slime.entities.arrow.ArrowPool;
 import lombok.Getter;
 import org.tinylog.Logger;
 
@@ -40,6 +41,8 @@ public class LevelHandler implements Renderable, Updatable {
 
     private final TmxMapLoader.Parameters params;
     private final CustomTmxMapLoader loader;
+
+    private final ArrowPool arrowPool = new ArrowPool();
 
 
     public LevelHandler() {

@@ -93,9 +93,7 @@ public class ArrowMove extends ArrowState {
     }
 
     public void killArrow() {
-        SlimeGame.getGame().doOnNextFrame(() -> {
-            SlimeGame.getGame().getLevelHandler().getCurrentLevel().getEntities().remove(getEntity());
-        });
+        getEntity().removeArrow();
     }
 
     public Side getMovement() {

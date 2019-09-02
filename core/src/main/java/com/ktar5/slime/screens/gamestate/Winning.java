@@ -10,10 +10,6 @@ import com.kotcrab.vis.ui.widget.VisLabel;
 import com.ktar5.gameengine.EngConst;
 import com.ktar5.gameengine.analytics.Analytics;
 import com.ktar5.gameengine.core.EngineManager;
-import com.ktar5.gameengine.postprocessing.PostProcessor;
-import com.ktar5.gameengine.postprocessing.effects.Vignette;
-import com.ktar5.gameengine.postprocessing.filters.Blur;
-import com.ktar5.gameengine.postprocessing.utils.ShaderLoader;
 import com.ktar5.slime.KInput;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.analytics.LevelCompleteEvent;
@@ -21,8 +17,7 @@ import com.ktar5.slime.screens.GameScreen;
 
 public class Winning extends GameState {
     private Stage stage;
-    private PostProcessor postProcessor;
-    private Blur blur;
+
     private VisLabel collectiblesScore = new VisLabel(), slimeCoveredScore = new VisLabel(), winText = new VisLabel();
 
     public Winning(GameScreen gameScreen) {
@@ -56,17 +51,6 @@ public class Winning extends GameState {
         clickToContinueTable.add(clickToContinue);
 
         stage.addActor(clickToContinueTable);
-
-
-        ShaderLoader.BasePath = "shaders/";
-        blur = new Blur(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        postProcessor = new PostProcessor(false, false, true);
-        Vignette vignette = new Vignette(Gdx.graphics.getWidth(), Gdx.graphics.getHeight(), false);
-        vignette.setCenter(Gdx.graphics.getWidth() / 2f, Gdx.graphics.getHeight() / 2f);
-        vignette.setIntensity(1f);
-//        Blur blur = new Blur(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-
-        postProcessor.addEffect(vignette);
     }
 
 
@@ -87,22 +71,28 @@ public class Winning extends GameState {
 
     @Override
     public void resize(int width, int height) {
-        SlimeGame.getGame().getUiCamera().getCamera().viewportHeight = height;
-        SlimeGame.getGame().getUiCamera().getCamera().viewportWidth = width;
-        SlimeGame.getGame().getUiCamera().getCamera().update();
+        // VfxManager manages internal off-screen buffers,
+        // which should always match the required viewport (whole screen in our case).
+        SlimeGame.getGame().getPostProcess().getVfxManager().resize(width, height);
 
-//        camera.getViewport().setScreenWidth(Gdx.graphics.getWidth());
-//        camera.getViewport().setScreenWidth(Gdx.graphics.getHeight());
-//        camera.getViewport().apply();
-
-        stage.getViewport().update(width, height, true);
         getGameScreen().getCamera().getViewport().update(width, height);
+        getGameScreen().getCamera().getCamera().position.set(getGameScreen().getCamera().getCamera().viewportWidth / 2, getGameScreen().getCamera().getCamera().viewportHeight / 2, 0);
+        getGameScreen().getCamera().getCamera().update();
+//        SlimeGame.getGame().getUiCamera().getCamera().viewportHeight = height;
+//        SlimeGame.getGame().getUiCamera().getCamera().viewportWidth = width;
+//        SlimeGame.getGame().getUiCamera().getCamera().update();
+//
+////        camera.getViewport().setScreenWidth(Gdx.graphics.getWidth());
+////        camera.getViewport().setScreenWidth(Gdx.graphics.getHeight());
+////        camera.getViewport().apply();
+//
+//        stage.getViewport().update(width, height, true);
+//        getGameScreen().getCamera().getViewport().update(width, height);
     }
 
 
     @Override
     public void onUpdate(float dTime) {
-        System.out.println("Updating winning state");
         stage.act();
 
         if (KInput.isKeyJustPressed(Input.Keys.ANY_KEY) || Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
@@ -118,18 +108,19 @@ public class Winning extends GameState {
 
     @Override
     public void render(SpriteBatch batch, float dTime) {
-        postProcessor.capture();
+        SlimeGame.getGame().getPostProcess().getVfxManager().beginCapture();
+
         Gdx.gl.glClearColor(168 / 255f, 118 / 255f, 86 / 255f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         SlimeGame.getGame().getLevelHandler().render(batch, EngConst.STEP_TIME);
         getGameScreen().getFrameRate().render(batch, EngConst.STEP_TIME);
         getGameScreen().getVersionInfo().render(batch, EngConst.STEP_TIME);
 
-        blur.setAmount(1f);
-        blur.setType(Blur.BlurType.Gaussian3x3b);
-        blur.setPasses(10);
-        blur.render(postProcessor.getCombinedBuffer());
-        postProcessor.render();
+        // End render to an off-screen buffer.
+        SlimeGame.getGame().getPostProcess().getVfxManager().endCapture();
+
+        // Perform effect chain processing and render result to the screen.
+        SlimeGame.getGame().getPostProcess().getVfxManager().render();
 
 
         SlimeGame.getGame().getSpriteBatch().end();

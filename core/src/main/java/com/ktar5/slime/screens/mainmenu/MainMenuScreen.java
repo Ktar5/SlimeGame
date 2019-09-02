@@ -1,14 +1,12 @@
 package com.ktar5.slime.screens.mainmenu;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
@@ -19,9 +17,10 @@ import com.ktar5.slime.KInput;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.hotkeys.GeneralHotkeys;
 import com.ktar5.slime.screens.GameScreen;
+import de.golfgl.gdx.controllers.ControllerMenuStage;
 
 public class MainMenuScreen extends AbstractScreen {
-    protected Stage stage;
+    protected ControllerMenuStage stage;
     private TextureAtlas atlas;
     protected Skin skin;
 
@@ -34,14 +33,15 @@ public class MainMenuScreen extends AbstractScreen {
         camera.getCamera().position.set(camera.getCamera().viewportWidth / 2, camera.getCamera().viewportHeight / 2, 0);
         camera.getCamera().update();
 
-        stage = new Stage(getCamera().getViewport(), SlimeGame.getGame().getSpriteBatch());
+        stage = new ControllerMenuStage (getCamera().getViewport(), SlimeGame.getGame().getSpriteBatch());
     }
 
 
     @Override
     public void show() {
         //Stage should control input:
-        Gdx.input.setInputProcessor(new InputMultiplexer(stage, SlimeGame.getGame().getInput()));
+        //new InputMultiplexer(stage, SlimeGame.getGame().getInput())
+        Gdx.input.setInputProcessor(stage);
 
         //Create Table
         Table mainTable = new Table();
@@ -85,13 +85,17 @@ public class MainMenuScreen extends AbstractScreen {
         });
 
         //Add buttons to table
-        mainTable.add(playButton).pad(0, 0, 0, 0);
+        mainTable.add(playButton).pad(0, 0, 0, 0).fill();
+        stage.addFocusableActor(playButton);
         mainTable.row();
-        mainTable.add(levelsButton).pad(10, 0, 0, 0);
+        mainTable.add(levelsButton).pad(10, 0, 0, 0).fill();
+        stage.addFocusableActor(levelsButton);
         mainTable.row();
-        mainTable.add(optionsButton).pad(10, 0, 0, 0);
+        mainTable.add(optionsButton).pad(10, 0, 0, 0).fill();
+        stage.addFocusableActor(optionsButton);
         mainTable.row();
-        mainTable.add(exitButton).pad(10, 0, 0, 0);
+        mainTable.add(exitButton).pad(10, 0, 0, 0).width(100f).fill();
+        stage.addFocusableActor(exitButton);
 
         //Add table to stage
         stage.addActor(new Actor() {
@@ -103,6 +107,8 @@ public class MainMenuScreen extends AbstractScreen {
             }
         });
         stage.addActor(mainTable);
+        stage.addFocusableActor(mainTable);
+        stage.setFocusedActor(playButton);
     }
 
     @Override
@@ -149,5 +155,6 @@ public class MainMenuScreen extends AbstractScreen {
     public void update(float dTime) {
         GeneralHotkeys.update();
         KInput.update();
+
     }
 }

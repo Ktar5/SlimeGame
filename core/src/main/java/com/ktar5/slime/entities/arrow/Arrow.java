@@ -14,43 +14,47 @@ import com.ktar5.slime.entities.TouchableEntity;
 import com.ktar5.slime.entities.player.JumpPlayer;
 
 public class Arrow extends GameEntity<ArrowState> implements TouchableEntity, Pool.Poolable {
-    Side currentMovement;
+    private static Rectangle horizontalHitbox = new Rectangle(16, 5);
+    private static Rectangle verticalHitbox = new Rectangle(5, 16);
 
-    //TODO object pooling of arrows
-    public Arrow(ArrowEntityData data) {
-        super(16, 16,
-                (data.movement == Side.LEFT || data.movement == Side.RIGHT) ? new Rectangle(16, 5) :
-                        new Rectangle(5, 16));
+    Side currentMovement;
+    boolean alive = false;
+
+    public Arrow() {
+        super(16, 16, new Rectangle(1,1));
+        System.out.println("Creating new arrow");
+    }
+
+    public Arrow init(ArrowEntityData data){
+        alive = true;
+        this.hitbox = (data.movement == Side.LEFT || data.movement == Side.RIGHT) ? horizontalHitbox : verticalHitbox;
+        this.collisionsEnabled = true;
         SlimeGame.getGame().getLevelHandler().getCurrentLevel().getEntities().add(this);
         this.position.set(data.initialPosition);
         this.currentMovement = data.movement;
         this.position.setRotation(90 * (data.movement.ofCCOrder()));
         getEntityState().changeStateAfterUpdate(ArrowMove.class);
+        return this;
     }
 
     @Override
     public void reset() {
+        collisionsEnabled = false;
+        alive = false;
+        this.position.set(0, 0);
+        this.getEntityState().changeStateAfterUpdate(ArrowIdle.class);
+    }
 
+    public void removeArrow(){
+        SlimeGame.getGame().doOnNextFrame(() -> {
+            SlimeGame.getGame().getLevelHandler().getCurrentLevel().getEntities().remove(this);
+            SlimeGame.getGame().getLevelHandler().getArrowPool().free(this);
+        });
     }
 
     @Override
     protected SimpleStateMachine<ArrowState> initializeStateMachine() {
-        return new SimpleStateMachine<>(new ArrowState(this) {
-            @Override
-            public void start() {
-
-            }
-
-            @Override
-            public void onUpdate(float dTime) {
-
-            }
-
-            @Override
-            protected void end() {
-
-            }
-        }, new ArrowMove(this));
+        return new SimpleStateMachine<>(new ArrowIdle(this), new ArrowMove(this));
     }
 
     @Override

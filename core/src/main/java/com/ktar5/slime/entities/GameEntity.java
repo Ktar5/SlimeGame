@@ -7,8 +7,8 @@ import lombok.Getter;
 
 @Getter
 public abstract class GameEntity<T extends State<T>> extends Entity<T> {
-    private Rectangle hitbox;
-    private boolean collisionsEnabled = true;
+    protected Rectangle hitbox;
+    protected boolean collisionsEnabled = true;
 
     public GameEntity(float height, float width, Rectangle hitbox) {
         super(height, width);

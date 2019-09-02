@@ -6,5 +6,11 @@ repositories {
 
 dependencies {
     compile project(':gameengine')
+    compile "de.golfgl.gdxcontrollerutils:gdx-controllerutils-mapping:$cuversion"
+    compile "de.golfgl.gdxcontrollerutils:gdx-controllerutils-scene2d:$cuversion"
+    compile "de.golfgl.gdxcontrollerutils:gdx-controllers-advanced:$cuversion:sources"
+
+    implementation 'com.crashinvaders.vfx:gdx-vfx-core:0.4.1'
+    implementation 'com.crashinvaders.vfx:gdx-vfx-effects:0.4.1'
 }
         

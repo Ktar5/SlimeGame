@@ -3,10 +3,11 @@ package com.ktar5.gameengine.entities.components.movement;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.controllers.Controller;
+import com.badlogic.gdx.controllers.Controllers;
 import com.badlogic.gdx.math.Vector2;
 import com.ktar5.gameengine.EngConst;
 import com.ktar5.gameengine.Feature;
-import com.ktar5.gameengine.input.devices.Xbox360Pad;
+import com.ktar5.gameengine.input.devices.XboxOneGamepad;
 import com.ktar5.gameengine.util.Updatable;
 import com.ktar5.utilities.common.constants.Axis;
 import lombok.Getter;
@@ -24,8 +25,9 @@ public abstract class Movement implements Updatable {
 
     public Movement(float speed) {
         this.speed = speed * EngConst.STEP_TIME * EngConst.SCALE;
-        //if (Controllers.getControllers().size > 0 && Feature.CONTROLLER.isEnabled())
-        //    controller = Controllers.getControllers().get(0);
+        if (Controllers.getControllers().size > 0 && Feature.CONTROLLER.isEnabled()) {
+            controller = Controllers.getControllers().get(0);
+        }
         velocity = new Vector2();
         velocityDeadzoned = new Vector2();
         input = new Vector2();
@@ -45,7 +47,7 @@ public abstract class Movement implements Updatable {
         }
     }
 
-    public static float deadzone(float value, float zone) {
+    public static float deadzone(float zone, float value) {
         if (value >= -zone && value <= zone) {
             return 0;
         }
@@ -64,19 +66,39 @@ public abstract class Movement implements Updatable {
         //Do keyboard stuff
         if (Gdx.input.isKeyJustPressed(Input.Keys.A) || Gdx.input.isKeyJustPressed(Input.Keys.LEFT)) {
             input.set(-1, input.y);
-        }else if (Gdx.input.isKeyJustPressed(Input.Keys.D) || Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) {
+        } else if (Gdx.input.isKeyJustPressed(Input.Keys.D) || Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) {
             input.set(1, input.y);
-        }else if (Gdx.input.isKeyJustPressed(Input.Keys.W) || Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
+        } else if (Gdx.input.isKeyJustPressed(Input.Keys.W) || Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
             input.set(input.x, 1);
-        }else if (Gdx.input.isKeyJustPressed(Input.Keys.S) || Gdx.input.isKeyJustPressed(Input.Keys.DOWN)) {
+        } else if (Gdx.input.isKeyJustPressed(Input.Keys.S) || Gdx.input.isKeyJustPressed(Input.Keys.DOWN)) {
             input.set(input.x, -1);
         }
     }
 
     private void refreshControllerInput() {
         if (controller != null && Feature.CONTROLLER.isEnabled()) {
-            input.set(controller.getAxis(Xbox360Pad.AXIS_LEFT_X), controller.getAxis(Xbox360Pad.AXIS_LEFT_Y));
-            input.set(deadzone(.1f, input.x), deadzone(.1f, input.y));
+//            for (int i = 0 ; i < 15 ; i++){
+//                System.out.println(i + " button " + controller.getButton(i));
+//            }
+            if (controller.getButton(XboxOneGamepad.X) || controller.getButton(13)) {
+                input.set(-1, input.y);
+            } else if (controller.getButton(XboxOneGamepad.B) || controller.getButton(14)) {
+                input.set(1, input.y);
+            } else if (controller.getButton(XboxOneGamepad.Y) || controller.getButton(11)) {
+                input.set(input.x, 1);
+            } else if (controller.getButton(XboxOneGamepad.A) || controller.getButton(12)) {
+                input.set(input.x, -1);
+            }
+
+            //Axises are disabled because they cannot control themselves and tend to go in many directions
+//            if (Math.abs(controller.getAxis(XboxOneGamepad.AXIS_LEFT_STICK_X)) >= .2f || Math.abs(controller.getAxis(XboxOneGamepad.AXIS_LEFT_STICK_Y)) >= .2f) {
+                //x and negative y
+//                input.set(controller.getAxis(XboxOneGamepad.AXIS_LEFT_STICK_X), -controller.getAxis(XboxOneGamepad.AXIS_LEFT_STICK_Y));
+//                System.out.println("XXXXXXX  " + controller.getAxis(XboxOneGamepad.AXIS_LEFT_STICK_X));
+//                System.out.println(deadzone(.2f, input.x));
+//                System.out.println("YYYYYYY  " + controller.getAxis(XboxOneGamepad.AXIS_LEFT_STICK_Y));
+//                input.set(deadzone(.2f, input.x), deadzone(.2f, input.y));
+//            }
         }
     }
 
@@ -89,7 +111,7 @@ public abstract class Movement implements Updatable {
             }
         }
         input.setZero();
-        //refreshControllerInput();
+        refreshControllerInput();
         refreshKeyboardInput();
     }
 

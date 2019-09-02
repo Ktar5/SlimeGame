@@ -43,10 +43,14 @@ public class NewMove extends PlayerState {
             input = getPlayer().getMovement().getInput();
         }
 
-        input.set((int) Math.ceil(input.x), (int) Math.ceil(input.y));
+        if(input.x < 0) input.x = -1;
+        else if(input.x > 0) input.x = 1;
+        if(input.y < 0) input.y = -1;
+        else if(input.y > 0) input.y = 1;
 
         //If something somehow messed up, let's fix it
         if (input.equals(Vector2.Zero)) {
+            System.out.println("FOR SOME REASON THIS IS ZERO");
             end();
             changeState(Idle.class);
         }

@@ -3,6 +3,7 @@ package com.ktar5.slime.entities.arrow;
 import com.badlogic.gdx.maps.MapProperties;
 import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.gameengine.util.Side;
+import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.entities.EntityData;
 import com.ktar5.slime.entities.EntityType;
 
@@ -21,6 +22,8 @@ public class ArrowEntityData extends EntityData {
 
     @Override
     public Entity create() {
-        return new Arrow(this);
+        Arrow obtain = SlimeGame.getGame().getLevelHandler().getArrowPool().obtain();
+        obtain.init(this);
+        return obtain;
     }
 }

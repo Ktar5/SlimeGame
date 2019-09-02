@@ -18,7 +18,9 @@ public class Running extends GameState {
 
     @Override
     public void resize(int width, int height) {
-//        getGameScreen().getCamera().getViewport().update(width, height);
+        getGameScreen().getCamera().getViewport().update(width, height);
+        getGameScreen().getCamera().getCamera().position.set(getGameScreen().getCamera().getCamera().viewportWidth / 2, getGameScreen().getCamera().getCamera().viewportHeight / 2, 0);
+        getGameScreen().getCamera().getCamera().update();
     }
 
     @Override

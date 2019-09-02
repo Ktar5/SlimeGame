@@ -8,6 +8,7 @@ import com.ktar5.gameengine.util.Updatable;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.analytics.LevelStartEvent;
 import com.ktar5.slime.entities.EntityData;
+import com.ktar5.slime.entities.arrow.Arrow;
 import com.ktar5.slime.entities.player.JumpPlayer;
 import com.ktar5.slime.variables.Constants;
 import com.ktar5.slime.world.tiles.base.GameTile;
@@ -76,6 +77,11 @@ public class LoadedLevel extends LevelData implements Updatable {
         collectibles = 0;
         numberTilesSlimed = 0;
 
+        for (Entity entity : entities) {
+            if (entity instanceof Arrow){
+                ((Arrow) entity).removeArrow();
+            }
+        }
         entities.clear();
         for (EntityData initialEntityDatum : this.getInitialEntityData()) {
             entities.add(initialEntityDatum.create());

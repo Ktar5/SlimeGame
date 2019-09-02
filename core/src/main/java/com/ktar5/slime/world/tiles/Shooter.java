@@ -3,7 +3,6 @@ package com.ktar5.slime.world.tiles;
 import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.gameengine.util.Side;
 import com.ktar5.slime.SlimeGame;
-import com.ktar5.slime.entities.arrow.Arrow;
 import com.ktar5.slime.entities.arrow.ArrowEntityData;
 import com.ktar5.slime.entities.box.Box;
 import com.ktar5.slime.world.tiles.base.Rotation;
@@ -55,7 +54,7 @@ public class Shooter extends WholeGameTile {
                 return;
             }
         }
-        new Arrow(data);
+        data.create();
     }
 
 }

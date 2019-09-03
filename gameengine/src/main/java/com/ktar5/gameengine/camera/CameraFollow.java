@@ -27,6 +27,7 @@ public class CameraFollow extends CameraBase implements Renderable {
 
     Vector3 camPos = this.getCamera().position;
     float lerp = 0.1f;
+
     @Override
     public void update(float dTime) {
         if (Feature.CAMERA_MOVEMENT.isDisabled()) {
@@ -37,11 +38,15 @@ public class CameraFollow extends CameraBase implements Renderable {
             return;
         }
 
+        float v = Math.abs(position.dst2(camPos.x, camPos.y));
+        if (v < 50) {
+            return;
+        }
         camPos.x += (position.x - camPos.x) * lerp;
         camPos.y += (position.y - camPos.y) * lerp;
-
         //Set camera position to fixed vector
         camera.position.set(new Vector3((int) camPos.x, (int) camPos.y, 0));
+//        camera.position.set(new Vector3(camPos.x, camPos.y, 0));
         //Update camera
         camera.update();
     }

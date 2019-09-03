@@ -79,9 +79,8 @@ public abstract class AbstractGame<G extends AbstractGame<G>> implements Applica
             while (time >= EngConst.STEP_TIME) {
                 time -= EngConst.STEP_TIME;
                 //Update the camera
-                screen.getCamera().getCamera().update();
-
                 screen.update(dTime);
+                screen.getCamera().getCamera().update();
             }
         } else {
             screen.getCamera().getCamera().update();

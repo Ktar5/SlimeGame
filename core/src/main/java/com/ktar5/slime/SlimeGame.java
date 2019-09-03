@@ -8,6 +8,7 @@ import com.kotcrab.vis.ui.VisUI;
 import com.ktar5.gameengine.analytics.Analytics;
 import com.ktar5.gameengine.analytics.MongoDBInstance;
 import com.ktar5.gameengine.camera.CameraBase;
+import com.ktar5.gameengine.camera.CameraFollow;
 import com.ktar5.gameengine.camera.StaticCamera;
 import com.ktar5.gameengine.console.CommandExecutor;
 import com.ktar5.gameengine.core.AbstractGame;
@@ -17,7 +18,6 @@ import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.gameengine.entities.EntityTweenAccessor;
 import com.ktar5.gameengine.tweenengine.Tween;
 import com.ktar5.slime.data.SlimeGameData;
-import com.ktar5.slime.misc.CameraLookAt;
 import com.ktar5.slime.misc.PixelPerfectViewport;
 import com.ktar5.slime.misc.PostProcess;
 import com.ktar5.slime.platform.AStoreSDK;
@@ -43,7 +43,7 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
     private PostProcess postProcess;
 
     public StaticCamera uiCamera;
-    public CameraLookAt gameCamera;
+    public CameraFollow gameCamera;
     private AStoreSDK storeSDK;
 
 
@@ -81,7 +81,7 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
         viewport = new PixelPerfectViewport(480, 270, orthographicCamera);
         orthographicCamera.update();
 //        gameCamera = new CameraFollow(orthographicCamera, viewport, null);
-        gameCamera = new CameraLookAt(orthographicCamera, viewport);
+        gameCamera = new CameraFollow(orthographicCamera, viewport);
         return gameCamera;
 
     }

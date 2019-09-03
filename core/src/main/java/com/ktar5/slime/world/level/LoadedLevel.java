@@ -35,8 +35,8 @@ public class LoadedLevel extends LevelData implements Updatable {
         }
 
         this.player = new JumpPlayer(this);
-        SlimeGame.getGame().getGameCamera().setPlayerPosition(player.position);
-        SlimeGame.getGame().getGameCamera().setCameraLocations(getCameras());
+        SlimeGame.getGame().getGameCamera().setPosition(player.position);
+//        SlimeGame.getGame().getGameCamera().setCameraLocations(getCameras());
 
 
         Analytics.addEvent(new LevelStartEvent(this));

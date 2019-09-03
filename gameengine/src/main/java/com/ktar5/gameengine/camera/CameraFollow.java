@@ -1,6 +1,5 @@
 package com.ktar5.gameengine.camera;
 
-import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.math.Vector2;
@@ -79,7 +78,7 @@ public class CameraFollow extends CameraBase implements Renderable {
     }
 
     public void debug(float dTime) {
-        Renderable.drawSquare(camera.position.x, camera.position.y, .5f, .5f, Color.CYAN);
+//        Renderable.drawSquare(camera.position.x, camera.position.y, .5f, .5f, Color.CYAN);
     }
 
 }

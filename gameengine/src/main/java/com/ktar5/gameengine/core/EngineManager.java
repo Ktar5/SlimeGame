@@ -8,6 +8,7 @@ import com.ktar5.gameengine.console.Console;
 import com.ktar5.gameengine.console.GUIConsole;
 import com.ktar5.gameengine.cooldown.CooldownManager;
 import com.ktar5.gameengine.events.GameEvent;
+import com.ktar5.gameengine.input.ControllerInput;
 import com.ktar5.gameengine.tweenengine.TweenManager;
 import lombok.Getter;
 import net.engio.mbassy.bus.MBassador;
@@ -32,6 +33,7 @@ public class EngineManager<G extends AbstractGame<G>> implements Disposable {
     private AnimationLoader animationLoader;
     private CooldownManager cooldownManager;
     private AssetManager assetManager;
+    private ControllerInput controllerInput;
 
     private Console console;
 
@@ -45,7 +47,10 @@ public class EngineManager<G extends AbstractGame<G>> implements Disposable {
 
         this.console = new GUIConsole();
         this.console.setCommandExecutor(game.getCommandExecutor());
-        
+
+        this.controllerInput = new ControllerInput();
+        this.controllerInput.refreshControllers();
+
         this.game = game;
         this.tweenManager = new TweenManager();
         this.cameraBase = game.initializeCameraBase();

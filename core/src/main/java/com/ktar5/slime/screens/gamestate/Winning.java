@@ -10,6 +10,8 @@ import com.kotcrab.vis.ui.widget.VisLabel;
 import com.ktar5.gameengine.EngConst;
 import com.ktar5.gameengine.analytics.Analytics;
 import com.ktar5.gameengine.core.EngineManager;
+import com.ktar5.gameengine.input.ControllerInput;
+import com.ktar5.gameengine.input.devices.XboxOneGamepad;
 import com.ktar5.slime.KInput;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.analytics.LevelCompleteEvent;
@@ -96,6 +98,12 @@ public class Winning extends GameState {
         stage.act();
 
         if (KInput.isKeyJustPressed(Input.Keys.ANY_KEY) || Gdx.input.isButtonPressed(Input.Buttons.LEFT)) {
+            SlimeGame.getGame().getLevelHandler().advanceLevel();
+            changeState(Running.class);
+        }
+        ControllerInput controller = EngineManager.get().getControllerInput();
+        if (controller.isButtonJustPressed(XboxOneGamepad.X) || controller.isButtonJustPressed(XboxOneGamepad.B) ||
+                controller.isButtonJustPressed(XboxOneGamepad.Y) || controller.isButtonJustPressed(XboxOneGamepad.A)) {
             SlimeGame.getGame().getLevelHandler().advanceLevel();
             changeState(Running.class);
         }

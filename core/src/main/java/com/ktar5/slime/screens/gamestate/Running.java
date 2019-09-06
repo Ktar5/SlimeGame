@@ -46,6 +46,7 @@ public class Running extends GameState {
         SlimeGame.getGame().getLevelHandler().update(dTime);
         getGameScreen().getFrameRate().update(dTime);
         getGameScreen().getVersionInfo().update(dTime);
+        EngineManager.get().getControllerInput().update();
     }
 
     @Override

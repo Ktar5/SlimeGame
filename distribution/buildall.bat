@@ -1,4 +1,5 @@
 cd ..
+call gradlew :desktop:build
 call gradlew :desktop:distZip
 cd distribution
 echo "Starting build, zip, and upload process"

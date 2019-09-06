@@ -2,11 +2,11 @@ package com.ktar5.gameengine.entities.components.movement;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.controllers.Controller;
-import com.badlogic.gdx.controllers.Controllers;
 import com.badlogic.gdx.math.Vector2;
 import com.ktar5.gameengine.EngConst;
 import com.ktar5.gameengine.Feature;
+import com.ktar5.gameengine.core.EngineManager;
+import com.ktar5.gameengine.input.ControllerInput;
 import com.ktar5.gameengine.input.devices.XboxOneGamepad;
 import com.ktar5.gameengine.util.Updatable;
 import com.ktar5.utilities.common.constants.Axis;
@@ -18,16 +18,12 @@ public abstract class Movement implements Updatable {
     @Getter
     protected Vector2 velocity, velocityDeadzoned, input;
     protected final float speed;
-    protected Controller controller;
 
     @Getter
     private Axis preferred = null;
 
     public Movement(float speed) {
         this.speed = speed * EngConst.STEP_TIME * EngConst.SCALE;
-        if (Controllers.getControllers().size > 0 && Feature.CONTROLLER.isEnabled()) {
-            controller = Controllers.getControllers().get(0);
-        }
         velocity = new Vector2();
         velocityDeadzoned = new Vector2();
         input = new Vector2();
@@ -76,30 +72,17 @@ public abstract class Movement implements Updatable {
     }
 
     private void refreshControllerInput() {
-        if (controller != null && Feature.CONTROLLER.isEnabled()) {
-//            for (int i = 0 ; i < 15 ; i++){
-//                System.out.println(i + " button " + controller.getButton(i));
-//            }
-            if (controller.getButton(XboxOneGamepad.X) || controller.getButton(13)) {
-                input.set(-1, input.y);
-            } else if (controller.getButton(XboxOneGamepad.B) || controller.getButton(14)) {
-                input.set(1, input.y);
-            } else if (controller.getButton(XboxOneGamepad.Y) || controller.getButton(11)) {
-                input.set(input.x, 1);
-            } else if (controller.getButton(XboxOneGamepad.A) || controller.getButton(12)) {
-                input.set(input.x, -1);
-            }
-
-            //Axises are disabled because they cannot control themselves and tend to go in many directions
-//            if (Math.abs(controller.getAxis(XboxOneGamepad.AXIS_LEFT_STICK_X)) >= .2f || Math.abs(controller.getAxis(XboxOneGamepad.AXIS_LEFT_STICK_Y)) >= .2f) {
-                //x and negative y
-//                input.set(controller.getAxis(XboxOneGamepad.AXIS_LEFT_STICK_X), -controller.getAxis(XboxOneGamepad.AXIS_LEFT_STICK_Y));
-//                System.out.println("XXXXXXX  " + controller.getAxis(XboxOneGamepad.AXIS_LEFT_STICK_X));
-//                System.out.println(deadzone(.2f, input.x));
-//                System.out.println("YYYYYYY  " + controller.getAxis(XboxOneGamepad.AXIS_LEFT_STICK_Y));
-//                input.set(deadzone(.2f, input.x), deadzone(.2f, input.y));
-//            }
+        ControllerInput controller = EngineManager.get().getControllerInput();
+        if (controller.isButtonJustPressed(XboxOneGamepad.X) || controller.isButtonJustPressed(13)) {
+            input.set(-1, input.y);
+        } else if (controller.isButtonJustPressed(XboxOneGamepad.B) || controller.isButtonJustPressed(14)) {
+            input.set(1, input.y);
+        } else if (controller.isButtonJustPressed(XboxOneGamepad.Y) || controller.isButtonJustPressed(11)) {
+            input.set(input.x, 1);
+        } else if (controller.isButtonJustPressed(XboxOneGamepad.A) || controller.isButtonJustPressed(12)) {
+            input.set(input.x, -1);
         }
+
     }
 
     private void refreshInput() {

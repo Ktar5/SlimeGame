@@ -48,7 +48,7 @@ public class ControllerInput {
     public void update() {
         if (controller != null) {
             for (int i = 0; i < 15; i++) {
-                buttonsJustPressed[i] = false;
+                buttonsJustPressed[i] = falhise;
             }
         }
     }

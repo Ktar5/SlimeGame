@@ -183,20 +183,37 @@ public class LevelHandler implements Renderable, Updatable {
                 int firstID = levelID;
                 int lastID = 0;
 
-                bufferedReader = new BufferedReader(getFileHandle("maps/chapters/" + chapterName.toLowerCase() + ".txt").reader());
-                while ((line = bufferedReader.readLine()) != null) {
-                    String[] split = line.split(":");
-                    if (split.length == 1 || split[1].isEmpty() || split[1].equals(" ")) {
-                        Logger.debug("Null level: chapter: " + chapterName + " ID: " + (levelID - firstID));
-                        mapFileMap.put(levelID, null);
-                    } else {
-                        String levelName = split[1].replace(" ", "");
-                        mapFileMap.put(levelID, getFileHandle("maps/chapters/" + chapterName.toLowerCase() + "/" + levelName + ".tmx"));
-                    }
-                    lastID = levelID;
+//                if(getFileHandle("maps/chapters/" + chapterName.toLowerCase() + ".txt").exists()){
+                    bufferedReader = new BufferedReader(getFileHandle("maps/chapters/" + chapterName.toLowerCase() + ".txt").reader());
+                    while ((line = bufferedReader.readLine()) != null) {
+                        String[] split = line.split(":");
+                        if (split.length == 1 || split[1].isEmpty() || split[1].equals(" ")) {
+                            Logger.debug("Null level: chapter: " + chapterName + " ID: " + (levelID - firstID));
+                            mapFileMap.put(levelID, null);
+                        } else {
+                            String levelName = split[1].replace(" ", "");
+                            mapFileMap.put(levelID, getFileHandle("maps/chapters/" + chapterName.toLowerCase() + "/" + levelName + ".tmx"));
+                        }
+                        lastID = levelID;
 
-                    levelID++;
-                }
+                        levelID++;
+                    }
+//                }else{
+//                    FileHandle external = Gdx.files.local("./assets/maps/chapters/" + chapterName.toLowerCase() + " /");
+//                    System.out.println(external.exists());
+//                    System.out.println(external.path());
+//
+//                    System.out.println("ABCCSDASDWASDWASDWASDWASD");
+//                    TODO load the levels based on the file names
+//                    FileHandle fileHandle = getFileHandle("maps/chapters/" + chapterName.toLowerCase() + "/");
+//                    System.out.println(fileHandle.type());
+//
+//                    System.out.println(fileHandle.name());
+//                    System.out.println(fileHandle.list().length);
+//                    for (FileHandle handle : fileHandle.list()) {
+//                        System.out.println(handle.name());
+//                    }
+//                }
 
                 chapters.add(new Chapter(chapterName, firstID, lastID));
 

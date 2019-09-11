@@ -13,6 +13,7 @@ import com.ktar5.slime.entities.player.JumpPlayer;
 import com.ktar5.slime.variables.Constants;
 import com.ktar5.slime.world.tiles.base.GameTile;
 import lombok.Getter;
+import org.tinylog.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -102,6 +103,10 @@ public class LoadedLevel extends LevelData implements Updatable {
     /**Note that you must add the edit yourself
      * @returns the previous ID */
     public int setGraphic(int x, int y, String tileset, TiledMapTileLayer mapLayer, int id) {
+        if(mapLayer == null){
+            Logger.error("Could not file specified layer");
+            return 1;
+        }
         TiledMapTileSets tileSets = this.getRenderMap().getTileSets();
         int i = tileSets.getTileSet(tileset).getProperties().get("firstgid", Integer.class);
         if (mapLayer.getCell(x, y) == null) {

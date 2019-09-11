@@ -34,13 +34,13 @@ public class ControllerInput {
             public boolean buttonDown(Controller controller, int buttonCode) {
                 System.out.println("Controller button pressed: " + buttonCode);
                 buttonsJustPressed[buttonCode] = true;
-                return false;
+                return true;
             }
 
             @Override
             public boolean povMoved(Controller controller, int povCode, PovDirection value) {
                 System.out.println("POV MOVED " + povCode + " povdir " + value.name());
-                return false;
+                return true;
             }
         });
     }
@@ -48,7 +48,7 @@ public class ControllerInput {
     public void update() {
         if (controller != null) {
             for (int i = 0; i < 15; i++) {
-                buttonsJustPressed[i] = falhise;
+                buttonsJustPressed[i] = false;
             }
         }
     }

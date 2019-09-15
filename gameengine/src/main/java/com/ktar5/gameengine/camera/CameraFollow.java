@@ -50,7 +50,7 @@ public class CameraFollow extends CameraBase implements Renderable {
 //        camera.position.set(new Vector3(camPos.x, camPos.y, 0));
         //Update camera
         camera.update();
-        System.out.println("X: " + camera.position.x + "   Y: " + camera.position.y);
+//        System.out.println("X: " + camera.position.x + "   Y: " + camera.position.y);
     }
 
     public Vector3 boundToPlayer(Vector3 camPos, Vector2 playPos, float xDistance, float yDistance) {

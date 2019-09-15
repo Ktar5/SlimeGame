@@ -89,7 +89,7 @@ public abstract class AbstractGame<G extends AbstractGame<G>> implements Applica
         }
 
 
-        Gdx.gl.glClearColor(168 / 255f, 118 / 255f, 86 / 255f, 1);
+        Gdx.gl.glClearColor(57 / 255f, 31 / 255f, 58 / 255f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         spriteBatch.setProjectionMatrix(EngineManager.get().getCameraBase().getCamera().combined);

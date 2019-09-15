@@ -48,6 +48,7 @@ public class CameraFollow extends CameraBase implements Renderable {
         //Set camera position to fixed vector
         camera.position.set(new Vector3((int) camPos.x, (int) camPos.y, 0));
 //        camera.position.set(new Vector3(camPos.x, camPos.y, 0));
+//        camera.position.set(position.x, position.y, 0);
         //Update camera
         camera.update();
 //        System.out.println("X: " + camera.position.x + "   Y: " + camera.position.y);

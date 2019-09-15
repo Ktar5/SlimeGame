@@ -21,7 +21,7 @@ import com.ktar5.slime.data.SlimeGameData;
 import com.ktar5.slime.misc.PixelPerfectViewport;
 import com.ktar5.slime.misc.PostProcess;
 import com.ktar5.slime.platform.AStoreSDK;
-import com.ktar5.slime.screens.loading.NewLoadingScreen;
+import com.ktar5.slime.screens.GameScreen;
 import com.ktar5.slime.world.level.LevelHandler;
 import com.ktar5.slime.world.tiles.RetractingSpikes;
 import lombok.Getter;
@@ -127,7 +127,8 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
         SlimeGame.getGame().setLevelHandler(new LevelHandler());
 
         Logger.debug("Starting primary screen");
-        return new NewLoadingScreen(SlimeGame.getGame().getUiCamera());
+        return new GameScreen();
+//        return new NewLoadingScreen(SlimeGame.getGame().getUiCamera());
     }
 
     @Override

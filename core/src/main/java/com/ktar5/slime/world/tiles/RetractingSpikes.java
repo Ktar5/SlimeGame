@@ -97,13 +97,15 @@ public class RetractingSpikes extends WholeGameTile {
     }
 
     private void setGraphic(int i) {
-        int id = 807 + i;
-        if (id > 809) {
-            id = 809;
-        }
         LoadedLevel currentLevel = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
+        TiledMapTileSet gameplayImages = currentLevel.getRenderMap().getTileSets().getTileSet("sprites");
+        int firstGid = gameplayImages.getProperties().get("firstgid", Integer.class);
+        int id = firstGid + 254 + i;
+        if (id > firstGid + 254 + 2) {
+            id = firstGid + 254 + 2;
+        }
         TiledMapTileLayer mapLayer = currentLevel.getGameplayArtLayer();
-        TiledMapTileSet gameplayImages = currentLevel.getRenderMap().getTileSets().getTileSet("GameplayImages");
+
         if (mapLayer.getCell(x, y) == null) {
             TiledMapTileLayer.Cell newCell = new TiledMapTileLayer.Cell();
             newCell.setTile(gameplayImages.getTile(id));

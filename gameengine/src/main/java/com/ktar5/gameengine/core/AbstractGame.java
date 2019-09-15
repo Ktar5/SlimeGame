@@ -71,7 +71,7 @@ public abstract class AbstractGame<G extends AbstractGame<G>> implements Applica
     public void render() {
         //Get time since last frame
         float dTime = Gdx.graphics.getDeltaTime();
-
+//        System.out.println(dTime);
         if (Feature.SINGLE_FRAME.isDisabled()) {
             //If game too laggy, prevent massive bugs by using a small constant number
             time += Math.min(dTime, EngConst.MAX_FRAME_TIME);

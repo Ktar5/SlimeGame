@@ -3,6 +3,7 @@
  <tileset firstgid="1" source="../../tileset/GameplayTileset.tsx"/>
  <tileset firstgid="65" source="../../tileset/Cave.tsx"/>
  <tileset firstgid="1089" source="../../tileset/GameplayImages.tsx"/>
+ <tileset firstgid="1361" source="../../tileset/sprites.tsx"/>
  <layer id="1" name="Art_Gameplay" width="32" height="32">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,

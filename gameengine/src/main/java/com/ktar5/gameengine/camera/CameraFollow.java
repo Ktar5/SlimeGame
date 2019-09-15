@@ -37,10 +37,12 @@ public class CameraFollow extends CameraBase implements Renderable {
             return;
         }
 
+//        camPos.x = camera.position.x;
+//        camPos.y = camera.position.y;
         float v = Math.abs(position.dst2(camPos.x, camPos.y));
-        if (v < 50) {
-            return;
-        }
+//        if (v < 50) {
+//            return;
+//        }
         camPos.x += (position.x - camPos.x) * lerp;
         camPos.y += (position.y - camPos.y) * lerp;
         //Set camera position to fixed vector
@@ -48,6 +50,7 @@ public class CameraFollow extends CameraBase implements Renderable {
 //        camera.position.set(new Vector3(camPos.x, camPos.y, 0));
         //Update camera
         camera.update();
+        System.out.println("X: " + camera.position.x + "   Y: " + camera.position.y);
     }
 
     public Vector3 boundToPlayer(Vector3 camPos, Vector2 playPos, float xDistance, float yDistance) {

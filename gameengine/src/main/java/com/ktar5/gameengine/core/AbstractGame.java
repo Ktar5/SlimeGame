@@ -24,6 +24,8 @@ public abstract class AbstractGame<G extends AbstractGame<G>> implements Applica
     private ShapeRenderer shapeRenderer;
     private DelayedAddList<Runnable> actionsAfterNextFrame;
 
+    public static int RED = 57, GREEN = 31, BLUE = 58;
+
     @Override
     public final void create() {
         this.actionsAfterNextFrame = new DelayedAddList<>();
@@ -89,7 +91,7 @@ public abstract class AbstractGame<G extends AbstractGame<G>> implements Applica
         }
 
 
-        Gdx.gl.glClearColor(57 / 255f, 31 / 255f, 58 / 255f, 1);
+        Gdx.gl.glClearColor(RED / 255f, GREEN / 255f, BLUE / 255f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         spriteBatch.setProjectionMatrix(EngineManager.get().getCameraBase().getCamera().combined);

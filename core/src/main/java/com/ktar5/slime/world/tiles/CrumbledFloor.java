@@ -1,5 +1,6 @@
 package com.ktar5.slime.world.tiles;
 
+import com.badlogic.gdx.math.MathUtils;
 import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.gameengine.util.Side;
 import com.ktar5.slime.SlimeGame;
@@ -23,7 +24,11 @@ public class CrumbledFloor extends WholeGameTile {
         crumbled = false;
         filled = false;
         LoadedLevel currentLevel = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
-        currentLevel.setGraphic(x, y, "GameplayImages", currentLevel.getGameplayArtLayer(), 119);
+        currentLevel.setGraphic(x, y, "sprites", currentLevel.getGameplayArtLayer(), getRandomId());
+    }
+
+    public int getRandomId(){
+        return MathUtils.random(128, 130);
     }
 
     @Override
@@ -53,7 +58,7 @@ public class CrumbledFloor extends WholeGameTile {
             return true;
         } else {
             LoadedLevel currentLevel = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
-            currentLevel.setGraphic(x, y, "GameplayImages", currentLevel.getGameplayArtLayer(), 26);
+            currentLevel.setGraphic(x, y, "sprites", currentLevel.getGameplayArtLayer(), 146);
             crumbled = true;
             return false;
         }

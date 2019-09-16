@@ -4,17 +4,18 @@ import com.badlogic.gdx.InputProcessor;
 
 public class KInput implements InputProcessor {
     private static boolean[] KEYS_DOWN_FRAME = new boolean[256];
+    private static boolean keyPressed = false;
 
     public static void update() {
         for (int i = 0; i < KEYS_DOWN_FRAME.length; i++) {
             KEYS_DOWN_FRAME[i] = false;
         }
-//        System.out.println("UNDID ALL INPUT DOWNS");
+        keyPressed = false;
     }
 
     public static boolean isKeyJustPressed(int key) {
         if(key == -1){
-            return false;
+            return keyPressed;
         }
         return KEYS_DOWN_FRAME[key];
     }
@@ -22,6 +23,7 @@ public class KInput implements InputProcessor {
     @Override
     public boolean keyDown(int keycode) {
         System.out.println("PRESSING KEY: " + keycode);
+        keyPressed = true;
         KEYS_DOWN_FRAME[keycode] = true;
         return false;
     }

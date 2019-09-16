@@ -11,7 +11,7 @@ import lombok.Getter;
 
 @Getter
 public class PressurePlate extends TriggerableGameTile {
-    private static final int onID = 34, offID = 35;
+    private static final int onID = 48, offID = 49;
 
     private boolean pressed = false;
 
@@ -28,7 +28,7 @@ public class PressurePlate extends TriggerableGameTile {
     public void reset() {
         pressed = false;
         LoadedLevel currentLevel = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
-        currentLevel.setGraphic(x, y, "GameplayImages", currentLevel.getGameplayArtLayer(), offID);
+        currentLevel.setGraphic(x, y, "sprites", currentLevel.getGameplayArtLayer(), offID);
     }
 
     @Override
@@ -38,7 +38,7 @@ public class PressurePlate extends TriggerableGameTile {
                 return false;
             }
             LoadedLevel currentLevel = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
-            currentLevel.setGraphic(x, y, "GameplayImages", currentLevel.getGameplayArtLayer(), onID);
+            currentLevel.setGraphic(x, y, "sprites", currentLevel.getGameplayArtLayer(), onID);
             callEvent(Trigger.ON_PASS);
 
             pressed = true;

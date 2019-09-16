@@ -59,6 +59,7 @@ public class JumpPlayer extends GameEntity<PlayerState> implements Teleportable 
                 8 + (SlimeGame.getGame().getLevelHandler().getSpawnY() * 16));
         resetAnimation("slime_jump_down");
         setHaltMovement(false);
+        setPreviousNonZeroMovement(null);
         getEntityState().changeStateAfterUpdate(Idle.class);
     }
 

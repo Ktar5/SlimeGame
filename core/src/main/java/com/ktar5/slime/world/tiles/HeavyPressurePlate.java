@@ -14,7 +14,7 @@ import com.ktar5.slime.world.tiles.base.TriggerableGameTile;
 import java.util.List;
 
 public class HeavyPressurePlate extends TriggerableGameTile {
-    private static final int onID = 34, offID = 35;
+    private static final int onID = 48, offID = 49;
     private static final Rectangle hitbox = new Rectangle(16, 16);
 
     private boolean pressed = false;
@@ -65,18 +65,18 @@ public class HeavyPressurePlate extends TriggerableGameTile {
     public void reset() {
         pressed = false;
         LoadedLevel currentLevel = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
-        currentLevel.setGraphic(x, y, "GameplayImages", currentLevel.getGameplayArtLayer(), offID);
+        currentLevel.setGraphic(x, y, "sprites", currentLevel.getGameplayArtLayer(), offID);
     }
 
     public void enable() {
         LoadedLevel currentLevel = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
-        currentLevel.setGraphic(x, y, "GameplayImages", currentLevel.getGameplayArtLayer(), onID);
+        currentLevel.setGraphic(x, y, "sprites", currentLevel.getGameplayArtLayer(), onID);
         callEvent(Trigger.ON_ENABLE);
     }
 
     public void disable() {
         LoadedLevel currentLevel = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
-        currentLevel.setGraphic(x, y, "GameplayImages", currentLevel.getGameplayArtLayer(), offID);
+        currentLevel.setGraphic(x, y, "sprites", currentLevel.getGameplayArtLayer(), offID);
         callEvent(Trigger.ON_DISABLE);
     }
 

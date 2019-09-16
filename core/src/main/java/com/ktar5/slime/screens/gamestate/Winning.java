@@ -9,6 +9,7 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.kotcrab.vis.ui.widget.VisLabel;
 import com.ktar5.gameengine.EngConst;
 import com.ktar5.gameengine.analytics.Analytics;
+import com.ktar5.gameengine.core.AbstractGame;
 import com.ktar5.gameengine.core.EngineManager;
 import com.ktar5.gameengine.input.ControllerInput;
 import com.ktar5.gameengine.input.devices.XboxOneGamepad;
@@ -32,17 +33,17 @@ public class Winning extends GameState {
         Gdx.input.setInputProcessor(stage);
         EngineManager.get().getConsole().resetInputProcessing();
 
-        VisLabel clickToContinue = new VisLabel("Click anywhere to continue...");
+        VisLabel clickToContinue = new VisLabel("Press any key to continue...");
 
         Table scores = new Table();
         scores.setFillParent(true);
         scores.pad(20, 0, 0, 0);
         scores.top();
         scores.add(winText).padBottom(100f);
-        scores.row();
-        scores.add(collectiblesScore);
-        scores.row();
-        scores.add(slimeCoveredScore);
+//        scores.row();
+//        scores.add(collectiblesScore);
+//        scores.row();
+//        scores.add(slimeCoveredScore);
 
         stage.addActor(scores);
 
@@ -58,14 +59,18 @@ public class Winning extends GameState {
 
     @Override
     public void start() {
-        collectiblesScore.setText("You collected "
-                + SlimeGame.getGame().getLevelHandler().getCurrentLevel().getCollectibles()
-                + " out of 3 collectibles");
-        slimeCoveredScore.setText("You covered "
-                + SlimeGame.getGame().getLevelHandler().getCurrentLevel().getNumberTilesSlimed()
-                + " tiles in slime!");
-        winText.setText("You got the treasure on level " +
+//        collectiblesScore.setText("You collected "
+//                + SlimeGame.getGame().getLevelHandler().getCurrentLevel().getCollectibles()
+//                + " out of 3 collectibles");
+//        slimeCoveredScore.setText("You covered "
+//                + SlimeGame.getGame().getLevelHandler().getCurrentLevel().getNumberTilesSlimed()
+//                + " tiles in slime!");
+        winText.setText("You passed level " +
                 SlimeGame.getGame().getLevelHandler().getCurrentLevel().getId() + "!");
+
+        AbstractGame.RED = 10;
+        AbstractGame.GREEN = 5;
+        AbstractGame.BLUE = 10;
 
         Analytics.addEvent(new LevelCompleteEvent(SlimeGame.getGame().getLevelHandler().getCurrentLevel()));
         Analytics.flush();
@@ -111,14 +116,16 @@ public class Winning extends GameState {
 
     @Override
     protected void end() {
-
+        AbstractGame.RED = 57;
+        AbstractGame.GREEN = 31;
+        AbstractGame.BLUE = 58;
     }
 
     @Override
     public void render(SpriteBatch batch, float dTime) {
         SlimeGame.getGame().getPostProcess().getVfxManager().beginCapture();
 
-        Gdx.gl.glClearColor(168 / 255f, 118 / 255f, 86 / 255f, 1);
+        Gdx.gl.glClearColor(57 / 255f, 31 / 255f, 58 / 255f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         SlimeGame.getGame().getLevelHandler().render(batch, EngConst.STEP_TIME);
         getGameScreen().getFrameRate().render(batch, EngConst.STEP_TIME);

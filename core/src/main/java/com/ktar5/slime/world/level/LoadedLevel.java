@@ -130,6 +130,9 @@ public class LoadedLevel extends LevelData implements Updatable {
     }
 
     public int getCurrentID(int x, int y, TiledMapTileLayer mapLayer) {
+        if(mapLayer == null){
+            throw new NullPointerException("The requested map layer doesn't exist");
+        }
         if (mapLayer.getCell(x, y) == null) {
             return -1;
         } else {

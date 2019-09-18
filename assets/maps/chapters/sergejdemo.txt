@@ -25,8 +25,8 @@
 23:Level_Demo21
 24:Level_Demo22
 25:Level_Demo23
-26:
-27:
-28:
+26:Level_Demo24
+27:Level_Demo25
+28:Level_Demo26
 29:
 30:

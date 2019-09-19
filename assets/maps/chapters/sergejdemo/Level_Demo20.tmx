@@ -22,7 +22,7 @@
 3221226719,1257,624,624,624,624,624,624,624,624,624,624,624,624,624,624,1342,864,1279,
 0,895,1217,1215,1217,1215,1217,1216,1217,1225,624,624,624,624,624,624,624,1278,1279,
 0,0,0,0,0,0,0,0,3221226751,1289,624,624,624,624,624,624,624,1246,1247,
-0,0,0,0,0,0,0,0,0,895,1216,1225,0,1214,1216,1215,1216,896,0,
+0,0,0,0,0,0,0,0,0,895,1216,1225,624,1214,1216,1215,1216,896,0,
 0,0,0,0,0,0,0,0,0,0,0,895,1215,896,0,0,0,0,0
 </data>
  </layer>
@@ -96,12 +96,12 @@
   <object id="1" name="spawn" x="144" y="64" width="16" height="16"/>
   <object id="8" x="176" y="192" width="16" height="16">
    <properties>
-    <property name="onPass" value="setGate(15,20,close)"/>
+    <property name="onPass" value="setGate(6,10,close)"/>
    </properties>
   </object>
   <object id="9" x="64" y="112" width="16" height="16">
    <properties>
-    <property name="onPass" value="setGate(15,20,open)"/>
+    <property name="onPass" value="setGate(6,10,open)"/>
    </properties>
   </object>
  </objectgroup>

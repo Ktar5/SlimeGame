@@ -79,6 +79,7 @@ public class BoxMove extends BoxState {
             boolean wasTeleport = getEntity().isTeleporting();
             getEntity().setTeleporting(false);
             GameTile nextTile = levelData.tileFromDirection(currentTileX, currentTileY, getMovement());
+            System.out.println(currentTileX + " " + currentTileY);
             GameTile currentTile = levelData.getGameMap()[currentTileX][currentTileY];
             if (nextTile == null) {
                 int x = ((int) newPosition.x / 16);

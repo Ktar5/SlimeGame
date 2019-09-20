@@ -37,7 +37,7 @@ public class DesktopLauncher {
         configuration.title = "Slip 'n Slime";
         configuration.width = 960;
         configuration.height = 540;
-        configuration.vSyncEnabled = true;
+        configuration.vSyncEnabled = false;
         configuration.foregroundFPS = 60;
         configuration.backgroundFPS = 0;
         for (int size : new int[]{128, 64, 32, 16}) {

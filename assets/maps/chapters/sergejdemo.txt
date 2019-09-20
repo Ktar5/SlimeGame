@@ -1,13 +1,13 @@
 0:Level_Demo1-3
 1:Level_Demo2-2
-2:Level_Demo3
+2:Level_Demo3-2
 3:Level_Demo4
 4:Level_Demo5
-5:Level_Demo6
+5:Level_Demo6-2
 6:Level_Demo7
 7:Level_Demo8
 8:Level_Demo9
-9:Level_Demo10
+9:Level_Demo10-2
 10:Level_Demo11
 11:Level_Demo12
 12:Level_Demo13

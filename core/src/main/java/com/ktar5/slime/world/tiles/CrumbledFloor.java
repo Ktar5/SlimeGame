@@ -47,7 +47,7 @@ public class CrumbledFloor extends WholeGameTile {
                     SlimeGame.getGame().getLevelHandler().getCurrentLevel().getEntities().remove(entity);
                 });
                 LoadedLevel currentLevel = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
-                currentLevel.setGraphic(x, y, "GameplayImages", currentLevel.getGameplayArtLayer(), 221);
+                currentLevel.setGraphic(x, y, "sprites", currentLevel.getGameplayArtLayer(), 161);
             } else if (entity.isPlayer()) {
                 ((JumpPlayer) entity).kill("crumbled_floor");
                 return true;

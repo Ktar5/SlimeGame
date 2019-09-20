@@ -47,7 +47,7 @@ public class Hole extends WholeGameTile {
             LoadedLevel currentLevel = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
             currentLevel.addEdit(x, y, currentLevel.getGameplayArtLayerIndex(),
                     currentLevel.getCurrentID(x, y, currentLevel.getGameplayArtLayer()));
-            currentLevel.setGraphic(x, y, "GameplayImages", currentLevel.getGameplayArtLayer(), 221);
+            currentLevel.setGraphic(x, y, "sprites", currentLevel.getGameplayArtLayer(), 161);
         } else if (entity instanceof HeroEntity){
             ((HeroEntity) entity).kill();
         }

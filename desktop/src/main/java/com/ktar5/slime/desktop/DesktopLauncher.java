@@ -39,7 +39,7 @@ public class DesktopLauncher {
         configuration.height = 540;
         configuration.vSyncEnabled = true;
         configuration.foregroundFPS = 60;
-        configuration.backgroundFPS = 0;
+        configuration.backgroundFPS = 60;
         for (int size : new int[]{128, 64, 32, 16}) {
             configuration.addIcon("libgdx" + size + ".png", FileType.Internal);
         }
@@ -53,7 +53,7 @@ public class DesktopLauncher {
         configuration.height = 540;
         configuration.vSyncEnabled = true;
         configuration.foregroundFPS = 60;
-        configuration.backgroundFPS = 0;
+        configuration.backgroundFPS = 60;
         for (int size : new int[]{128, 64, 32, 16}) {
             configuration.addIcon("libgdx" + size + ".png", FileType.Internal);
         }

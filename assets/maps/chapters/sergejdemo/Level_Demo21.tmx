@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="18" height="12" tilewidth="16" tileheight="16" infinite="0" nextlayerid="14" nextobjectid="10">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="18" height="12" tilewidth="16" tileheight="16" infinite="0" nextlayerid="15" nextobjectid="10">
  <tileset firstgid="1" source="../../tileset/GameplayTileset.tsx"/>
  <tileset firstgid="65" source="../../tileset/GameplayImages.tsx"/>
  <tileset firstgid="337" source="../../tileset/Cave.tsx"/>
  <tileset firstgid="1361" source="../../tileset/sprites.tsx"/>
+ <layer id="14" name="Art_Bottom" width="18" height="12">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,624,624,624,624,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,624,0,0,0,0,0,624,624,624,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,624,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,624,624,0,0,0,0,0,0,0,0,624,624,624,0,0,0,
+0,0,0,0,0,0,0,624,624,624,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,624,0,0,0,0,0,0,624,0,0,624,0,0,
+0,0,0,0,0,0,0,0,0,0,624,0,0,0,0,0,0,0,
+0,0,0,0,0,0,624,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
  <layer id="11" name="Art_Layer" width="18" height="12">
   <data encoding="csv">
 0,0,0,0,1610614015,1610613983,1610613983,1610614015,1610613983,1610613983,1610613983,0,0,0,0,0,0,0,

@@ -1,9 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="20" height="19" tilewidth="16" tileheight="16" infinite="0" nextlayerid="23" nextobjectid="4">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="20" height="19" tilewidth="16" tileheight="16" infinite="0" nextlayerid="24" nextobjectid="4">
  <tileset firstgid="1" source="../../tileset/GameplayTileset.tsx"/>
  <tileset firstgid="65" source="../../tileset/GameplayImages.tsx"/>
  <tileset firstgid="337" source="../../tileset/Cave.tsx"/>
  <tileset firstgid="1361" source="../../tileset/sprites.tsx"/>
+ <layer id="23" name="Art_Bottom" width="20" height="19">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,624,624,624,624,0,0,0,0,0,0,
+0,0,0,0,0,0,0,624,0,624,0,0,0,0,624,0,624,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,624,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,624,0,0,0,0,0,624,0,0,0,0,0,
+0,0,0,0,0,0,624,624,624,624,624,0,624,624,624,624,0,0,0,0,
+0,0,0,0,0,0,624,624,624,624,624,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,624,624,624,624,624,624,0,0,0,0,624,624,624,0,0,0,
+0,0,624,624,0,0,624,0,0,624,624,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,624,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,624,0,0,0,0,0,0,
+0,0,0,624,624,0,0,0,624,624,624,0,0,624,0,624,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,624,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
  <layer id="18" name="Art_Layer" width="20" height="19">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,1610613983,1610613983,1610613983,1610614015,1610614015,1610613983,0,0,0,0,0,
@@ -96,7 +119,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer id="22" name="Gameplay" width="20" height="19" opacity="0.14">
+ <layer id="22" name="Gameplay" width="20" height="19" visible="0" opacity="0.14">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,3,3,3,3,3,3,0,0,0,0,0,

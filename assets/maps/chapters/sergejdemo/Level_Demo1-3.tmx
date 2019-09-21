@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="24" height="16" tilewidth="16" tileheight="16" infinite="0" nextlayerid="41" nextobjectid="2">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="24" height="16" tilewidth="16" tileheight="16" infinite="0" nextlayerid="41" nextobjectid="2">
+ <properties>
+  <property name="Front" value=""/>
+ </properties>
  <tileset firstgid="1" source="../../tileset/GameplayTileset.tsx"/>
  <tileset firstgid="65" source="../../tileset/Cave.tsx"/>
  <tileset firstgid="1089" source="../../tileset/SlimeCave.tsx"/>
  <tileset firstgid="1640" source="../../tileset/GameplayImages.tsx"/>
  <layer id="26" name="Art_Base" width="24" height="16">
+  <properties>
+   <property name="Front" value=""/>
+  </properties>
   <data encoding="csv">
 0,0,0,0,0,0,0,1610613537,1610613537,1610613537,1610613537,1610613537,1610613537,1610613537,1610613537,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,3221226273,770,770,770,770,770,770,770,770,801,0,0,0,0,0,0,0,0,
@@ -25,6 +31,9 @@
 </data>
  </layer>
  <layer id="27" name="Art_Base2" width="24" height="16">
+  <properties>
+   <property name="Front" value=""/>
+  </properties>
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,1610613744,1610613744,1610613744,1610613744,1610613744,1610613744,0,0,0,0,0,0,0,0,0,0,
@@ -244,7 +253,10 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer id="39" name="Art_AbovePlayer" width="24" height="16">
+ <layer id="39" name="Art_AbovePlayer" width="24" height="16" locked="1">
+  <properties>
+   <property name="Front" value=""/>
+  </properties>
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -264,13 +276,13 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer id="37" name="Gameplay" width="24" height="16" visible="0" opacity="0.52">
+ <layer id="37" name="Gameplay" width="24" height="16" opacity="0.52">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,3,3,3,3,3,3,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,3,1,3,0,3,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,3,0,3,0,3,2,0,0,3,3,3,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,3,0,0,0,0,3,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,3,1,3,0,3,2,0,0,3,3,3,0,0,0,0,0,0,0,0,0,
 0,0,0,0,3,0,3,0,3,0,0,3,0,0,3,0,0,0,0,0,0,0,0,0,
 0,0,0,3,3,0,3,3,3,0,0,0,0,0,3,0,0,0,0,0,0,0,0,0,
 0,0,3,3,0,0,0,3,3,3,3,3,0,3,3,0,0,0,0,0,0,0,0,0,
@@ -284,7 +296,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <objectgroup id="6" name="Properties" visible="0">
+ <objectgroup id="6" name="Properties">
   <object id="1" name="spawn" x="144" y="64" width="16" height="16"/>
  </objectgroup>
 </map>

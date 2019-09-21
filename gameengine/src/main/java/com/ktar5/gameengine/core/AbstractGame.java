@@ -24,7 +24,7 @@ public abstract class AbstractGame<G extends AbstractGame<G>> implements Applica
     private ShapeRenderer shapeRenderer;
     private DelayedAddList<Runnable> actionsAfterNextFrame;
 
-    public static int RED = 0, GREEN = 0, BLUE = 0;
+    public static int RED = 40, GREEN = 22, BLUE = 41;
 
     @Override
     public final void create() {

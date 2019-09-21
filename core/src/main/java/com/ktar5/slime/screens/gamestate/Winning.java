@@ -65,6 +65,8 @@ public class Winning extends GameState {
 //        slimeCoveredScore.setText("You covered "
 //                + SlimeGame.getGame().getLevelHandler().getCurrentLevel().getNumberTilesSlimed()
 //                + " tiles in slime!");
+
+
         winText.setText("You passed level " +
                 SlimeGame.getGame().getLevelHandler().getCurrentLevel().getId() + "!");
 
@@ -116,16 +118,16 @@ public class Winning extends GameState {
 
     @Override
     protected void end() {
-        AbstractGame.RED = 57;
-        AbstractGame.GREEN = 31;
-        AbstractGame.BLUE = 58;
+        AbstractGame.RED = 40;
+        AbstractGame.GREEN = 22;
+        AbstractGame.BLUE = 41;
     }
 
     @Override
     public void render(SpriteBatch batch, float dTime) {
         SlimeGame.getGame().getPostProcess().getVfxManager().beginCapture();
 
-        Gdx.gl.glClearColor(57 / 255f, 31 / 255f, 58 / 255f, 1);
+        Gdx.gl.glClearColor(40 / 255f, 22 / 255f, 41 / 255f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         SlimeGame.getGame().getLevelHandler().render(batch, EngConst.STEP_TIME);
         getGameScreen().getFrameRate().render(batch, EngConst.STEP_TIME);

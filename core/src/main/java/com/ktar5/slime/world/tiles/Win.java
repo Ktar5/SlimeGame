@@ -15,14 +15,12 @@ public class Win extends WholeGameTile {
 
     @Override
     public boolean canCrossThrough(Entity entity, Side movement) {
-        return false;
+        return true;
     }
 
     @Override
     public void onHitTile(Entity entity, Side hit) {
-        if (entity.isPlayer()) {
-            ((GameScreen) SlimeGame.getGame().getScreen()).getGameState().changeStateAfterUpdate(Winning.class);
-        }
+
     }
 
     @Override
@@ -30,4 +28,11 @@ public class Win extends WholeGameTile {
 
     }
 
+    @Override
+    public boolean onCross(Entity entity) {
+        if (entity.isPlayer()) {
+            ((GameScreen) SlimeGame.getGame().getScreen()).getGameState().changeStateAfterUpdate(Winning.class);
+        }
+        return true;
+    }
 }

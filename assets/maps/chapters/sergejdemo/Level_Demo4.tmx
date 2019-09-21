@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="18" height="24" tilewidth="16" tileheight="16" infinite="0" backgroundcolor="#000000" nextlayerid="29" nextobjectid="3">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="18" height="24" tilewidth="16" tileheight="16" infinite="0" nextlayerid="29" nextobjectid="3">
  <tileset firstgid="1" source="../../tileset/GameplayTileset.tsx"/>
  <tileset firstgid="65" source="../../tileset/Cave.tsx"/>
  <tileset firstgid="1089" source="../../tileset/GameplayImages.tsx"/>
  <tileset firstgid="1361" source="../../tileset/sprites.tsx"/>
  <layer id="15" name="Art_Base" width="18" height="24">
+  <properties>
+   <property name="Front" value=""/>
+  </properties>
   <data encoding="csv">
 0,0,1610613537,1610613537,1610613537,1610613537,1610613537,1610613537,1610613537,0,0,0,0,0,0,0,0,0,
 0,3221226273,770,770,770,770,770,770,770,802,1610613537,0,0,0,0,0,0,0,
@@ -33,6 +36,9 @@
 </data>
  </layer>
  <layer id="20" name="Art_Base2" width="18" height="24">
+  <properties>
+   <property name="Front" value=""/>
+  </properties>
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,1610613744,1610613744,1610613744,1610613744,1610613744,0,0,0,0,0,0,0,0,0,0,
@@ -341,6 +347,9 @@
 </data>
  </layer>
  <layer id="27" name="Art_AbovePlayer" width="18" height="24">
+  <properties>
+   <property name="Front" value=""/>
+  </properties>
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -368,14 +377,14 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer id="17" name="Gameplay" width="18" height="24" visible="0" opacity="0.75">
+ <layer id="17" name="Gameplay" width="18" height="24" opacity="0.75">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,3,3,3,3,3,0,0,0,0,0,0,0,0,0,0,
 0,0,0,3,0,2,0,3,3,3,0,0,0,0,0,0,0,0,
 0,0,0,3,0,0,0,0,0,3,3,3,0,0,0,0,0,0,
-0,0,0,3,3,3,3,6,0,0,0,1,0,0,0,0,0,0,
+0,0,0,3,3,3,3,6,0,0,1,3,0,0,0,0,0,0,
 0,0,0,3,0,0,3,0,0,3,3,3,0,0,0,0,0,0,
 0,0,0,3,0,0,0,0,0,3,0,0,0,0,0,0,0,0,
 0,0,0,3,3,0,3,3221225476,3,3,3,0,0,0,0,0,0,0,

@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="24" height="19" tilewidth="16" tileheight="16" infinite="0" nextlayerid="24" nextobjectid="4">
+<map version="1.2" tiledversion="1.2.4" orientation="orthogonal" renderorder="right-down" width="24" height="19" tilewidth="16" tileheight="16" infinite="0" nextlayerid="24" nextobjectid="4">
  <tileset firstgid="1" source="../../tileset/GameplayTileset.tsx"/>
  <tileset firstgid="65" source="../../tileset/Cave.tsx"/>
  <tileset firstgid="1089" source="../../tileset/GameplayImages.tsx"/>
  <tileset firstgid="1361" source="../../tileset/sprites.tsx"/>
  <layer id="12" name="Art_Base" width="24" height="19">
+  <properties>
+   <property name="Front" value=""/>
+  </properties>
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,1610613537,1610613537,1610613537,1610613537,1610613537,0,0,0,0,0,0,0,0,0,0,
@@ -28,6 +31,9 @@
 </data>
  </layer>
  <layer id="17" name="Art_Base2" width="24" height="19">
+  <properties>
+   <property name="Front" value=""/>
+  </properties>
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -61,7 +67,7 @@
 0,0,0,0,0,352,352,352,352,352,352,352,352,352,352,352,0,0,0,0,0,0,0,0,
 0,0,0,0,352,352,352,352,352,352,352,352,352,352,352,352,0,0,0,0,0,0,0,0,
 0,0,0,0,352,352,352,352,352,352,352,352,352,352,352,352,0,0,0,0,0,0,0,0,
-0,0,0,352,352,352,352,352,352,352,352,352,352,352,352,352,352,0,0,0,0,0,0,0,
+0,0,0,352,352,352,352,352,352,352,352,352,352,352,1062,352,352,0,0,0,0,0,0,0,
 0,0,0,352,352,352,352,352,352,352,352,352,352,352,352,352,352,0,0,0,0,0,0,0,
 0,0,0,352,352,352,352,352,352,352,352,352,352,352,352,352,352,0,0,0,0,0,0,0,
 0,0,0,352,352,352,352,352,352,352,352,352,352,352,352,352,352,0,0,0,0,0,0,0,
@@ -281,6 +287,9 @@
 </data>
  </layer>
  <layer id="14" name="Art_AbovePlayer" width="24" height="19">
+  <properties>
+   <property name="Front" value=""/>
+  </properties>
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -303,11 +312,11 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer id="10" name="Gameplay" width="24" height="19" visible="0" opacity="0.38">
+ <layer id="10" name="Gameplay" width="24" height="19" opacity="0.38">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,3,3,3,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,3,1,3,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,3,3,3,3,3,0,3,3,3,3,3,0,0,0,0,0,0,0,
 0,0,0,0,0,0,3,17,17,17,3,0,0,3,0,0,3,0,0,0,0,0,0,0,

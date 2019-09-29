@@ -92,7 +92,7 @@ public class HeroIdle extends HeroState {
                 }
             } else if (tile instanceof OneDirection) {
                 OneDirection oneDirection = ((OneDirection) tile);
-                if (!oneDirection.allowedDirection.equals(getEntity().facingDirection)) {
+                if (!oneDirection.allowedDirection.opposite().equals(getEntity().facingDirection)) {
                     return;
                 }
             } else {

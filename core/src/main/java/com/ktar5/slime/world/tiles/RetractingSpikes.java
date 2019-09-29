@@ -51,9 +51,9 @@ public class RetractingSpikes extends WholeGameTile {
 
             Logger.debug("Attempting to start tween");
             tween = Timeline.createSequence()
-                    .pushPause(.2f)
+                    .pushPause(.3f)
                     .push(Tween.to(this, 0, 1).target(100).ease(Linear.INOUT))
-                    .pushPause(1.0f)
+                    .pushPause(.7f)
                     .push(Tween.to(this, 1, 1).target(0).ease(Linear.INOUT))
                     .setCallback((type, source) -> {
                         Logger.debug("Tween ended");

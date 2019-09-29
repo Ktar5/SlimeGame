@@ -109,7 +109,7 @@ public class LoadedLevel extends LevelData implements Updatable {
         }
         TiledMapTileSets tileSets = this.getRenderMap().getTileSets();
         int i = tileSets.getTileSet(tileset).getProperties().get("firstgid", Integer.class);
-        if (mapLayer.getCell(x, y) == null) {
+        if (mapLayer.getCell(x, y) == null || mapLayer.getCell(x,y).getTile() == null) {
             if(id == -1){
                return -1;
             }
@@ -120,7 +120,6 @@ public class LoadedLevel extends LevelData implements Updatable {
         } else {
             int firstID = mapLayer.getCell(x, y).getTile().getId();
             if(id == -1){
-                //TODO test
                 mapLayer.getCell(x, y).setTile(null);
             }else{
                 mapLayer.getCell(x, y).setTile(tileSets.getTile(i + id));

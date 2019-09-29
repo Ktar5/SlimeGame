@@ -8,6 +8,7 @@ import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.entities.TouchableEntity;
 import com.ktar5.slime.entities.box.Box;
 import com.ktar5.slime.entities.cart.Cart;
+import com.ktar5.slime.entities.hero.HeroEntity;
 import com.ktar5.slime.entities.player.JumpPlayer;
 import com.ktar5.slime.variables.Settings;
 import com.ktar5.slime.world.level.LevelData;
@@ -169,13 +170,21 @@ public class NewMove extends PlayerState {
                     System.out.println("Touching cart");
                     touchedEntity = true;
                     break;
+                }else if(entity instanceof HeroEntity && ((HeroEntity) entity).isTouching(getPlayer().getHitbox(), futureAheadHitboxPosition)){
+                    System.out.println("Touched hero");
+                    if(getMovement().opposite().equals(((HeroEntity) entity).facingDirection)){
+                        getPlayer().kill("hero");
+                    }else{
+                        touchedEntity = true;
+                        System.out.println("Touched hero");
+                    }
                 }
             }
 
             if (touchedEntity) {
                 System.out.println("Stopped moving");
                 getPlayer().getPosition().moveTo((currentTileX * 16) + 8, (currentTileY * 16) + 8);
-//                getPlayer().getEntityState().changeStateAfterUpdate(Idle.class);
+                getPlayer().getEntityState().changeStateAfterUpdate(Idle.class);
                 return;
             }
 

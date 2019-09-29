@@ -31,6 +31,7 @@ public enum TileObjectTypes {
     RAIL_LEFT_UP((x, y, cell) -> new Rail(x, y, Rotation.fromCell(cell), Side.LEFT, Side.UP), 40),
     RAIL_UP_DOWN((x, y, cell) -> new Rail(x, y, Rotation.fromCell(cell), Side.UP, Side.DOWN), 48),
     RAIL_ALL_DIR((x, y, cell) -> new Rail(x, y), 56),
+    POT((x, y, cell) -> new Pot(x, y), 21),
 
     SPIKE((x, y, cell) -> new Spikes(x, y), 16),
     HOLE((x, y, cell) -> new Hole(x, y), 17),
@@ -53,7 +54,7 @@ public enum TileObjectTypes {
     public static final HashSet<TileObjectTypes> TILES = new HashSet<>(Arrays.asList(
             WIN, START, WALL, ONE_DIRECTION, DRAIN, GOO, BUTTON, PRESSURE_PLATE, GATE, DRAIN_PIPE_ALL_DIR,
             DRAIN_PIPE_LEFT_UP, DRAIN_PIPE_UP_DOWN, SPIKE, HOLE, CRUMBLING_FLOOR, TELEPORTER, BIG, HIDESPIKE, SHOOTER,
-            HEAVY_PLATE, RAIL_ALL_DIR, RAIL_LEFT_UP, RAIL_UP_DOWN
+            HEAVY_PLATE, RAIL_ALL_DIR, RAIL_LEFT_UP, RAIL_UP_DOWN, POT
     ));
     public static final HashSet<TileObjectTypes> ENTITIES = new HashSet<TileObjectTypes>(Arrays.asList(
             BOX, HERO, CART, CART_MOVE

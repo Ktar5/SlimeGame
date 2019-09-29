@@ -30,8 +30,10 @@ public class Gate extends WholeGameTile {
         open = value;
         LoadedLevel currentLevel = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
         if (open) {
-            currentLevel.addEdit(x, y, currentLevel.getGameplayArtLayerIndex(),
-                    ((TiledMapTileLayer) currentLevel.getRenderMap().getLayers().get("Art_Gameplay")).getCell(x, y).getTile().getId());
+            basicClosedID = ((TiledMapTileLayer) currentLevel.getRenderMap().getLayers().get("Art_Gameplay")).getCell(x, y).getTile().getId();
+            currentLevel.addEdit(x, y, currentLevel.getGameplayArtLayerIndex(), basicClosedID);
+
+            basicClosedID = basicClosedID - currentLevel.getRenderMap().getTileSets().getTileSet("sprites").getProperties().get("firstgid", Integer.class);
             currentLevel.setGraphic(x, y, "sprites", currentLevel.getGameplayArtLayer(), -1);
         } else {
             currentLevel.setGraphic(x, y, "sprites", currentLevel.getGameplayArtLayer(), basicClosedID);

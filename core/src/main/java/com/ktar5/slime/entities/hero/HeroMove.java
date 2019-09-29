@@ -127,8 +127,7 @@ public class HeroMove extends HeroState {
             if (shouldStop) {
                 System.out.println("Stopped moving");
                 getEntity().getPosition().moveTo((currentTileX * 16) + 8, (currentTileY * 16) + 8);
-                //TODO ????????
-//                getPlayer().getEntityState().changeStateAfterUpdate(Idle.class);
+                getEntity().getEntityState().changeStateAfterUpdate(HeroIdle.class);
                 return;
             }
 

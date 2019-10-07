@@ -20,6 +20,15 @@ public class KInput implements InputProcessor {
         return KEYS_DOWN_FRAME[key];
     }
 
+    public static boolean isKeyJustPressed(int... keys){
+        for (int i : keys) {
+            if(isKeyJustPressed(i)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     @Override
     public boolean keyDown(int keycode) {
         System.out.println("PRESSING KEY: " + keycode);

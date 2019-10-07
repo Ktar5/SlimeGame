@@ -5,6 +5,7 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputMultiplexer;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.ktar5.gameengine.core.EngineManager;
+import com.ktar5.gameengine.input.devices.JamPad;
 import com.ktar5.slime.KInput;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.hotkeys.RunningHotkeys;
@@ -34,7 +35,7 @@ public class Running extends GameState {
     @Override
     public void onUpdate(float dTime) {
 //        System.out.println("Updating running state");
-        if (KInput.isKeyJustPressed(Input.Keys.ESCAPE)) {
+        if (KInput.isKeyJustPressed(Input.Keys.ESCAPE) || EngineManager.get().getControllerInput().isButtonJustPressed(JamPad.START)) {
             System.out.println("ESCAPE");
             changeState(PauseWithBlur.class);
             return;

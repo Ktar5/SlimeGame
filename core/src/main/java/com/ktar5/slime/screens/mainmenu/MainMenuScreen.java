@@ -1,6 +1,7 @@
 package com.ktar5.slime.screens.mainmenu;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Batch;
@@ -13,6 +14,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.ktar5.gameengine.core.AbstractScreen;
 import com.ktar5.gameengine.core.EngineManager;
+import com.ktar5.gameengine.input.ControllerInput;
+import com.ktar5.gameengine.input.devices.JamPad;
 import com.ktar5.slime.KInput;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.hotkeys.GeneralHotkeys;
@@ -34,14 +37,6 @@ public class MainMenuScreen extends AbstractScreen {
         camera.getCamera().update();
 
         stage = new ControllerMenuStage (getCamera().getViewport(), SlimeGame.getGame().getSpriteBatch());
-    }
-
-
-    @Override
-    public void show() {
-        //Stage should control input:
-        //new InputMultiplexer(stage, SlimeGame.getGame().getInput())
-        Gdx.input.setInputProcessor(stage);
 
         //Create Table
         Table mainTable = new Table();
@@ -107,8 +102,18 @@ public class MainMenuScreen extends AbstractScreen {
             }
         });
         stage.addActor(mainTable);
-        stage.addFocusableActor(mainTable);
+//        stage.addFocusableActor(mainTable);
+        mainTable.validate();
         stage.setFocusedActor(playButton);
+    }
+
+
+    @Override
+    public void show() {
+        //Stage should control input:
+        //new InputMultiplexer(stage, SlimeGame.getGame().getInput())
+        Gdx.input.setInputProcessor(stage);
+        framesOfSelectDown = 0;
     }
 
     @Override
@@ -151,8 +156,27 @@ public class MainMenuScreen extends AbstractScreen {
         atlas.dispose();
     }
 
+    int framesOfSelectDown = 0;
     @Override
     public void update(float dTime) {
+        ControllerInput contInp = EngineManager.get().getControllerInput();
+        if(contInp.isButtonJustPressed(JamPad.DPAD_DOWN)){
+            stage.keyDown(Input.Keys.DOWN);
+        } else if(contInp.isButtonJustPressed(JamPad.DPAD_UP)){
+            stage.keyDown(Input.Keys.UP);
+        }else if(contInp.isButtonJustPressed(JamPad.A)) {
+            stage.keyDown(Input.Keys.ENTER);
+            framesOfSelectDown = 1;
+        }
+
+        if(framesOfSelectDown >= 4){
+            framesOfSelectDown = 0;
+            stage.keyUp(Input.Keys.ENTER);
+        }else if(framesOfSelectDown > 0){
+            framesOfSelectDown += 1;
+        }
+        contInp.update();
+
         GeneralHotkeys.update();
         KInput.update();
 

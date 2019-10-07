@@ -13,6 +13,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.ktar5.gameengine.EngConst;
 import com.ktar5.gameengine.core.EngineManager;
+import com.ktar5.gameengine.input.ControllerInput;
+import com.ktar5.gameengine.input.devices.JamPad;
 import com.ktar5.slime.KInput;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.screens.GameScreen;
@@ -84,10 +86,13 @@ public class PauseWithBlur extends GameState {
         mainTable.add(exitButton).fill();
         stage.addFocusableActor(exitButton);
         stage.addActor(mainTable);
+
+        mainTable.validate();
         stage.setFocusedActor(resumeButton);
         stage.setEscapeActor(resumeButton);
     }
 
+    boolean firstFrame = false;
 
     @Override
     public void start() {
@@ -98,6 +103,8 @@ public class PauseWithBlur extends GameState {
                 SlimeGame.getGame().getInput());
 
         Gdx.input.setInputProcessor(inputMultiplexer);
+        firstFrame = true;
+        framesOfSelectDown = 0;
     }
 
     @Override
@@ -124,13 +131,33 @@ public class PauseWithBlur extends GameState {
 
     }
 
+    int framesOfSelectDown = 0;
     @Override
     public void onUpdate(float dTime) {
         stage.act();
 
-        if (KInput.isKeyJustPressed(Input.Keys.ESCAPE)) {
+        ControllerInput contInp = EngineManager.get().getControllerInput();
+        if (!firstFrame && (KInput.isKeyJustPressed(Input.Keys.ESCAPE) || contInp.isButtonJustPressed(JamPad.START))) {
             changeState(Running.class);
         }
+
+        if(contInp.isButtonJustPressed(JamPad.DPAD_DOWN)){
+            stage.keyDown(Input.Keys.DOWN);
+        } else if(contInp.isButtonJustPressed(JamPad.DPAD_UP)){
+            stage.keyDown(Input.Keys.UP);
+        }else if(contInp.isButtonJustPressed(JamPad.A)) {
+            stage.keyDown(Input.Keys.ENTER);
+            framesOfSelectDown = 1;
+        }
+
+        if(framesOfSelectDown >= 4){
+            framesOfSelectDown = 0;
+            stage.keyUp(Input.Keys.ENTER);
+        }else if(framesOfSelectDown > 0){
+            framesOfSelectDown += 1;
+        }
+        EngineManager.get().getControllerInput().update();
+        firstFrame = false;
     }
 
     @Override

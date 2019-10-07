@@ -15,6 +15,15 @@ public class ControllerInput {
         return buttonsJustPressed[buttonCode];
     }
 
+    public boolean isButtonJustPressed(int... buttonCode){
+        for (int i : buttonCode) {
+            if(isButtonJustPressed(i)){
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void refreshControllers() {
         if (controller == null && Controllers.getControllers().size > 0 && Feature.CONTROLLER.isEnabled()) {
             controller = Controllers.getControllers().get(0);

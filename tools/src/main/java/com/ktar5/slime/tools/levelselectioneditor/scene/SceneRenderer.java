@@ -92,7 +92,14 @@ public class SceneRenderer extends ZoomablePannableWidget {
                 while (current != null) {
                     int x = (int) (getRenderX() + (current.getX() * scale));
                     int y = (int) (getRenderY() + (current.getY() * scale));
-                    shapeRenderer.circle(x, y, 6 * scale);
+
+                    if (selectedPoint != null && selectedPoint.equals(current)) {
+                        shapeRenderer.setColor(Color.GOLD);
+                        shapeRenderer.circle(x, y, 6 * scale);
+                        shapeRenderer.setColor(Color.BLUE);
+                    } else {
+                        shapeRenderer.circle(x, y, 6 * scale);
+                    }
 
                     if (current.equals(value.getFirstPoint()) && value.getStart() != null) {
                         Point start = value.getStart();
@@ -107,12 +114,6 @@ public class SceneRenderer extends ZoomablePannableWidget {
                     current = current.getNext();
                     if (current != null) {
                         shapeRenderer.line(x, y, (int) (getRenderX() + (current.getX() * scale)), (int) (getRenderY() + (current.getY() * scale)));
-                    }
-
-                    if(selectedPoint != null && selectedPoint.equals(current)){
-                        shapeRenderer.setColor(Color.GOLD);
-                        shapeRenderer.circle(x, y, 6 * scale);
-                        shapeRenderer.setColor(Color.BLUE);
                     }
 
                 }
@@ -144,7 +145,7 @@ public class SceneRenderer extends ZoomablePannableWidget {
             shapeRenderer.rect(((value.getX() - 8f) * scale) + getRenderX(), ((value.getY() - 3f) * scale) + getRenderY(),
                     4 * scale, 6 * scale);
 
-            if(selectedPoint != null && selectedPoint.equals(value)){
+            if (selectedPoint != null && selectedPoint.equals(value)) {
                 shapeRenderer.setColor(Color.GOLD);
                 shapeRenderer.circle((value.getX() * scale) + getRenderX(), (value.getY() * scale) + getRenderY(), 5 * scale);
                 shapeRenderer.setColor(Color.MAGENTA);

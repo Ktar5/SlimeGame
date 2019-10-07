@@ -25,7 +25,7 @@ public class Scene implements KSerializeable {
 
     private Map<UUID, ControlPoint> controlPoints;
     private List<DataPoint> dataPoints;
-    private UUID startingPath;
+    private UUID startingControlPoint;
 
     private String name;
     private File saveFile, textureFile;
@@ -68,7 +68,7 @@ public class Scene implements KSerializeable {
             controlPoints.put(controlPoint.getControlID(), controlPoint);
         }
 
-        startingPath = (json.getString("startingPath").equals("null") ? null : UUID.fromString(json.getString("startingPath")));
+        startingControlPoint = (json.getString("startingControlPoint").equals("null") ? null : UUID.fromString(json.getString("startingControlPoint")));
     }
 
 
@@ -94,7 +94,7 @@ public class Scene implements KSerializeable {
         }
         json.put("controlPoints", controlPointsJSON);
 
-        json.put("startingPath", startingPath == null ? "null" : startingPath.toString());
+        json.put("startingControlPoint", startingControlPoint == null ? "null" : startingControlPoint.toString());
         json.put("name", name);
 
         json.put("textureFile", Paths.get(saveFile.getPath()).relativize(Paths.get(textureFile.getPath())).toString());

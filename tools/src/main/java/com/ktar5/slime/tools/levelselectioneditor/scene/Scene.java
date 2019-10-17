@@ -25,7 +25,7 @@ public class Scene implements KSerializeable {
 
     private Map<UUID, ControlPoint> controlPoints;
     private List<DataPoint> dataPoints;
-    private UUID startingControlPoint;
+    @Setter private UUID startingControlPoint;
 
     private String name;
     private File saveFile, textureFile;

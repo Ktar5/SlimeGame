@@ -17,10 +17,10 @@ public class ControlPoint extends Point {
         this.controlID = UUID.fromString(json.getString("controlID"));
 
         JSONObject paths = json.getJSONObject("paths");
-        pathUp = (paths.getString("pathUp") == null ? null : UUID.fromString(paths.getString("pathUp")));
-        pathDown = (paths.getString("pathDown") == null ? null : UUID.fromString(paths.getString("pathDown")));
-        pathLeft = (paths.getString("pathLeft") == null ? null : UUID.fromString(paths.getString("pathLeft")));
-        pathRight = (paths.getString("pathRight") == null ? null : UUID.fromString(paths.getString("pathRight")));
+        pathUp = (paths.getString("pathUp").equals("null") ? null : UUID.fromString(paths.getString("pathUp")));
+        pathDown = (paths.getString("pathDown").equals("null") ? null : UUID.fromString(paths.getString("pathDown")));
+        pathLeft = (paths.getString("pathLeft").equals("null") ? null : UUID.fromString(paths.getString("pathLeft")));
+        pathRight = (paths.getString("pathRight").equals("null") ? null : UUID.fromString(paths.getString("pathRight")));
         this.data = json.getString("data");
         parseData(data);
     }

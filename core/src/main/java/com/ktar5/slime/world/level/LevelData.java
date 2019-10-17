@@ -246,8 +246,6 @@ public class LevelData {
                 if (object.getName().equalsIgnoreCase("spawn")) {
                     this.spawnTile = new Pair((int) object.getRectangle().x / 16, (int) object.getRectangle().y / 16);
                 } else if (object.getName().equalsIgnoreCase("camera")) {
-                    System.out.println(object.getRectangle().x);
-                    System.out.println(((int) object.getRectangle().x));
                     this.cameras.add(new CameraLookAt.CameraPosition(
                             (int) object.getRectangle().x, (int) object.getRectangle().y,
                             Integer.valueOf(object.getProperties().get("width", String.class)), Integer.valueOf(object.getProperties().get("height", String.class))

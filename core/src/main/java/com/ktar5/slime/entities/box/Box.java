@@ -14,6 +14,7 @@ import com.ktar5.slime.entities.arrow.Arrow;
 import com.ktar5.slime.entities.cart.Cart;
 import com.ktar5.slime.entities.cart.CartIdle;
 import com.ktar5.slime.entities.player.JumpPlayer;
+import com.ktar5.slime.entities.player.ShapeState;
 import com.ktar5.slime.entities.player.states.Idle;
 
 public class Box extends GameEntity<BoxState> implements TouchableEntity, Teleportable {
@@ -55,7 +56,7 @@ public class Box extends GameEntity<BoxState> implements TouchableEntity, Telepo
     public void onTouchedByEntity(Entity entity, Side movement) {
         if (entity.isPlayer()) {
             entity.getEntityState().changeStateAfterUpdate(Idle.class);
-            if (((JumpPlayer) entity).isSmall()) {
+            if (((JumpPlayer) entity).getShape().equals(ShapeState.TINY)) {
                 return;
             }
         }

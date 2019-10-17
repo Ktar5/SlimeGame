@@ -46,7 +46,7 @@ public class Input implements InputProcessor {
                 Main.getInstance().mainStage.getSidebar().getSelectedPath().setControlStart(controlPoint.getControlID(), direction, false);
                 break;
             case SELECT_END:
-                System.out.println("ABC 123");
+                System.out.println("ABC");
                 controlPoint = selectClosestControlPoint(x, y);
                 angle = new Vector2(x - controlPoint.getX(), y - controlPoint.getY()).angle();
                 direction = Direction.fromAngleCardinal(angle);

@@ -97,6 +97,7 @@ public class PathData extends Table {
             if (setEndButton.isChecked()) {
                 Input.inputMode = InputMode.NONE;
             } else {
+                System.out.println("select end");
                 Input.inputMode = InputMode.SELECT_END;
             }
         }));

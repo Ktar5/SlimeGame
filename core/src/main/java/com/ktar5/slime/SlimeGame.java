@@ -8,7 +8,6 @@ import com.kotcrab.vis.ui.VisUI;
 import com.ktar5.gameengine.analytics.Analytics;
 import com.ktar5.gameengine.analytics.MongoDBInstance;
 import com.ktar5.gameengine.camera.CameraBase;
-import com.ktar5.gameengine.camera.CameraFollow;
 import com.ktar5.gameengine.camera.StaticCamera;
 import com.ktar5.gameengine.console.CommandExecutor;
 import com.ktar5.gameengine.core.AbstractGame;
@@ -18,10 +17,11 @@ import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.gameengine.entities.EntityTweenAccessor;
 import com.ktar5.gameengine.tweenengine.Tween;
 import com.ktar5.slime.data.SlimeGameData;
+import com.ktar5.slime.misc.CameraLookAt;
 import com.ktar5.slime.misc.PixelPerfectViewport;
 import com.ktar5.slime.misc.PostProcess;
 import com.ktar5.slime.platform.AStoreSDK;
-import com.ktar5.slime.screens.mainmenu.MainMenuScreen;
+import com.ktar5.slime.screens.GameScreen;
 import com.ktar5.slime.world.level.LevelHandler;
 import com.ktar5.slime.world.tiles.RetractingSpikes;
 import lombok.Getter;
@@ -43,7 +43,7 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
     private PostProcess postProcess;
 
     public StaticCamera uiCamera;
-    public CameraFollow gameCamera;
+    public CameraLookAt gameCamera;
     private AStoreSDK storeSDK;
 
 
@@ -81,7 +81,8 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
         viewport = new PixelPerfectViewport(480, 270, orthographicCamera);
         orthographicCamera.update();
 //        gameCamera = new CameraFollow(orthographicCamera, viewport, null);
-        gameCamera = new CameraFollow(orthographicCamera, viewport);
+//        gameCamera = new CameraFollow(orthographicCamera, viewport);
+                gameCamera = new CameraLookAt(orthographicCamera, viewport);
         return gameCamera;
 
     }
@@ -127,8 +128,9 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
         SlimeGame.getGame().setLevelHandler(new LevelHandler());
 
         Logger.debug("Starting primary screen");
-        return new MainMenuScreen();
+//        return new NodeLevelSelectionScreen(getGameCamera());
 //        return new NewLoadingScreen(SlimeGame.getGame().getUiCamera());
+        return new GameScreen();
     }
 
     @Override

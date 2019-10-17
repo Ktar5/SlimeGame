@@ -7,9 +7,9 @@ import com.ktar5.slime.entities.player.ShapeState;
 import com.ktar5.slime.world.tiles.base.Rotation;
 import com.ktar5.slime.world.tiles.base.WholeGameTile;
 
-public class Drain extends WholeGameTile {
+public class Metal extends WholeGameTile {
 
-    public Drain(int x, int y) {
+    public Metal(int x, int y) {
         super(x, y, Rotation.DEG_0);
     }
 
@@ -22,18 +22,13 @@ public class Drain extends WholeGameTile {
     public boolean onCross(Entity entity) {
         if (entity.isPlayer()) {
             JumpPlayer player = (JumpPlayer) entity;
-            if (player.getShape().equals(ShapeState.TINY)) {
-                player.kill("drain");
-                return true;
-            } else if (!player.getShape().equals(ShapeState.METAL)) {
-                player.setShape(ShapeState.TINY);
-            }
+            player.setShape(ShapeState.METAL);
         }
         return false;
     }
 
     @Override
-    public boolean canCrossThrough(Entity entity, Side movement) {
+    public boolean canCrossThrough(Entity player, Side movement) {
         return true;
     }
 }

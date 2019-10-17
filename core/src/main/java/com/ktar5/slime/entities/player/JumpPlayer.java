@@ -34,7 +34,7 @@ public class JumpPlayer extends GameEntity<PlayerState> implements Teleportable 
     //This boolean tells whether the slime should be small
     //right now or not (for drains/holes)
     private boolean endTeleport = false;
-    private boolean small = false;
+    private ShapeState shape = ShapeState.NORMAL;
     //The current level that this platyer is attached to
     private LoadedLevel level;
 
@@ -53,9 +53,9 @@ public class JumpPlayer extends GameEntity<PlayerState> implements Teleportable 
 
     @Override
     public void reset() {
-        setSmall(false);
+        setShape(ShapeState.NORMAL);
         ((Respawn) getEntityState().get(Respawn.class)).cancel();
-        getPosition().set( 8 + (SlimeGame.getGame().getLevelHandler().getSpawnX() * 16),
+        getPosition().set(8 + (SlimeGame.getGame().getLevelHandler().getSpawnX() * 16),
                 8 + (SlimeGame.getGame().getLevelHandler().getSpawnY() * 16));
         resetAnimation("slime_jump_down");
         setHaltMovement(false);
@@ -76,14 +76,16 @@ public class JumpPlayer extends GameEntity<PlayerState> implements Teleportable 
         }
     }
 
-    public void setSmall(boolean value) {
-        small = value;
-        if (value) {
+    public void setShape(ShapeState shape) {
+        this.shape = shape;
+        if (shape.equals(ShapeState.TINY)) {
             getEntityAnimator().setUnitsX(8);
             getEntityAnimator().setUnitsY(8);
-        } else {
+        } else if (shape.equals(ShapeState.NORMAL)) {
             getEntityAnimator().setUnitsX(16);
             getEntityAnimator().setUnitsY(16);
+        } else {
+            //DO metal stuff //TODO
         }
     }
 

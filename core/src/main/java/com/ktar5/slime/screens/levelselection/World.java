@@ -12,7 +12,6 @@ import lombok.Getter;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-import java.io.File;
 import java.util.*;
 
 @Getter
@@ -46,12 +45,12 @@ public class World implements Renderable {
         worldPlayer.render(batch, dTime);
     }
 
-    public World(File saveFile, JSONObject json) {
+    public World(JSONObject json) {
         paths = new HashMap<>();
         controlPoints = new HashMap<>();
         dataPoints = new ArrayList<>();
         this.name = json.getString("name");
-        this.texture = new Texture(Gdx.files.internal(json.getString("textureFile")));
+        this.texture = new Texture(Gdx.files.internal("maps/levelselect/fsdf/" + json.getString("textureFile")));
 
         JSONArray jsonPaths = json.getJSONArray("paths");
         for (int i = 0; i < jsonPaths.length(); i++) {

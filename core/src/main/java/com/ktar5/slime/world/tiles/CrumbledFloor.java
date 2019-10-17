@@ -7,6 +7,7 @@ import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.entities.box.Box;
 import com.ktar5.slime.entities.hero.HeroEntity;
 import com.ktar5.slime.entities.player.JumpPlayer;
+import com.ktar5.slime.entities.player.ShapeState;
 import com.ktar5.slime.world.level.LoadedLevel;
 import com.ktar5.slime.world.tiles.base.Rotation;
 import com.ktar5.slime.world.tiles.base.WholeGameTile;
@@ -57,6 +58,9 @@ public class CrumbledFloor extends WholeGameTile {
             }
             return true;
         } else {
+            if(entity instanceof JumpPlayer && ((JumpPlayer) entity).getShape().equals(ShapeState.TINY)){
+                return false;
+            }
             LoadedLevel currentLevel = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
             currentLevel.setGraphic(x, y, "sprites", currentLevel.getGameplayArtLayer(), 146);
             crumbled = true;

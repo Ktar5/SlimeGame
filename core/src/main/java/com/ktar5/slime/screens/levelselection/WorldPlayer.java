@@ -43,18 +43,18 @@ public class WorldPlayer implements Renderable {
 
     @Override
     public void render(SpriteBatch batch, float dTime) {
-        batch.draw(currentFrame,
-                (int) (x - (currentFrame.getRegionWidth() / (2))),
-                (int) (y - (currentFrame.getRegionHeight() / (2))),
-                currentFrame.getRegionWidth() / 2, currentFrame.getRegionHeight() / 2,
-                currentFrame.getRegionWidth(), currentFrame.getRegionHeight(),
-                unitsX / (currentFrame.getRegionWidth()),
-                unitsY / currentFrame.getRegionHeight(),
-                0);
+//        batch.draw(currentFrame,
+//                (int) (x - (currentFrame.getRegionWidth() / (2))),
+//                (int) (y - (currentFrame.getRegionHeight() / (2))),
+//                currentFrame.getRegionWidth() / 2, currentFrame.getRegionHeight() / 2,
+//                currentFrame.getRegionWidth(), currentFrame.getRegionHeight(),
+//                unitsX / (currentFrame.getRegionWidth()),
+//                unitsY / currentFrame.getRegionHeight(),
+//                0);
         batch.end();
         SlimeGame.getGame().getShapeRenderer().setAutoShapeType(true);
         SlimeGame.getGame().getShapeRenderer().begin();
-        SlimeGame.getGame().getShapeRenderer().circle((x - (currentFrame.getRegionWidth() / (2))), (y - (currentFrame.getRegionHeight() / (2))), 5);
+        SlimeGame.getGame().getShapeRenderer().circle(x, y, 12);
         SlimeGame.getGame().getShapeRenderer().end();
         batch.begin();
     }
@@ -78,21 +78,31 @@ public class WorldPlayer implements Renderable {
                     pathID = location.controlPointLastAt.getPathDown();
                 } else if (KInput.isKeyJustPressed(Keys.D, Keys.RIGHT) || cInp.isButtonJustPressed(JamPad.DPAD_RIGHT)) {
                     pathID = location.controlPointLastAt.getPathRight();
+                }else{
+                    location.pathDirection = null;
+                    return;
                 }
 
                 if (pathID == null || world.getPaths().get(pathID) == null) {
                     return;
                 }
+
                 Path path = world.getPaths().get(pathID);
                 location.pathDirection = path.getPathDirection(location.controlPointLastAt.getControlID());
+                System.out.println(location.pathDirection.firstPoint);
                 location.nextPPoint = location.pathDirection.firstPoint;
             }
-        } else {
+        } else if(location.nextPPoint != null){
             //TODO probably hundreds of problems here
+            System.out.println("dsadsadsdsadassadsdaasdsda");
+            System.out.println(location == null);
+            System.out.println(location.pathDirection == null);
+            System.out.println(location.nextPPoint == null);
             if ((location.pathDirection.forward && location.nextPPoint.getNext() == null)
                     || (!location.pathDirection.forward && location.nextPPoint.getPrev() == null)) {
                 boolean finished = moveTowards(new Vector2(location.pathDirection.end.getX(), location.pathDirection.end.getY()), SPEED, true);
                 if(finished){
+                    System.out.println("finished");
                     location.controlPointLastAt = location.pathDirection.end;
                     location.nextPPoint = null;
                     location.pathDirection = null;
@@ -109,8 +119,8 @@ public class WorldPlayer implements Renderable {
      */
     private boolean moveTowards(Vector2 future, float amount, boolean stopOnReach) {
         Vector2 current = new Vector2(x, y);
-        Vector2 delta = future.sub(current);
-        Vector2 unit = delta.nor();
+        Vector2 delta = future.cpy().sub(current);
+        Vector2 unit = delta.cpy().nor();
         float extra = amount - Math.min(amount, delta.len());
 
         //If we hit the last one and go over it, we stop upon reaching it

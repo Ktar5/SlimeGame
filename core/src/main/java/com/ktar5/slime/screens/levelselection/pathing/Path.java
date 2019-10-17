@@ -28,8 +28,11 @@ public class Path {
                 current = new PathPoint(this, points.getJSONObject(i));
                 firstPoint = current;
             } else {
-                current.setNext(new PathPoint(this, points.getJSONObject(i)));
-                lastPoint = current.getNext();
+                PathPoint tempNewPoint = new PathPoint(this, points.getJSONObject(i));
+                current.setNext(tempNewPoint);
+                tempNewPoint.setPrev(current);
+                current = tempNewPoint;
+                lastPoint = tempNewPoint;
             }
         }
         controlStart = json.getString("start").equals("null") ? null : UUID.fromString(json.getString("start"));

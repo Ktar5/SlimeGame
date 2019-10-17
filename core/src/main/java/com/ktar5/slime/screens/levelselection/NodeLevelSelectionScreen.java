@@ -13,6 +13,13 @@ import com.ktar5.gameengine.core.EngineManager;
 import com.ktar5.slime.KInput;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.hotkeys.GeneralHotkeys;
+import org.json.JSONObject;
+import org.tinylog.Logger;
+
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class NodeLevelSelectionScreen extends AbstractScreen {
     private Stage stage;
@@ -20,6 +27,9 @@ public class NodeLevelSelectionScreen extends AbstractScreen {
 
     public NodeLevelSelectionScreen(CameraBase camera) {
         super(camera);
+
+        loadWorld(new File("D:\\GameDev\\Projects\\Personal\\SlimeJump\\assets\\maps\\levelselect\\SCENETEST.json"));
+
         camera.getCamera().position.set(camera.getCamera().viewportWidth / 2, camera.getCamera().viewportHeight / 2, 0);
         camera.getCamera().update();
 
@@ -87,7 +97,38 @@ public class NodeLevelSelectionScreen extends AbstractScreen {
 
     @Override
     public void update(float dTime) {
+        world.getWorldPlayer().update(dTime);
+
         GeneralHotkeys.update();
         KInput.update();
+    }
+
+
+    public void loadWorld(File loaderFile) {
+        String data = readFileAsString(loaderFile);
+        if (data == null || data.isEmpty()) {
+            return;
+        }
+
+        world = new World(new JSONObject(data));
+    }
+
+    public static String readFileAsString(File file) {
+        StringBuilder fileData = new StringBuilder();
+        try {
+            FileReader fr = new FileReader(file);
+            BufferedReader reader = new BufferedReader(fr);
+            char[] buf = new char[1024];
+            int numRead = 0;
+            while ((numRead = reader.read(buf)) != -1) {
+                fileData.append(String.valueOf(buf, 0, numRead));
+            }
+            reader.close();
+            fr.close();
+        } catch (IOException e) {
+            Logger.info(e);
+            return null;
+        }
+        return fileData.toString();
     }
 }

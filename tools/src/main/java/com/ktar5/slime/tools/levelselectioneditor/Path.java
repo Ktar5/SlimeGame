@@ -43,8 +43,11 @@ public class Path implements KSerializeable {
                 current = new PathPoint(this, points.getJSONObject(i));
                 firstPoint = current;
             } else {
-                current.setNext(new PathPoint(this, points.getJSONObject(i)));
-                lastPoint = current.getNext();
+                PathPoint tempNewPoint = new PathPoint(this, points.getJSONObject(i));
+                current.setNext(tempNewPoint);
+                tempNewPoint.setPrev(current);
+                current = tempNewPoint;
+                lastPoint = tempNewPoint;
             }
         }
         controlStart = json.getString("start").equals("null") ? null : UUID.fromString(json.getString("start"));
@@ -120,7 +123,7 @@ public class Path implements KSerializeable {
         }
         if (this.controlStart != null) {
             ControlPoint controlPoint = Main.getInstance().mainStage.getSceneRenderer().getScene().getControlPoints().get(this.controlStart);
-            controlPoint.removePath(this.controlStart);
+            controlPoint.removePath(this.pathID);
         }
         this.controlStart = controlStart;
         if(controlStart != null){
@@ -129,8 +132,8 @@ public class Path implements KSerializeable {
                     .mainStage
                     .getSceneRenderer()
                     .getScene().getControlPoints().get(this.controlStart);
-            controlPoint.removePath(this.controlStart);
-            controlPoint.setPath(controlStart, direction);
+            controlPoint.removePath(this.pathID);
+            controlPoint.setPath(pathID, direction);
         }
     }
 
@@ -141,13 +144,13 @@ public class Path implements KSerializeable {
         }
         if (this.controlEnd != null) {
             ControlPoint controlPoint = Main.getInstance().mainStage.getSceneRenderer().getScene().getControlPoints().get(this.controlEnd);
-            controlPoint.removePath(this.controlEnd);
+            controlPoint.removePath(this.pathID);
         }
         this.controlEnd = controlEnd;
         if (controlEnd != null) {
             ControlPoint controlPoint = Main.getInstance().mainStage.getSceneRenderer().getScene().getControlPoints().get(this.controlEnd);
-            controlPoint.removePath(controlEnd);
-            controlPoint.setPath(controlEnd, direction);
+            controlPoint.removePath(pathID);
+            controlPoint.setPath(pathID, direction);
         }
     }
 

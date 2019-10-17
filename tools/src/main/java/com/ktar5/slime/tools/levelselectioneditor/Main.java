@@ -11,7 +11,6 @@ import com.ktar5.slime.tools.levelselectioneditor.ui.MainStage;
 
 public class Main implements ApplicationListener {
     private static Main instance;
-    public SceneManager manager;
     public MainStage mainStage;
     public static Skin skin;
 
@@ -22,7 +21,6 @@ public class Main implements ApplicationListener {
         TextureAtlas atlas = new TextureAtlas("textures/skins/pixel/skin.atlas");
         skin = new Skin(Gdx.files.internal("textures/skins/pixel/skin.json"), atlas);
 
-        manager = new SceneManager();
         mainStage = new MainStage();
 
         //TODO testing

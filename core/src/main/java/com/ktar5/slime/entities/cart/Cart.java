@@ -14,6 +14,7 @@ import com.ktar5.slime.entities.arrow.Arrow;
 import com.ktar5.slime.entities.box.Box;
 import com.ktar5.slime.entities.box.BoxMove;
 import com.ktar5.slime.entities.player.JumpPlayer;
+import com.ktar5.slime.entities.player.ShapeState;
 import com.ktar5.slime.entities.player.states.Idle;
 import com.ktar5.slime.entities.player.states.Respawn;
 
@@ -58,7 +59,7 @@ public class Cart extends GameEntity<CartState> implements TouchableEntity {
         if (entity.isPlayer()) {
             //If it is stationary, start it's movement
             if (currentMovement == null) {
-                if (((JumpPlayer) entity).isSmall()) {
+                if (((JumpPlayer) entity).getShape().equals(ShapeState.TINY)) {
                     entity.getEntityState().changeStateAfterUpdate(Idle.class);
                     return;
                 }

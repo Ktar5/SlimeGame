@@ -44,7 +44,7 @@ public class HeroMove extends HeroState {
 
         //Get the position that we WOULD BE MOVING TO IF EVERYTHING GOES WELL so that we can use it
         //as a reference for where we want to go.
-        Vector2 newPosition = getEntity().getPosition().cpy().add((SPEED * getMovement().x), (SPEED * getMovement().y));
+        Vector2 newPosition = getEntity().getPosition().cpy().add((SPEED * getMovement().x  * SlimeGame.DPERCENT), (SPEED * getMovement().y * SlimeGame.DPERCENT));
 
         //Retrieve the number of pixels through the current that the player is, and the number of pixels
         // through the current tile that the player will be if movement continues
@@ -139,7 +139,7 @@ public class HeroMove extends HeroState {
             else if (currentTile.changeMovement(getEntity(), getMovement())) {
                 //TODO Fix how this makes the player kind of skip corners and move a lot faster than they should.
                 getEntity().getPosition().moveTo((currentTileX * 16) + 8, (currentTileY * 16) + 8);
-                getEntity().getPosition().translate(SPEED * getMovement().x, SPEED * getMovement().y);
+                getEntity().getPosition().translate(SPEED * getMovement().x * SlimeGame.DPERCENT, SPEED * getMovement().y * SlimeGame.DPERCENT);
             }
             //Check for if the tile that the player WOULD BE GOING INTO is able to pass through
             else if (!nextTile.canCrossThrough(getEntity(), getMovement())) {
@@ -163,7 +163,7 @@ public class HeroMove extends HeroState {
             }
             //This is for regular movement
             else {
-                getEntity().getPosition().translate(SPEED * getMovement().x, SPEED * getMovement().y);
+                getEntity().getPosition().translate(SPEED * getMovement().x * SlimeGame.DPERCENT, SPEED * getMovement().y * SlimeGame.DPERCENT);
             }
 
         } //ELSE
@@ -181,12 +181,12 @@ public class HeroMove extends HeroState {
 //            getPlayer().getEntityAnimator().setFrame(1);
 
             //This is for regular movement
-            getEntity().getPosition().translate(SPEED * getMovement().x, SPEED * getMovement().y);
+            getEntity().getPosition().translate(SPEED * getMovement().x * SlimeGame.DPERCENT, SPEED * getMovement().y * SlimeGame.DPERCENT);
             //In case we want to do something special instead of handle movement
         }
         //This is for regular movement
         else {
-            getEntity().getPosition().translate(SPEED * getMovement().x, SPEED * getMovement().y);
+            getEntity().getPosition().translate(SPEED * getMovement().x * SlimeGame.DPERCENT, SPEED * getMovement().y * SlimeGame.DPERCENT);
         }
     }
 

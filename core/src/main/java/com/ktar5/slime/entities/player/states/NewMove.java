@@ -98,7 +98,7 @@ public class NewMove extends PlayerState {
 
         //Get the position that we WOULD BE MOVING TO IF EVERYTHING GOES WELL so that we can use it
         //as a reference for where we want to go.
-        Vector2 newPosition = getPlayer().getPosition().cpy().add((SPEED * getMovement().x), (SPEED * getMovement().y));
+        Vector2 newPosition = getPlayer().getPosition().cpy().add((SPEED * getMovement().x * SlimeGame.DPERCENT), (SPEED * getMovement().y * SlimeGame.DPERCENT));
 
         //Retrieve the number of pixels through the current that the player is, and the number of pixels
         // through the current tile that the player will be if movement continues
@@ -196,7 +196,7 @@ public class NewMove extends PlayerState {
             else if (currentTile.changeMovement(getPlayer(), getMovement())) {
                 //TODO Fix how this makes the player kind of skip corners and move a lot faster than they should.
                 getPlayer().getPosition().moveTo((currentTileX * 16) + 8, (currentTileY * 16) + 8);
-                getPlayer().getPosition().translate(SPEED * getMovement().x, SPEED * getMovement().y);
+                getPlayer().getPosition().translate(SPEED * getMovement().x * SlimeGame.DPERCENT, SPEED * getMovement().y * SlimeGame.DPERCENT);
             }
             //Check for if the tile that the player WOULD BE GOING INTO is able to pass through
             else if (!nextTile.canCrossThrough(getPlayer(), getMovement())) {
@@ -220,7 +220,7 @@ public class NewMove extends PlayerState {
             }
             //This is for regular movement
             else {
-                getPlayer().getPosition().translate(SPEED * getMovement().x, SPEED * getMovement().y);
+                getPlayer().getPosition().translate(SPEED * getMovement().x * SlimeGame.DPERCENT, SPEED * getMovement().y * SlimeGame.DPERCENT);
             }
 
         } //ELSE
@@ -239,12 +239,12 @@ public class NewMove extends PlayerState {
             getPlayer().getEntityAnimator().setFrame(1);
 
             //This is for regular movement
-            getPlayer().getPosition().translate(SPEED * getMovement().x, SPEED * getMovement().y);
+            getPlayer().getPosition().translate(SPEED * getMovement().x * SlimeGame.DPERCENT, SPEED * getMovement().y * SlimeGame.DPERCENT);
             //In case we want to do something special instead of handle movement
         }
         //This is for regular movement
         else {
-            getPlayer().getPosition().translate(SPEED * getMovement().x, SPEED * getMovement().y);
+            getPlayer().getPosition().translate(SPEED * getMovement().x * SlimeGame.DPERCENT, SPEED * getMovement().y * SlimeGame.DPERCENT);
         }
 
     }

@@ -53,7 +53,7 @@ public class BoxMove extends BoxState {
         int currentTileX = (int) Math.floor(getEntity().getPosition().x / 16);
         int currentTileY = (int) Math.floor(getEntity().getPosition().y / 16);
 
-        Vector2 newPosition = getEntity().getPosition().cpy().add((SPEED * getMovement().x), (SPEED * getMovement().y));
+        Vector2 newPosition = getEntity().getPosition().cpy().add((SPEED * getMovement().x  * SlimeGame.DPERCENT), (SPEED * getMovement().y  * SlimeGame.DPERCENT));
 
         int pixelsThroughTile, futurePixelsThroughTile;
         if (getMovement().equals(Side.UP)) {
@@ -115,7 +115,7 @@ public class BoxMove extends BoxState {
             } else if (currentTile.changeMovement(getEntity(), getMovement())) {
                 //TODO Fix how this makes the player kind of skip corners and move a lot faster than they should.
                 getEntity().getPosition().moveTo((currentTileX * 16) + 8, (currentTileY * 16) + 8);
-                getEntity().getPosition().translate(SPEED * getMovement().x, SPEED * getMovement().y);
+                getEntity().getPosition().translate(SPEED * getMovement().x  * SlimeGame.DPERCENT, SPEED * getMovement().y  * SlimeGame.DPERCENT);
             } else if (!nextTile.canCrossThrough(getEntity(), getMovement())) {
                 getEntity().getPosition().moveTo((currentTileX * 16) + 8, (currentTileY * 16) + 8);
                 //TODO start animation
@@ -123,11 +123,11 @@ public class BoxMove extends BoxState {
                 changeState(BoxIdle.class);
                 nextTile.onHitTile(getEntity(), getMovement().opposite());
             } else {
-                getEntity().getPosition().translate(SPEED * getMovement().x, SPEED * getMovement().y);
+                getEntity().getPosition().translate(SPEED * getMovement().x  * SlimeGame.DPERCENT, SPEED * getMovement().y  * SlimeGame.DPERCENT);
             }
 
         } else {
-            getEntity().getPosition().translate(SPEED * getMovement().x, SPEED * getMovement().y);
+            getEntity().getPosition().translate(SPEED * getMovement().x * SlimeGame.DPERCENT, SPEED * getMovement().y * SlimeGame.DPERCENT);
         }
     }
 

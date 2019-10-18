@@ -94,13 +94,13 @@ public class WorldPlayer implements Renderable {
             }
         } else if(location.nextPPoint != null){
             //TODO probably hundreds of problems here
-            System.out.println("dsadsadsdsadassadsdaasdsda");
-            System.out.println(location == null);
-            System.out.println(location.pathDirection == null);
-            System.out.println(location.nextPPoint == null);
+//            System.out.println("dsadsadsdsadassadsdaasdsda");
+//            System.out.println(location == null);
+//            System.out.println(location.pathDirection == null);
+//            System.out.println(location.nextPPoint == null);
             if ((location.pathDirection.forward && location.nextPPoint.getNext() == null)
                     || (!location.pathDirection.forward && location.nextPPoint.getPrev() == null)) {
-                boolean finished = moveTowards(new Vector2(location.pathDirection.end.getX(), location.pathDirection.end.getY()), SPEED, true);
+                boolean finished = moveTowards(new Vector2(location.pathDirection.end.getX(), location.pathDirection.end.getY()), SPEED * SlimeGame.DPERCENT, true);
                 if(finished){
                     System.out.println("finished");
                     location.controlPointLastAt = location.pathDirection.end;
@@ -108,7 +108,7 @@ public class WorldPlayer implements Renderable {
                     location.pathDirection = null;
                 }
             } else {
-                moveTowards(new Vector2(location.nextPPoint.getX(), location.nextPPoint.getY()), SPEED, false);
+                moveTowards(new Vector2(location.nextPPoint.getX(), location.nextPPoint.getY()), SPEED * SlimeGame.DPERCENT, false);
             }
             //Queue up movement
         }

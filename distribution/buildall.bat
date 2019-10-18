@@ -1,6 +1,6 @@
 cd ..
-call gradlew :desktop:build
-call gradlew :desktop:distZip
+call gradlew :desktop:build --stacktrace
+call gradlew :desktop:distZip --stacktrace
 cd distribution
 echo "Starting build, zip, and upload process"
 START "Windows Build" cmd /c "java -jar packr.jar config-win.json && 7z a windows64.zip -r out-win64\ && gdrive-windows-x64.exe update 1vytawSRs-p10JJqmPw07JjIlpRJ0NGfG windows64.zip && call SystemTrayNotification.bat -tooltip warning -time 3000 -title "Finished" -text "Windows Build/Upload" -icon question"

@@ -10,7 +10,6 @@ import com.ktar5.slime.analytics.LevelStartEvent;
 import com.ktar5.slime.entities.EntityData;
 import com.ktar5.slime.entities.arrow.Arrow;
 import com.ktar5.slime.entities.player.JumpPlayer;
-import com.ktar5.slime.variables.Constants;
 import com.ktar5.slime.world.tiles.base.GameTile;
 import lombok.Getter;
 import org.tinylog.Logger;
@@ -44,12 +43,12 @@ public class LoadedLevel extends LevelData implements Updatable {
     }
 
     @Override
-    public void update(float v) {
-        player.update(Constants.FRAME_DT);
+    public void update(float dTime) {
+        player.update(dTime);
         for (Entity entity : entities) {
-            entity.update(Constants.FRAME_DT);
+            entity.update(dTime);
         }
-        updateTiles(Constants.FRAME_DT);
+        updateTiles(dTime);
     }
 
     public LevelEdit addEdit(int x, int y, int layer, int oldId) {

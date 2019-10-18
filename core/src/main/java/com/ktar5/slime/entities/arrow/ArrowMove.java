@@ -48,7 +48,7 @@ public class ArrowMove extends ArrowState {
         }
         final LoadedLevel levelData = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
 
-        Vector2 newPosition = getEntity().getPosition().cpy().add((SPEED * getMovement().x), (SPEED * getMovement().y));
+        Vector2 newPosition = getEntity().getPosition().cpy().add((SPEED * getMovement().x * SlimeGame.DPERCENT), (SPEED * getMovement().y  * SlimeGame.DPERCENT));
 
         boolean touchedEntity = false;
 
@@ -78,11 +78,11 @@ public class ArrowMove extends ArrowState {
             System.out.println("touched entity");
             killArrow();
         } else if (!newGameTile.canCrossThrough(getEntity(), getMovement())) {
-            getEntity().getPosition().translate(SPEED * getMovement().x, SPEED * getMovement().y);
+            getEntity().getPosition().translate(SPEED * getMovement().x  * SlimeGame.DPERCENT, SPEED * getMovement().y * SlimeGame.DPERCENT);
             killArrow();
             //TODO start an animation instead of moving it further
         } else {
-            getEntity().getPosition().translate(SPEED * getMovement().x, SPEED * getMovement().y);
+            getEntity().getPosition().translate(SPEED * getMovement().x  * SlimeGame.DPERCENT, SPEED * getMovement().y  * SlimeGame.DPERCENT);
         }
     }
 

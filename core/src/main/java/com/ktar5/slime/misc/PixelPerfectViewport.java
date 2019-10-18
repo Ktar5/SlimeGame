@@ -19,14 +19,18 @@ public class PixelPerfectViewport extends Viewport {
         setCamera(camera);
     }
 
+    public int getScale(){
+        return scale;
+    }
+
+    private int scale = 0;
     @Override
     public void update(int screenWidth, int screenHeight, boolean centerCamera) {
         Vector2 scaled = new Vector2();
 
         float screenRatio = screenHeight / screenWidth;
         float sourceRatio = getWorldHeight() / getWorldWidth();
-        float scale = screenRatio > sourceRatio ? screenWidth / getWorldWidth() : screenHeight / getWorldHeight();
-        scale = (int) scale;
+        scale = (int) (screenRatio > sourceRatio ? screenWidth / getWorldWidth() : screenHeight / getWorldHeight());
         Logger.debug("Viewport Scale: " + scale);
         scaled.x = getWorldWidth() * scale;
         scaled.y = getWorldHeight() * scale;

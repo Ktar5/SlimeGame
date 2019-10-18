@@ -6,6 +6,7 @@ import com.badlogic.gdx.math.Vector2;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.viewport.Viewport;
 import com.ktar5.gameengine.Feature;
+import com.ktar5.gameengine.core.AbstractGame;
 import com.ktar5.gameengine.util.Position;
 import com.ktar5.gameengine.util.Renderable;
 import lombok.Setter;
@@ -43,8 +44,8 @@ public class CameraFollow extends CameraBase implements Renderable {
 //        if (v < 50) {
 //            return;
 //        }
-        camPos.x += (position.x - camPos.x) * lerp;
-        camPos.y += (position.y - camPos.y) * lerp;
+        camPos.x += (position.x - camPos.x) * lerp * AbstractGame.DPERCENT;
+        camPos.y += (position.y - camPos.y) * lerp * AbstractGame.DPERCENT;
         //Set camera position to fixed vector
         camera.position.set(new Vector3((int) camPos.x, (int) camPos.y, 0));
 //        camera.position.set(new Vector3(camPos.x, camPos.y, 0));

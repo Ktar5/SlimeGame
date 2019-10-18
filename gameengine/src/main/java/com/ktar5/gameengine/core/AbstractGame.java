@@ -68,23 +68,32 @@ public abstract class AbstractGame<G extends AbstractGame<G>> implements Applica
     }
 
     private float time = 0;
+    public static float DPERCENT = 0;
 
     @Override
     public void render() {
         //Get time since last frame
         float dTime = Gdx.graphics.getDeltaTime();
-//        System.out.println(dTime);
         if (Feature.SINGLE_FRAME.isDisabled()) {
             //If game too laggy, prevent massive bugs by using a small constant number
-            time += Math.min(dTime, EngConst.MAX_FRAME_TIME);
+//            time += Math.min(dTime, EngConst.MAX_FRAME_TIME);
+            time = dTime;
             //While our time is greater than our fixed step size...
             while (time >= EngConst.STEP_TIME) {
                 time -= EngConst.STEP_TIME;
                 //Update the camera
-                screen.update(dTime);
+                DPERCENT = 1f;
                 screen.getCamera().getCamera().update();
+                screen.update(EngConst.STEP_TIME);
+            }
+            if(time > 0){
+                DPERCENT = time / EngConst.STEP_TIME;
+                screen.getCamera().getCamera().update();
+                screen.update(time);
+                time = 0;
             }
         } else {
+            DPERCENT = 1f;
             screen.getCamera().getCamera().update();
 
             screen.update(dTime);

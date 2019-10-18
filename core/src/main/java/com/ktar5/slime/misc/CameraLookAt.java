@@ -31,6 +31,8 @@ public class CameraLookAt extends CameraBase implements Renderable {
 
     Position cameraPosition;
 
+    boolean testing = true;
+
     @Override
     public void update(float dTime) {
         if (Feature.CAMERA_MOVEMENT.isDisabled()) {
@@ -41,9 +43,17 @@ public class CameraLookAt extends CameraBase implements Renderable {
             return;
         }
 
+//        if (SlimeGame.getGame().getLevelHandler().getCurrentLevel() == null) {
+//            return;
+//        }
+//        Position position = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getPlayer().getPosition();
+//
+//        camPos.x += (position.x - camPos.x) * lerp * SlimeGame.DPERCENT;
+//        camPos.y += (position.y - camPos.y) * lerp * SlimeGame.DPERCENT;
+
         if (cameraLocations.isEmpty()) {
-            camPos.x += (playerPosition.x - camPos.x) * lerp;
-            camPos.y += (playerPosition.y - camPos.y) * lerp;
+            camPos.x += (playerPosition.x - camPos.x) * lerp * SlimeGame.DPERCENT;
+            camPos.y += (playerPosition.y - camPos.y) * lerp * SlimeGame.DPERCENT;
         } else {
             float smallestDst2 = Float.MAX_VALUE;
             CameraPosition smallest = null;
@@ -60,17 +70,29 @@ public class CameraLookAt extends CameraBase implements Renderable {
                 int xHalf = (int) ((playerPosition.x + smallest.x) / 2);
                 int yHalf = (int) ((playerPosition.y + smallest.y) / 2);
                 cameraPosition = new Position(xHalf, yHalf);
-                camPos.x += (xHalf - camPos.x) * lerp;
-                camPos.y += (yHalf - camPos.y) * lerp;
+                camPos.x += (xHalf - camPos.x) * lerp * SlimeGame.DPERCENT;
+                camPos.y += (yHalf - camPos.y) * lerp * SlimeGame.DPERCENT;
             } else {
-                camPos.x += (playerPosition.x - camPos.x) * lerp;
-                camPos.y += (playerPosition.y - camPos.y) * lerp;
+                camPos.x += (playerPosition.x - camPos.x) * lerp * SlimeGame.DPERCENT;
+                camPos.y += (playerPosition.y - camPos.y) * lerp * SlimeGame.DPERCENT;
             }
 
         }
 
+        if (Feature.PRECISION_CAMERA.isEnabled()) {
+            int scale = SlimeGame.getGame().getViewport().getScale();
+            float precision = 1f / scale;
+
+            camPos.x = ((int) (camPos.x / precision)) * precision;
+            camPos.y = ((int) (camPos.y / precision)) * precision;
+        } else {
+            camPos.x = (int) camPos.x;
+            camPos.y = (int) camPos.y;
+        }
+
         //Set camera position to fixed vector
-        camera.position.set(new Vector3((int) camPos.x, (int) camPos.y, 0));
+//        camera.position.set(new Vector3((int) camPos.x, (int) camPos.y, 0));
+        camera.position.set(camPos);
         //Update camera
         camera.update();
     }

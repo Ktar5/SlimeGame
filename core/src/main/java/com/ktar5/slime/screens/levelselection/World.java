@@ -31,17 +31,19 @@ public class World implements Renderable {
 
     private String name;
 
+    private Texture hover, control, nolevel;
+
     @Override
     public void render(SpriteBatch batch, float dTime) {
         batch.draw(texture, 0, 0);
+        for (ControlPoint value : controlPoints.values()) {
+            value.render(batch, this);
+        }
+
         batch.end();
         SlimeGame.getGame().getShapeRenderer().setAutoShapeType(true);
         SlimeGame.getGame().getShapeRenderer().setProjectionMatrix(SlimeGame.getGame().getGameCamera().getCamera().combined);
         SlimeGame.getGame().getShapeRenderer().begin();
-        for (ControlPoint value : controlPoints.values()) {
-            SlimeGame.getGame().getShapeRenderer().circle(value.getX(), value.getY(), 3);
-        }
-
         PathPoint current;
         for(Path path : paths.values()){
             current = path.getFirstPoint();
@@ -58,6 +60,10 @@ public class World implements Renderable {
     }
 
     public World(JSONObject json) {
+        hover = new Texture("textures/levelselectiontest/hover.png");
+        nolevel = new Texture("textures/levelselectiontest/nolevel.png");
+        control = new Texture("textures/levelselectiontest/controlpoint.png");
+
         paths = new HashMap<>();
         controlPoints = new HashMap<>();
         dataPoints = new ArrayList<>();

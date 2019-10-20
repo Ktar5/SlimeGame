@@ -15,6 +15,7 @@ import com.ktar5.slime.screens.levelselection.pathing.ControlPoint;
 import com.ktar5.slime.screens.levelselection.pathing.Path;
 import com.ktar5.slime.screens.levelselection.pathing.Path.PathDirection;
 import com.ktar5.slime.screens.levelselection.pathing.PathPoint;
+import lombok.Getter;
 
 import java.util.UUID;
 
@@ -26,37 +27,35 @@ public class WorldPlayer implements Renderable {
     private float unitsX, unitsY;
     private TextureRegion currentFrame;
 
+    @Getter
+    private ControlPoint controlPointToOrAt;
+
     public WorldPlayer(World world) {
         this.world = world;
         unitsX = 16;
         unitsY = 16;
 
-        currentFrame = null;
+        currentFrame = EngineManager.get().getAnimationLoader().getAnimation("slime_jump_down").getKeyFrame(0);
 
         location = new LevelLocation();
 
         ControlPoint controlPoint = world.getControlPoints().get(world.getStartingControlPoint());
         location.controlPointLastAt = controlPoint;
+        controlPointToOrAt = controlPoint;
         x = controlPoint.getX();
         y = controlPoint.getY();
     }
 
     @Override
     public void render(SpriteBatch batch, float dTime) {
-//        batch.draw(currentFrame,
-//                (int) (x - (currentFrame.getRegionWidth() / (2))),
-//                (int) (y - (currentFrame.getRegionHeight() / (2))),
-//                currentFrame.getRegionWidth() / 2, currentFrame.getRegionHeight() / 2,
-//                currentFrame.getRegionWidth(), currentFrame.getRegionHeight(),
-//                unitsX / (currentFrame.getRegionWidth()),
-//                unitsY / currentFrame.getRegionHeight(),
-//                0);
-        batch.end();
-        SlimeGame.getGame().getShapeRenderer().setAutoShapeType(true);
-        SlimeGame.getGame().getShapeRenderer().begin();
-        SlimeGame.getGame().getShapeRenderer().circle(x, y, 12);
-        SlimeGame.getGame().getShapeRenderer().end();
-        batch.begin();
+        batch.draw(currentFrame,
+                (int) (x - (currentFrame.getRegionWidth() / (2))),
+                (int) (y - (currentFrame.getRegionHeight() / (2))),
+                currentFrame.getRegionWidth() / 2, currentFrame.getRegionHeight() / 2,
+                currentFrame.getRegionWidth(), currentFrame.getRegionHeight(),
+                unitsX / (currentFrame.getRegionWidth()),
+                unitsY / currentFrame.getRegionHeight(),
+                0);
     }
 
     //TODO finish
@@ -91,6 +90,7 @@ public class WorldPlayer implements Renderable {
 
                 Path path = world.getPaths().get(pathID);
                 location.pathDirection = path.getPathDirection(location.controlPointLastAt.getControlID());
+                controlPointToOrAt = location.pathDirection.end;
                 System.out.println(location.pathDirection);
 
                 System.out.println(location.pathDirection.firstPoint);

@@ -9,7 +9,7 @@ import org.json.JSONObject;
 import java.util.UUID;
 
 @Getter
-public class ControlPoint extends Point {
+public class ControlPoint extends Point implements DataHaver {
     private final UUID controlID;
 
     private UUID pathUp, pathDown, pathLeft, pathRight;
@@ -95,4 +95,8 @@ public class ControlPoint extends Point {
         }
     }
 
+    @Override
+    public void setData(String data) {
+        this.data = data;
+    }
 }

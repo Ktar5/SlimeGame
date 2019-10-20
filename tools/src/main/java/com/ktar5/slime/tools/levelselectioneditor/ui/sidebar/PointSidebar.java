@@ -1,17 +1,16 @@
 package com.ktar5.slime.tools.levelselectioneditor.ui.sidebar;
 
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.kotcrab.vis.ui.util.dialog.InputDialogAdapter;
 import com.kotcrab.vis.ui.widget.VisLabel;
 import com.kotcrab.vis.ui.widget.VisTextButton;
 import com.ktar5.slime.tools.levelselectioneditor.Main;
 import com.ktar5.slime.tools.levelselectioneditor.Path;
 import com.ktar5.slime.tools.levelselectioneditor.input.Input;
 import com.ktar5.slime.tools.levelselectioneditor.input.InputMode;
-import com.ktar5.slime.tools.levelselectioneditor.points.ControlPoint;
-import com.ktar5.slime.tools.levelselectioneditor.points.DataPoint;
-import com.ktar5.slime.tools.levelselectioneditor.points.PathPoint;
-import com.ktar5.slime.tools.levelselectioneditor.points.Point;
+import com.ktar5.slime.tools.levelselectioneditor.points.*;
 import com.ktar5.slime.tools.levelselectioneditor.scene.Scene;
+import com.ktar5.slime.tools.levelselectioneditor.ui.util.InputDialog;
 import com.ktar5.slime.tools.levelselectioneditor.ui.util.KChangeListener;
 import lombok.Getter;
 
@@ -27,7 +26,8 @@ public class PointSidebar extends Table {
     private VisTextButton deleteCurrentButton;
     private VisTextButton selectPathButton;
     private VisTextButton moveCurrentPointButton;
-    private final VisTextButton createControlPoint;
+    private VisTextButton createControlPoint;
+    private VisTextButton editData;
 
     public PointSidebar() {
         x = new VisLabel("xNA");
@@ -40,6 +40,7 @@ public class PointSidebar extends Table {
         addPointBeforeButton = new VisTextButton("Add Point Before");
         addPointAfterButton = new VisTextButton("Add Point After");
         createControlPoint = new VisTextButton("Create Control Point");
+        editData = new VisTextButton("Edit Data");
         deleteCurrentButton = new VisTextButton("Delete Selected");
 
         createControlPoint.addListener(new KChangeListener((changeEvent, actor) -> {
@@ -48,6 +49,21 @@ public class PointSidebar extends Table {
             }else{
                 Input.inputMode = InputMode.NONE;
             }
+        }));
+
+        editData.addListener(new KChangeListener((changeEvent, actor) -> {
+            if(point == null){
+                return;
+            }
+            InputDialog enter_control_point_data = new InputDialog("Enter Control Point Data", "Data: ", new InputDialogAdapter() {
+                @Override
+                public void finished(String input) {
+                    ((DataHaver) point).setData(input);
+                    point.updated = true;
+                }
+            });
+            enter_control_point_data.setText(((DataHaver) point).getData());
+            getStage().addActor(enter_control_point_data.fadeIn());
         }));
 
         moveCurrentPointButton.addListener(new KChangeListener((changeEvent, actor) -> {
@@ -152,20 +168,23 @@ public class PointSidebar extends Table {
             }
         }));
 
+        Table dataTable = new Table();
+        dataTable.left();
 
-        this.add(new VisLabel("X Pos:"));
-        this.add(x);
-        this.row();
+        dataTable.add(new VisLabel("X Pos:")).padRight(15);
+        dataTable.add(x);
+        dataTable.row();
 
-        this.add(new VisLabel("Y Pos:"));
-        this.add(y);
-        this.row();
+        dataTable.add(new VisLabel("Y Pos:")).padRight(15);
+        dataTable.add(y);
+        dataTable.row();
 
-        this.add(new VisLabel("Data:"));
-        this.add(data);
-        this.row();
+        dataTable.add(new VisLabel("Data:")).padRight(15);
+        dataTable.add(data);
+        dataTable.row();
 
-        this.row();
+        this.add(dataTable);
+        this.row().row();
 
         this.add(selectPathButton);
         this.row();
@@ -174,6 +193,8 @@ public class PointSidebar extends Table {
         this.add(addPointBeforeButton);
         this.row();
         this.add(addPointAfterButton);
+        this.row();
+        this.add(editData);
         this.row();
         this.add(createControlPoint);
         this.row();
@@ -209,8 +230,12 @@ public class PointSidebar extends Table {
             point.updated = false;
             x.setText(point.getX());
             y.setText(point.getY());
-            if (point instanceof DataPoint) {
-                data.setText(((DataPoint) point).getData());
+            if (point instanceof DataHaver) {
+                String data = ((DataHaver) point).getData();
+                if(data.length() > 15){
+                    data = data.substring(0, 13).concat(" ...");
+                }
+                this.data.setText(data);
             } else {
                 data.setText("N/A");
             }
@@ -230,7 +255,9 @@ public class PointSidebar extends Table {
             selectPathButton.setDisabled(true);
             addPointAfterButton.setDisabled(true);
             addPointBeforeButton.setDisabled(true);
+            editData.setDisabled(false);
         } else {
+            editData.setDisabled(true);
             selectPathButton.setDisabled(false);
             addPointAfterButton.setDisabled(false);
             addPointBeforeButton.setDisabled(false);

@@ -6,7 +6,7 @@ import org.json.JSONObject;
 
 @Getter
 @Setter
-public class DataPoint extends Point {
+public class DataPoint extends Point implements DataHaver {
     private String data;
     private String name;
 
@@ -26,4 +26,5 @@ public class DataPoint extends Point {
     public JSONObject serialize() {
         return super.serialize().put("data", data).put("name", name);
     }
+
 }

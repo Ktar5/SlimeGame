@@ -4,6 +4,8 @@ import com.ktar5.gameengine.Feature;
 import com.ktar5.gameengine.console.CommandExecutor;
 import com.ktar5.gameengine.console.LogLevel;
 import com.ktar5.gameengine.util.Position;
+import com.ktar5.slime.screens.GameScreen;
+import com.ktar5.slime.screens.levelselection.NodeLevelSelectionScreen;
 
 public class ConsoleCommands extends CommandExecutor {
 
@@ -19,6 +21,14 @@ public class ConsoleCommands extends CommandExecutor {
         } catch (IllegalArgumentException e) {
             console.log("Feature with name: " + feature.toUpperCase() + " not found!", LogLevel.ERROR);
         }
+    }
+
+    public final void playGame(){
+        SlimeGame.getGame().setScreen(new GameScreen());
+    }
+
+    public final void levelSelect(){
+        SlimeGame.getGame().setScreen(new NodeLevelSelectionScreen(SlimeGame.getGame().getGameCamera()));
     }
 
     public final void reloadMaps(){

@@ -39,7 +39,7 @@ public class NodeLevelSelectionScreen extends AbstractScreen {
     @Override
     public void show() {
         //Stage should control input:
-        Gdx.input.setInputProcessor(new InputMultiplexer(stage, SlimeGame.getGame().getInput()));
+        Gdx.input.setInputProcessor(new InputMultiplexer(stage, SlimeGame.getGame().getInput(), EngineManager.get().getConsole().getInputProcessor()));
 
         stage.getActors().clear();
         stage.clear();

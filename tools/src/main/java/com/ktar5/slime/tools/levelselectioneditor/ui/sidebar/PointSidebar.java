@@ -27,6 +27,7 @@ public class PointSidebar extends Table {
     private VisTextButton deleteCurrentButton;
     private VisTextButton selectPathButton;
     private VisTextButton moveCurrentPointButton;
+    private final VisTextButton createControlPoint;
 
     public PointSidebar() {
         x = new VisLabel("xNA");
@@ -38,15 +39,22 @@ public class PointSidebar extends Table {
         moveCurrentPointButton.setProgrammaticChangeEvents(false);
         addPointBeforeButton = new VisTextButton("Add Point Before");
         addPointAfterButton = new VisTextButton("Add Point After");
+        createControlPoint = new VisTextButton("Create Control Point");
         deleteCurrentButton = new VisTextButton("Delete Selected");
+
+        createControlPoint.addListener(new KChangeListener((changeEvent, actor) -> {
+            if(createControlPoint.isChecked()){
+                Input.inputMode = InputMode.CREATE_CONTROL_POINT;
+            }else{
+                Input.inputMode = InputMode.NONE;
+            }
+        }));
 
         moveCurrentPointButton.addListener(new KChangeListener((changeEvent, actor) -> {
             if(moveCurrentPointButton.isChecked()){
-                moveCurrentPointButton.setChecked(false);
-                Input.inputMode = InputMode.NONE;
-            }else{
-                moveCurrentPointButton.setChecked(true);
                 Input.inputMode = InputMode.MOVE_POINT;
+            }else{
+                Input.inputMode = InputMode.NONE;
             }
         }));
 
@@ -166,6 +174,8 @@ public class PointSidebar extends Table {
         this.add(addPointBeforeButton);
         this.row();
         this.add(addPointAfterButton);
+        this.row();
+        this.add(createControlPoint);
         this.row();
 
         this.add(deleteCurrentButton);

@@ -39,6 +39,13 @@ public class Sidebar extends Table {
         pointSidebar.setPoint(point);
     }
 
+    public PathSidebar getPathSidebar(){
+        if(pathSidebar == null){
+            pathSidebar = new PathSidebar();
+        }
+        return pathSidebar;
+    }
+
     public void setPathSidebar() {
         if(pathSidebar == null){
             pathSidebar = new PathSidebar();

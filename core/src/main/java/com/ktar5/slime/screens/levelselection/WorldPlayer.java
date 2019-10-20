@@ -20,7 +20,7 @@ import java.util.UUID;
 
 public class WorldPlayer implements Renderable {
     private World world;
-    private int x, y;
+    private float x, y;
     private LevelLocation location;
 
     private float unitsX, unitsY;
@@ -60,6 +60,8 @@ public class WorldPlayer implements Renderable {
     }
 
     //TODO finish
+    int frames = 0;
+
     public void update(float dTime) {
         if (location.isIdle()) {
             ControllerInput cInp = EngineManager.get().getControllerInput();
@@ -78,40 +80,69 @@ public class WorldPlayer implements Renderable {
                     pathID = location.controlPointLastAt.getPathDown();
                 } else if (KInput.isKeyJustPressed(Keys.D, Keys.RIGHT) || cInp.isButtonJustPressed(JamPad.DPAD_RIGHT)) {
                     pathID = location.controlPointLastAt.getPathRight();
-                }else{
+                } else {
                     location.pathDirection = null;
                     return;
                 }
-
+                frames = 0;
                 if (pathID == null || world.getPaths().get(pathID) == null) {
                     return;
                 }
 
                 Path path = world.getPaths().get(pathID);
                 location.pathDirection = path.getPathDirection(location.controlPointLastAt.getControlID());
+                System.out.println(location.pathDirection);
+
                 System.out.println(location.pathDirection.firstPoint);
                 location.nextPPoint = location.pathDirection.firstPoint;
             }
-        } else if(location.nextPPoint != null){
-            //TODO probably hundreds of problems here
-//            System.out.println("dsadsadsdsadassadsdaasdsda");
-//            System.out.println(location == null);
-//            System.out.println(location.pathDirection == null);
-//            System.out.println(location.nextPPoint == null);
-            if ((location.pathDirection.forward && location.nextPPoint.getNext() == null)
-                    || (!location.pathDirection.forward && location.nextPPoint.getPrev() == null)) {
-                boolean finished = moveTowards(new Vector2(location.pathDirection.end.getX(), location.pathDirection.end.getY()), SPEED * SlimeGame.DPERCENT, true);
-                if(finished){
-                    System.out.println("finished");
-                    location.controlPointLastAt = location.pathDirection.end;
-                    location.nextPPoint = null;
-                    location.pathDirection = null;
-                }
+        } else {
+            frames += 1;
+            boolean finished;
+            if ((location.pathDirection.forward && location.nextPPoint.getNext() == null) || (!location.pathDirection.forward && location.nextPPoint.getPrev() == null)) {
+                finished = moveTowards(new Vector2(location.pathDirection.end.getX(), location.pathDirection.end.getY()), SPEED * SlimeGame.DPERCENT, true);
             } else {
-                moveTowards(new Vector2(location.nextPPoint.getX(), location.nextPPoint.getY()), SPEED * SlimeGame.DPERCENT, false);
+                finished = moveTowards(new Vector2(location.nextPPoint.getX(), location.nextPPoint.getY()), SPEED * SlimeGame.DPERCENT, false);
             }
+            if (finished) {
+                System.out.println("finished w/ " + frames + " frames");
+                location.controlPointLastAt = location.pathDirection.end;
+                location.nextPPoint = null;
+                location.pathDirection = null;
+            }
+
             //Queue up movement
         }
+    }
+
+    public float calculatePathLength(Path path) {
+        float length = 0;
+        ControlPoint start = path.getStart();
+        Vector2 firstPoint = new Vector2(path.getFirstPoint().getX(), path.getFirstPoint().getY());
+        Vector2 startPoint = new Vector2(start.getX(), start.getY());
+        length += firstPoint.cpy().sub(startPoint).len();
+
+        PathPoint current = path.getFirstPoint().getNext();
+        Vector2 previousVector = new Vector2();
+        Vector2 currentVector = new Vector2();
+        while (current != null) {
+            previousVector = new Vector2(current.getPrev().getX(), current.getPrev().getY());
+            currentVector = new Vector2(current.getX(), current.getY());
+            length += currentVector.sub(previousVector).len();
+            current = current.getNext();
+        }
+
+        ControlPoint end = path.getEnd();
+        Vector2 lastPoint;
+        if (path.getLastPoint() == null) {
+            lastPoint = new Vector2(path.getFirstPoint().getX(), path.getFirstPoint().getY());
+        } else {
+            lastPoint = new Vector2(path.getLastPoint().getX(), path.getLastPoint().getY());
+        }
+        Vector2 endPoint = new Vector2(end.getX(), end.getY());
+        length += endPoint.cpy().sub(lastPoint).len();
+
+        return length;
     }
 
     /**
@@ -137,9 +168,9 @@ public class WorldPlayer implements Renderable {
             }
 
             if (location.nextPPoint == null) {
-                moveTowards(new Vector2(location.pathDirection.end.getX(), location.pathDirection.end.getY()), extra, true);
+                return moveTowards(new Vector2(location.pathDirection.end.getX(), location.pathDirection.end.getY()), extra, true);
             } else {
-                moveTowards(new Vector2(location.nextPPoint.getX(), location.nextPPoint.getY()), extra, false);
+                return moveTowards(new Vector2(location.nextPPoint.getX(), location.nextPPoint.getY()), extra, false);
             }
         } else {
             Vector2 movement = unit.scl(amount);
@@ -149,7 +180,7 @@ public class WorldPlayer implements Renderable {
         return false;
     }
 
-    private static final float SPEED = 3.0f;
+    private static final float SPEED = 2f;
 
     public void setFrame(TextureRegion texture) {
 //        singleFrameMode = true;

@@ -65,14 +65,16 @@ public class Path implements KSerializeable {
     }
 
     public ControlPoint getStart() {
-        if (controlStart == null) {
+        if (controlStart == null || scene.getControlPoints().get(controlStart) == null) {
+            controlStart = null;
             return null;
         }
         return scene.getControlPoints().get(controlStart);
     }
 
     public ControlPoint getEnd() {
-        if (controlEnd == null) {
+        if (controlEnd == null || scene.getControlPoints().get(controlEnd) == null) {
+            controlEnd = null;
             return null;
         }
         return scene.getControlPoints().get(controlEnd);

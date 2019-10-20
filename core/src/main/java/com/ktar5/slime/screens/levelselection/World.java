@@ -8,6 +8,7 @@ import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.screens.levelselection.pathing.ControlPoint;
 import com.ktar5.slime.screens.levelselection.pathing.DataPoint;
 import com.ktar5.slime.screens.levelselection.pathing.Path;
+import com.ktar5.slime.screens.levelselection.pathing.PathPoint;
 import lombok.Getter;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -35,10 +36,21 @@ public class World implements Renderable {
         batch.draw(texture, 0, 0);
         batch.end();
         SlimeGame.getGame().getShapeRenderer().setAutoShapeType(true);
+        SlimeGame.getGame().getShapeRenderer().setProjectionMatrix(SlimeGame.getGame().getGameCamera().getCamera().combined);
         SlimeGame.getGame().getShapeRenderer().begin();
         for (ControlPoint value : controlPoints.values()) {
             SlimeGame.getGame().getShapeRenderer().circle(value.getX(), value.getY(), 3);
         }
+
+        PathPoint current;
+        for(Path path : paths.values()){
+            current = path.getFirstPoint();
+            while (current != null){
+                SlimeGame.getGame().getShapeRenderer().circle(current.getX(), current.getY(), 2);
+                current = current.getNext();
+            }
+        }
+
         SlimeGame.getGame().getShapeRenderer().end();
 
         batch.begin();

@@ -3,6 +3,7 @@ package com.ktar5.slime.tools.levelselectioneditor.ui.sidebar.path;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.kotcrab.vis.ui.util.adapter.ListAdapter;
 import com.ktar5.slime.tools.levelselectioneditor.Main;
 import com.ktar5.slime.tools.levelselectioneditor.Path;
 import com.ktar5.slime.tools.levelselectioneditor.input.Input;
@@ -65,13 +66,16 @@ public class PathData extends Table {
                 if (path.getPathID().equals(value.getPathDown())) value.setPath(null, Direction.S);
             }
             Main.getInstance().mainStage.getSceneRenderer().getScene().getPaths().remove(path.getPathID());
+            ListAdapter<Path> adapter = Main.getInstance().mainStage.getSidebar().getPathSidebar().getPathSelection().getAdapter();
+            ((Adapter) adapter).remove(path);
+            ((Adapter) adapter).itemsChanged();
         }));
 
         insertPointToggleButton.addListener(new KChangeListener((changeEvent, actor) -> {
-            if (setStartButton.isChecked()) {
-                Input.inputMode = InputMode.NONE;
-            } else {
+            if (insertPointToggleButton.isChecked()) {
                 Input.inputMode = InputMode.CREATE_POINT;
+            } else {
+                Input.inputMode = InputMode.NONE;
             }
         }));
 
@@ -86,19 +90,18 @@ public class PathData extends Table {
 
         setStartButton.addListener(new KChangeListener((changeEvent, actor) -> {
             if (setStartButton.isChecked()) {
-                Input.inputMode = InputMode.NONE;
-            } else {
                 Input.inputMode = InputMode.SELECT_START;
+            } else {
+                Input.inputMode = InputMode.NONE;
             }
         }));
 
 
         setEndButton.addListener(new KChangeListener((changeEvent, actor) -> {
             if (setEndButton.isChecked()) {
-                Input.inputMode = InputMode.NONE;
-            } else {
-                System.out.println("select end");
                 Input.inputMode = InputMode.SELECT_END;
+            } else {
+                Input.inputMode = InputMode.NONE;
             }
         }));
 
@@ -201,7 +204,7 @@ public class PathData extends Table {
 //                startUUID.setText(start.getControlID().toString());
                 startData.setText(start.getData());
             }
-            if (path.getControlEnd() == null) {
+            if (path.getControlEnd() == null || path.getEnd() == null) {
                 endX.setText("Null");
                 endY.setText("Null");
                 endDirection.setText("Null");

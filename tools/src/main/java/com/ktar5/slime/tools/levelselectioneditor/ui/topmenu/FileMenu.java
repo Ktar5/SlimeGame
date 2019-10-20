@@ -49,6 +49,8 @@ public class FileMenu extends Menu {
 
                     Scene scene = new Scene(file.file(), new JSONObject(data));
                     Main.getInstance().mainStage.setScene(scene);
+                    System.out.println(Main.getInstance().mainStage.getSidebar().getPathSidebar());
+                    Main.getInstance().mainStage.getSidebar().getPathSidebar().resetPathListView();
 
                     Logger.info("Finished loading: " + file.path());
                     fileChooser.fadeOut();

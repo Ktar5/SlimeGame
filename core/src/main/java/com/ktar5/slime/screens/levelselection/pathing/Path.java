@@ -27,6 +27,7 @@ public class Path {
             if (firstPoint == null) {
                 current = new PathPoint(this, points.getJSONObject(i));
                 firstPoint = current;
+                lastPoint = current;
             } else {
                 PathPoint tempNewPoint = new PathPoint(this, points.getJSONObject(i));
                 current.setNext(tempNewPoint);
@@ -57,7 +58,7 @@ public class Path {
         if (controlPoint.equals(controlStart)) {
             return new PathDirection(getFirstPoint(), true, getEnd());
         } else if (controlPoint.equals(controlEnd)) {
-            return new PathDirection(getFirstPoint(), false, getStart());
+            return new PathDirection(getLastPoint(), false, getStart());
         }else{
             return null;
         }

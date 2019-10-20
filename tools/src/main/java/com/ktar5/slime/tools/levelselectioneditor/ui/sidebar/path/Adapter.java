@@ -21,4 +21,5 @@ public class Adapter extends ArrayListAdapter<Path, VisLabel> {
     protected void updateView(VisLabel view, Path item) {
         view.setText(item.getName());
     }
+
 }

@@ -57,7 +57,6 @@ public class Input implements InputProcessor {
         }
     }
 
-    //TODO add in a toggle for this somewhere
     private static void createControlPoint(int x, int y) {
         ControlPoint controlPoint = new ControlPoint("No Data", x, y);
         Main.getInstance().mainStage.getSceneRenderer().getScene().getControlPoints().put(controlPoint.getControlID(), controlPoint);

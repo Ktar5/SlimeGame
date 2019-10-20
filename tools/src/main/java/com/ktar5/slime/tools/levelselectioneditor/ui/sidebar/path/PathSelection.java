@@ -14,6 +14,7 @@ public class PathSelection extends ListView<Path> {
         this.setItemClickListener(item -> {
             Main.getInstance().mainStage.getSidebar().getPathSidebar().setToPathData(item);
         });
+        this.setUpdatePolicy(UpdatePolicy.ON_DRAW);
     }
 
     public void itemsChanged(){

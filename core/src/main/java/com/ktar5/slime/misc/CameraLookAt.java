@@ -35,49 +35,49 @@ public class CameraLookAt extends CameraBase implements Renderable {
 
     @Override
     public void update(float dTime) {
-        if (Feature.CAMERA_MOVEMENT.isDisabled()) {
-            return;
-        }
-
-        if (playerPosition == null || cameraLocations == null) {
-            return;
-        }
-
-//        if (SlimeGame.getGame().getLevelHandler().getCurrentLevel() == null) {
+//        if (Feature.CAMERA_MOVEMENT.isDisabled()) {
 //            return;
 //        }
-//        Position position = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getPlayer().getPosition();
-//
-//        camPos.x += (position.x - camPos.x) * lerp * SlimeGame.DPERCENT;
-//        camPos.y += (position.y - camPos.y) * lerp * SlimeGame.DPERCENT;
 
-        if (cameraLocations.isEmpty()) {
-            camPos.x += (playerPosition.x - camPos.x) * lerp * SlimeGame.DPERCENT;
-            camPos.y += (playerPosition.y - camPos.y) * lerp * SlimeGame.DPERCENT;
-        } else {
-            float smallestDst2 = Float.MAX_VALUE;
-            CameraPosition smallest = null;
-            for (CameraPosition cameraLocation : cameraLocations) {
-                float currentDst2 = cameraLocation.dst2(playerPosition);
-                if (SlimeGame.getGame().getLevelHandler().getCurrentLevel().getPlayer()
-                        .isTouching(cameraLocation.hitbox, cameraLocation) && currentDst2 < smallestDst2) {
-                    smallestDst2 = currentDst2;
-                    smallest = cameraLocation;
-                }
-            }
+//        if (playerPosition == null || cameraLocations == null) {
+//            return;
+//        }
 
-            if (smallest != null) {
-                int xHalf = (int) ((playerPosition.x + smallest.x) / 2);
-                int yHalf = (int) ((playerPosition.y + smallest.y) / 2);
-                cameraPosition = new Position(xHalf, yHalf);
-                camPos.x += (xHalf - camPos.x) * lerp * SlimeGame.DPERCENT;
-                camPos.y += (yHalf - camPos.y) * lerp * SlimeGame.DPERCENT;
-            } else {
-                camPos.x += (playerPosition.x - camPos.x) * lerp * SlimeGame.DPERCENT;
-                camPos.y += (playerPosition.y - camPos.y) * lerp * SlimeGame.DPERCENT;
-            }
-
+        if (SlimeGame.getGame().getLevelHandler().getCurrentLevel() == null) {
+            return;
         }
+        Position position = SlimeGame.getGame().getLevelHandler().getCurrentLevel().getPlayer().getPosition();
+
+        camPos.x += (position.x - camPos.x) * lerp * SlimeGame.DPERCENT;
+        camPos.y += (position.y - camPos.y) * lerp * SlimeGame.DPERCENT;
+//
+//        if (cameraLocations.isEmpty()) {
+//            camPos.x += (playerPosition.x - camPos.x) * lerp * SlimeGame.DPERCENT;
+//            camPos.y += (playerPosition.y - camPos.y) * lerp * SlimeGame.DPERCENT;
+//        } else {
+//            float smallestDst2 = Float.MAX_VALUE;
+//            CameraPosition smallest = null;
+//            for (CameraPosition cameraLocation : cameraLocations) {
+//                float currentDst2 = cameraLocation.dst2(playerPosition);
+//                if (SlimeGame.getGame().getLevelHandler().getCurrentLevel().getPlayer()
+//                        .isTouching(cameraLocation.hitbox, cameraLocation) && currentDst2 < smallestDst2) {
+//                    smallestDst2 = currentDst2;
+//                    smallest = cameraLocation;
+//                }
+//            }
+//
+//            if (smallest != null) {
+//                int xHalf = (int) ((playerPosition.x + smallest.x) / 2);
+//                int yHalf = (int) ((playerPosition.y + smallest.y) / 2);
+//                cameraPosition = new Position(xHalf, yHalf);
+//                camPos.x += (xHalf - camPos.x) * lerp * SlimeGame.DPERCENT;
+//                camPos.y += (yHalf - camPos.y) * lerp * SlimeGame.DPERCENT;
+//            } else {
+//                camPos.x += (playerPosition.x - camPos.x) * lerp * SlimeGame.DPERCENT;
+//                camPos.y += (playerPosition.y - camPos.y) * lerp * SlimeGame.DPERCENT;
+//            }
+//
+//        }
 
         if (Feature.PRECISION_CAMERA.isEnabled()) {
             int scale = SlimeGame.getGame().getViewport().getScale();

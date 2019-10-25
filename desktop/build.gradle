@@ -15,7 +15,7 @@ dependencies {
 
     //Ktar stuff
     compile "com.code-disaster.steamworks4j:steamworks4j:1.8.0" //Steamworks SDK
-    compile "com.ktar5:tileeditor:1.0-SNAPSHOT"
+    compile "com.ktar5:tileeditor-editor:1.0-SNAPSHOT"
 
     //LibGDX stuff
     compile "com.badlogicgames.gdx:gdx-backend-lwjgl:$gdxVersion"

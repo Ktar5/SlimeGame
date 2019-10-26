@@ -41,7 +41,7 @@ public enum TileObjectTypes {
     CRUMBLING_FLOOR((x, y, cell) -> new CrumbledFloor(x, y), 18),
     TELEPORTER((x, y, cell) -> new Teleporter(x, y), 19),
 
-    HIDESPIKE((x, y, cell) -> new RetractingSpikes(x, y, Rotation.fromCell(cell)), 13),
+    HIDESPIKE((x, y, cell) -> new HiddenSpikes(x, y, Rotation.fromCell(cell)), 13),
     SHOOTER((x, y, cell) -> new Shooter(x, y, Rotation.fromCell(cell)), 6),
 
     BIG((x, y, cell) -> new Big(x, y), 27),

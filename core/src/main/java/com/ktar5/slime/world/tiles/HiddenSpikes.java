@@ -17,12 +17,12 @@ import com.ktar5.slime.world.tiles.base.Rotation;
 import com.ktar5.slime.world.tiles.base.WholeGameTile;
 import org.tinylog.Logger;
 
-public class RetractingSpikes extends WholeGameTile {
+public class HiddenSpikes extends WholeGameTile {
     public boolean retracted = true;
     public final Side spikeMoveSide;
     private int percentRetracted;
 
-    public RetractingSpikes(int x, int y, Rotation rotation) {
+    public HiddenSpikes(int x, int y, Rotation rotation) {
         super(x, y, rotation);
         spikeMoveSide = Side.DOWN.rotateClockwise(rotation.ordinal());
     }
@@ -40,16 +40,18 @@ public class RetractingSpikes extends WholeGameTile {
     @Override
     public void onHitTile(Entity entity, Side hit) {
         if (entity.isPlayer()) {
-            ((JumpPlayer) entity).kill("retracting_spikes");
+            ((JumpPlayer) entity).kill("hidden_spikes");
         }
     }
 
     Timeline tween;
+    long currentTime = 0;
     @Override
     public boolean onCross(Entity entity) {
         if (retracted) {
 
             Logger.debug("Attempting to start tween");
+            currentTime = System.currentTimeMillis();
             tween = Timeline.createSequence()
                     .pushPause(.3f)
                     .push(Tween.to(this, 0, 1).target(100).ease(Linear.INOUT))
@@ -57,6 +59,7 @@ public class RetractingSpikes extends WholeGameTile {
                     .push(Tween.to(this, 1, 1).target(0).ease(Linear.INOUT))
                     .setCallback((type, source) -> {
                         Logger.debug("Tween ended");
+                        System.out.println((System.currentTimeMillis() - currentTime) / 1000f);
                         this.percentRetracted = 0;
                     })
                     .setCallbackTriggers(TweenCallback.END)
@@ -115,16 +118,16 @@ public class RetractingSpikes extends WholeGameTile {
         }
     }
 
-    public static class SpikesTweenAccessor implements TweenAccessor<RetractingSpikes> {
+    public static class SpikesTweenAccessor implements TweenAccessor<HiddenSpikes> {
 
         @Override
-        public int getValues(RetractingSpikes target, int tweenType, float[] returnValues) {
+        public int getValues(HiddenSpikes target, int tweenType, float[] returnValues) {
             returnValues[0] = target.percentRetracted;
             return 1;
         }
 
         @Override
-        public void setValues(RetractingSpikes target, int tweenType, float[] newValues) {
+        public void setValues(HiddenSpikes target, int tweenType, float[] newValues) {
             target.updatePercentRetracted((int) newValues[0], tweenType);
         }
     }

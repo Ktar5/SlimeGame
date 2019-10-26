@@ -7,7 +7,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.kotcrab.vis.ui.widget.VisLabel;
-import com.ktar5.gameengine.EngConst;
 import com.ktar5.gameengine.analytics.Analytics;
 import com.ktar5.gameengine.core.AbstractGame;
 import com.ktar5.gameengine.core.EngineManager;
@@ -130,9 +129,9 @@ public class Winning extends GameState {
 
         Gdx.gl.glClearColor(40 / 255f, 22 / 255f, 41 / 255f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        SlimeGame.getGame().getLevelHandler().render(batch, EngConst.STEP_TIME);
-        getGameScreen().getFrameRate().render(batch, EngConst.STEP_TIME);
-        getGameScreen().getVersionInfo().render(batch, EngConst.STEP_TIME);
+        SlimeGame.getGame().getLevelHandler().render(batch, dTime);
+        getGameScreen().getFrameRate().render(batch, dTime);
+        getGameScreen().getVersionInfo().render(batch, dTime);
 
         // End render to an off-screen buffer.
         SlimeGame.getGame().getPostProcess().getVfxManager().endCapture();

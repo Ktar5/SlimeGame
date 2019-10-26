@@ -3,6 +3,8 @@ package com.ktar5.slime.tools.levelselectioneditor.scene;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.ktar5.slime.tools.levelselectioneditor.Main;
 import com.ktar5.slime.tools.levelselectioneditor.Path;
 import com.ktar5.slime.tools.levelselectioneditor.points.ControlPoint;
 import com.ktar5.slime.tools.levelselectioneditor.points.DataPoint;
@@ -71,6 +73,12 @@ public class Scene implements KSerializeable {
         startingControlPoint = (json.getString("startingControlPoint").equals("null") ? null : UUID.fromString(json.getString("startingControlPoint")));
     }
 
+    public void setBackground(FileHandle fileHandle){
+        this.textureFile = fileHandle.file();
+        this.texture = new Texture(fileHandle);
+        Main.getInstance().mainStage.getSceneRenderer().textureRegion = new TextureRegion(texture);
+        setDirty(true);
+    }
 
     @Override
     public JSONObject serialize() {

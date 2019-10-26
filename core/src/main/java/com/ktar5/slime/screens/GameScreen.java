@@ -2,7 +2,6 @@ package com.ktar5.slime.screens;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.InputMultiplexer;
-import com.ktar5.gameengine.EngConst;
 import com.ktar5.gameengine.core.AbstractScreen;
 import com.ktar5.gameengine.core.EngineManager;
 import com.ktar5.gameengine.statemachine.SimpleStateMachine;
@@ -44,7 +43,7 @@ public class GameScreen extends AbstractScreen {
     public void update(float dTime) {
 //        SlimeGame.frames += 1;
 //        System.out.println(SlimeGame.frames);
-        gameState.update(EngConst.STEP_TIME);
+        gameState.update(dTime);
         GeneralHotkeys.update();
     }
 

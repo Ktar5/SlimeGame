@@ -73,7 +73,33 @@ public class FileMenu extends Menu {
         }));
 
         final MenuItem setTexture = new MenuItem("Set Texture", new KChangeListener((changeEvent, actor) -> {
+            FileChooser fileChooser = Main.getInstance().mainStage.getFileChooser();
+            fileChooser.setMode(FileChooser.Mode.OPEN);
+            fileChooser.setSelectionMode(FileChooser.SelectionMode.FILES);
+            fileChooser.setName("Set Texture");
+            FileTypeFilter fileTypeFilter = new FileTypeFilter(false);
+            fileTypeFilter.addRule("PNG", "png");
+            fileChooser.setFileTypeFilter(fileTypeFilter);
+            fileChooser.setMultiSelectionEnabled(false);
 
+            fileChooser.setListener(new FileChooserAdapter() {
+                @Override
+                public void selected(Array<FileHandle> files) {
+                    FileHandle file = files.get(0);
+                    if (file == null) {
+                        Logger.info("Tried to load texture, failed");
+                        fileChooser.fadeOut();
+                        return;
+                    }
+
+                    Main.getInstance().mainStage.getSceneRenderer().getScene().setBackground(file);
+
+                    Logger.info("Set texture");
+                    fileChooser.fadeOut();
+                }
+            });
+
+            Main.getInstance().mainStage.addActor(fileChooser.fadeIn());
         }));
 
         final MenuItem setStartingControl = new MenuItem("Set Starting Control", new KChangeListener((changeEvent, actor) -> {

@@ -1,292 +1,61 @@
 {
-    "startingControlPoint": "51f5f3db-6379-419e-9279-c8c7dcf069ca",
+    "startingControlPoint": "3f363c89-7dbe-42ff-8a09-8fab24803a72",
     "paths": [
         {
-            "name": "path6",
-            "start": "2d8f505b-ce1d-4202-810c-72a5da3af16e",
-            "end": "f0642f7e-fb58-4d05-bf37-bd63c7f2d2e1",
-            "id": "d104eba2-74ac-4c7f-b82c-5663aafa2a90",
-            "points": [
-                {
-                    "x": 138,
-                    "y": 211
-                },
-                {
-                    "x": 144,
-                    "y": 211
-                },
-                {
-                    "x": 149,
-                    "y": 211
-                },
-                {
-                    "x": 152,
-                    "y": 212
-                },
-                {
-                    "x": 154,
-                    "y": 214
-                },
-                {
-                    "x": 157,
-                    "y": 218
-                },
-                {
-                    "x": 158,
-                    "y": 222
-                },
-                {
-                    "x": 158,
-                    "y": 226
-                },
-                {
-                    "x": 158,
-                    "y": 230
-                },
-                {
-                    "x": 159,
-                    "y": 241
-                },
-                {
-                    "x": 159,
-                    "y": 243
-                }
-            ]
+            "name": "path5",
+            "start": "cf4d6a02-08e3-4567-a411-6f9df001c841",
+            "end": "117d05ad-ac26-4c0b-988d-13220927489f",
+            "id": "c4194268-014d-45f8-876c-0508a6e7fb07",
+            "points": []
         },
         {
-            "name": "path4",
-            "start": "2d8f505b-ce1d-4202-810c-72a5da3af16e",
-            "end": "c6c92ca5-41d7-4d13-8c1c-cdf6cb80b770",
-            "id": "1c1f8525-da75-44ba-b0f3-01077c4421d7",
-            "points": [
-                {
-                    "x": 116,
-                    "y": 211
-                },
-                {
-                    "x": 107,
-                    "y": 211
-                },
-                {
-                    "x": 98,
-                    "y": 210
-                },
-                {
-                    "x": 91,
-                    "y": 209
-                },
-                {
-                    "x": 84,
-                    "y": 209
-                },
-                {
-                    "x": 79,
-                    "y": 208
-                },
-                {
-                    "x": 75,
-                    "y": 207
-                },
-                {
-                    "x": 72,
-                    "y": 205
-                },
-                {
-                    "x": 70,
-                    "y": 203
-                },
-                {
-                    "x": 68,
-                    "y": 201
-                },
-                {
-                    "x": 66,
-                    "y": 199
-                },
-                {
-                    "x": 63,
-                    "y": 197
-                },
-                {
-                    "x": 60,
-                    "y": 195
-                },
-                {
-                    "x": 57,
-                    "y": 194
-                },
-                {
-                    "x": 52,
-                    "y": 194
-                },
-                {
-                    "x": 49,
-                    "y": 193
-                }
-            ]
-        },
-        {
-            "name": "path3",
-            "start": "0ff00753-1349-4dae-b926-c4aae79c125c",
-            "end": "2d8f505b-ce1d-4202-810c-72a5da3af16e",
-            "id": "24e7c234-8940-4282-af5b-bec83b984819",
-            "points": [
-                {
-                    "x": 144,
-                    "y": 173
-                },
-                {
-                    "x": 144,
-                    "y": 180
-                },
-                {
-                    "x": 143,
-                    "y": 185
-                },
-                {
-                    "x": 142,
-                    "y": 187
-                },
-                {
-                    "x": 139,
-                    "y": 188
-                },
-                {
-                    "x": 135,
-                    "y": 189
-                },
-                {
-                    "x": 130,
-                    "y": 189
-                },
-                {
-                    "x": 129,
-                    "y": 189
-                },
-                {
-                    "x": 128,
-                    "y": 189
-                },
-                {
-                    "x": 128,
-                    "y": 190
-                },
-                {
-                    "x": 127,
-                    "y": 193
-                },
-                {
-                    "x": 127,
-                    "y": 195
-                },
-                {
-                    "x": 127,
-                    "y": 197
-                },
-                {
-                    "x": 128,
-                    "y": 199
-                }
-            ]
+            "name": "path8",
+            "start": "1caabf44-ed21-4738-a545-9fe54903b5fc",
+            "end": "ebc2d5ec-73b1-4407-8e51-096efee35fca",
+            "id": "e10257b9-a759-42f2-9c03-1ee50f8d616a",
+            "points": []
         },
         {
             "name": "path1",
-            "start": "51f5f3db-6379-419e-9279-c8c7dcf069ca",
-            "end": "553796b5-72e7-4342-807b-0d27b895c190",
-            "id": "d15118bd-c0f2-4843-b7ea-c2930e158a29",
-            "points": [
-                {
-                    "x": 131,
-                    "y": 66
-                },
-                {
-                    "x": 142,
-                    "y": 66
-                }
-            ]
-        },
-        {
-            "name": "path5",
-            "start": "null",
-            "end": "null",
-            "id": "5c5ef651-541c-448d-a207-83a47cb75ef2",
+            "start": "3f363c89-7dbe-42ff-8a09-8fab24803a72",
+            "end": "40718dc3-e372-4b6b-bdf0-ab2aeb2712c0",
+            "id": "cce618fb-6a91-4a5d-b708-38c07615afee",
             "points": []
         },
         {
             "name": "path7",
-            "start": "2d8f505b-ce1d-4202-810c-72a5da3af16e",
-            "end": "d4908763-f834-4f10-a6fe-e5a2201254b3",
-            "id": "9bb2f289-e15e-40c9-94b5-5dfa258d9ef6",
-            "points": [
-                {
-                    "x": 126,
-                    "y": 221
-                },
-                {
-                    "x": 123,
-                    "y": 228
-                },
-                {
-                    "x": 119,
-                    "y": 232
-                },
-                {
-                    "x": 114,
-                    "y": 233
-                },
-                {
-                    "x": 107,
-                    "y": 234
-                },
-                {
-                    "x": 101,
-                    "y": 233
-                },
-                {
-                    "x": 94,
-                    "y": 229
-                },
-                {
-                    "x": 92,
-                    "y": 228
-                },
-                {
-                    "x": 89,
-                    "y": 226
-                }
-            ]
+            "start": "1caabf44-ed21-4738-a545-9fe54903b5fc",
+            "end": "4cea5cba-5d27-4b23-b528-38d63fdcb5a9",
+            "id": "809634d7-05fe-4e1f-8c89-5c8c1a429e25",
+            "points": []
+        },
+        {
+            "name": "path6",
+            "start": "117d05ad-ac26-4c0b-988d-13220927489f",
+            "end": "1caabf44-ed21-4738-a545-9fe54903b5fc",
+            "id": "59c29c27-cf7a-4057-b54d-06c7ea971ed6",
+            "points": []
+        },
+        {
+            "name": "path3",
+            "start": "cf4d6a02-08e3-4567-a411-6f9df001c841",
+            "end": "596d4340-c1d3-4934-92fc-808ec9a8b54f",
+            "id": "8059bc4c-51ff-41cf-8f0a-ba8b838d8b6d",
+            "points": []
         },
         {
             "name": "path2",
-            "start": "553796b5-72e7-4342-807b-0d27b895c190",
-            "end": "0ff00753-1349-4dae-b926-c4aae79c125c",
-            "id": "55d7c7be-9ba0-4fb6-b858-b3f732ec7e63",
-            "points": [
-                {
-                    "x": 158,
-                    "y": 91
-                },
-                {
-                    "x": 154,
-                    "y": 105
-                },
-                {
-                    "x": 144,
-                    "y": 108
-                },
-                {
-                    "x": 140,
-                    "y": 119
-                },
-                {
-                    "x": 142,
-                    "y": 133
-                },
-                {
-                    "x": 144,
-                    "y": 145
-                }
-            ]
+            "start": "40718dc3-e372-4b6b-bdf0-ab2aeb2712c0",
+            "end": "cf4d6a02-08e3-4567-a411-6f9df001c841",
+            "id": "c505e4e6-7b2a-4138-9d90-9d2285027458",
+            "points": []
+        },
+        {
+            "name": "path4",
+            "start": "596d4340-c1d3-4934-92fc-808ec9a8b54f",
+            "end": "f0fc90c1-3678-4178-b923-8dd8b9386092",
+            "id": "29b62625-3726-4d2c-824c-d667ccc98d06",
+            "points": []
         }
     ],
     "name": "test1",
@@ -297,85 +66,109 @@
             "paths": {
                 "pathLeft": "null",
                 "pathRight": "null",
-                "pathUp": "null",
-                "pathDown": "d104eba2-74ac-4c7f-b82c-5663aafa2a90"
+                "pathUp": "c505e4e6-7b2a-4138-9d90-9d2285027458",
+                "pathDown": "cce618fb-6a91-4a5d-b708-38c07615afee"
             },
-            "x": 159,
-            "y": 273,
-            "controlID": "f0642f7e-fb58-4d05-bf37-bd63c7f2d2e1"
+            "x": 88,
+            "y": 72,
+            "controlID": "40718dc3-e372-4b6b-bdf0-ab2aeb2712c0"
+        },
+        {
+            "data": "No Data",
+            "paths": {
+                "pathLeft": "8059bc4c-51ff-41cf-8f0a-ba8b838d8b6d",
+                "pathRight": "null",
+                "pathUp": "c4194268-014d-45f8-876c-0508a6e7fb07",
+                "pathDown": "c505e4e6-7b2a-4138-9d90-9d2285027458"
+            },
+            "x": 88,
+            "y": 104,
+            "controlID": "cf4d6a02-08e3-4567-a411-6f9df001c841"
         },
         {
             "data": "No Data",
             "paths": {
                 "pathLeft": "null",
-                "pathRight": "1c1f8525-da75-44ba-b0f3-01077c4421d7",
-                "pathUp": "null",
-                "pathDown": "null"
+                "pathRight": "809634d7-05fe-4e1f-8c89-5c8c1a429e25",
+                "pathUp": "e10257b9-a759-42f2-9c03-1ee50f8d616a",
+                "pathDown": "59c29c27-cf7a-4057-b54d-06c7ea971ed6"
             },
-            "x": 37,
-            "y": 194,
-            "controlID": "c6c92ca5-41d7-4d13-8c1c-cdf6cb80b770"
-        },
-        {
-            "data": "No Data",
-            "paths": {
-                "pathLeft": "1c1f8525-da75-44ba-b0f3-01077c4421d7",
-                "pathRight": "d104eba2-74ac-4c7f-b82c-5663aafa2a90",
-                "pathUp": "9bb2f289-e15e-40c9-94b5-5dfa258d9ef6",
-                "pathDown": "24e7c234-8940-4282-af5b-bec83b984819"
-            },
-            "x": 128,
-            "y": 211,
-            "controlID": "2d8f505b-ce1d-4202-810c-72a5da3af16e"
+            "x": 88,
+            "y": 168,
+            "controlID": "1caabf44-ed21-4738-a545-9fe54903b5fc"
         },
         {
             "data": "No Data",
             "paths": {
                 "pathLeft": "null",
                 "pathRight": "null",
-                "pathUp": "24e7c234-8940-4282-af5b-bec83b984819",
-                "pathDown": "55d7c7be-9ba0-4fb6-b858-b3f732ec7e63"
+                "pathUp": "59c29c27-cf7a-4057-b54d-06c7ea971ed6",
+                "pathDown": "c4194268-014d-45f8-876c-0508a6e7fb07"
             },
-            "x": 144,
-            "y": 161,
-            "controlID": "0ff00753-1349-4dae-b926-c4aae79c125c"
+            "x": 88,
+            "y": 120,
+            "controlID": "117d05ad-ac26-4c0b-988d-13220927489f"
         },
         {
             "data": "No Data",
             "paths": {
                 "pathLeft": "null",
-                "pathRight": "9bb2f289-e15e-40c9-94b5-5dfa258d9ef6",
+                "pathRight": "29b62625-3726-4d2c-824c-d667ccc98d06",
                 "pathUp": "null",
                 "pathDown": "null"
             },
-            "x": 80,
-            "y": 226,
-            "controlID": "d4908763-f834-4f10-a6fe-e5a2201254b3"
+            "x": 40,
+            "y": 104,
+            "controlID": "f0fc90c1-3678-4178-b923-8dd8b9386092"
         },
         {
             "data": "No Data",
             "paths": {
                 "pathLeft": "null",
-                "pathRight": "d15118bd-c0f2-4843-b7ea-c2930e158a29",
-                "pathUp": "null",
-                "pathDown": "null"
-            },
-            "x": 112,
-            "y": 66,
-            "controlID": "51f5f3db-6379-419e-9279-c8c7dcf069ca"
-        },
-        {
-            "data": "No Data",
-            "paths": {
-                "pathLeft": "d15118bd-c0f2-4843-b7ea-c2930e158a29",
                 "pathRight": "null",
-                "pathUp": "55d7c7be-9ba0-4fb6-b858-b3f732ec7e63",
+                "pathUp": "cce618fb-6a91-4a5d-b708-38c07615afee",
                 "pathDown": "null"
             },
-            "x": 162,
-            "y": 66,
-            "controlID": "553796b5-72e7-4342-807b-0d27b895c190"
+            "x": 88,
+            "y": 56,
+            "controlID": "3f363c89-7dbe-42ff-8a09-8fab24803a72"
+        },
+        {
+            "data": "No Data",
+            "paths": {
+                "pathLeft": "null",
+                "pathRight": "null",
+                "pathUp": "null",
+                "pathDown": "e10257b9-a759-42f2-9c03-1ee50f8d616a"
+            },
+            "x": 88,
+            "y": 184,
+            "controlID": "ebc2d5ec-73b1-4407-8e51-096efee35fca"
+        },
+        {
+            "data": "No Data",
+            "paths": {
+                "pathLeft": "29b62625-3726-4d2c-824c-d667ccc98d06",
+                "pathRight": "8059bc4c-51ff-41cf-8f0a-ba8b838d8b6d",
+                "pathUp": "null",
+                "pathDown": "null"
+            },
+            "x": 72,
+            "y": 104,
+            "controlID": "596d4340-c1d3-4934-92fc-808ec9a8b54f"
+        },
+        {
+            "data": "No Data",
+            "paths": {
+                "pathLeft": "809634d7-05fe-4e1f-8c89-5c8c1a429e25",
+                "pathRight": "null",
+                "pathUp": "null",
+                "pathDown": "null"
+            },
+            "x": 104,
+            "y": 168,
+            "controlID": "4cea5cba-5d27-4b23-b528-38d63fdcb5a9"
         }
     ],
-    "textureFile": "..\\andreas1.png"
+    "textureFile": "..\\Cave01_Levels.png"
 }

@@ -11,7 +11,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.ktar5.gameengine.EngConst;
 import com.ktar5.gameengine.core.EngineManager;
 import com.ktar5.gameengine.input.ControllerInput;
 import com.ktar5.gameengine.input.devices.JamPad;
@@ -24,6 +23,8 @@ import de.golfgl.gdx.controllers.ControllerMenuStage;
 
 public class PauseWithBlur extends GameState {
     private ControllerMenuStage stage;
+    TextButton resumeButton;
+    Table mainTable;
 
     public PauseWithBlur(GameScreen gameScreen) {
         super(gameScreen);
@@ -35,7 +36,7 @@ public class PauseWithBlur extends GameState {
 
         stage = new ControllerMenuStage(SlimeGame.getGame().getUiCamera().getViewport(), batch);
 
-        TextButton resumeButton = new TextButton("Resume", skin);
+        resumeButton = new TextButton("Resume", skin);
         TextButton levelsButton = new TextButton("Levels", skin);
         TextButton optionsButton = new TextButton("Options", skin);
         TextButton exitButton = new TextButton("Exit", skin);
@@ -67,8 +68,7 @@ public class PauseWithBlur extends GameState {
         });
 
         //Create Table
-        Table mainTable = new Table();
-        mainTable.debugAll();
+        mainTable = new Table();
         //Set table to fill stage
         mainTable.setFillParent(true);
         //Set alignment of contents in the table.
@@ -105,10 +105,17 @@ public class PauseWithBlur extends GameState {
         Gdx.input.setInputProcessor(inputMultiplexer);
         firstFrame = true;
         framesOfSelectDown = 0;
+        stage.setFocusedActor(resumeButton);
+        if(Gdx.graphics.getWidth() != currentWidth || Gdx.graphics.getHeight() != currentHeight){
+            resize(Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        }
     }
 
+    int currentWidth = 0, currentHeight = 0;
     @Override
     public void resize(int width, int height) {
+        currentWidth = width;
+        currentHeight = height;
         // VfxManager manages internal off-screen buffers,
         // which should always match the required viewport (whole screen in our case).
         SlimeGame.getGame().getPostProcess().getVfxManager().resize(width, height);
@@ -173,9 +180,9 @@ public class PauseWithBlur extends GameState {
         Gdx.gl.glClearColor(57 / 255f, 31 / 255f, 58 / 255f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        SlimeGame.getGame().getLevelHandler().render(batch, EngConst.STEP_TIME);
-        getGameScreen().getFrameRate().render(batch, EngConst.STEP_TIME);
-        getGameScreen().getVersionInfo().render(batch, EngConst.STEP_TIME);
+        SlimeGame.getGame().getLevelHandler().render(batch, dTime);
+        getGameScreen().getFrameRate().render(batch, dTime);
+        getGameScreen().getVersionInfo().render(batch, dTime);
 
         // End render to an off-screen buffer.
         SlimeGame.getGame().getPostProcess().getVfxManager().endCapture();

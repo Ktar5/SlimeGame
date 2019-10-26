@@ -23,7 +23,7 @@ import com.ktar5.slime.misc.PostProcess;
 import com.ktar5.slime.platform.AStoreSDK;
 import com.ktar5.slime.screens.GameScreen;
 import com.ktar5.slime.world.level.LevelHandler;
-import com.ktar5.slime.world.tiles.RetractingSpikes;
+import com.ktar5.slime.world.tiles.HiddenSpikes;
 import lombok.Getter;
 import lombok.Setter;
 import org.tinylog.Logger;
@@ -123,7 +123,7 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
         postProcess = new PostProcess();
         EngineManager.get().getConsole().setDisplayKeyID(Input.Keys.GRAVE);
         Tween.registerAccessor(Entity.class, new EntityTweenAccessor());
-        Tween.registerAccessor(RetractingSpikes.class, new RetractingSpikes.SpikesTweenAccessor());
+        Tween.registerAccessor(HiddenSpikes.class, new HiddenSpikes.SpikesTweenAccessor());
         EngineManager.get().getAnimationLoader().loadAtlas("textures/player/Slime.atlas");
         SlimeGame.getGame().setLevelHandler(new LevelHandler());
 

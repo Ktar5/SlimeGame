@@ -67,7 +67,7 @@ public class MainStage extends Stage {
 
     public Scene createScene() {
         File saveFile = new File("D:\\GameDev\\Projects\\Personal\\SlimeJump\\assets\\maps\\levelselect\\SCENETEST.json");
-        File textureFile = new File("D:\\GameDev\\Projects\\Personal\\SlimeJump\\assets\\maps\\levelselect\\andreas1.png");
+        File textureFile = new File("D:\\GameDev\\Projects\\Personal\\SlimeJump\\assets\\maps\\levelselect\\Cave01_Levels.png");
         Scene scene = new Scene("test1", saveFile, textureFile);
 
         Path path = new Path(scene, "path1");

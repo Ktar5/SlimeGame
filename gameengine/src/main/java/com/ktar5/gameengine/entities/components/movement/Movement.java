@@ -1,12 +1,12 @@
 package com.ktar5.gameengine.entities.components.movement;
 
-import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.math.Vector2;
 import com.ktar5.gameengine.EngConst;
 import com.ktar5.gameengine.Feature;
 import com.ktar5.gameengine.core.EngineManager;
 import com.ktar5.gameengine.input.ControllerInput;
+import com.ktar5.gameengine.input.KInput;
 import com.ktar5.gameengine.input.devices.XboxOneGamepad;
 import com.ktar5.gameengine.util.Updatable;
 import com.ktar5.utilities.common.constants.Axis;
@@ -60,13 +60,13 @@ public abstract class Movement implements Updatable {
 
     private void refreshKeyboardInput() {
         //Do keyboard stuff
-        if (Gdx.input.isKeyJustPressed(Input.Keys.A) || Gdx.input.isKeyJustPressed(Input.Keys.LEFT)) {
+        if (KInput.isKeyJustPressed(Input.Keys.A, Input.Keys.LEFT)) {
             input.set(-1, input.y);
-        } else if (Gdx.input.isKeyJustPressed(Input.Keys.D) || Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) {
+        } else if (KInput.isKeyJustPressed(Input.Keys.D, Input.Keys.RIGHT)) {
             input.set(1, input.y);
-        } else if (Gdx.input.isKeyJustPressed(Input.Keys.W) || Gdx.input.isKeyJustPressed(Input.Keys.UP)) {
+        } else if (KInput.isKeyJustPressed(Input.Keys.W, Input.Keys.UP)) {
             input.set(input.x, 1);
-        } else if (Gdx.input.isKeyJustPressed(Input.Keys.S) || Gdx.input.isKeyJustPressed(Input.Keys.DOWN)) {
+        } else if (KInput.isKeyJustPressed(Input.Keys.S, Input.Keys.DOWN)) {
             input.set(input.x, -1);
         }
     }

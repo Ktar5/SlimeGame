@@ -1,4 +1,4 @@
-package com.ktar5.slime;
+package com.ktar5.gameengine.input;
 
 import com.badlogic.gdx.InputProcessor;
 

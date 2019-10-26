@@ -2,7 +2,7 @@ package com.ktar5.slime.hotkeys;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.ktar5.slime.KInput;
+import com.ktar5.gameengine.input.KInput;
 import com.ktar5.slime.SlimeGame;
 
 public class GeneralHotkeys {

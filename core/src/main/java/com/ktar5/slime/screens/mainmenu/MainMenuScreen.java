@@ -16,7 +16,6 @@ import com.ktar5.gameengine.core.AbstractScreen;
 import com.ktar5.gameengine.core.EngineManager;
 import com.ktar5.gameengine.input.ControllerInput;
 import com.ktar5.gameengine.input.devices.JamPad;
-import com.ktar5.slime.KInput;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.hotkeys.GeneralHotkeys;
 import com.ktar5.slime.screens.GameScreen;
@@ -178,7 +177,6 @@ public class MainMenuScreen extends AbstractScreen {
         contInp.update();
 
         GeneralHotkeys.update();
-        KInput.update();
 
     }
 }

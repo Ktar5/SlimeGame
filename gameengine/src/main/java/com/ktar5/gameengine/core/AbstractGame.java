@@ -9,6 +9,7 @@ import com.ktar5.gameengine.EngConst;
 import com.ktar5.gameengine.Feature;
 import com.ktar5.gameengine.camera.CameraBase;
 import com.ktar5.gameengine.console.CommandExecutor;
+import com.ktar5.gameengine.input.KInput;
 import com.ktar5.utilities.annotation.callsuper.CallSuper;
 import com.ktar5.utilities.common.collections.DelayedAddList;
 import lombok.Getter;
@@ -85,11 +86,13 @@ public abstract class AbstractGame<G extends AbstractGame<G>> implements Applica
                 DPERCENT = 1f;
                 screen.getCamera().getCamera().update();
                 screen.update(EngConst.STEP_TIME);
+                KInput.update();
             }
             if(time > 0){
                 DPERCENT = time / EngConst.STEP_TIME;
                 screen.getCamera().getCamera().update();
                 screen.update(time);
+                KInput.update();
                 time = 0;
             }
         } else {
@@ -97,6 +100,7 @@ public abstract class AbstractGame<G extends AbstractGame<G>> implements Applica
             screen.getCamera().getCamera().update();
 
             screen.update(dTime);
+            KInput.update();
         }
 
 

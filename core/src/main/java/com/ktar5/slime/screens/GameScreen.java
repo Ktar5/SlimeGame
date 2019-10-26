@@ -7,7 +7,6 @@ import com.ktar5.gameengine.core.EngineManager;
 import com.ktar5.gameengine.statemachine.SimpleStateMachine;
 import com.ktar5.gameengine.util.textoverlay.FrameRate;
 import com.ktar5.gameengine.util.textoverlay.TextDisplay;
-import com.ktar5.slime.KInput;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.hotkeys.GeneralHotkeys;
 import com.ktar5.slime.misc.VersionInfo;
@@ -55,7 +54,6 @@ public class GameScreen extends AbstractScreen {
     @Override
     public void render(float delta) {
         gameState.getCurrent().render(SlimeGame.getGame().getSpriteBatch(), delta);
-        KInput.update();
     }
 
     @Override

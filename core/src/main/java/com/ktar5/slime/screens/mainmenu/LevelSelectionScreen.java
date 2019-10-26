@@ -16,7 +16,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.ktar5.gameengine.core.AbstractScreen;
 import com.ktar5.gameengine.core.EngineManager;
-import com.ktar5.slime.KInput;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.hotkeys.GeneralHotkeys;
 import com.ktar5.slime.screens.GameScreen;
@@ -210,6 +209,5 @@ public class LevelSelectionScreen extends AbstractScreen {
     @Override
     public void update(float dTime) {
         GeneralHotkeys.update();
-        KInput.update();
     }
 }

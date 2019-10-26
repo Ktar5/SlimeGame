@@ -18,6 +18,7 @@ public class Idle extends PlayerState {
     public void start() {
         timer = 0;
         animations = IdleAnimations.values()[0];
+//        getPlayer().setPreviousNonZeroMovement(null);
     }
 
     @Override

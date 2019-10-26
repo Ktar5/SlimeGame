@@ -10,7 +10,6 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.ktar5.gameengine.camera.CameraBase;
 import com.ktar5.gameengine.core.AbstractScreen;
 import com.ktar5.gameengine.core.EngineManager;
-import com.ktar5.slime.KInput;
 import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.hotkeys.GeneralHotkeys;
 import org.json.JSONObject;
@@ -100,7 +99,6 @@ public class NodeLevelSelectionScreen extends AbstractScreen {
         world.getWorldPlayer().update(dTime);
 
         GeneralHotkeys.update();
-        KInput.update();
     }
 
 

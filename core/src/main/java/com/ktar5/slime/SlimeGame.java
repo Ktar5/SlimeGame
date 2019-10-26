@@ -15,6 +15,7 @@ import com.ktar5.gameengine.core.AbstractScreen;
 import com.ktar5.gameengine.core.EngineManager;
 import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.gameengine.entities.EntityTweenAccessor;
+import com.ktar5.gameengine.input.KInput;
 import com.ktar5.gameengine.tweenengine.Tween;
 import com.ktar5.slime.data.SlimeGameData;
 import com.ktar5.slime.misc.CameraLookAt;

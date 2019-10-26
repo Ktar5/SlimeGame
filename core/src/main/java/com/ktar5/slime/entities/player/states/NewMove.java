@@ -221,6 +221,7 @@ public class NewMove extends PlayerState {
             //This is for regular movement
             else {
                 getPlayer().getPosition().translate(SPEED * getMovement().x * SlimeGame.DPERCENT, SPEED * getMovement().y * SlimeGame.DPERCENT);
+                System.out.println("Moving one");
             }
 
         } //ELSE

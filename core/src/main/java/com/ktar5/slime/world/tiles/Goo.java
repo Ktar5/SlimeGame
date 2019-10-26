@@ -33,8 +33,6 @@ public class Goo extends WholeGameTile {
             entity.getEntityState().changeStateAfterUpdate(BoxIdle.class);
         } else if(entity instanceof HeroEntity){
             entity.getEntityState().changeStateAfterUpdate(HeroIdle.class);
-        } else {
-            return true;
         }
         return true;
     }

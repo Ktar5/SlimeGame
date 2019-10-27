@@ -43,7 +43,10 @@ public class Running extends GameState {
         RunningHotkeys.update();
         EngineManager.get().getCooldownManager().update(dTime);
         EngineManager.get().getTweenManager().update(dTime);
+
+        //Update camera before player & Level Handler
         EngineManager.get().getCameraBase().update(dTime);
+
         SlimeGame.getGame().getLevelHandler().update(dTime);
         getGameScreen().getFrameRate().update(dTime);
         getGameScreen().getVersionInfo().update(dTime);

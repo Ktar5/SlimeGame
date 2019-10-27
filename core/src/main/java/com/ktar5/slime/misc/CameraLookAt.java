@@ -6,7 +6,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.ktar5.gameengine.Feature;
 import com.ktar5.gameengine.camera.CameraBase;
 import com.ktar5.gameengine.util.Position;
 import com.ktar5.gameengine.util.Renderable;
@@ -50,6 +49,10 @@ public class CameraLookAt extends CameraBase implements Renderable {
 
         camPos.x += (position.x - camPos.x) * lerp * SlimeGame.DPERCENT;
         camPos.y += (position.y - camPos.y) * lerp * SlimeGame.DPERCENT;
+//        camPos.x = position.x;
+//        camPos.y = position.y;
+
+
 //
 //        if (cameraLocations.isEmpty()) {
 //            camPos.x += (playerPosition.x - camPos.x) * lerp * SlimeGame.DPERCENT;
@@ -79,20 +82,17 @@ public class CameraLookAt extends CameraBase implements Renderable {
 //
 //        }
 
-        if (Feature.PRECISION_CAMERA.isEnabled()) {
-            int scale = SlimeGame.getGame().getViewport().getScale();
-            float precision = 1f / scale;
+//        if (Feature.PRECISION_CAMERA.isEnabled()) {
+//            int scale = SlimeGame.getGame().getViewport().getScale();
+//            float precision = 1f / scale;
+//
+//            camera.position.set(((int) (camPos.x / precision)) * precision, ((int) (camPos.y / precision)) * precision, 0);
+//        } else {
+            camera.position.set((int) camPos.x, (int) camPos.y, 0);
+//        }
 
-            camPos.x = ((int) (camPos.x / precision)) * precision;
-            camPos.y = ((int) (camPos.y / precision)) * precision;
-        } else {
-            camPos.x = (int) camPos.x;
-            camPos.y = (int) camPos.y;
-        }
+//        System.out.println("Position X: " + camera.position.x + "   Y: " + camPos.y);
 
-        //Set camera position to fixed vector
-//        camera.position.set(new Vector3((int) camPos.x, (int) camPos.y, 0));
-        camera.position.set(camPos);
         //Update camera
         camera.update();
     }

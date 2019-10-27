@@ -112,7 +112,6 @@ public class LevelData {
         if (isInMapRange(x, y)) {
 //            Logger.debug(gameMap[x][y]);
 //            Logger.debug(SlimeGame.getGame().getLevelHandler().getCurrentLevel().getId());
-            System.out.println(gameMap[x][y].getClass());
             return gameMap[x][y].onCross(entity);
         }
         return false;

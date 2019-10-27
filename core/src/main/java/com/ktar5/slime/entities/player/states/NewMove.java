@@ -21,6 +21,8 @@ import java.util.List;
 public class NewMove extends PlayerState {
     private static final int preMovementFrames = 7;
     private static final float SPEED = Settings.PLAYER_MOVE_SPEED;//3.2f;
+//private static final float SPEED = 1.6f;//3.2f;
+
     //Pixels per frame-- 16 pixels in a tile
 
     int blocksMoved = 0;
@@ -221,7 +223,6 @@ public class NewMove extends PlayerState {
             //This is for regular movement
             else {
                 getPlayer().getPosition().translate(SPEED * getMovement().x * SlimeGame.DPERCENT, SPEED * getMovement().y * SlimeGame.DPERCENT);
-                System.out.println("Moving one");
             }
 
         } //ELSE

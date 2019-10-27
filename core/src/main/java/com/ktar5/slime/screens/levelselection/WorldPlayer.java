@@ -99,9 +99,6 @@ public class WorldPlayer implements Renderable {
         } else {
             frames += 1;
             boolean finished;
-            System.out.println("loc: " + location);
-            System.out.println("pathdir: " + location.pathDirection);
-            System.out.println("ppoint: " + location.nextPPoint);
             if(location.nextPPoint == null){
                 finished = moveTowards(new Vector2(location.pathDirection.end.getX(), location.pathDirection.end.getY()), SPEED * SlimeGame.DPERCENT, true);
             } else if ((location.pathDirection.forward && location.nextPPoint.getNext() == null) || (!location.pathDirection.forward && location.nextPPoint.getPrev() == null)) {

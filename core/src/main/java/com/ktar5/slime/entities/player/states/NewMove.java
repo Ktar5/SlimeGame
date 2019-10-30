@@ -87,7 +87,7 @@ public class NewMove extends PlayerState {
             getPlayer().setPreviousNonZeroMovement(getPlayer().getMovement().getInput().cpy());
         } else if (preMovementFrameCount == 0) {
             getPlayer().setPreviousNonZeroMovement(null);
-        } else {
+        } else if(SlimeGame.DPERCENT < .9f){
             preMovementFrameCount--;
         }
 

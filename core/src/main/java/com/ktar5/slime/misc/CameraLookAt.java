@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Vector3;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.ktar5.gameengine.Feature;
 import com.ktar5.gameengine.camera.CameraBase;
 import com.ktar5.gameengine.util.Position;
 import com.ktar5.gameengine.util.Renderable;
@@ -82,14 +83,14 @@ public class CameraLookAt extends CameraBase implements Renderable {
 //
 //        }
 
-//        if (Feature.PRECISION_CAMERA.isEnabled()) {
-//            int scale = SlimeGame.getGame().getViewport().getScale();
-//            float precision = 1f / scale;
-//
-//            camera.position.set(((int) (camPos.x / precision)) * precision, ((int) (camPos.y / precision)) * precision, 0);
-//        } else {
+        if (Feature.PRECISION_CAMERA.isEnabled()) {
+            int scale = SlimeGame.getGame().getViewport().getScale();
+            float precision = 1f / scale;
+
+            camera.position.set(((int) (camPos.x / precision)) * precision, ((int) (camPos.y / precision)) * precision, 0);
+        } else {
             camera.position.set((int) camPos.x, (int) camPos.y, 0);
-//        }
+        }
 
 //        System.out.println("Position X: " + camera.position.x + "   Y: " + camPos.y);
 

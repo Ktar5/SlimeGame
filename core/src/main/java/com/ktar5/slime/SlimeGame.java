@@ -19,6 +19,7 @@ import com.ktar5.gameengine.input.KInput;
 import com.ktar5.gameengine.tweenengine.Tween;
 import com.ktar5.slime.data.SlimeGameData;
 import com.ktar5.slime.misc.CameraLookAt;
+import com.ktar5.slime.misc.ISync;
 import com.ktar5.slime.misc.PixelPerfectViewport;
 import com.ktar5.slime.misc.PostProcess;
 import com.ktar5.slime.platform.AStoreSDK;
@@ -48,9 +49,18 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
     private AStoreSDK storeSDK;
 
 
-    public SlimeGame(AStoreSDK storeSDK) {
+    private final ISync sync;
+
+    public SlimeGame(AStoreSDK storeSDK, ISync sync) {
         instance = this;
         this.storeSDK = storeSDK;
+        this.sync = sync;
+    }
+
+    @Override
+    public void render() {
+        super.render();
+        sync.sync(Gdx.graphics.getDisplayMode().refreshRate);
     }
 
     @Override

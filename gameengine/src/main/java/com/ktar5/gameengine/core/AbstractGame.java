@@ -71,8 +71,15 @@ public abstract class AbstractGame<G extends AbstractGame<G>> implements Applica
     private float time = 0;
     public static float DPERCENT = 0;
 
+    boolean isCurrentlyRendering = false;
     @Override
     public void render() {
+        if(isCurrentlyRendering){
+            System.out.println("Dont render, jerk.");
+            return;
+        }
+        isCurrentlyRendering = true;
+
         //Get time since last frame
         float dTime = Gdx.graphics.getDeltaTime();
         if (Feature.SINGLE_FRAME.isDisabled()) {
@@ -115,6 +122,8 @@ public abstract class AbstractGame<G extends AbstractGame<G>> implements Applica
             runnable.run();
         }
         actionsAfterNextFrame.clearItems();
+
+        isCurrentlyRendering = false;
     }
 
     @Override

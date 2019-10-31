@@ -21,7 +21,8 @@ dependencies {
 
     compile "com.badlogicgames.gdx:gdx:$gdxVersion"
     compile "com.badlogicgames.gdx:gdx-freetype:$gdxVersion"
-    compile "com.badlogicgames.gdx:gdx-controllers:$gdxVersion"
+    compile "com.badlogicgames.gdx:gdx-controllers-lwjgl3:$gdxVersion"
+//    compile "de.golfgl.gdxcontrollerutils:gdx-controllers-jamepad:$cuversion"
 
     compile "net.dermetfan.libgdx-utils:libgdx-utils:0.13.4"
 

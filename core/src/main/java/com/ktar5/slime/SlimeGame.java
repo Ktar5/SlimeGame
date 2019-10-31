@@ -52,15 +52,19 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
     private final ISync sync;
 
     public SlimeGame(AStoreSDK storeSDK, ISync sync) {
+        Logger.debug("3");
         instance = this;
+        Logger.debug("f");
         this.storeSDK = storeSDK;
+        Logger.debug("g");
         this.sync = sync;
+        Logger.debug("h");
     }
 
     @Override
     public void render() {
-        super.render();
         sync.sync(Gdx.graphics.getDisplayMode().refreshRate);
+        super.render();
     }
 
     @Override
@@ -77,15 +81,21 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
 
     @Override
     public void initialize() {
+        Logger.debug("i");
         data = new SlimeGameData();
+        Logger.debug("j");
         input = new KInput();
+        Logger.debug("k");
         if(data.fullscreen){
+            Logger.debug("l");
             Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
+            Logger.debug("m");
         }
     }
 
     @Override
     protected CameraBase initializeCameraBase() {
+        Logger.debug("n");
         uiCamera = new StaticCamera(new OrthographicCamera(480, 270));
 
         OrthographicCamera orthographicCamera = new OrthographicCamera(480, 270);

@@ -5,9 +5,7 @@
     "classpath": [
         "../desktop/build/libs/slime-0.0.1-SNAPSHOT.jar"
     ],
-    "removelibs": [
-        "../desktop/build/libs/slime-0.0.1-SNAPSHOT.jar"
-    ],
+
     "mainclass": "com.ktar5.slime.desktop.DesktopLauncher",
     "vmargs": [
         "Xmx1G"

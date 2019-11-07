@@ -13,6 +13,7 @@ import com.ktar5.gameengine.input.KInput;
 import com.ktar5.utilities.annotation.callsuper.CallSuper;
 import com.ktar5.utilities.common.collections.DelayedAddList;
 import lombok.Getter;
+import org.tinylog.Logger;
 
 public abstract class AbstractGame<G extends AbstractGame<G>> implements ApplicationListener {
     protected AbstractScreen screen;
@@ -75,7 +76,7 @@ public abstract class AbstractGame<G extends AbstractGame<G>> implements Applica
     @Override
     public void render() {
         if(isCurrentlyRendering){
-            System.out.println("Dont render, jerk.");
+            Logger.debug("Dont render, jerk.");
             return;
         }
         isCurrentlyRendering = true;

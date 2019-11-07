@@ -112,20 +112,20 @@ public class HeroMove extends HeroState {
             for (Entity entity : entities) {
                 if (entity instanceof Box && ((Box) entity).isTouching(getEntity().getHitbox(), futureAheadHitboxPosition)) {
                     ((TouchableEntity) entity).onTouchedByEntity(getEntity(), getEntity().facingDirection);
-                    System.out.println("Touching box");
+//                    System.out.println("Touching box");
                     //TODO start the animation
                     shouldStop = true;
                     break;
                 }else if(entity instanceof Cart && ((Cart) entity).isTouching(getEntity().getHitbox(), futureAheadHitboxPosition)){
                     ((TouchableEntity) entity).onTouchedByEntity(getEntity(), getEntity().facingDirection);
-                    System.out.println("Touching cart");
+//                    System.out.println("Touching cart");
                     shouldStop = true;
                     break;
                 }
             }
 
             if (shouldStop) {
-                System.out.println("Stopped moving");
+//                System.out.println("Stopped moving");
                 getEntity().getPosition().moveTo((currentTileX * 16) + 8, (currentTileY * 16) + 8);
                 getEntity().getEntityState().changeStateAfterUpdate(HeroIdle.class);
                 return;

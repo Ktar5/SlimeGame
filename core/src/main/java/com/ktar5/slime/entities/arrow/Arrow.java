@@ -12,6 +12,7 @@ import com.ktar5.slime.entities.GameEntity;
 import com.ktar5.slime.entities.Rectangle;
 import com.ktar5.slime.entities.TouchableEntity;
 import com.ktar5.slime.entities.player.JumpPlayer;
+import org.tinylog.Logger;
 
 public class Arrow extends GameEntity<ArrowState> implements TouchableEntity, Pool.Poolable {
     private static Rectangle horizontalHitbox = new Rectangle(16, 5);
@@ -22,7 +23,7 @@ public class Arrow extends GameEntity<ArrowState> implements TouchableEntity, Po
 
     public Arrow() {
         super(16, 16, new Rectangle(1,1));
-        System.out.println("Creating new arrow");
+        Logger.debug("Creating new arrow");
     }
 
     public Arrow init(ArrowEntityData data){

@@ -5,6 +5,7 @@ import com.badlogic.gdx.controllers.ControllerAdapter;
 import com.badlogic.gdx.controllers.Controllers;
 import com.badlogic.gdx.controllers.PovDirection;
 import com.ktar5.gameengine.Feature;
+import org.tinylog.Logger;
 
 public class ControllerInput {
 
@@ -41,14 +42,14 @@ public class ControllerInput {
 
             @Override
             public boolean buttonDown(Controller controller, int buttonCode) {
-                System.out.println("Controller button pressed: " + buttonCode);
+                Logger.debug("Controller button pressed: " + buttonCode);
                 buttonsJustPressed[buttonCode] = true;
                 return true;
             }
 
             @Override
             public boolean povMoved(Controller controller, int povCode, PovDirection value) {
-                System.out.println("POV MOVED " + povCode + " povdir " + value.name());
+                Logger.debug("POV MOVED " + povCode + " povdir " + value.name());
                 return true;
             }
         });

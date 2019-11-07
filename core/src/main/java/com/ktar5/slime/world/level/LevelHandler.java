@@ -21,7 +21,9 @@ import org.tinylog.Logger;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Getter
 public class LevelHandler implements Renderable, Updatable {
@@ -38,6 +40,7 @@ public class LevelHandler implements Renderable, Updatable {
     private List<Chapter> chapters;
     private int currentChapter = 0;
     private IntMap<FileHandle> mapFileMap;
+    private Map<String, Integer> mapNameLookup;
 
     private final TmxMapLoader.Parameters params;
     private final CustomTmxMapLoader loader;
@@ -154,6 +157,7 @@ public class LevelHandler implements Renderable, Updatable {
     //TODO add "local_chapters"
     public void initialize() {
         mapFileMap = new IntMap<>();
+        mapNameLookup = new HashMap<>();
 
         FileHandle levelAtlas = Gdx.files.internal("maps/chapters/chapters.txt");
 
@@ -184,20 +188,21 @@ public class LevelHandler implements Renderable, Updatable {
                 int lastID = 0;
 
 //                if(getFileHandle("maps/chapters/" + chapterName.toLowerCase() + ".txt").exists()){
-                    bufferedReader = new BufferedReader(getFileHandle("maps/chapters/" + chapterName.toLowerCase() + ".txt").reader());
-                    while ((line = bufferedReader.readLine()) != null) {
-                        String[] split = line.split(":");
-                        if (split.length == 1 || split[1].isEmpty() || split[1].equals(" ")) {
-                            Logger.debug("Null level: chapter: " + chapterName + " ID: " + (levelID - firstID));
-                            mapFileMap.put(levelID, null);
-                        } else {
-                            String levelName = split[1].replace(" ", "");
-                            mapFileMap.put(levelID, getFileHandle("maps/chapters/" + chapterName.toLowerCase() + "/" + levelName + ".tmx"));
-                        }
-                        lastID = levelID;
-
-                        levelID++;
+                bufferedReader = new BufferedReader(getFileHandle("maps/chapters/" + chapterName.toLowerCase() + ".txt").reader());
+                while ((line = bufferedReader.readLine()) != null) {
+                    String[] split = line.split(":");
+                    if (split.length == 1 || split[1].isEmpty() || split[1].equals(" ")) {
+                        Logger.debug("Null level: chapter: " + chapterName + " ID: " + (levelID - firstID));
+                        mapFileMap.put(levelID, null);
+                    } else {
+                        String levelName = split[1].replace(" ", "");
+                        mapFileMap.put(levelID, getFileHandle("maps/chapters/" + chapterName.toLowerCase() + "/" + levelName + ".tmx"));
+                        mapNameLookup.put(levelName.toLowerCase(), levelID);
                     }
+                    lastID = levelID;
+
+                    levelID++;
+                }
 //                }else{
 //                    FileHandle external = Gdx.files.local("./assets/maps/chapters/" + chapterName.toLowerCase() + " /");
 //                    System.out.println(external.exists());

@@ -39,7 +39,6 @@ public class Main extends Application {
         root = new DisplayWindow();
 
         //TODO fix this cancer
-        System.out.println("starting");
         mongo.getCollection("analytics").find(new Document("session_num", 0)).limit(1).forEach(new Consumer<Document>() {
             @Override
             public void accept(Document document) {

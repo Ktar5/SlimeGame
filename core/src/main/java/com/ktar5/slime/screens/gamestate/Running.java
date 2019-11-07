@@ -36,7 +36,7 @@ public class Running extends GameState {
     public void onUpdate(float dTime) {
 //        System.out.println("Updating running state");
         if (KInput.isKeyJustPressed(Input.Keys.ESCAPE) || EngineManager.get().getControllerInput().isButtonJustPressed(JamPad.START)) {
-            System.out.println("ESCAPE");
+//            System.out.println("ESCAPE");
             changeState(PauseWithBlur.class);
             return;
         }

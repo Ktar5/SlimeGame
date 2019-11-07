@@ -1,6 +1,7 @@
 package com.ktar5.gameengine.input;
 
 import com.badlogic.gdx.InputProcessor;
+import org.tinylog.Logger;
 
 public class KInput implements InputProcessor {
     private static boolean[] KEYS_DOWN_FRAME = new boolean[256];
@@ -31,7 +32,7 @@ public class KInput implements InputProcessor {
 
     @Override
     public boolean keyDown(int keycode) {
-        System.out.println("PRESSING KEY: " + keycode);
+        Logger.debug("PRESSING KEY: " + keycode);
         keyPressed = true;
         KEYS_DOWN_FRAME[keycode] = true;
         return false;

@@ -75,7 +75,6 @@ public class ArrowMove extends ArrowState {
         GameTile newGameTile = levelData.getGameMap()[(int) (newPosition.x / 16)][(int) (newPosition.y / 16)];
 
         if (touchedEntity) {
-            System.out.println("touched entity");
             killArrow();
         } else if (!newGameTile.canCrossThrough(getEntity(), getMovement())) {
             getEntity().getPosition().translate(SPEED * getMovement().x  * SlimeGame.DPERCENT, SPEED * getMovement().y * SlimeGame.DPERCENT);

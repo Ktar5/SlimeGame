@@ -79,7 +79,7 @@ public class BoxMove extends BoxState {
             boolean wasTeleport = getEntity().isTeleporting();
             getEntity().setTeleporting(false);
             GameTile nextTile = levelData.tileFromDirection(currentTileX, currentTileY, getMovement());
-            System.out.println(currentTileX + " " + currentTileY);
+//            System.out.println(currentTileX + " " + currentTileY);
             GameTile currentTile = levelData.getGameMap()[currentTileX][currentTileY];
             if (nextTile == null) {
                 int x = ((int) newPosition.x / 16);
@@ -119,7 +119,7 @@ public class BoxMove extends BoxState {
             } else if (!nextTile.canCrossThrough(getEntity(), getMovement())) {
                 getEntity().getPosition().moveTo((currentTileX * 16) + 8, (currentTileY * 16) + 8);
                 //TODO start animation
-                System.out.println("Box hit the side and is going idle");
+//                System.out.println("Box hit the side and is going idle");
                 changeState(BoxIdle.class);
                 nextTile.onHitTile(getEntity(), getMovement().opposite());
             } else {

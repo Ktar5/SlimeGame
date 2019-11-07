@@ -59,7 +59,7 @@ public class HiddenSpikes extends WholeGameTile {
                     .push(Tween.to(this, 1, 1).target(0).ease(Linear.INOUT))
                     .setCallback((type, source) -> {
                         Logger.debug("Tween ended");
-                        System.out.println((System.currentTimeMillis() - currentTime) / 1000f);
+//                        System.out.println((System.currentTimeMillis() - currentTime) / 1000f);
                         this.percentRetracted = 0;
                     })
                     .setCallbackTriggers(TweenCallback.END)

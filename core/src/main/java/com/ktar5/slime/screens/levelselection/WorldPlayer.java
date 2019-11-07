@@ -1,5 +1,6 @@
 package com.ktar5.slime.screens.levelselection;
 
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
@@ -64,11 +65,12 @@ public class WorldPlayer implements Renderable {
     public void update(float dTime) {
         if (location.isIdle()) {
             ControllerInput cInp = EngineManager.get().getControllerInput();
-            if (KInput.isKeyJustPressed(Keys.ENTER) || cInp.isButtonJustPressed(JamPad.A, JamPad.START, JamPad.SELECT)) {
-                String data = location.controlPointLastAt.getData();
-                int levelID = Integer.parseInt(data);
-                SlimeGame.getGame().getLevelHandler().setLevel(levelID);
-                SlimeGame.getGame().setScreen(new GameScreen());
+            if ((KInput.isKeyJustPressed(Keys.ENTER) || cInp.isButtonJustPressed(JamPad.A, JamPad.START, JamPad.SELECT)) &&
+                    (Gdx.input.isKeyPressed(Keys.ALT_LEFT) || Gdx.input.isKeyPressed(Keys.ALT_RIGHT))) {
+                if (location.controlPointLastAt.hasLevel()) {
+                    SlimeGame.getGame().getLevelHandler().setLevel(location.controlPointLastAt.getLevelID());
+                    SlimeGame.getGame().setScreen(new GameScreen());
+                }
             } else {
                 UUID pathID = null;
                 if (KInput.isKeyJustPressed(Keys.W, Keys.UP) || cInp.isButtonJustPressed(JamPad.DPAD_UP)) {
@@ -91,15 +93,15 @@ public class WorldPlayer implements Renderable {
                 Path path = world.getPaths().get(pathID);
                 location.pathDirection = path.getPathDirection(location.controlPointLastAt.getControlID());
                 controlPointToOrAt = location.pathDirection.end;
-                System.out.println(location.pathDirection);
+//                System.out.println(location.pathDirection);
 
-                System.out.println(location.pathDirection.firstPoint);
+//                System.out.println(location.pathDirection.firstPoint);
                 location.nextPPoint = location.pathDirection.firstPoint;
             }
         } else {
             frames += 1;
             boolean finished;
-            if(location.nextPPoint == null){
+            if (location.nextPPoint == null) {
                 finished = moveTowards(new Vector2(location.pathDirection.end.getX(), location.pathDirection.end.getY()), SPEED * SlimeGame.DPERCENT, true);
             } else if ((location.pathDirection.forward && location.nextPPoint.getNext() == null) || (!location.pathDirection.forward && location.nextPPoint.getPrev() == null)) {
                 finished = moveTowards(new Vector2(location.pathDirection.end.getX(), location.pathDirection.end.getY()), SPEED * SlimeGame.DPERCENT, true);
@@ -107,7 +109,7 @@ public class WorldPlayer implements Renderable {
                 finished = moveTowards(new Vector2(location.nextPPoint.getX(), location.nextPPoint.getY()), SPEED * SlimeGame.DPERCENT, false);
             }
             if (finished) {
-                System.out.println("finished w/ " + frames + " frames");
+//                System.out.println("finished w/ " + frames + " frames");
                 location.controlPointLastAt = location.pathDirection.end;
                 location.nextPPoint = null;
                 location.pathDirection = null;

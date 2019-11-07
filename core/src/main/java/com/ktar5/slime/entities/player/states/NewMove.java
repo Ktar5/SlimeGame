@@ -53,7 +53,7 @@ public class NewMove extends PlayerState {
 
         //If something somehow messed up, let's fix it
         if (input.equals(Vector2.Zero)) {
-            System.out.println("FOR SOME REASON THIS IS ZERO");
+//            System.out.println("FOR SOME REASON THIS IS ZERO");
             end();
             changeState(Idle.class);
         }
@@ -163,28 +163,28 @@ public class NewMove extends PlayerState {
             for (Entity entity : entities) {
                 if (entity instanceof Box && ((Box) entity).isTouching(getPlayer().getHitbox(), futureAheadHitboxPosition)) {
                     ((TouchableEntity) entity).onTouchedByEntity(getPlayer(), getPlayer().getLastMovedDirection());
-                    System.out.println("Touching box");
+//                    System.out.println("Touching box");
                     //TODO start the animation
                     touchedEntity = true;
                     break;
                 }else if(entity instanceof Cart && ((Cart) entity).isTouching(getPlayer().getHitbox(), futureAheadHitboxPosition)){
                     ((TouchableEntity) entity).onTouchedByEntity(getPlayer(), getPlayer().getLastMovedDirection());
-                    System.out.println("Touching cart");
+//                    System.out.println("Touching cart");
                     touchedEntity = true;
                     break;
                 }else if(entity instanceof HeroEntity && ((HeroEntity) entity).isTouching(getPlayer().getHitbox(), futureAheadHitboxPosition)){
-                    System.out.println("Touched hero");
+//                    System.out.println("Touched hero");
                     if(getMovement().opposite().equals(((HeroEntity) entity).facingDirection)){
                         getPlayer().kill("hero");
                     }else{
                         touchedEntity = true;
-                        System.out.println("Touched hero");
+//                        System.out.println("Touched hero");
                     }
                 }
             }
 
             if (touchedEntity) {
-                System.out.println("Stopped moving");
+//                System.out.println("Stopped moving");
                 getPlayer().getPosition().moveTo((currentTileX * 16) + 8, (currentTileY * 16) + 8);
                 getPlayer().getEntityState().changeStateAfterUpdate(Idle.class);
                 return;

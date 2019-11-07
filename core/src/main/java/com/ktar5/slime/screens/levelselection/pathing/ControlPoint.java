@@ -1,6 +1,7 @@
 package com.ktar5.slime.screens.levelselection.pathing;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.ktar5.slime.SlimeGame;
 import com.ktar5.slime.screens.levelselection.World;
 import lombok.Getter;
 import org.json.JSONObject;
@@ -14,7 +15,7 @@ public class ControlPoint extends Point {
     private UUID pathUp, pathDown, pathLeft, pathRight;
     private String data;
 
-    //TODO level data reference
+    private int levelID = -1;
 
     public ControlPoint(JSONObject json) {
         super(json);
@@ -30,21 +31,25 @@ public class ControlPoint extends Point {
     }
 
 
-    public void parseData(String data){
-        //TODO load level data reference
+    public void parseData(String data) {
+        if (data.isEmpty()) {
+            return;
+        }
+        if (SlimeGame.getGame().getLevelHandler().getMapNameLookup().containsKey(data.toLowerCase())){
+            levelID = SlimeGame.getGame().getLevelHandler().getMapNameLookup().get(data.toLowerCase());
+        }
     }
 
-    //TODO
-    public boolean hasLevel(){
-        return false;
+    public boolean hasLevel() {
+        return levelID != -1;
     }
 
     public void render(SpriteBatch batch, World world) {
-        if(world.getWorldPlayer().getControlPointToOrAt().getControlID().equals(controlID)){
+        if (world.getWorldPlayer().getControlPointToOrAt().getControlID().equals(controlID)) {
             batch.draw(world.getHover(), getX() - (world.getHover().getWidth() / 2f), getY() - (world.getHover().getHeight() / 2f));
-        }else if(hasLevel()){
+        } else if (hasLevel()) {
             batch.draw(world.getControl(), getX() - (world.getControl().getWidth() / 2f), getY() - (world.getControl().getHeight() / 2f));
-        }else{
+        } else {
             batch.draw(world.getNolevel(), getX() - (world.getNolevel().getWidth() / 2f), getY() - (world.getNolevel().getHeight() / 2f));
         }
     }

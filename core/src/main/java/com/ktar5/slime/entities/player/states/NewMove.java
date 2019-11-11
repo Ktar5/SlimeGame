@@ -19,17 +19,17 @@ import org.tinylog.Logger;
 import java.util.List;
 
 public class NewMove extends PlayerState {
-    private static final int preMovementFrames = 7;
+    private static final int preMovementTimeMiliseconds = 200;
     private static final float SPEED = Settings.PLAYER_MOVE_SPEED;//3.2f;
-//private static final float SPEED = 1.6f;//3.2f;
 
     //Pixels per frame-- 16 pixels in a tile
 
     int blocksMoved = 0;
-    private int preMovementFrameCount = preMovementFrames;
     private int lastFrameX = 0, lastFrameY = 0;
 
     boolean isBeginning = false;
+
+    private long lastInputTimestamp = 0;
 
     public NewMove(JumpPlayer player) {
         super(player);
@@ -46,10 +46,10 @@ public class NewMove extends PlayerState {
             input = getPlayer().getMovement().getInput();
         }
 
-        if(input.x < 0) input.x = -1;
-        else if(input.x > 0) input.x = 1;
-        if(input.y < 0) input.y = -1;
-        else if(input.y > 0) input.y = 1;
+        if (input.x < 0) input.x = -1;
+        else if (input.x > 0) input.x = 1;
+        if (input.y < 0) input.y = -1;
+        else if (input.y > 0) input.y = 1;
 
         //If something somehow messed up, let's fix it
         if (input.equals(Vector2.Zero)) {
@@ -83,13 +83,12 @@ public class NewMove extends PlayerState {
 
         getPlayer().getMovement().update(dTime);
         if (!getPlayer().getMovement().getInput().equals(Vector2.Zero)) { //if a non-zero input detected
-            preMovementFrameCount = preMovementFrames;
+            lastInputTimestamp = System.currentTimeMillis();
             getPlayer().setPreviousNonZeroMovement(getPlayer().getMovement().getInput().cpy());
-        } else if (preMovementFrameCount == 0) {
+        } else if (getPlayer().getPreviousNonZeroMovement() != null && (System.currentTimeMillis() - lastInputTimestamp) > preMovementTimeMiliseconds) {
             getPlayer().setPreviousNonZeroMovement(null);
-        } else if(SlimeGame.DPERCENT < .9f){
-            preMovementFrameCount--;
         }
+
 
         final LevelData levelData = SlimeGame.getGame().getLevelHandler().getCurrentLevel();
 
@@ -167,16 +166,16 @@ public class NewMove extends PlayerState {
                     //TODO start the animation
                     touchedEntity = true;
                     break;
-                }else if(entity instanceof Cart && ((Cart) entity).isTouching(getPlayer().getHitbox(), futureAheadHitboxPosition)){
+                } else if (entity instanceof Cart && ((Cart) entity).isTouching(getPlayer().getHitbox(), futureAheadHitboxPosition)) {
                     ((TouchableEntity) entity).onTouchedByEntity(getPlayer(), getPlayer().getLastMovedDirection());
 //                    System.out.println("Touching cart");
                     touchedEntity = true;
                     break;
-                }else if(entity instanceof HeroEntity && ((HeroEntity) entity).isTouching(getPlayer().getHitbox(), futureAheadHitboxPosition)){
+                } else if (entity instanceof HeroEntity && ((HeroEntity) entity).isTouching(getPlayer().getHitbox(), futureAheadHitboxPosition)) {
 //                    System.out.println("Touched hero");
-                    if(getMovement().opposite().equals(((HeroEntity) entity).facingDirection)){
+                    if (getMovement().opposite().equals(((HeroEntity) entity).facingDirection)) {
                         getPlayer().kill("hero");
-                    }else{
+                    } else {
                         touchedEntity = true;
 //                        System.out.println("Touched hero");
                     }

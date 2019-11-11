@@ -3,6 +3,7 @@ package com.ktar5.gameengine;
 import org.tinylog.Logger;
 
 public enum Feature {
+    EXTENDED_VIEWPORT(false),
     SINGLE_FRAME(false),
     PRECISION_CAMERA(true),
 

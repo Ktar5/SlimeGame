@@ -38,6 +38,7 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
 
     public static long frames = 0;
     private PixelPerfectViewport viewport;
+//    private ExtendViewport viewport;
 
     private KInput input;
     private SlimeGameData data;
@@ -91,6 +92,7 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
 
         OrthographicCamera orthographicCamera = new OrthographicCamera(480, 270);
         viewport = new PixelPerfectViewport(480, 270, orthographicCamera);
+//        viewport= new ExtendViewport(480, 270, orthographicCamera);
         orthographicCamera.update();
 //        gameCamera = new CameraFollow(orthographicCamera, viewport, null);
 //        gameCamera = new CameraFollow(orthographicCamera, viewport);

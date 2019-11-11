@@ -4,6 +4,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.graphics.OrthographicCamera;
+import com.google.gson.Gson;
 import com.kotcrab.vis.ui.VisUI;
 import com.ktar5.gameengine.analytics.Analytics;
 import com.ktar5.gameengine.analytics.MongoDBInstance;
@@ -17,7 +18,8 @@ import com.ktar5.gameengine.entities.Entity;
 import com.ktar5.gameengine.entities.EntityTweenAccessor;
 import com.ktar5.gameengine.input.KInput;
 import com.ktar5.gameengine.tweenengine.Tween;
-import com.ktar5.slime.data.SlimeGameData;
+import com.ktar5.slime.data.DataLoader;
+import com.ktar5.slime.data.GameData;
 import com.ktar5.slime.misc.CameraLookAt;
 import com.ktar5.slime.misc.ISync;
 import com.ktar5.slime.misc.PixelPerfectViewport;
@@ -26,6 +28,7 @@ import com.ktar5.slime.platform.AStoreSDK;
 import com.ktar5.slime.screens.GameScreen;
 import com.ktar5.slime.world.level.LevelHandler;
 import com.ktar5.slime.world.tiles.HiddenSpikes;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import org.tinylog.Logger;
@@ -41,13 +44,16 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
 //    private ExtendViewport viewport;
 
     private KInput input;
-    private SlimeGameData data;
-    @Setter private LevelHandler levelHandler;
+    @Getter(AccessLevel.NONE)
+    private DataLoader dataLoader;
+    @Setter
+    private LevelHandler levelHandler;
     private PostProcess postProcess;
 
     public StaticCamera uiCamera;
     public CameraLookAt gameCamera;
     private AStoreSDK storeSDK;
+    private Gson gson;
 
 
     private final ISync sync;
@@ -67,7 +73,7 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
     @Override
     public void dispose() {
         super.dispose();
-        if(Analytics.enabled){
+        if (Analytics.enabled) {
             Analytics.get().dispose();
         }
     }
@@ -78,16 +84,17 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
 
     @Override
     public void initialize() {
-        data = new SlimeGameData();
+        gson = new Gson();
+        dataLoader = new DataLoader();
         input = new KInput();
-        if(data.fullscreen){
+        if (getData().fullscreen) {
             Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
+            Gdx.graphics.setVSync(true);
         }
     }
 
     @Override
     protected CameraBase initializeCameraBase() {
-        Logger.debug("n");
         uiCamera = new StaticCamera(new OrthographicCamera(480, 270));
 
         OrthographicCamera orthographicCamera = new OrthographicCamera(480, 270);
@@ -96,7 +103,7 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
         orthographicCamera.update();
 //        gameCamera = new CameraFollow(orthographicCamera, viewport, null);
 //        gameCamera = new CameraFollow(orthographicCamera, viewport);
-                gameCamera = new CameraLookAt(orthographicCamera, viewport);
+        gameCamera = new CameraLookAt(orthographicCamera, viewport);
         return gameCamera;
 
     }
@@ -119,9 +126,9 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
         //Set analytics to completely disabled for now.
         Analytics.enabled = false;
 
-        if(!Analytics.hasInternet()){
+        if (!Analytics.hasInternet()) {
             Analytics.enabled = false;
-        }else {
+        } else {
             MongoDBInstance mongoDBInstance = new MongoDBInstance("mongodb+srv://analytics:test@cluster0-k5pjp.mongodb.net/test?retryWrites=true", "test");
             Preferences slimegame = Gdx.app.getPreferences("com.ktar5.slipnslime");
             String build_id = "0.2.0";
@@ -152,6 +159,12 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
         return this;
     }
 
+    public GameData getData(){
+        return dataLoader.getGameData();
+    }
 
+    public void saveGame(){
+        dataLoader.saveGame();
+    }
 
 }

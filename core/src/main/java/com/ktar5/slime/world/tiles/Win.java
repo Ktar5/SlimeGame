@@ -31,6 +31,7 @@ public class Win extends WholeGameTile {
     @Override
     public boolean onCross(Entity entity) {
         if (entity.isPlayer()) {
+            SlimeGame.getGame().getLevelHandler().getCurrentLevel().win();
             ((GameScreen) SlimeGame.getGame().getScreen()).getGameState().changeStateAfterUpdate(Winning.class);
         }
         return true;

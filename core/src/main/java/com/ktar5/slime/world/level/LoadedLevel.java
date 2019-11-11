@@ -16,6 +16,7 @@ import org.tinylog.Logger;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @Getter
 public class LoadedLevel extends LevelData implements Updatable {
@@ -24,6 +25,8 @@ public class LoadedLevel extends LevelData implements Updatable {
     private List<Entity> entities;
     private int collectibles = 0;
     private int numberTilesSlimed = 0;
+
+    private int numberOfMoves = 0;
 
     public LoadedLevel(LevelData gameData) {
         super(gameData);
@@ -51,6 +54,24 @@ public class LoadedLevel extends LevelData implements Updatable {
         updateTiles(dTime);
     }
 
+    public void playerMoved(){
+        numberOfMoves += 1;
+    }
+
+    public void win(){
+        Map<String, Integer> movesOnLevelMap = SlimeGame.getGame().getData().movesOnLevelMap;
+        if(movesOnLevelMap.containsKey(getName())){
+            Integer integer = movesOnLevelMap.get(getName());
+            if(integer > numberOfMoves){
+                movesOnLevelMap.put(getName(), numberOfMoves);
+                SlimeGame.getGame().saveGame();
+            }
+        }else{
+            movesOnLevelMap.put(getName(), numberOfMoves);
+            SlimeGame.getGame().saveGame();
+        }
+    }
+
     public LevelEdit addEdit(int x, int y, int layer, int oldId) {
         LevelEdit levelEdit = new LevelEdit(x, y, layer, oldId);
         edits.add(levelEdit);
@@ -58,6 +79,8 @@ public class LoadedLevel extends LevelData implements Updatable {
     }
 
     public void reset() {
+        numberOfMoves = 0;
+
         for (GameTile[] gameTiles : getGameMap()) {
             for (GameTile gameTile : gameTiles) {
                 if (gameTile != null) {

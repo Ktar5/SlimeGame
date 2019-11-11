@@ -70,6 +70,8 @@ public class NewMove extends PlayerState {
         //Reset the # of blocks moved
         blocksMoved = 0;
 
+        SlimeGame.getGame().getLevelHandler().getCurrentLevel().playerMoved();
+
         //Set animation to beginning of jump animation
         getPlayer().getEntityAnimator().setManualAnimation(EngineManager.get().getAnimationLoader().getAnimation("slime_jump_"
                 + getMovement().name().toLowerCase()), 0);

@@ -64,8 +64,10 @@ public class OptionsMenuScreen extends AbstractScreen {
                 SlimeGame.getGame().getData().fullscreen = !SlimeGame.getGame().getData().fullscreen;
                 if (SlimeGame.getGame().getData().fullscreen) {
                     Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
+                    Gdx.graphics.setVSync(true);
                 } else {
                     Gdx.graphics.setWindowedMode(960, 540);
+                    Gdx.graphics.setVSync(true);
                 }
                 applyButton.setDisabled(false);
             }
@@ -84,7 +86,7 @@ public class OptionsMenuScreen extends AbstractScreen {
         applyButton.addListener(new ClickListener() {
             @Override
             public void clicked(InputEvent event, float x, float y) {
-                SlimeGame.getGame().getData().saveGame();
+                SlimeGame.getGame().saveGame();
                 applyButton.setDisabled(true);
             }
         });

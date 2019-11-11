@@ -10,6 +10,8 @@ dependencies {
     compile "de.golfgl.gdxcontrollerutils:gdx-controllerutils-scene2d:$cuversion"
     compile "de.golfgl.gdxcontrollerutils:gdx-controllers-advanced:$cuversion:sources"
 
+    implementation 'com.google.code.gson:gson:2.8.6'
+
     implementation 'com.crashinvaders.vfx:gdx-vfx-core:0.4.1'
     implementation 'com.crashinvaders.vfx:gdx-vfx-effects:0.4.1'
 }

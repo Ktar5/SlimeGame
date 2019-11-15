@@ -66,7 +66,7 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
 
     @Override
     public void render() {
-//        sync.sync(Gdx.graphics.getDisplayMode().refreshRate);
+        sync.sync(Gdx.graphics.getDisplayMode().refreshRate);
         super.render();
     }
 
@@ -89,7 +89,7 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
         input = new KInput();
         if (getData().fullscreen) {
             Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
-            Gdx.graphics.setVSync(true);
+//            Gdx.graphics.setVSync(true);
         }
     }
 

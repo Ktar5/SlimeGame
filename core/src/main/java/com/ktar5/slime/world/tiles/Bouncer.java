@@ -19,6 +19,6 @@ public class Bouncer extends WholeGameTile {
     @Override
     public boolean canCrossThrough(Entity entity, Side movement) {
         entity.setLastMovedDirection(movement);
-        return false;
+        return true;
     }
 }

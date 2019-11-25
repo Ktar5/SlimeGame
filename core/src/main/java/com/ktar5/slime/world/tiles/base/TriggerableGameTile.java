@@ -65,14 +65,14 @@ public abstract class TriggerableGameTile extends WholeGameTile {
         ON_DISABLE;
 
         public static Trigger fromString(String value) {
-            switch (value) {
-                case "onHit":
+            switch (value.toLowerCase()) {
+                case "onhit":
                     return ON_HIT;
-                case "onPass":
+                case "onpass":
                     return ON_PASS;
-                case "onEnable":
+                case "onenable":
                     return ON_ENABLE;
-                case "onDisable":
+                case "ondisable":
                     return ON_DISABLE;
             }
             return null;

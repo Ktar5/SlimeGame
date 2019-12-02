@@ -181,8 +181,8 @@ public class PauseWithBlur extends GameState {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         SlimeGame.getGame().getLevelHandler().render(batch, dTime);
-        getGameScreen().getFrameRate().render(batch, dTime);
-        getGameScreen().getVersionInfo().render(batch, dTime);
+//        getGameScreen().getFrameRate().render(batch, dTime);
+//        getGameScreen().getVersionInfo().render(batch, dTime);
 
         // End render to an off-screen buffer.
         SlimeGame.getGame().getPostProcess().getVfxManager().endCapture();

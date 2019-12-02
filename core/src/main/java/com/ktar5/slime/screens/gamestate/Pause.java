@@ -102,8 +102,8 @@ public class Pause extends GameState {
     @Override
     public void render(SpriteBatch batch, float dTime) {
         SlimeGame.getGame().getLevelHandler().render(batch, dTime);
-        getGameScreen().getFrameRate().render(batch, dTime);
-        getGameScreen().getVersionInfo().render(batch, dTime);
+//        getGameScreen().getFrameRate().render(batch, dTime);
+//        getGameScreen().getVersionInfo().render(batch, dTime);
         stage.draw();
     }
 

@@ -48,8 +48,8 @@ public class Running extends GameState {
         EngineManager.get().getCameraBase().update(dTime);
 
         SlimeGame.getGame().getLevelHandler().update(dTime);
-        getGameScreen().getFrameRate().update(dTime);
-        getGameScreen().getVersionInfo().update(dTime);
+//        getGameScreen().getFrameRate().update(dTime);
+//        getGameScreen().getVersionInfo().update(dTime);
         EngineManager.get().getControllerInput().update();
     }
 
@@ -61,7 +61,7 @@ public class Running extends GameState {
     @Override
     public void render(SpriteBatch batch, float dTime) {
         SlimeGame.getGame().getLevelHandler().render(batch, dTime);
-        getGameScreen().getFrameRate().render(batch, dTime);
-        getGameScreen().getVersionInfo().render(batch, dTime);
+//        getGameScreen().getFrameRate().render(batch, dTime);
+//        getGameScreen().getVersionInfo().render(batch, dTime);
     }
 }

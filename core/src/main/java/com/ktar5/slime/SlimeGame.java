@@ -89,10 +89,10 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
         gson = new Gson();
         dataLoader = new DataLoader();
         input = new KInput();
-        if (SlimeGame.getGame().getData().fullscreen) {
+        //if (SlimeGame.getGame().getData().fullscreen) {
             Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
             Gdx.graphics.setVSync(true);
-        }
+        //}
     }
 
     @Override

@@ -47,7 +47,7 @@ public class DesktopLauncher {
     private static Lwjgl3ApplicationConfiguration getGameConfiguration() {
         Lwjgl3ApplicationConfiguration configuration = new Lwjgl3ApplicationConfiguration();
         configuration.setTitle("Slip 'n Slime");
-        configuration.useVsync(false);
+//        configuration.useVsync(true);
         configuration.setIdleFPS(60);
         configuration.setWindowedMode(960, 540);
         configuration.setWindowIcon(Files.FileType.Internal, "libgdx16.png", "libgdx32.png", "libgdx64.png", "libgdx128.png");

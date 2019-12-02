@@ -273,7 +273,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
- <layer id="14" name="Gameplay" width="22" height="16" opacity="0.19">
+ <layer id="14" name="Gameplay" width="22" height="16" visible="0" opacity="0.19">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,

@@ -25,6 +25,8 @@ public class RunningHotkeys {
         if(Gdx.input.isKeyPressed(Input.Keys.NUM_1) && Gdx.input.isKeyPressed(Input.Keys.NUM_2)){
             Gdx.app.exit();
         }
+
+        //TODO INPUT RESET
         if (KInput.isKeyJustPressed(Input.Keys.TAB)) {
             SlimeGame.getGame().getLevelHandler().toggleDebug();
             EngConst.DEBUG = !EngConst.DEBUG;

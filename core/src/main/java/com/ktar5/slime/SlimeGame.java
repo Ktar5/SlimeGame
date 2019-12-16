@@ -66,7 +66,9 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
 
     @Override
     public void render() {
-        sync.sync(Gdx.graphics.getDisplayMode().refreshRate);
+        if(!getData().fullscreen){
+            sync.sync(Gdx.graphics.getDisplayMode().refreshRate);
+        }
         super.render();
     }
 
@@ -87,10 +89,10 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
         gson = new Gson();
         dataLoader = new DataLoader();
         input = new KInput();
-        if (getData().fullscreen) {
+        //if (SlimeGame.getGame().getData().fullscreen) {
             Gdx.graphics.setFullscreenMode(Gdx.graphics.getDisplayMode());
-//            Gdx.graphics.setVSync(true);
-        }
+            Gdx.graphics.setVSync(true);
+        //}
     }
 
     @Override
@@ -110,6 +112,9 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
 
     @Override
     public void resize(int width, int height) {
+        if(width == 0 || height == 0){
+            return;
+        }
         EngineManager.get().getCameraBase().getCamera().update();
         EngineManager.get().getCameraBase().getViewport().update(width, height);
         EngineManager.get().getConsole().refresh();
@@ -159,11 +164,11 @@ public class SlimeGame extends AbstractGame<SlimeGame> {
         return this;
     }
 
-    public GameData getData(){
+    public GameData getData() {
         return dataLoader.getGameData();
     }
 
-    public void saveGame(){
+    public void saveGame() {
         dataLoader.saveGame();
     }
 

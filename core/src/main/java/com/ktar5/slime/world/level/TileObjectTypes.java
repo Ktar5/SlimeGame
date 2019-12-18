@@ -32,7 +32,7 @@ public enum TileObjectTypes {
     RAIL_UP_DOWN((x, y, cell) -> new Rail(x, y, Rotation.fromCell(cell), Side.UP, Side.DOWN), 48),
     RAIL_ALL_DIR((x, y, cell) -> new Rail(x, y), 56),
     POT((x, y, cell) -> new Pot(x, y), 21),
-    BOUNCE((x, y, cell) -> new Bouncer(x, y), 29),
+    BOUNCE((x, y, cell) -> new Bouncer(x, y, Rotation.fromCell(cell)), 29),
     METAL((x, y, cell) -> new Metal(x, y), 30),
 
 

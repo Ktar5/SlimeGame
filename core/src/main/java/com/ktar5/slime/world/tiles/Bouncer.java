@@ -6,8 +6,13 @@ import com.ktar5.slime.world.tiles.base.Rotation;
 import com.ktar5.slime.world.tiles.base.WholeGameTile;
 
 public class Bouncer extends WholeGameTile {
-    public Bouncer(int x, int y) {
-        super(x, y, Rotation.DEG_0);
+    private Side sideOne = Side.LEFT;
+    private Side sideTwo = Side.DOWN;
+
+    public Bouncer(int x, int y, Rotation rotation) {
+        super(x, y, rotation);
+        sideOne = sideOne.rotateClockwise(rotation.ordinal());
+        sideTwo = sideTwo.rotateClockwise(rotation.ordinal());
     }
 
     @Override
@@ -18,7 +23,21 @@ public class Bouncer extends WholeGameTile {
 
     @Override
     public boolean canCrossThrough(Entity entity, Side movement) {
-        entity.setLastMovedDirection(movement);
+        if(movement.opposite().equals(sideOne) || movement.opposite().equals(sideTwo)) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean changeMovement(Entity entity, Side movement) {
+        if(movement.opposite().equals(sideOne)){
+            entity.setLastMovedDirection(sideTwo);
+        } else if(movement.opposite().equals(sideTwo)){
+            entity.setLastMovedDirection(sideOne);
+        }else{
+            return false;
+        }
         return true;
     }
 }

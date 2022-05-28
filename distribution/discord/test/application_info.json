@@ -1,0 +1,22 @@
+{
+  "application_id": "621466950505332795",
+  "name": "unknown",
+  "icon_hash": "unknown",
+  "branch_id": "625894410219028510",
+  "build_id": null,
+  "target_build_id": "625898619328921610",
+  "manifest_ids": null,
+  "target_manifest_ids": [
+    "625898619307950080"
+  ],
+  "install_path": "D:\\GameDev\\Projects\\Personal\\SlimeJump\\distribution\\discord\\test\\.",
+  "installed_size": null,
+  "launch_commands": {},
+  "launch_options": [],
+  "storage": null,
+  "state": {
+    "type": "complete"
+  },
+  "repairing": false,
+  "should_patch": true
+}

@@ -7,18 +7,18 @@ ext {
 
 
 dependencies {
-    compile project(':core')
+    implementation project(':core')
 
-    compile "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
-    compile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
-    compile "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
+    implementation "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
+    implementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+    implementation "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
 
-//    compile "com.badlogicgames.gdx:gdx-controllers-desktop:$gdxVersion"
-//    compile "com.badlogicgames.gdx:gdx-controllers-platform:$gdxVersion:natives-desktop"
+//    implementation "com.badlogicgames.gdx:gdx-controllers-desktop:$gdxVersion"
+//    implementation "com.badlogicgames.gdx:gdx-controllers-platform:$gdxVersion:natives-desktop"
 
-    compile "net.dermetfan.libgdx-utils:libgdx-utils:$gdxUtilsVersion"
+    implementation "net.dermetfan.libgdx-utils:libgdx-utils:$gdxUtilsVersion"
 
-//    compile('com.badlogicgames.gdx:gdx-tools:$gdxVersion') {
+//    implementation('com.badlogicgames.gdx:gdx-tools:$gdxVersion') {
 ////        exclude ''
 //    }
 }

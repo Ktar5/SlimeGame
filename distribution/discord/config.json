@@ -1,0 +1,34 @@
+{
+  "application": {
+    "id": 621466950505332795,
+    "manifests": [
+      {
+        "label": "slipnslime/windows",
+        "platforms": ["win64"],
+        "locales": [],
+        "local_root": "./out-win64",
+        "file_rules": {
+          "mappings": [
+            {
+              "local_path": ".",
+              "install_path": "."
+            }
+          ],
+          "properties": [
+          ],
+          "exclusions": [
+          ]
+        },
+        "launch_options": [
+          {
+            "name": "Slip 'n Slime",
+            "executable": "SlimeGame.exe",
+            "arguments": [],
+            "platforms": ["win64"],
+            "working_dir": "./"
+          }
+        ]
+      }
+    ]
+  }
+}

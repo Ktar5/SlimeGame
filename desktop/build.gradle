@@ -10,20 +10,20 @@ repositories {
 }
 
 dependencies {
-    compile project(':core')
-    compile project(':tools')
+    api project(':core')
+    api project(':tools')
 
     //Ktar stuff
-    compile "com.code-disaster.steamworks4j:steamworks4j:1.8.0" //Steamworks SDK
-    compile "com.ktar5:tileeditor-editor:1.0-SNAPSHOT"
+    implementation "com.code-disaster.steamworks4j:steamworks4j:1.8.0" //Steamworks SDK
+    implementation "com.ktar5:tileeditor:1.0-SNAPSHOT"
 
     //LibGDX stuff
 
-    compile "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
-    compile "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
-    compile "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
-//    compile "com.badlogicgames.gdx:gdx-controllers-desktop:$gdxVersion"
-//    compile "com.badlogicgames.gdx:gdx-controllers-platform:$gdxVersion:natives-desktop"
+    implementation "com.badlogicgames.gdx:gdx-backend-lwjgl3:$gdxVersion"
+    implementation "com.badlogicgames.gdx:gdx-platform:$gdxVersion:natives-desktop"
+    implementation "com.badlogicgames.gdx:gdx-freetype-platform:$gdxVersion:natives-desktop"
+//    implementation "com.badlogicgames.gdx:gdx-controllers-desktop:$gdxVersion"
+//    implementation "com.badlogicgames.gdx:gdx-controllers-platform:$gdxVersion:natives-desktop"
 }
 
 jar {
@@ -88,7 +88,7 @@ task dist(type: Jar) {
 
     from files(sourceSets.main.output.classesDirs)
     from files(sourceSets.main.output.resourcesDir)
-    from { configurations.compile.collect { zipTree(it) } }
+    from { configurations.implementation.collect { zipTree(it) } }
     from files(project.assetsDir)
 
     manifest {

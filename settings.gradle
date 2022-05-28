@@ -1,4 +1,4 @@
-include 'core', 'ios', 'android', 'desktop', 'ios-moe'
+include 'core', 'desktop'
 include 'tools'
 include 'gameengine'
 include 'analytics'

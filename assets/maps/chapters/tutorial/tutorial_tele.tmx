@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.3" orientation="orthogonal" renderorder="right-down" width="64" height="64" tilewidth="16" tileheight="16" infinite="0" backgroundcolor="#83573f" nextlayerid="8" nextobjectid="2">
- <tileset firstgid="1" source="tileset/GameplayTileset.tsx"/>
- <tileset firstgid="33" source="tileset/GameplayImages.tsx"/>
+<map version="1.8" tiledversion="1.8.5" orientation="orthogonal" renderorder="right-down" width="64" height="64" tilewidth="16" tileheight="16" infinite="0" backgroundcolor="#83573f" nextlayerid="8" nextobjectid="2">
+ <tileset firstgid="1" source="../../tileset/GameplayTileset.tsx"/>
+ <tileset firstgid="65" source="../../tileset/GameplayImages.tsx"/>
  <layer id="4" name="Art_Background" width="64" height="64">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,

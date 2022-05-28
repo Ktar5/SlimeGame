@@ -21,8 +21,8 @@ public class MongoDBInstance implements Disposable {
         mongoLogger.setLevel(Level.SEVERE); // e.g. or Log.WARNING, etc.
 
         // Use a Connection String "mongodb://localhost"
-        mongoClient = MongoClients.create(connection);
-        database = mongoClient.getDatabase(dbName);
+//        mongoClient = MongoClients.create(connection);
+//        database = mongoClient.getDatabase(dbName);
     }
 
     public MongoCollection<Document> getCollection(String collection) {
@@ -31,6 +31,6 @@ public class MongoDBInstance implements Disposable {
 
     @Override
     public void dispose() {
-        mongoClient.close();
+//        mongoClient.close();
     }
 }

@@ -2,7 +2,6 @@ package com.ktar5.slime.analytics;
 
 import com.ktar5.gameengine.analytics.AnalyticEvent;
 import com.ktar5.slime.world.level.LevelData;
-import com.ktar5.utilities.annotation.callsuper.CallSuper;
 import org.bson.Document;
 
 import java.util.UUID;
@@ -25,7 +24,6 @@ public abstract class LevelEvent implements AnalyticEvent {
 
     public abstract String getSubEventName();
 
-    @CallSuper
     @Override
     public Document getData() {
         return new Document()

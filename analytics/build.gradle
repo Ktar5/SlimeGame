@@ -13,14 +13,14 @@ repositories {
 }
 
 dependencies {
-    compile 'org.mongodb:mongodb-driver-sync:3.10.1'
+    implementation 'org.mongodb:mongodb-driver-sync:3.10.1'
 
-    compile 'org.knowm.xchart:xchart:3.5.4'
-    
-    compile 'tech.tablesaw:tablesaw-core:0.32.6'
-    compile 'tech.tablesaw:tablesaw-jsplot:0.32.6'
-    
-    compileOnly 'org.projectlombok:lombok:1.18.6'
+    implementation 'org.knowm.xchart:xchart:3.5.4'
+
+    implementation 'tech.tablesaw:tablesaw-core:0.32.6'
+    implementation 'tech.tablesaw:tablesaw-jsplot:0.32.6'
+
+    implementation 'org.projectlombok:lombok:1.18.6'
 //    annotationProcessor 'org.projectlombok:lombok:1.18.6'
     
 //    compile 'com.ktar5:common:1.0-SNAPSHOT'

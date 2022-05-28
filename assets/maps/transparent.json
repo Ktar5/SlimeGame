@@ -1,0 +1,14 @@
+{
+    "identifier": "8c500eca-7170-4787-8a66-6539f65532ca",
+    "padding": {
+        "horizontal": 0,
+        "vertical": 0
+    },
+    "offset": {
+        "left": 0,
+        "up": 0
+    },
+    "tileWidth": 16,
+    "sourceFile": "..\\tileset\\TestSpriteSplitter.png",
+    "tileHeight": 16
+}
